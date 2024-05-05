@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=25 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cp3ux2qv3qq7e" path="res://scenes/backgrounds/parallax_background.tscn" id="5_87ja3"]
@@ -12,6 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://dmt2k0glhayib" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarBackground.png" id="10_njy5m"]
 [ext_resource type="Texture2D" uid="uid://bsoabmxwhp1g1" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarOver.png" id="11_u4uyq"]
 [ext_resource type="Texture2D" uid="uid://crph5w7ae5suv" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgress.png" id="12_iphf5"]
+[ext_resource type="Script" path="res://scripts/UI/CourageBar.gd" id="13_mlp2c"]
+[ext_resource type="Shader" path="res://Shaders/visuals.gdshader" id="13_vyhij"]
+[ext_resource type="Script" path="res://scripts/Effects/Filter.gd" id="14_nbkpm"]
+[ext_resource type="Shader" path="res://Shaders/vignette.gdshader" id="16_qo4s6"]
+[ext_resource type="Script" path="res://scripts/Effects/Vignette.gd" id="17_vdpjq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjtno"]
 texture = ExtResource("6_t0t16")
@@ -649,6 +654,26 @@ func _on_timer_timeout():
 	add_child(cherryTemp)
 "
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tan7j"]
+shader = ExtResource("13_vyhij")
+shader_parameter/brightness = 4.75e-08
+shader_parameter/contrast = 1.0
+shader_parameter/saturation = 0.775
+shader_parameter/redVal = 1.0
+shader_parameter/greenVal = 1.0
+shader_parameter/blueVal = 1.0
+shader_parameter/tint_color = Vector4(255, 255, 255, 1)
+shader_parameter/tint_effect_factor = 0.0
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+shader_parameter/vignette_rgb = Vector4(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x6gj1"]
+shader = ExtResource("16_qo4s6")
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_opacity = 0.5
+shader_parameter/vignette_rgb = Vector4(255, 32, 32, 1)
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_yrr7o")
 
@@ -724,17 +749,38 @@ offset_left = 30.0
 offset_top = 50.0
 offset_right = 363.0
 offset_bottom = 74.0
-max_value = 10.0
 value = 10.0
 texture_under = ExtResource("10_njy5m")
 texture_over = ExtResource("11_u4uyq")
 texture_progress = ExtResource("12_iphf5")
-script = ExtResource("6_u0wo8")
+script = ExtResource("13_mlp2c")
 
 [node name="Collectables" type="Node2D" parent="."]
 script = SubResource("GDScript_wl81y")
 
 [node name="Timer" type="Timer" parent="Collectables"]
 autostart = true
+
+[node name="Visual Effects" type="CanvasLayer" parent="."]
+
+[node name="Filter" type="ColorRect" parent="Visual Effects"]
+material = SubResource("ShaderMaterial_tan7j")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("14_nbkpm")
+
+[node name="Vignette" type="ColorRect" parent="Visual Effects"]
+material = SubResource("ShaderMaterial_x6gj1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("17_vdpjq")
 
 [connection signal="timeout" from="Collectables/Timer" to="Collectables" method="_on_timer_timeout"]

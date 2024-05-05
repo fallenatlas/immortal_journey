@@ -1,10 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=18 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cp3ux2qv3qq7e" path="res://scenes/backgrounds/parallax_background.tscn" id="5_87ja3"]
 [ext_resource type="PackedScene" uid="uid://ccxfk82g8wye1" path="res://scenes/player/Player.tscn" id="5_jaceo"]
 [ext_resource type="PackedScene" uid="uid://dwc52qx3v2h3h" path="res://scenes/enemies/Frog.tscn" id="6_n5khx"]
 [ext_resource type="Texture2D" uid="uid://bgustwkpdfrpt" path="res://assets/oak_autumn_woods/oak_woods_v1.0/oak_woods_tileset.png" id="6_t0t16"]
+[ext_resource type="Script" path="res://scripts/UI/HealthBar.gd" id="6_u0wo8"]
+[ext_resource type="Texture2D" uid="uid://d0f4pnyc78ve0" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarOver.png" id="7_2tid5"]
+[ext_resource type="Texture2D" uid="uid://dxkoas3gsequ5" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarBackground.png" id="7_wofer"]
+[ext_resource type="Texture2D" uid="uid://bpp43rcycbo2f" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png" id="8_hd7s3"]
+[ext_resource type="Texture2D" uid="uid://dmt2k0glhayib" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarBackground.png" id="10_njy5m"]
+[ext_resource type="Texture2D" uid="uid://bsoabmxwhp1g1" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarOver.png" id="11_u4uyq"]
+[ext_resource type="Texture2D" uid="uid://crph5w7ae5suv" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgress.png" id="12_iphf5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjtno"]
 texture = ExtResource("6_t0t16")
@@ -679,6 +686,7 @@ transform = Transform2D(1, 0, 0, 1, 432, 0)
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="HP" type="Label" parent="UI"]
+visible = false
 offset_left = 23.0
 offset_top = 19.0
 offset_right = 78.0
@@ -688,15 +696,40 @@ theme_override_font_sizes/font_size = 18
 text = "HP: 10"
 script = SubResource("GDScript_e70ww")
 
-[node name="Gold" type="Label" parent="UI"]
+[node name="Courage" type="Label" parent="UI"]
+visible = false
 offset_left = 23.0
 offset_top = 48.0
 offset_right = 84.0
 offset_bottom = 77.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 18
-text = "Gold: 0"
+text = "Courage: 0"
 script = SubResource("GDScript_ciooa")
+
+[node name="HealthBar" type="TextureProgressBar" parent="UI"]
+offset_left = 30.0
+offset_top = 15.0
+offset_right = 363.0
+offset_bottom = 39.0
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("7_wofer")
+texture_over = ExtResource("7_2tid5")
+texture_progress = ExtResource("8_hd7s3")
+script = ExtResource("6_u0wo8")
+
+[node name="CourageBar" type="TextureProgressBar" parent="UI"]
+offset_left = 30.0
+offset_top = 50.0
+offset_right = 363.0
+offset_bottom = 74.0
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("10_njy5m")
+texture_over = ExtResource("11_u4uyq")
+texture_progress = ExtResource("12_iphf5")
+script = ExtResource("6_u0wo8")
 
 [node name="Collectables" type="Node2D" parent="."]
 script = SubResource("GDScript_wl81y")

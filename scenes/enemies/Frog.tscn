@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dwc52qx3v2h3h"]
+[gd_scene load_steps=25 format=3 uid="uid://dwc52qx3v2h3h"]
 
 [ext_resource type="Script" path="res://scripts/enemies/Frog.gd" id="1_3mmi7"]
 [ext_resource type="Texture2D" uid="uid://cr7e0cgnrif5e" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/spritesheets/frog-idle.png" id="1_ers6o"]
@@ -7,6 +7,15 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_umbpk"]
 size = Vector2(22, 11)
+
+[sub_resource type="Gradient" id="Gradient_1nlix"]
+offsets = PackedFloat32Array(0, 0.430769, 0.723077)
+colors = PackedColorArray(0, 0, 0, 0.886275, 0, 0, 0, 0.559421, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xj7yu"]
+gradient = SubResource("Gradient_1nlix")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m7237"]
 atlas = ExtResource("2_0pa5f")
@@ -145,11 +154,19 @@ size = Vector2(20, 11.75)
 size = Vector2(24, 10.75)
 
 [node name="Frog" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 14
 script = ExtResource("1_3mmi7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -5.5)
 shape = SubResource("RectangleShape2D_umbpk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -9)
+scale = Vector2(0.4, 0.4)
+texture = SubResource("GradientTexture2D_xj7yu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -11)
@@ -157,18 +174,24 @@ sprite_frames = SubResource("SpriteFrames_qpdal")
 animation = &"Idle"
 
 [node name="PlayerDetection" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection"]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_3exui")
 
 [node name="PlayerDeath" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDeath"]
 position = Vector2(-1, -6.125)
 shape = SubResource("RectangleShape2D_28ycw")
 
 [node name="PlayerCollision" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCollision"]
 position = Vector2(-1, -5.625)

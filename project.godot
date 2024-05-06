@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 Game="*res://global_scripts/Game.gd"
 Utils="*res://global_scripts/Utils.gd"
 TransitionManager="*res://scenes/main_menu/transition_manager.tscn"
+Events="*res://global_scripts/Events.gd"
 
 [display]
 
@@ -53,6 +54,21 @@ dash={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":74,"physical_keycode":0,"key_label":0,"unicode":106,"echo":false,"script":null)
 ]
 }
+swith_world={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":81,"physical_keycode":0,"key_label":0,"unicode":113,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_1="Character"
+2d_physics/layer_2="NormalWorld"
+2d_physics/layer_3="NormalCharacter"
+2d_physics/layer_4="NormalEnemy"
+2d_physics/layer_5="DeathWorld"
+2d_physics/layer_6="DeathCharacter"
+2d_physics/layer_7="DeathEnemy"
 
 [rendering]
 

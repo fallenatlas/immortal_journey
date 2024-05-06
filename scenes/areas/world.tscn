@@ -670,7 +670,7 @@ shader_parameter/vignette_rgb = Vector4(0, 0, 0, 1)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x6gj1"]
 shader = ExtResource("16_qo4s6")
-shader_parameter/vignette_intensity = 0.4
+shader_parameter/vignette_intensity = 1.0
 shader_parameter/vignette_opacity = 0.5
 shader_parameter/vignette_rgb = Vector4(255, 32, 32, 1)
 
@@ -732,28 +732,34 @@ theme_override_font_sizes/font_size = 18
 text = "Courage: 0"
 script = SubResource("GDScript_ciooa")
 
-[node name="HealthBar" type="TextureProgressBar" parent="UI"]
-offset_left = 30.0
-offset_top = 15.0
-offset_right = 363.0
-offset_bottom = 39.0
+[node name="VBoxContainer" type="VBoxContainer" parent="UI"]
+anchors_preset = -1
+anchor_right = 0.289063
+anchor_bottom = 0.0802469
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 20.0
+offset_bottom = 20.0
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="TextureProgressBar" parent="UI/VBoxContainer"]
+layout_mode = 2
 max_value = 10.0
 value = 10.0
 texture_under = ExtResource("7_wofer")
 texture_over = ExtResource("7_2tid5")
 texture_progress = ExtResource("8_hd7s3")
 script = ExtResource("6_u0wo8")
+metadata/_edit_use_anchors_ = true
 
-[node name="CourageBar" type="TextureProgressBar" parent="UI"]
-offset_left = 30.0
-offset_top = 50.0
-offset_right = 363.0
-offset_bottom = 74.0
+[node name="CourageBar" type="TextureProgressBar" parent="UI/VBoxContainer"]
+layout_mode = 2
 value = 10.0
 texture_under = ExtResource("10_njy5m")
 texture_over = ExtResource("11_u4uyq")
 texture_progress = ExtResource("12_iphf5")
 script = ExtResource("13_mlp2c")
+metadata/_edit_use_anchors_ = true
 
 [node name="Collectables" type="Node2D" parent="."]
 script = SubResource("GDScript_wl81y")

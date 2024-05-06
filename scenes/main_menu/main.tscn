@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bou8yip0516ie"]
+[gd_scene load_steps=4 format=3 uid="uid://bou8yip0516ie"]
 
 [ext_resource type="Script" path="res://scripts/main_menu/main.gd" id="1_4d3hk"]
 [ext_resource type="PackedScene" uid="uid://cp3ux2qv3qq7e" path="res://scenes/backgrounds/parallax_background.tscn" id="2_7gfah"]
+[ext_resource type="Texture2D" uid="uid://cym0hpnygm2uh" path="res://assets/Menu/Title.png" id="3_hj23b"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_4d3hk")
@@ -13,13 +14,36 @@ zoom = Vector2(1.2, 1.2)
 
 [node name="UI" type="CanvasLayer" parent="."]
 
-[node name="VSplitContainer" type="VSplitContainer" parent="UI"]
+[node name="Background" type="ColorRect" parent="UI"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.337255, 0.337255, 0.337255, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="TextureRect" parent="UI"]
+anchors_preset = -1
+anchor_top = -0.0895062
+anchor_right = 1.0
+anchor_bottom = 0.62037
+grow_horizontal = 2
+texture = ExtResource("3_hj23b")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="VSplitContainer" type="VSplitContainer" parent="UI"]
+anchors_preset = -1
+anchor_left = 0.413194
+anchor_top = 0.486111
+anchor_right = 0.586806
+anchor_bottom = 0.71142
+grow_horizontal = 2
+grow_vertical = 2
 dragger_visibility = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="UI/VSplitContainer"]
 layout_mode = 2

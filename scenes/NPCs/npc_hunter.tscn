@@ -1,0 +1,101 @@
+[gd_scene load_steps=15 format=3 uid="uid://cuvfk6l06ytm2"]
+
+[ext_resource type="Texture2D" uid="uid://chke4k3f13y71" path="res://Huntress/Huntress/Sprites/Idle.png" id="1_d44pc"]
+[ext_resource type="PackedScene" uid="uid://wug1kygiwiv3" path="res://Dialogues/dialogue_box.tscn" id="1_ok8bd"]
+[ext_resource type="Script" path="res://scripts/UI/NPCDialogue.gd" id="3_3qmce"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnfyh"]
+atlas = ExtResource("1_d44pc")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etr8c"]
+atlas = ExtResource("1_d44pc")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6a4by"]
+atlas = ExtResource("1_d44pc")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rnb6"]
+atlas = ExtResource("1_d44pc")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hagnn"]
+atlas = ExtResource("1_d44pc")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uc3wi"]
+atlas = ExtResource("1_d44pc")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwtkv"]
+atlas = ExtResource("1_d44pc")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nko6v"]
+atlas = ExtResource("1_d44pc")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wrdkm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnfyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etr8c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6a4by")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rnb6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hagnn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uc3wi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwtkv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nko6v")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 3.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cds6r"]
+size = Vector2(19, 35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_73kc1"]
+size = Vector2(80, 36)
+
+[node name="Huntress" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 2
+
+[node name="DialogueBox" parent="." instance=ExtResource("1_ok8bd")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wrdkm")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.741155
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 3.5)
+shape = SubResource("RectangleShape2D_cds6r")
+disabled = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("3_3qmce")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 4)
+shape = SubResource("RectangleShape2D_73kc1")

@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://wug1kygiwiv3"]
+
+[ext_resource type="Script" path="res://Dialogues/dialogue_npcs.gd" id="1_xavph"]
+
+[sub_resource type="Theme" id="Theme_xkju6"]
+
+[node name="DialogueBox" type="CanvasLayer"]
+script = ExtResource("1_xavph")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 22.0
+offset_top = -174.0
+offset_right = -18.0
+offset_bottom = -37.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_xkju6")
+color = Color(0, 0, 0, 0.698039)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = -158.0
+offset_right = -42.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "bvbvbvb"
+autowrap_mode = 2
+
+[node name="Name" type="RichTextLabel" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -161.0
+offset_right = -956.0
+offset_bottom = -129.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Name"
+
+[node name="Chat" type="RichTextLabel" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = -123.0
+offset_right = -43.0
+offset_bottom = -51.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Text"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

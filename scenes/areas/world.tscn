@@ -1,6 +1,7 @@
-[gd_scene load_steps=25 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=26 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
+[ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
 [ext_resource type="PackedScene" uid="uid://cp3ux2qv3qq7e" path="res://scenes/backgrounds/parallax_background.tscn" id="5_87ja3"]
 [ext_resource type="PackedScene" uid="uid://ccxfk82g8wye1" path="res://scenes/player/Player.tscn" id="5_jaceo"]
 [ext_resource type="PackedScene" uid="uid://dwc52qx3v2h3h" path="res://scenes/enemies/Frog.tscn" id="6_n5khx"]
@@ -684,6 +685,9 @@ position = Vector2(373, 152)
 
 [node name="Mobs" type="Node2D" parent="."]
 
+[node name="NPC_Hunter" parent="Mobs" instance=ExtResource("3_hj2pf")]
+position = Vector2(80, 221)
+
 [node name="Frog" parent="Mobs" instance=ExtResource("6_n5khx")]
 position = Vector2(694, 170)
 
@@ -709,6 +713,7 @@ offset = Vector2(432, 0)
 transform = Transform2D(1, 0, 0, 1, 432, 0)
 
 [node name="UI" type="CanvasLayer" parent="."]
+layer = 0
 
 [node name="HP" type="Label" parent="UI"]
 visible = false
@@ -716,7 +721,7 @@ offset_left = 23.0
 offset_top = 19.0
 offset_right = 78.0
 offset_bottom = 48.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.882353, 0.882353, 0.882353, 1)
 theme_override_font_sizes/font_size = 18
 text = "HP: 10"
 script = SubResource("GDScript_e70ww")
@@ -740,7 +745,6 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 20.0
 offset_bottom = 20.0
-metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" type="TextureProgressBar" parent="UI/VBoxContainer"]
 layout_mode = 2
@@ -768,6 +772,7 @@ script = SubResource("GDScript_wl81y")
 autostart = true
 
 [node name="Visual Effects" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Filter" type="ColorRect" parent="Visual Effects"]
 material = SubResource("ShaderMaterial_tan7j")

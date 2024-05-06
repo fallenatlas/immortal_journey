@@ -16,6 +16,9 @@ var speed
 
 @onready var anim = get_node("AnimationPlayer")
 
+func _ready():
+	Events.switch_world.connect(_on_switch_world)
+
 func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 	
@@ -74,3 +77,14 @@ func _physics_process(delta):
 func get_direction():
 	return Input.get_axis("move_left", "move_right")
 
+func _on_switch_world(normalWorld : bool):
+	if (normalWorld):
+		set_collision_mask_value(2, true)
+		set_collision_mask_value(4, true)
+		set_collision_mask_value(5, false)
+		set_collision_mask_value(7, false)
+	if (not normalWorld):
+		set_collision_mask_value(2, false)
+		set_collision_mask_value(4, false)
+		set_collision_mask_value(5, true)
+		set_collision_mask_value(7, true)

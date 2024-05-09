@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bou8yip0516ie"]
 
 [ext_resource type="Script" path="res://scripts/main_menu/main.gd" id="1_4d3hk"]
-[ext_resource type="PackedScene" uid="uid://cp3ux2qv3qq7e" path="res://scenes/backgrounds/parallax_background.tscn" id="2_7gfah"]
+[ext_resource type="PackedScene" uid="uid://cp3ux2qv3qq7e" path="res://scenes/backgrounds/normal_world_background.tscn" id="2_7gfah"]
 [ext_resource type="Texture2D" uid="uid://cym0hpnygm2uh" path="res://assets/Menu/Title.png" id="3_hj23b"]
 
 [node name="Main" type="Node2D"]

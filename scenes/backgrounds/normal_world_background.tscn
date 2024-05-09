@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://iov77rebskiv" path="res://assets/oak_autumn_woods/oak_woods_v1.0/background/background_layer_2.png" id="3_wxhbt"]
 [ext_resource type="Texture2D" uid="uid://bms15f0yjwxyq" path="res://assets/oak_autumn_woods/oak_woods_v1.0/background/background_layer_3.png" id="4_iar1h"]
 
-[node name="ParallaxBackground" type="ParallaxBackground"]
+[node name="NormalWorldBackground" type="ParallaxBackground"]
 script = ExtResource("1_0s15b")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]

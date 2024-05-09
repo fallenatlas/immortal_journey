@@ -772,7 +772,6 @@ script = SubResource("GDScript_wl81y")
 autostart = true
 
 [node name="Visual Effects" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Filter" type="ColorRect" parent="Visual Effects"]
 material = SubResource("ShaderMaterial_tan7j")

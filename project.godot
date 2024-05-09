@@ -21,6 +21,10 @@ Game="*res://global_scripts/Game.gd"
 Utils="*res://global_scripts/Utils.gd"
 TransitionManager="*res://scenes/main_menu/transition_manager.tscn"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 move_left={

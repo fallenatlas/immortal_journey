@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=28 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]

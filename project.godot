@@ -69,6 +69,7 @@ swith_world={
 2d_physics/layer_5="DeathWorld"
 2d_physics/layer_6="DeathCharacter"
 2d_physics/layer_7="DeathEnemy"
+2d_physics/layer_8="NPCLayer"
 
 [rendering]
 

@@ -78,3 +78,4 @@ func _on_switch_world(normalWorld : bool):
 		killPlayer.set_collision_mask_value(3, false)
 		normalSprite.visible = false
 		shadowSprite.visible = true
+

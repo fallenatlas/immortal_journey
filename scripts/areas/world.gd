@@ -36,9 +36,13 @@ func _on_courage_depleted():
 func _on_switch_world(normalWorld : bool):
 	if (normalWorld):
 		normalWorldNode.visible = true
+		normalWorldNode.get_node("ParallaxBackground").visible = true
 		deathWorldNode.visible = false
+		deathWorldNode.get_node("DeathWorldBackground").visible = false
 		#make normal world visible and collidable
 	if (not normalWorld):
 		normalWorldNode.visible = false
+		normalWorldNode.get_node("ParallaxBackground").visible = false
 		deathWorldNode.visible = true
+		deathWorldNode.get_node("DeathWorldBackground").visible = true
 		

@@ -13,13 +13,16 @@ var d_active = false
 
 var current_npc = null
 
+var player
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.visible = false
+	player = get_node("../../../Player/Player")
 
 	
 func start(NPC_name):
-	
+	player.can_move = false
 	if d_active:
 		return
 	d_active = true
@@ -33,7 +36,7 @@ func _input(event):
 	if not d_active:
 		return
 		
-	if event.is_action_pressed("ui_accept"):
+	if event.is_action_pressed("interact"):
 		next_script()
 			
 			
@@ -43,6 +46,7 @@ func next_script():
 	if current_dialogue_id >= len(dialogue[current_npc]):
 		timer.start()
 		self.visible = false
+		player.can_move = true
 		return
 		
 	Name.text = current_npc
@@ -51,3 +55,4 @@ func next_script():
 
 func _on_timer_timeout():
 	d_active = false
+	player.can_move = true

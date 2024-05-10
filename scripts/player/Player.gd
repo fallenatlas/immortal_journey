@@ -9,10 +9,14 @@ const DASH_LENGHT = 0.2
 @onready var Dash = $Dash
 @onready var DashEffect = $DashEffect
 
+@onready var OtherWorldEffect = $"../../Visual Effects/OtherWorld"
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var speed
+
+var can_move = true
 
 @onready var anim = get_node("AnimationPlayer")
 
@@ -20,8 +24,18 @@ func _ready():
 	Events.switch_world.connect(_on_switch_world)
 
 func _physics_process(delta):
+	
 	var direction = Input.get_axis("move_left", "move_right")
 	
+	if direction == -1:
+		get_node("Sprite2D").flip_h = true
+	elif direction == 1:
+		get_node("Sprite2D").flip_h = false
+	
+	if(!can_move):
+		anim.play("Idle")
+		return
+		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -50,12 +64,6 @@ func _physics_process(delta):
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	
-	
-	if direction == -1:
-		get_node("Sprite2D").flip_h = true
-	elif direction == 1:
-		get_node("Sprite2D").flip_h = false
 	if direction:
 		velocity.x = direction * speed
 		if velocity.y == 0:

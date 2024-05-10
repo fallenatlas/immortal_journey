@@ -107,4 +107,3 @@ void fragment()
 	
 	COLOR = vec4(shine, rays * color.a);
 }
-

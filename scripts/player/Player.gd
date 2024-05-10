@@ -22,14 +22,21 @@ const DASH_LENGHT = 0.2
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-
 var speed
-
 var can_move = true
-
 var time = 0
+var dashDirectionX = directionDash.nothing
+var dashDirectionY = directionDash.nothing
 
 @onready var anim = get_node("AnimationPlayer")
+
+enum directionDash{
+	left, 
+	right, 
+	up, 
+	down,
+	nothing
+}
 
 func _ready():
 	Events.switch_world.connect(_on_switch_world)
@@ -55,20 +62,32 @@ func _physics_process(delta):
 	#Handle Dash
 	if Input.is_action_just_pressed("dash") && Dash.is_cooldown(): # && Game.courage >= 50
 		Dash.start_dash()
+		dashDirectionX = calculate_direction_x()
+		dashDirectionY = calculate_direction_y()
 		DashEffect.emitting = true
 	
 	#var speed = DASH_SPEED if Dash.is_dashing() else SPEED
 	if Dash.is_dashing():
 		#speed = DASH_SPEED
-		if(direction == 1):
-			position += Vector2(10, 0)
-		else:
-			position += Vector2(-10, 0)
-		velocity.y = 0
-
+		velocity = Vector2(0, 0)
+		if(dashDirectionX == directionDash.left):
+			if(dashDirectionY == directionDash.up):
+				position += Vector2(-10, -10)
+			elif(dashDirectionY == directionDash.down):
+				position += Vector2(-10, 10)
+			else:
+				position += Vector2(-10, 0)
+		elif(dashDirectionX == directionDash.right):
+			if(dashDirectionY == directionDash.up):
+				position += Vector2(10, -10)
+			elif(dashDirectionY == directionDash.down):
+				position += Vector2(10, 10)
+			else:
+				position += Vector2(10, 0)
 	else:
 		speed = SPEED
 		DashEffect.emitting = false
+		
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -127,3 +146,20 @@ func be_invincible():
 func _on_invincibity_timer_timeout():
 	Sprite.material.set_shader_parameter("time", 0)
 	Game.isInvulnerable = false
+
+func calculate_direction_x():
+	var direction = Input.get_axis("move_left", "move_right")
+	if(direction == -1):
+		return directionDash.left
+	elif(direction == 1):
+		return directionDash.right
+	else:
+		return directionDash.nothing
+
+func calculate_direction_y():
+		if(Input.is_action_pressed("jump")):
+			return directionDash.up
+		elif(Input.is_action_pressed("move_down")):
+			return directionDash.down
+		else:
+			return directionDash.nothing

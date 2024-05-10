@@ -511,7 +511,7 @@ script = ExtResource("1_pjrex")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(0, -20)
+position = Vector2(0, -6)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_tkyma")
 animation = &"Idle"

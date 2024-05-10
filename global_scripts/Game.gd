@@ -2,6 +2,7 @@ extends Node
 
 var playerHP : float = 10.0
 #var courage : float = 50.0
+var isInvulnerable = false
 
 var courage: float = 50.0 :
 	get:
@@ -32,3 +33,11 @@ var minBri : float = -0.3
 var redColor : Color = Color(30, 0, 0)
 var whiteColor : Color = Color(30, 30, 30)
 var blackColor : Color = Color(0, 0, 0)
+
+
+func take_damage(damage_value):
+	if(not isInvulnerable):
+		playerHP -= damage_value
+		isInvulnerable = true
+		Events.took_damage.emit()
+		

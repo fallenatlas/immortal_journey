@@ -11,6 +11,15 @@ const DASH_LENGHT = 0.2
 
 @onready var OtherWorldEffect = $"../../Visual Effects/OtherWorld"
 
+@onready var InvincibilityTimer = $InvincibilityPeriodManager/InvincibityTimer
+@onready var ScreenShakeTimer = $InvincibilityPeriodManager/ScreenShakeTimer
+
+@onready var Camera = $Camera2D
+
+@onready var Sprite = $Sprite2D
+
+@onready var Collider = $CollisionShape2D
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -18,10 +27,13 @@ var speed
 
 var can_move = true
 
+var time = 0
+
 @onready var anim = get_node("AnimationPlayer")
 
 func _ready():
 	Events.switch_world.connect(_on_switch_world)
+	Events.took_damage.connect(be_invincible)
 
 func _physics_process(delta):
 	
@@ -81,6 +93,16 @@ func _physics_process(delta):
 	if Game.playerHP <= 0:
 		self.queue_free()
 		get_tree().change_scene_to_file("res://scenes/main_menu/main.tscn")
+		
+func _process(delta):
+	if(!InvincibilityTimer.is_stopped()):
+		time += delta * 2
+		if(time > 1):
+			time = 0
+		Sprite.material.set_shader_parameter("time", time)
+	if(!ScreenShakeTimer.is_stopped()):
+		Camera.add_trauma(0.1)
+	
 
 func get_direction():
 	return Input.get_axis("move_left", "move_right")
@@ -96,3 +118,12 @@ func _on_switch_world(normalWorld : bool):
 		set_collision_mask_value(4, false)
 		set_collision_mask_value(5, true)
 		set_collision_mask_value(7, true)
+
+
+func be_invincible():
+	InvincibilityTimer.start()
+	ScreenShakeTimer.start()
+	
+func _on_invincibity_timer_timeout():
+	Sprite.material.set_shader_parameter("time", 0)
+	Game.isInvulnerable = false

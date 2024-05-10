@@ -57,7 +57,7 @@ func _on_player_collision_body_entered(body):
 		
 func death():
 	chase = false
-	Game.courage += 5
+	Game.courage += 8 * (1 - (Game.playerHP / Game.maxHP)) + 2
 	Utils.saveGame()
 	get_node("AnimatedSprite2D").play("Death")
 	await get_node("AnimatedSprite2D").animation_finished

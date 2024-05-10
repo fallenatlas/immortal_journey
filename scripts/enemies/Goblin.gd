@@ -60,7 +60,7 @@ func _physics_process(delta):
 func death():
 	chase = false
 	attacking = false
-	Game.courage += 5
+	Game.courage += 8 * (1 - (Game.playerHP / Game.maxHP)) + 2
 	Utils.saveGame()
 	anim.play("Death")
 	await get_node("AnimatedSprite2D").animation_finished

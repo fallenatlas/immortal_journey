@@ -94,6 +94,7 @@ func check_if_player_in_detection_range():
 	for body in bodies:
 		if body.name == "Player":
 			chase = true
+			break
 			
 
 func _on_attack_cooldown_timeout():
@@ -102,6 +103,7 @@ func _on_attack_cooldown_timeout():
 		if body.name == "Player":
 			attacking = true
 			chase = false
+			break
 
 func _on_switch_world(normalWorld : bool):
 	if (normalWorld):

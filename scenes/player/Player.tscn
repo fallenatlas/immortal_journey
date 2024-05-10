@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://ccxfk82g8wye1"]
+[gd_scene load_steps=51 format=3 uid="uid://ccxfk82g8wye1"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_ooqp6"]
 [ext_resource type="Shader" path="res://Shaders/Player.gdshader" id="2_76q85"]
@@ -11,13 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://dug3pyivejt0g" path="res://Martial Hero/Sprites/Run.png" id="6_1d8tg"]
 [ext_resource type="Texture2D" uid="uid://ctvxw771bj7vs" path="res://Martial Hero/Sprites/Fall.png" id="7_nu55d"]
 [ext_resource type="Texture2D" uid="uid://b8ybxgkm81k4c" path="res://Martial Hero/Sprites/Take Hit - white silhouette.png" id="8_vhexq"]
+[ext_resource type="Script" path="res://scripts/Camera/CameraShake.gd" id="10_ruuap"]
 [ext_resource type="Script" path="res://scenes/player/health_manager.gd" id="12_2wcsw"]
 [ext_resource type="Script" path="res://scenes/player/courage_manager.gd" id="13_4olqt"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wi5bl"]
 shader = ExtResource("2_76q85")
 shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_modifier = 0.0
+shader_parameter/time = null
 
 [sub_resource type="Shader" id="Shader_kcnjn"]
 code = "// NOTE: Shader automatically converted from Godot Engine 4.2.1.stable's ParticleProcessMaterial.
@@ -989,6 +990,9 @@ zoom = Vector2(1.6, 1.6)
 limit_left = -24
 limit_top = -500
 limit_bottom = 300
+script = ExtResource("10_ruuap")
+decay = 1.0
+max_offset = Vector2(10, 7)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1005,3 +1009,15 @@ script = ExtResource("12_2wcsw")
 script = ExtResource("13_4olqt")
 
 [node name="CourageTicks" type="Timer" parent="CourageManager"]
+
+[node name="InvincibilityPeriodManager" type="Node" parent="."]
+
+[node name="InvincibityTimer" type="Timer" parent="InvincibilityPeriodManager"]
+wait_time = 2.0
+one_shot = true
+
+[node name="ScreenShakeTimer" type="Timer" parent="InvincibilityPeriodManager"]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="InvincibilityPeriodManager/InvincibityTimer" to="." method="_on_invincibity_timer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=37 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -11,6 +11,7 @@
 [ext_resource type="Shader" path="res://Shaders/SunRays.gdshader" id="6_tihlm"]
 [ext_resource type="Script" path="res://scripts/UI/HealthBar.gd" id="6_u0wo8"]
 [ext_resource type="Texture2D" uid="uid://d0f4pnyc78ve0" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarOver.png" id="7_2tid5"]
+[ext_resource type="Script" path="res://scripts/areas/SunRays.gd" id="7_atl4a"]
 [ext_resource type="PackedScene" uid="uid://b8ouces3cngpi" path="res://scenes/backgrounds/death_world_background.tscn" id="7_ts7l6"]
 [ext_resource type="Texture2D" uid="uid://dxkoas3gsequ5" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarBackground.png" id="7_wofer"]
 [ext_resource type="Texture2D" uid="uid://bpp43rcycbo2f" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png" id="8_hd7s3"]
@@ -174,10 +175,13 @@ position = Vector2(918, -22)
 [node name="Goblin" parent="Mobs" instance=ExtResource("5_l6xbp")]
 position = Vector2(584, 214)
 
-[node name="Sun Rays" type="Sprite2D" parent="."]
+[node name="Sun Rays" type="Node2D" parent="."]
+
+[node name="Sun Rays" type="Sprite2D" parent="Sun Rays"]
 material = SubResource("ShaderMaterial_tvim8")
 position = Vector2(528, 56)
 texture = SubResource("GradientTexture2D_6k7ww")
+script = ExtResource("7_atl4a")
 
 [node name="NormalWorld" type="Node2D" parent="."]
 

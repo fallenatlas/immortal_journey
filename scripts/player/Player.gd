@@ -84,6 +84,11 @@ func _physics_process(delta):
 				position += Vector2(10, 10)
 			else:
 				position += Vector2(10, 0)
+		else:
+			if(get_node("Sprite2D").flip_h == true):
+				position += Vector2(-10, 0)
+			else:
+				position += Vector2(10, 0)
 	else:
 		speed = SPEED
 		DashEffect.emitting = false
@@ -140,6 +145,7 @@ func _on_switch_world(normalWorld : bool):
 
 
 func be_invincible():
+	#BUG: Sometimes the character is unable to lose any damage(Should be because of invinsible status)
 	InvincibilityTimer.start()
 	ScreenShakeTimer.start()
 	

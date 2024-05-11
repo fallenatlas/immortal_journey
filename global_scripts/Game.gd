@@ -1,5 +1,6 @@
 extends Node
 
+var playerDead : bool = false
 var playerHP : float = 10.0
 #var courage : float = 50.0
 var isInvulnerable = false
@@ -38,4 +39,7 @@ var blackColor : Color = Color(0, 0, 0)
 func take_damage(damage_value):
 	if(not isInvulnerable):
 		playerHP -= damage_value
+		if playerHP <= 0:
+			playerDead = true
+		isInvulnerable = true
 		Events.took_damage.emit()

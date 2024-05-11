@@ -20,6 +20,8 @@ const DASH_LENGHT = 0.2
 
 @onready var Collider = $CollisionShape2D
 
+@onready var AttackManager = $AttackManager
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed
@@ -27,6 +29,8 @@ var can_move = true
 var time = 0
 var dashDirectionX = directionDash.nothing
 var dashDirectionY = directionDash.nothing
+
+var dying = false
 
 @onready var anim = get_node("AnimationPlayer")
 
@@ -43,13 +47,17 @@ func _ready():
 	Events.took_damage.connect(be_invincible)
 
 func _physics_process(delta):
+	if Game.playerDead:
+		return
 	
 	var direction = Input.get_axis("move_left", "move_right")
 	
 	if direction == -1:
 		get_node("Sprite2D").flip_h = true
+		AttackManager.flip_horizontal(true)
 	elif direction == 1:
 		get_node("Sprite2D").flip_h = false
+		AttackManager.flip_horizontal(false)
 	
 	if(!can_move):
 		anim.play("Idle")
@@ -100,27 +108,31 @@ func _physics_process(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		anim.play("Jump")
+		if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
+			anim.play("Jump")
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	if direction:
 		velocity.x = direction * speed
 		if velocity.y == 0:
-			anim.play("Run")
+			if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
+				anim.play("Run")
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		if velocity.y == 0:
-			anim.play("Idle")
+			if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
+				anim.play("Idle")
 			
 	if velocity.y > 0:
-		anim.play("Fall")
+		if not AttackManager.is_attacking(): # || anim.current_animation != "Death"  
+			anim.play("Fall")
 	
 	move_and_slide()
 	
-	if Game.playerHP <= 0:
-		self.queue_free()
-		get_tree().change_scene_to_file("res://scenes/main_menu/main.tscn")
+	#if Game.playerHP <= 0:
+	#	dying = true
+	#	anim.play("Death")
 		
 func _process(delta):
 	#print(Game.isInvulnerable)
@@ -151,8 +163,11 @@ func _on_switch_world(normalWorld : bool):
 
 func be_invincible():
 	#BUG: Sometimes the character is unable to lose any damage(Should be because of invinsible status)
-	InvincibilityTimer.start()
-	Game.isInvulnerable = true
+	if (Game.playerDead):
+		anim.play("Death")
+	else:
+		InvincibilityTimer.start()
+		Game.isInvulnerable = true
 	ScreenShakeTimer.start()
 	
 func _on_invincibity_timer_timeout():
@@ -175,3 +190,9 @@ func calculate_direction_y():
 			return directionDash.down
 		else:
 			return directionDash.nothing
+
+
+func _on_animation_player_animation_finished(anim_name):
+	if (anim_name == "Death"):
+		self.queue_free()
+		get_tree().change_scene_to_file("res://scenes/main_menu/main.tscn")

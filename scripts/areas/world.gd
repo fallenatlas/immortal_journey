@@ -5,13 +5,15 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Game.playerDead = false
 	Game.playerHP = 10
 	Game.courage = 50.0
+	Game.isInvulnerable = false
 	Events.switch_world.connect(_on_switch_world)
 	Events.courage_depleted.connect(_on_courage_depleted)
 
 func _process(delta):
-	if Input.is_action_just_pressed("swith_world"):
+	if Input.is_action_just_pressed("swith_world") and not Game.playerDead:
 		#still a bit bugy but overall well
 		#thing about having some indication of how the other world is
 		var map : TileMap = normalWorldNode.get_node("TileMap")

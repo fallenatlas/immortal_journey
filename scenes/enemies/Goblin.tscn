@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://d3mxbhmkk72e4"]
+[gd_scene load_steps=80 format=3 uid="uid://or5j0ao207xe"]
 
 [ext_resource type="Script" path="res://scripts/enemies/Goblin.gd" id="1_3sxql"]
 [ext_resource type="Texture2D" uid="uid://ys1sgak77sl1" path="res://Monsters_Creatures_Fantasy/Goblin/Idle.png" id="2_4mbo8"]
@@ -768,7 +768,7 @@ size = Vector2(38, 32)
 radius = 11.1612
 height = 92.439
 
-[node name="Goblin" type="CharacterBody2D"]
+[node name="Goblin" type="CharacterBody2D" groups=["Enemy"]]
 collision_layer = 8
 collision_mask = 14
 script = ExtResource("1_3sxql")
@@ -794,7 +794,6 @@ shape = SubResource("RectangleShape2D_u5p7d")
 libraries = {
 "": SubResource("AnimationLibrary_lng16")
 }
-autoplay = "Idle"
 
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 8

@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://ccxfk82g8wye1"]
+[gd_scene load_steps=59 format=3 uid="uid://ccxfk82g8wye1"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_ooqp6"]
 [ext_resource type="Shader" path="res://Shaders/Player.gdshader" id="2_76q85"]
@@ -14,6 +14,10 @@
 [ext_resource type="Script" path="res://scripts/Camera/CameraShake.gd" id="10_ruuap"]
 [ext_resource type="Script" path="res://scenes/player/health_manager.gd" id="12_2wcsw"]
 [ext_resource type="Script" path="res://scenes/player/courage_manager.gd" id="13_4olqt"]
+[ext_resource type="Texture2D" uid="uid://b6dqrfrr5rmt8" path="res://assets/martial_hero/Attack1.png" id="13_cxbse"]
+[ext_resource type="Texture2D" uid="uid://cnxliq7dwipdp" path="res://assets/martial_hero/Attack2.png" id="14_56vgv"]
+[ext_resource type="Texture2D" uid="uid://casiv1is0w84f" path="res://assets/martial_hero/Death.png" id="15_6vbcu"]
+[ext_resource type="Script" path="res://scripts/player/AttackManager.gd" id="17_gd8pb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wi5bl"]
 shader = ExtResource("2_76q85")
@@ -944,8 +948,169 @@ tracks/3/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_3i5gm"]
+resource_name = "Attack_1"
+length = 0.35
+step = 0.03
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_cxbse")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.03, 0.09, 0.15, 0.2, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_u15dx"]
+resource_name = "Attack_2"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("14_56vgv")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_84xm8"]
+resource_name = "Death"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_6vbcu")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ba24s"]
 _data = {
+"Attack_1": SubResource("Animation_3i5gm"),
+"Attack_2": SubResource("Animation_u15dx"),
+"Death": SubResource("Animation_84xm8"),
 "Fall": SubResource("Animation_s0bl4"),
 "Idle": SubResource("Animation_a671s"),
 "Jump": SubResource("Animation_wp5gs"),
@@ -953,6 +1118,10 @@ _data = {
 "Run": SubResource("Animation_kjfyu"),
 "Take_Damage": SubResource("Animation_7gikw")
 }
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nfbqd"]
+radius = 32.0
+height = 102.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 37
@@ -1020,4 +1189,35 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
+[node name="AttackManager" type="Node2D" parent="."]
+script = ExtResource("17_gd8pb")
+
+[node name="Area2D" type="Area2D" parent="AttackManager"]
+position = Vector2(0, -10)
+rotation = 1.5708
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackManager/Area2D"]
+position = Vector2(0, -38)
+shape = SubResource("CapsuleShape2D_nfbqd")
+
+[node name="InnerAttackTimer" type="Timer" parent="AttackManager"]
+wait_time = 0.2
+one_shot = true
+
+[node name="OuterAttackTimer" type="Timer" parent="AttackManager"]
+wait_time = 0.5
+one_shot = true
+
+[node name="LongerOuterAttackTimer" type="Timer" parent="AttackManager"]
+one_shot = true
+
+[node name="ReadyUpTimer" type="Timer" parent="AttackManager"]
+wait_time = 0.18
+one_shot = true
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="AttackManager" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="InvincibilityPeriodManager/InvincibityTimer" to="." method="_on_invincibity_timer_timeout"]
+[connection signal="timeout" from="AttackManager/ReadyUpTimer" to="AttackManager" method="_on_ready_up_timer_timeout"]

@@ -6,6 +6,7 @@ var player
 var normalAreaX
 var chase = false
 var attacking = false
+var dying = false
 
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -30,6 +31,9 @@ func _ready():
 func _physics_process(delta):
 	#Gravity for frog
 	velocity.y += gravity * delta
+	if dying:
+		return
+		
 	if chase:
 		
 		if anim.current_animation != "Death" || anim.current_animation != "Attack":
@@ -58,12 +62,13 @@ func _physics_process(delta):
 	
 
 func death():
+	dying = true
 	chase = false
 	attacking = false
 	Game.courage += 8 * (1 - (Game.playerHP / Game.maxHP)) + 2
 	Utils.saveGame()
 	anim.play("Death")
-	await get_node("AnimatedSprite2D").animation_finished
+	await anim.animation_finished
 	self.queue_free()
 	
 	

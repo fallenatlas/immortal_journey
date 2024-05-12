@@ -7,6 +7,7 @@ var dialogue = JSON.parse_string(json_as_text)
 @onready var Name = $Name
 @onready var Chat = $Chat
 @onready var timer = $Timer
+@onready var audio_player = $AudioStreamPlayer
 
 var current_dialogue_id = 0
 var d_active = false
@@ -36,7 +37,9 @@ func _input(event):
 	if not d_active:
 		return
 		
+
 	if event.is_action_pressed("interact"):
+		audio_player.play()
 		next_script()
 			
 			

@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var normalWorldNode = get_node("NormalWorld")
 @onready var deathWorldNode = get_node("DeathWorld")
+@onready var damageSound = get_node("Player/DamageSound")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +12,7 @@ func _ready():
 	Game.isInvulnerable = false
 	Events.switch_world.connect(_on_switch_world)
 	Events.courage_depleted.connect(_on_courage_depleted)
+	Events.player_damage.connect(_on_player_damage)
 
 func _process(delta):
 	if Input.is_action_just_pressed("swith_world") and not Game.playerDead:
@@ -52,3 +54,7 @@ func _on_switch_world(normalWorld : bool):
 		deathWorldNode.visible = true
 		deathWorldNode.get_node("DeathWorldBackground").visible = true
 		
+func _on_player_damage(damage : int):
+	Game.playerHP -= damage
+	damageSound.play()
+

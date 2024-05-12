@@ -119,6 +119,7 @@ func _physics_process(delta):
 		get_tree().change_scene_to_file("res://scenes/main_menu/main.tscn")
 		
 func _process(delta):
+	#print(Game.isInvulnerable)
 	if(!InvincibilityTimer.is_stopped()):
 		time += delta * 2
 		if(time > 1):

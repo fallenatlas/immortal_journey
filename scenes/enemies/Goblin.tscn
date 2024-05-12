@@ -494,23 +494,11 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CollisionShape2D:position")
+tracks/4/path = NodePath("AttackArea:monitoring")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2(0, 9)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AttackArea:monitoring")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.6, 0.8),
+"times": PackedFloat32Array(0.6, 0.7),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -774,10 +762,11 @@ _data = {
 radius = 158.003
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eq8uo"]
-size = Vector2(39, 32)
+size = Vector2(38, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_skc4l"]
-size = Vector2(26.0199, 95.1982)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_koqam"]
+radius = 11.1612
+height = 92.439
 
 [node name="Goblin" type="CharacterBody2D"]
 collision_layer = 8
@@ -828,9 +817,9 @@ collision_mask = 4
 script = ExtResource("6_1jq13")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(5.96046e-08, 3)
-rotation = 1.97596
-shape = SubResource("RectangleShape2D_skc4l")
+position = Vector2(-1, 6)
+rotation = 1.89523
+shape = SubResource("CapsuleShape2D_koqam")
 
 [node name="Collider" type="Area2D" parent="."]
 collision_layer = 8

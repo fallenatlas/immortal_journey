@@ -40,4 +40,3 @@ func take_damage(damage_value):
 		playerHP -= damage_value
 		isInvulnerable = true
 		Events.took_damage.emit()
-		

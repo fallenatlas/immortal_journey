@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://Dialogues/dialogue_npcs.gd" id="1_xavph"]
 [ext_resource type="FontFile" uid="uid://dhw7jldi36v1q" path="res://assets/Fonts/Helvetica Ultra Compressed/Helvetica Ultra Compressed.otf" id="2_xq33d"]
+[ext_resource type="AudioStream" uid="uid://c6ch7vp376gdt" path="res://Audio/SFX/10_UI_Menu_SFX/051_use_item_01.wav" id="2_2k0lv"]
 
 [sub_resource type="Theme" id="Theme_xkju6"]
 
@@ -70,5 +71,9 @@ text = "Text"
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.4
 one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_2k0lv")
+bus = &"SFX"
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

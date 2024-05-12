@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cnxliq7dwipdp" path="res://assets/martial_hero/Attack2.png" id="14_56vgv"]
 [ext_resource type="Texture2D" uid="uid://casiv1is0w84f" path="res://assets/martial_hero/Death.png" id="15_6vbcu"]
 [ext_resource type="Script" path="res://scripts/player/AttackManager.gd" id="17_gd8pb"]
+[ext_resource type="AudioStream" uid="uid://daua2topsdivk" path="res://Audio/SFX/12_Player_Movement_SFX/03_Step_grass_03.wav" id="14_lnfkc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wi5bl"]
 shader = ExtResource("2_76q85")
@@ -1221,3 +1222,6 @@ one_shot = true
 [connection signal="animation_finished" from="AnimationPlayer" to="AttackManager" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="InvincibilityPeriodManager/InvincibityTimer" to="." method="_on_invincibity_timer_timeout"]
 [connection signal="timeout" from="AttackManager/ReadyUpTimer" to="AttackManager" method="_on_ready_up_timer_timeout"]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_lnfkc")
+bus = &"SFX"

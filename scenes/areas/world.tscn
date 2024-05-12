@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
+[ext_resource type="AudioStream" uid="uid://dci3tm77wqc1c" path="res://Audio/SFX/12_Player_Movement_SFX/61_Hit_03.wav" id="3_mro6c"]
 [ext_resource type="TileSet" uid="uid://dps0u5bt40qry" path="res://assets/tilesets/default_ground.tres" id="4_xrski"]
 [ext_resource type="PackedScene" uid="uid://cp3ux2qv3qq7e" path="res://scenes/backgrounds/normal_world_background.tscn" id="5_87ja3"]
 [ext_resource type="PackedScene" uid="uid://ccxfk82g8wye1" path="res://scenes/player/Player.tscn" id="5_jaceo"]
@@ -138,6 +139,11 @@ script = ExtResource("1_yrr7o")
 position = Vector2(373, 152)
 
 [node name="NPCs" type="Node2D" parent="."]
+[node name="DamageSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("3_mro6c")
+bus = &"SFX"
+
+[node name="Mobs" type="Node2D" parent="."]
 
 [node name="NPC_Hunter" parent="NPCs" instance=ExtResource("3_hj2pf")]
 position = Vector2(80, 221)

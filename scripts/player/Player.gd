@@ -47,7 +47,7 @@ func _ready():
 	Events.took_damage.connect(be_invincible)
 
 func _physics_process(delta):
-	if Game.playerDead:
+	if Game.playerDead: #TODO: apply gravity even if he's dead
 		return
 	
 	var direction = Input.get_axis("move_left", "move_right")

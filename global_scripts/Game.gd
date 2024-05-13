@@ -29,7 +29,7 @@ var maxSat : float = 1.2
 var minSat : float = 0.3
 
 var maxBri : float = 0
-var minBri : float = -0.3
+var minBri : float = -0.4
 
 var redColor : Color = Color(30, 0, 0)
 var whiteColor : Color = Color(30, 30, 30)

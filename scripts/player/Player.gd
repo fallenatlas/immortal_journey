@@ -80,27 +80,27 @@ func _physics_process(delta):
 		velocity = Vector2(0, 0)
 		if(dashDirectionX == directionDash.left):
 			if(dashDirectionY == directionDash.up):
-				position += Vector2(-10, -10)
+				position += Vector2(-10, -10).normalized() * 10
 			elif(dashDirectionY == directionDash.down):
-				position += Vector2(-10, 10)
+				position += Vector2(-10, 10).normalized() * 10
 			else:
-				position += Vector2(-10, 0)
+				position += Vector2(-10, 0).normalized() * 10
 		elif(dashDirectionX == directionDash.right):
 			if(dashDirectionY == directionDash.up):
-				position += Vector2(10, -10)
+				position += Vector2(10, -10).normalized() * 10
 			elif(dashDirectionY == directionDash.down):
-				position += Vector2(10, 10)
+				position += Vector2(10, 10).normalized() * 10
 			else:
-				position += Vector2(10, 0)
+				position += Vector2(10, 0).normalized() * 10
 		elif(dashDirectionX == directionDash.nothing && dashDirectionY ==directionDash.up):
-			position += Vector2(0, -10)
+			position += Vector2(0, -10).normalized() * 10
 		elif(dashDirectionX == directionDash.nothing && dashDirectionY ==directionDash.down):
-			position += Vector2(0, 10)
+			position += Vector2(0, 10).normalized() * 10
 		else:
 			if(get_node("Sprite2D").flip_h == true):
-				position += Vector2(-10, 0)
+				position += Vector2(-10, 0).normalized() * 10
 			else:
-				position += Vector2(10, 0)
+				position += Vector2(10, 0).normalized() * 10
 	else:
 		speed = SPEED
 		DashEffect.emitting = false

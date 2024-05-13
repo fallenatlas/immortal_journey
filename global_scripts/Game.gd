@@ -41,12 +41,11 @@ func take_damage(damage_value : int, enemy : bool):
 		playerHP -= damage_value
 		if playerHP <= 0:
 			playerDead = true
+		Events.took_damage.emit(enemy)
 		
 	if(not isInvulnerable):
 		playerHP -= damage_value
 		if playerHP <= 0:
 			playerDead = true
-		isInvulnerable = true
-	
-	Events.took_damage.emit(enemy)
-		
+		Events.took_damage.emit(enemy)
+

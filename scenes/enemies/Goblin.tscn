@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://or5j0ao207xe"]
+[gd_scene load_steps=80 format=3 uid="uid://d3mxbhmkk72e4"]
 
 [ext_resource type="Script" path="res://scripts/enemies/Goblin.gd" id="1_3sxql"]
 [ext_resource type="Texture2D" uid="uid://ys1sgak77sl1" path="res://Monsters_Creatures_Fantasy/Goblin/Idle.png" id="2_4mbo8"]

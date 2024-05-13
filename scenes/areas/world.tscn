@@ -3,16 +3,16 @@
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
 [ext_resource type="TileSet" uid="uid://dps0u5bt40qry" path="res://assets/tilesets/default_ground.tres" id="4_xrski"]
-[ext_resource type="PackedScene" uid="uid://cp3ux2qv3qq7e" path="res://scenes/backgrounds/normal_world_background.tscn" id="5_87ja3"]
+[ext_resource type="PackedScene" path="res://scenes/backgrounds/normal_world_background.tscn" id="5_87ja3"]
 [ext_resource type="PackedScene" uid="uid://ccxfk82g8wye1" path="res://scenes/player/Player.tscn" id="5_jaceo"]
-[ext_resource type="PackedScene" uid="uid://or5j0ao207xe" path="res://scenes/enemies/Goblin.tscn" id="5_l6xbp"]
+[ext_resource type="PackedScene" uid="uid://d3mxbhmkk72e4" path="res://scenes/enemies/Goblin.tscn" id="5_l6xbp"]
 [ext_resource type="TileSet" uid="uid://bpfdwdtnqcw4i" path="res://assets/tilesets/death_ground.tres" id="6_5lpkg"]
 [ext_resource type="PackedScene" uid="uid://dwc52qx3v2h3h" path="res://scenes/enemies/Frog.tscn" id="6_n5khx"]
 [ext_resource type="Shader" path="res://Shaders/SunRays.gdshader" id="6_tihlm"]
 [ext_resource type="Script" path="res://scripts/UI/HealthBar.gd" id="6_u0wo8"]
 [ext_resource type="Texture2D" uid="uid://d0f4pnyc78ve0" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarOver.png" id="7_2tid5"]
 [ext_resource type="Script" path="res://scripts/areas/SunRays.gd" id="7_atl4a"]
-[ext_resource type="PackedScene" uid="uid://b8ouces3cngpi" path="res://scenes/backgrounds/death_world_background.tscn" id="7_ts7l6"]
+[ext_resource type="PackedScene" path="res://scenes/backgrounds/death_world_background.tscn" id="7_ts7l6"]
 [ext_resource type="Texture2D" uid="uid://dxkoas3gsequ5" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarBackground.png" id="7_wofer"]
 [ext_resource type="Texture2D" uid="uid://bpp43rcycbo2f" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png" id="8_hd7s3"]
 [ext_resource type="Texture2D" uid="uid://dmt2k0glhayib" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarBackground.png" id="10_njy5m"]
@@ -274,6 +274,7 @@ autostart = true
 [node name="Visual Effects" type="CanvasLayer" parent="."]
 
 [node name="Filter" type="ColorRect" parent="Visual Effects"]
+visible = false
 material = SubResource("ShaderMaterial_tan7j")
 anchors_preset = 15
 anchor_right = 1.0

@@ -3,6 +3,7 @@ extends Node2D
 @onready var normalWorldNode = get_node("NormalWorld")
 @onready var deathWorldNode = get_node("DeathWorld")
 @onready var damageSound = get_node("Player/DamageSound")
+@onready var normalWorldAmbientSound = get_node("NormalWorld/AmbientSound")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -57,4 +58,7 @@ func _on_switch_world(normalWorld : bool):
 func _on_player_damage(damage : int):
 	Game.playerHP -= damage
 	damageSound.play()
+	normalWorldAmbientSound.volume_db = linear_to_db(1 - Game.playerHP/10)
+	if (Game.playerHP < 5):
+		AudioServer.set_bus_send(AudioServer.get_bus_index("AmbientSound"), "Master")
 

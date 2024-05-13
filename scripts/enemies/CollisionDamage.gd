@@ -2,7 +2,7 @@ extends Area2D
 
 func _on_body_entered(body):
 	#if body.name == "Player":
-		#Game.take_damage(3)
+	#	Game.take_damage(3, true)
 	pass
 
 #func _process(delta):

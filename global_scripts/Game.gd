@@ -36,10 +36,17 @@ var whiteColor : Color = Color(30, 30, 30)
 var blackColor : Color = Color(0, 0, 0)
 
 
-func take_damage(damage_value):
+func take_damage(damage_value : int, enemy : bool):
+	if (not enemy):
+		playerHP -= damage_value
+		if playerHP <= 0:
+			playerDead = true
+		
 	if(not isInvulnerable):
 		playerHP -= damage_value
 		if playerHP <= 0:
 			playerDead = true
 		isInvulnerable = true
-		Events.took_damage.emit()
+	
+	Events.took_damage.emit(enemy)
+		

@@ -161,11 +161,11 @@ func _on_switch_world(normalWorld : bool):
 		set_collision_mask_value(7, true)
 
 
-func be_invincible():
+func be_invincible(enemy : bool):
 	#BUG: Sometimes the character is unable to lose any damage(Should be because of invinsible status)
 	if (Game.playerDead):
 		anim.play("Death")
-	else:
+	elif (enemy):
 		InvincibilityTimer.start()
 		Game.isInvulnerable = true
 	ScreenShakeTimer.start()

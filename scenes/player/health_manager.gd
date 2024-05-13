@@ -20,4 +20,4 @@ func _on_courage_restored():
 	health_ticks.stop()
 
 func _on_health_tick():
-	Game.playerHP -= health_loss
+	Game.take_damage(health_loss, false)

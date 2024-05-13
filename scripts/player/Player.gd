@@ -84,6 +84,10 @@ func _physics_process(delta):
 				position += Vector2(10, 10)
 			else:
 				position += Vector2(10, 0)
+		elif(dashDirectionX == directionDash.nothing && dashDirectionY ==directionDash.up):
+			position += Vector2(0, -10)
+		elif(dashDirectionX == directionDash.nothing && dashDirectionY ==directionDash.down):
+			position += Vector2(0, 10)
 		else:
 			if(get_node("Sprite2D").flip_h == true):
 				position += Vector2(-10, 0)
@@ -148,6 +152,7 @@ func _on_switch_world(normalWorld : bool):
 func be_invincible():
 	#BUG: Sometimes the character is unable to lose any damage(Should be because of invinsible status)
 	InvincibilityTimer.start()
+	Game.isInvulnerable = true
 	ScreenShakeTimer.start()
 	
 func _on_invincibity_timer_timeout():

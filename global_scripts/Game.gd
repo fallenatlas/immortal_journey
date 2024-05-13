@@ -38,5 +38,4 @@ var blackColor : Color = Color(0, 0, 0)
 func take_damage(damage_value):
 	if(not isInvulnerable):
 		playerHP -= damage_value
-		isInvulnerable = true
 		Events.took_damage.emit()

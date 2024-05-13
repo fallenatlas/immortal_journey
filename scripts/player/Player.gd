@@ -68,7 +68,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	#Handle Dash
-	if Input.is_action_just_pressed("dash") && Dash.is_cooldown(): # && Game.courage >= 50
+	if Input.is_action_just_pressed("dash") && Dash.is_cooldown() && Game.courage >= 50:
 		Dash.start_dash()
 		dashDirectionX = calculate_direction_x()
 		dashDirectionY = calculate_direction_y()

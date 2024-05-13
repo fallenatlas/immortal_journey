@@ -187,11 +187,11 @@ layer_0/tile_data = PackedInt32Array(655360, 131072, 0, 655383, 131072, 0, 65540
 offset = Vector2(432, 0)
 transform = Transform2D(1, 0, 0, 1, 432, 0)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="NormalWorld"]
+[node name="AmbientSound" type="AudioStreamPlayer" parent="NormalWorld"]
 stream = ExtResource("8_5q1t0")
-volume_db = -5.0
+volume_db = -30.0
 autoplay = true
-bus = &"Music"
+bus = &"AmbientSound"
 
 [node name="DeathWorld" type="Node2D" parent="."]
 visible = false
@@ -326,6 +326,18 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
+[node name="AmbientSoundLabel2" type="Label" parent="UI/Menu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Ambient Sound:"
+
+[node name="AmbientSoundSlider" type="HSlider" parent="UI/Menu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+max_value = 1.0
+step = 0.05
+value = 1.0
+
 [node name="Collectables" type="Node2D" parent="."]
 script = SubResource("GDScript_wl81y")
 
@@ -372,4 +384,7 @@ texture = SubResource("GradientTexture2D_8hhqn")
 
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="UI" method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="UI" method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
+[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_ambient_sound_slider_value_changed"]
 [connection signal="timeout" from="Collectables/Timer" to="Collectables" method="_on_timer_timeout"]

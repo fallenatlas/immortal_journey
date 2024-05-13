@@ -48,6 +48,9 @@ func _ready():
 
 func _physics_process(delta):
 	if Game.playerDead: #TODO: apply gravity even if he's dead
+		if not is_on_floor():
+			velocity.y += gravity * delta
+			move_and_slide()
 		return
 	
 	var direction = Input.get_axis("move_left", "move_right")
@@ -102,12 +105,12 @@ func _physics_process(delta):
 			else:
 				position += Vector2(10, 0).normalized() * 10
 	else:
-		speed = SPEED
+		speed = SPEED * remap(Game.courage, 0, 100, 0.5, 1)
 		DashEffect.emitting = false
 		
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = JUMP_VELOCITY * remap(Game.courage, 0, 100, 0.9, 1)
 		if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
 			anim.play("Jump")
 

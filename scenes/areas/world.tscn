@@ -3,10 +3,12 @@
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
 [ext_resource type="AudioStream" uid="uid://dci3tm77wqc1c" path="res://Audio/SFX/12_Player_Movement_SFX/61_Hit_03.wav" id="3_mro6c"]
+[ext_resource type="AudioStream" uid="uid://bhtdecfqlhau8" path="res://Audio/SFX/breathing-6811.mp3" id="4_hyepl"]
 [ext_resource type="TileSet" uid="uid://dps0u5bt40qry" path="res://assets/tilesets/default_ground.tres" id="4_xrski"]
 [ext_resource type="PackedScene" uid="uid://cp3ux2qv3qq7e" path="res://scenes/backgrounds/normal_world_background.tscn" id="5_87ja3"]
 [ext_resource type="PackedScene" uid="uid://ccxfk82g8wye1" path="res://scenes/player/Player.tscn" id="5_jaceo"]
 [ext_resource type="PackedScene" uid="uid://or5j0ao207xe" path="res://scenes/enemies/Goblin.tscn" id="5_l6xbp"]
+[ext_resource type="AudioStream" uid="uid://hajx828e8edr" path="res://Audio/SFX/heartbeat-sound-effect-111218.mp3" id="5_l4xkv"]
 [ext_resource type="TileSet" uid="uid://bpfdwdtnqcw4i" path="res://assets/tilesets/death_ground.tres" id="6_5lpkg"]
 [ext_resource type="PackedScene" uid="uid://dwc52qx3v2h3h" path="res://scenes/enemies/Frog.tscn" id="6_n5khx"]
 [ext_resource type="Shader" path="res://Shaders/SunRays.gdshader" id="6_tihlm"]
@@ -19,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://bpp43rcycbo2f" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png" id="8_hd7s3"]
 [ext_resource type="Script" path="res://scenes/areas/UI.gd" id="10_bqp10"]
 [ext_resource type="Texture2D" uid="uid://dmt2k0glhayib" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarBackground.png" id="10_njy5m"]
+[ext_resource type="AudioStream" uid="uid://bfon4bamfs3sh" path="res://Audio/Music/blood-chillingly-creepy-atmospheres-183561.mp3" id="11_tpx71"]
 [ext_resource type="Texture2D" uid="uid://bsoabmxwhp1g1" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarOver.png" id="11_u4uyq"]
 [ext_resource type="Texture2D" uid="uid://crph5w7ae5suv" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgress.png" id="12_iphf5"]
 [ext_resource type="Script" path="res://scripts/UI/CourageBar.gd" id="13_mlp2c"]
@@ -143,6 +146,14 @@ position = Vector2(373, 152)
 stream = ExtResource("3_mro6c")
 bus = &"SFX"
 
+[node name="HeavyBreathingSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("4_hyepl")
+bus = &"SFX"
+
+[node name="HeartbeatSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("5_l4xkv")
+bus = &"SFX"
+
 [node name="Mobs" type="Node2D" parent="."]
 
 [node name="NPC_Hunter" parent="NPCs" instance=ExtResource("3_hj2pf")]
@@ -209,6 +220,11 @@ transform = Transform2D(1, 0, 0, 1, 432, 0)
 visible = false
 offset = Vector2(432, 30)
 transform = Transform2D(1, 0, 0, 1, 432, 30)
+
+[node name="AmbientSound" type="AudioStreamPlayer" parent="DeathWorld"]
+stream = ExtResource("11_tpx71")
+autoplay = true
+bus = &"AmbientSound"
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2

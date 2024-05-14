@@ -29,7 +29,7 @@ var maxSat : float = 1.2
 var minSat : float = 0.3
 
 var maxBri : float = 0
-var minBri : float = -0.3
+var minBri : float = -0.4
 
 var redColor : Color = Color(30, 0, 0)
 var whiteColor : Color = Color(30, 30, 30)
@@ -41,12 +41,11 @@ func take_damage(damage_value : int, enemy : bool):
 		playerHP -= damage_value
 		if playerHP <= 0:
 			playerDead = true
+		Events.took_damage.emit(enemy)
 		
 	if(not isInvulnerable):
 		playerHP -= damage_value
 		if playerHP <= 0:
 			playerDead = true
-		isInvulnerable = true
-	
-	Events.took_damage.emit(enemy)
-		
+		Events.took_damage.emit(enemy)
+

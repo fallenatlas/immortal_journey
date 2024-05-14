@@ -16,7 +16,11 @@ func _process(delta):
 	if Input.is_action_just_pressed("swith_world") and not Game.playerDead:
 		#still a bit bugy but overall well
 		#thing about having some indication of how the other world is
-		var map : TileMap = normalWorldNode.get_node("TileMap")
+		var map : TileMap
+		if Game.normalWorld:
+			map = deathWorldNode.get_node("TileMap")
+		else:
+			map = normalWorldNode.get_node("TileMap")
 		var local_position = map.to_local(get_node("Player/Player").position)
 		var cell = map.local_to_map(local_position)
 		if (map.get_cell_source_id(0, cell) == -1):

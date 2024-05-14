@@ -15,6 +15,11 @@ uniform float tint_effect_factor : hint_range(0, 1) = 0.0;
 uniform float vignette_intensity = 0.4;
 uniform float vignette_opacity : hint_range(0.0, 1.0) = 0.5;
 uniform vec4 vignette_rgb = vec4(0.0, 0.0, 0.0, 1.0);
+
+uniform sampler2D offset_image;
+uniform float strength = 1.0;
+
+
 //---------------------------------------------
 //CONTRAST
 //---------------------------------------------
@@ -63,10 +68,12 @@ float vignette(vec2 uv){
 //fragment
 //---------------------------------------------
 void fragment() {
+	
 	vec4 c = texture(screen_texture, UV);
 	vec4 c2 = c * tint_color;
 
 	vec4 filterColor = brightnessMatrix( brightness ) * contrastMatrix( contrast ) *saturationMatrix( saturation ) * mix(c, c2, tint_effect_factor);
+	
 	COLOR = filterColor;
 	
 }

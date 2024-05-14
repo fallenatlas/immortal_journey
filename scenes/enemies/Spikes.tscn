@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dssacjxo4usiw"]
+
+[ext_resource type="Script" path="res://scripts/enemies/Spikes.gd" id="1_qnxmg"]
+[ext_resource type="Texture2D" uid="uid://dbk8rn72w4yon" path="res://Monsters_Creatures_Fantasy/16-bit-spike-Sheet.png" id="1_tb84i"]
+
+[node name="Spikes" type="StaticBody2D"]
+script = ExtResource("1_qnxmg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tb84i")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="PlayerDetection" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetection"]
+polygon = PackedVector2Array(0, -5, -8, 8, 8, 8)
+
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]

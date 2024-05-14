@@ -4,6 +4,8 @@ var audio_jump = preload("res://Audio/SFX/12_Player_Movement_SFX/30_Jump_03.wav"
 var audio_attack = preload("res://Audio/SFX/12_Player_Movement_SFX/56_Attack_03.wav")
 var audio_switch_world = preload("res://Audio/SFX/12_Player_Movement_SFX/88_Teleport_02.wav")
 var audio_dash = preload("res://Audio/SFX/8_Atk_Magic_SFX/25_Wind_01.wav")
+var audio_damage = preload("res://Audio/SFX/12_Player_Movement_SFX/61_Hit_03.wav")
+var audio_death = preload("res://Audio/SFX/10_Battle_SFX/69_Enemy_death_01.wav")
 
 var audio_node = null
 
@@ -27,6 +29,10 @@ func play_sound(sound_name, position=null):
 		audio_node.stream = audio_switch_world
 	elif sound_name == "Dash":
 		audio_node.stream = audio_dash
+	elif sound_name == "Damage":
+		audio_node.stream = audio_damage
+	elif sound_name == "Death":
+		audio_node.stream = audio_death
 	else:
 		print ("UNKNOWN STREAM")
 		queue_free()

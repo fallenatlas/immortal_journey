@@ -24,8 +24,8 @@ func _process(delta):
 		return
 		
 	if (Input.is_action_just_pressed("strike") and can_attack()):
-		print("here")
 		anim.play("Attack_1")
+		get_parent().create_sound("Attack")
 		attack_1 = true
 		readyUpTimer.start()
 		#attack_enemies_in_range()
@@ -33,6 +33,7 @@ func _process(delta):
 	if (Input.is_action_just_pressed("strike") and not innerTimer.is_stopped()):
 		outerTimer.stop()
 		anim.play("Attack_2")
+		get_parent().create_sound("Attack")
 		attack_2 = true
 		readyUpTimer.start()
 		#attack_enemies_in_range()
@@ -51,7 +52,6 @@ func can_attack() -> bool:
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Attack_1":
-		print("ended")
 		attack_1 = false
 		innerTimer.start()
 		outerTimer.start()
@@ -72,7 +72,6 @@ func _on_ready_up_timer_timeout():
 		return
 	var bodies = attackArea.get_overlapping_bodies()
 	for body in bodies:
-		print("body")
 		if body.get_groups().has("Enemy"):
 			body.death()
 

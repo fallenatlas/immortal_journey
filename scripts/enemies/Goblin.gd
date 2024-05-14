@@ -21,6 +21,7 @@ var dying = false
 
 @onready var normalSprite = $Sprite2D
 @onready var shadowSprite = $FlameAnimation
+@onready var deathSound = $DeathSound
 
 func _ready():
 	anim.play("Idle")
@@ -68,6 +69,7 @@ func death():
 	Game.courage += 8 * (1 - (Game.playerHP / Game.maxHP)) + 2
 	Utils.saveGame()
 	anim.play("Death")
+	deathSound.play()
 	await anim.animation_finished
 	self.queue_free()
 	

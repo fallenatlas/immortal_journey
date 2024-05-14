@@ -33,8 +33,11 @@ var dashDirectionY = directionDash.nothing
 var dying = false
 
 @onready var anim = get_node("AnimationPlayer")
-@onready var audio_player = preload("res://scenes/player/Audio_Player.tscn")
-@onready var run_sound = get_node("AudioStreamPlayer2D")
+@onready var audioPlayer = preload("res://scenes/player/Audio_Player.tscn")
+@onready var runSound = get_node("RunSound")
+@onready var damageSound = get_node("DamageSound")
+@onready var breathingSound = get_node("HeavyBreathingSound")
+@onready var heartbeatSound = get_node("HeartbeatSound")
 
 enum directionDash{
 	left, 
@@ -47,6 +50,7 @@ enum directionDash{
 func _ready():
 	Events.switch_world.connect(_on_switch_world)
 	Events.took_damage.connect(be_invincible)
+	Events.took_damage.connect(_on_player_damage)
 
 func _physics_process(delta):
 	if Game.playerDead: #TODO: apply gravity even if he's dead
@@ -126,15 +130,15 @@ func _physics_process(delta):
 		if velocity.y == 0:
 			if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
 				anim.play("Run")
-				if !run_sound.playing:
-					run_sound.play()
+				if !runSound.playing:
+					runSound.play()
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		if velocity.y == 0:
 			if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
 				anim.play("Idle")
-				if run_sound.playing:
-					run_sound.stop()
+				if runSound.playing:
+					runSound.stop()
 			
 	if velocity.y > 0:
 		if not AttackManager.is_attacking(): # || anim.current_animation != "Death"  
@@ -209,7 +213,23 @@ func _on_animation_player_animation_finished(anim_name):
 		get_tree().change_scene_to_file("res://scenes/main_menu/main.tscn")
 		
 func create_sound(sound_name, position=null):
-	var audio_clone = audio_player.instantiate()
+	var audio_clone = audioPlayer.instantiate()
 	var scene_root = get_tree().root.get_children()[0]
 	scene_root.add_child(audio_clone)
 	audio_clone.play_sound(sound_name, position)
+	
+func _on_player_damage(enemy : bool):
+	if (dying):
+		return
+		
+	create_sound("Damage")
+	if (Game.playerHP < 5):
+		if (!breathingSound.playing):
+			breathingSound.play()
+	if (Game.playerHP < 2 and !heartbeatSound.playing):
+		heartbeatSound.play()
+	if (Game.playerHP <= 0):
+		create_sound("Death")
+		dying = true
+		breathingSound.stop()
+		heartbeatSound.stop()

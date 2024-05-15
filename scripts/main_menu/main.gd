@@ -11,4 +11,4 @@ func _on_quit_pressed():
 
 func _on_play_pressed():
 	#TransitionManager.fade_to_scene()
-	get_tree().change_scene_to_file("res://scenes/areas/immortal.tscn")
+	get_tree().change_scene_to_file("res://scenes/areas/world.tscn")

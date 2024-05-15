@@ -166,13 +166,16 @@ func _process(delta):
 		damageTime += delta
 		if damageTime >= 1:
 			damageTime = 0
-			Game.take_damage(1, true)
+			if Game.normalWorld:
+				Game.take_damage(1, true)
 	
 
 func get_direction():
 	return Input.get_axis("move_left", "move_right")
 
 func _on_switch_world(normalWorld : bool):
+	if (Game.isImmortal): return
+	
 	create_sound("Switch_world", self.global_transform.origin)
 	if (normalWorld):
 		set_collision_mask_value(2, true)
@@ -189,6 +192,10 @@ func be_invincible(enemy : bool):
 	#BUG: Sometimes the character is unable to lose any damage(Should be because of invinsible status)
 	if (Game.playerDead):
 		anim.play("Death")
+	elif (Game.isImmortal):
+		if Game.playerHP > 2:
+			await get_tree().create_timer(0.5).timeout
+		Game.playerHP = 10
 	elif (enemy):
 		InvincibilityTimer.start()
 		Game.isInvulnerable = true

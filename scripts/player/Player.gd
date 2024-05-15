@@ -190,6 +190,7 @@ func _on_switch_world(normalWorld : bool):
 
 func be_invincible(enemy : bool):
 	#BUG: Sometimes the character is unable to lose any damage(Should be because of invinsible status)
+	ScreenShakeTimer.start()
 	if (Game.playerDead):
 		anim.play("Death")
 	elif (Game.isImmortal):
@@ -199,7 +200,6 @@ func be_invincible(enemy : bool):
 	elif (enemy):
 		InvincibilityTimer.start()
 		Game.isInvulnerable = true
-	ScreenShakeTimer.start()
 	
 func _on_invincibity_timer_timeout():
 	Sprite.material.set_shader_parameter("time", 0)

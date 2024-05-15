@@ -113,7 +113,7 @@ func _physics_process(delta):
 			else:
 				position += Vector2(10, 0).normalized() * 10
 	else:
-		speed = SPEED * remap(Game.courage, 0, 100, 0.5, 1)
+		speed = SPEED * remap(Game.courage, 0, 100, 0.7, 1)
 		DashEffect.emitting = false
 		
 	# Handle Jump.
@@ -208,7 +208,7 @@ func calculate_direction_x():
 		return directionDash.nothing
 
 func calculate_direction_y():
-		if(Input.is_action_pressed("jump")):
+		if(Input.is_action_pressed("move_up")):
 			return directionDash.up
 		elif(Input.is_action_pressed("move_down")):
 			return directionDash.down

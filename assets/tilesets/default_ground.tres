@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dps0u5bt40qry"]
+[gd_resource type="TileSet" load_steps=6 format=3 uid="uid://dps0u5bt40qry"]
 
 [ext_resource type="Texture2D" uid="uid://bgustwkpdfrpt" path="res://assets/oak_autumn_woods/oak_woods_v1.0/oak_woods_tileset.png" id="1_4ahta"]
-[ext_resource type="PackedScene" uid="uid://dssacjxo4usiw" path="res://scenes/enemies/Spikes.tscn" id="2_3dav2"]
+[ext_resource type="PackedScene" uid="uid://dssacjxo4usiw" path="res://scenes/enemies/InvertedSpikes.tscn" id="2_3dav2"]
+[ext_resource type="PackedScene" uid="uid://bymkcynv4tgqd" path="res://scenes/enemies/Spikes.tscn" id="3_sxfpi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_valf0"]
 texture = ExtResource("1_4ahta")
@@ -580,6 +581,7 @@ texture_region_size = Vector2i(24, 24)
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0jyjk"]
 scenes/1/scene = ExtResource("2_3dav2")
+scenes/2/scene = ExtResource("3_sxfpi")
 
 [resource]
 tile_size = Vector2i(24, 24)

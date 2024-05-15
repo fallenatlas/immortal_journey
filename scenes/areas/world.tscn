@@ -1,4 +1,5 @@
-[gd_scene load_steps=40 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=39 format=3 uid="uid://dyx2uc3tcrmn4"]
+
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
 [ext_resource type="TileSet" uid="uid://dps0u5bt40qry" path="res://assets/tilesets/default_ground.tres" id="4_xrski"]
@@ -178,6 +179,7 @@ offset = Vector2(432, 0)
 transform = Transform2D(1, 0, 0, 1, 432, 0)
 
 [node name="DeathWorld" type="Node2D" parent="."]
+visible = false
 
 [node name="TileMap" type="TileMap" parent="DeathWorld"]
 tile_set = ExtResource("6_5lpkg")
@@ -189,6 +191,7 @@ offset = Vector2(432, 0)
 transform = Transform2D(1, 0, 0, 1, 432, 0)
 
 [node name="DeathWorldBackground" parent="DeathWorld" instance=ExtResource("7_ts7l6")]
+visible = false
 offset = Vector2(432, 30)
 transform = Transform2D(1, 0, 0, 1, 432, 30)
 
@@ -196,6 +199,7 @@ transform = Transform2D(1, 0, 0, 1, 432, 30)
 layer = 2
 
 [node name="HP" type="Label" parent="UI"]
+visible = false
 offset_left = 23.0
 offset_top = 19.0
 offset_right = 78.0
@@ -206,6 +210,7 @@ text = "HP: 10"
 script = SubResource("GDScript_e70ww")
 
 [node name="Courage" type="Label" parent="UI"]
+visible = false
 offset_left = 23.0
 offset_top = 48.0
 offset_right = 84.0

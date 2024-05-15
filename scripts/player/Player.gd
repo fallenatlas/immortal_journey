@@ -117,7 +117,7 @@ func _physics_process(delta):
 		
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY * remap(Game.courage, 0, 100, 0.9, 1)
+		velocity.y = JUMP_VELOCITY #* remap(Game.courage, 0, 100, 0.9, 1)
 		if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
 			anim.play("Jump")
 			create_sound("Jump", self.global_transform.origin)

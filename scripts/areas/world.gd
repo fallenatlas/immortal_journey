@@ -68,9 +68,5 @@ func _on_player_damage(enemy : bool):
 	normalWorldAmbientSound.volume_db = linear_to_db(1 - Game.playerHP/10)
 	if (Game.playerHP < 5):
 		AudioServer.set_bus_send(AudioServer.get_bus_index("AmbientSound"), "Master")
-		if (!breathingSound.playing):
-			breathingSound.play()
-	if (Game.playerHP < 2 and !heartbeatSound.playing):
-		heartbeatSound.play()
 
 

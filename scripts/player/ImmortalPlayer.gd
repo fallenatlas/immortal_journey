@@ -9,8 +9,6 @@ const DASH_LENGHT = 0.2
 @onready var Dash = $Dash
 @onready var DashEffect = $DashEffect
 
-@onready var OtherWorldEffect = $"../../Visual Effects/OtherWorld"
-
 @onready var InvincibilityTimer = $InvincibilityPeriodManager/InvincibityTimer
 @onready var ScreenShakeTimer = $InvincibilityPeriodManager/ScreenShakeTimer
 
@@ -34,11 +32,6 @@ var dashDirectionY = directionDash.nothing
 var dying = false
 
 @onready var anim = get_node("AnimationPlayer")
-@onready var audioPlayer = preload("res://scenes/player/Audio_Player.tscn")
-@onready var runSound = get_node("RunSound")
-@onready var damageSound = get_node("DamageSound")
-@onready var breathingSound = get_node("HeavyBreathingSound")
-@onready var heartbeatSound = get_node("HeartbeatSound")
 
 enum directionDash{
 	left, 
@@ -49,9 +42,7 @@ enum directionDash{
 }
 
 func _ready():
-	Events.switch_world.connect(_on_switch_world)
-	Events.took_damage.connect(be_invincible)
-	Events.took_damage.connect(_on_player_damage)
+	Events.took_damage.connect(heal)
 
 func _physics_process(delta):
 	if Game.playerDead: #TODO: apply gravity even if he's dead
@@ -82,7 +73,6 @@ func _physics_process(delta):
 		Dash.start_dash()
 		dashDirectionX = calculate_direction_x()
 		dashDirectionY = calculate_direction_y()
-		create_sound("Dash", self.global_transform.origin)
 		DashEffect.emitting = true
 	
 	#var speed = DASH_SPEED if Dash.is_dashing() else SPEED
@@ -118,28 +108,22 @@ func _physics_process(delta):
 		
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY #* remap(Game.courage, 0, 100, 0.9, 1)
+		velocity.y = JUMP_VELOCITY * remap(Game.courage, 0, 100, 0.9, 1)
 		if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
 			anim.play("Jump")
-			create_sound("Jump", self.global_transform.origin)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	if direction:
 		velocity.x = direction * speed
-
 		if velocity.y == 0:
 			if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
 				anim.play("Run")
-				if !runSound.playing:
-					runSound.play()
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		if velocity.y == 0:
 			if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
 				anim.play("Idle")
-				if runSound.playing:
-					runSound.stop()
 			
 	if velocity.y > 0:
 		if not AttackManager.is_attacking(): # || anim.current_animation != "Death"  
@@ -172,31 +156,10 @@ func _process(delta):
 func get_direction():
 	return Input.get_axis("move_left", "move_right")
 
-func _on_switch_world(normalWorld : bool):
-	create_sound("Switch_world", self.global_transform.origin)
-	if (normalWorld):
-		set_collision_mask_value(2, true)
-		set_collision_mask_value(4, true)
-		set_collision_mask_value(5, false)
-		set_collision_mask_value(7, false)
-	if (not normalWorld):
-		set_collision_mask_value(2, false)
-		set_collision_mask_value(4, false)
-		set_collision_mask_value(5, true)
-		set_collision_mask_value(7, true)
-
-func be_invincible(enemy : bool):
-	#BUG: Sometimes the character is unable to lose any damage(Should be because of invinsible status)
-	if (Game.playerDead):
-		anim.play("Death")
-	elif (enemy):
-		InvincibilityTimer.start()
-		Game.isInvulnerable = true
-	ScreenShakeTimer.start()
-	
-func _on_invincibity_timer_timeout():
-	Sprite.material.set_shader_parameter("time", 0)
-	Game.isInvulnerable = false
+func heal(enemy : bool):
+	if Game.playerHP > 2:
+		await get_tree().create_timer(0.5).timeout
+	Game.playerHP = 10
 
 func calculate_direction_x():
 	var direction = Input.get_axis("move_left", "move_right")
@@ -215,29 +178,8 @@ func calculate_direction_y():
 		else:
 			return directionDash.nothing
 
+
 func _on_animation_player_animation_finished(anim_name):
 	if (anim_name == "Death"):
 		self.queue_free()
 		get_tree().change_scene_to_file("res://scenes/main_menu/main.tscn")
-		
-func create_sound(sound_name, position=null):
-	var audio_clone = audioPlayer.instantiate()
-	var scene_root = get_tree().root.get_children()[0]
-	scene_root.add_child(audio_clone)
-	audio_clone.play_sound(sound_name, position)
-	
-func _on_player_damage(enemy : bool):
-	if (dying):
-		return
-		
-	create_sound("Damage")
-	if (Game.playerHP < 5):
-		if (!breathingSound.playing):
-			breathingSound.play()
-	if (Game.playerHP < 2 and !heartbeatSound.playing):
-		heartbeatSound.play()
-	if (Game.playerHP <= 0):
-		create_sound("Death")
-		dying = true
-		breathingSound.stop()
-		heartbeatSound.stop()

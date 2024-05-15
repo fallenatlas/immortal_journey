@@ -21,7 +21,7 @@ var courage: float = 50.0 :
 var normalWorld : bool = true
 
 var maxHP : float = 10.0
-var minHP : float = 0.0
+var minHP : float = 2.0
 
 var maxCourage : float = 100.0
 var minCourage : float = 0.0

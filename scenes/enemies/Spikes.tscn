@@ -17,5 +17,9 @@ region_rect = Rect2(0, 0, 16, 16)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PlayerDetection"]
 polygon = PackedVector2Array(0, -7.5, -12, 12, 12, 12)
 
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
+polygon = PackedVector2Array(-7, 0, 12, 11, 12, -11)
+
 [connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
 [connection signal="body_exited" from="PlayerDetection" to="." method="_on_player_detection_body_exited"]

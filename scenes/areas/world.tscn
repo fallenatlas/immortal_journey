@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=43 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -70,21 +70,6 @@ script/source = "extends Label
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	text = \"Courage: \" + str(Game.courage)
-"
-
-[sub_resource type="GDScript" id="GDScript_wl81y"]
-script/source = "extends Node2D
-
-var Cherry = preload(\"res://Collectables/cherry.tscn\")
-
-
-
-func _on_timer_timeout():
-	var cherryTemp = Cherry.instantiate()
-	var rng = RandomNumberGenerator.new()
-	var ranint = rng.randi_range(50, 500)
-	cherryTemp.position = Vector2(ranint, 355)
-	add_child(cherryTemp)
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tan7j"]
@@ -396,12 +381,6 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="Collectables" type="Node2D" parent="."]
-script = SubResource("GDScript_wl81y")
-
-[node name="Timer" type="Timer" parent="Collectables"]
-autostart = true
-
 [node name="Visual Effects" type="CanvasLayer" parent="."]
 visible = false
 
@@ -446,4 +425,3 @@ texture = SubResource("GradientTexture2D_8hhqn")
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_ambient_sound_slider_value_changed"]
-[connection signal="timeout" from="Collectables/Timer" to="Collectables" method="_on_timer_timeout"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=25 format=3 uid="uid://qdmg2e47i12b"]
+[gd_scene load_steps=27 format=3 uid="uid://qdmg2e47i12b"]
 
 [ext_resource type="Script" path="res://scripts/areas/immortal.gd" id="1_okoqj"]
 [ext_resource type="PackedScene" uid="uid://ccxfk82g8wye1" path="res://scenes/player/Player.tscn" id="2_mj4p6"]
-[ext_resource type="Script" path="res://scripts/player/ImmortalPlayer.gd" id="3_nqq5o"]
+[ext_resource type="AudioStream" uid="uid://dci3tm77wqc1c" path="res://Audio/SFX/12_Player_Movement_SFX/61_Hit_03.wav" id="3_jjfg7"]
+[ext_resource type="AudioStream" uid="uid://bhtdecfqlhau8" path="res://Audio/SFX/breathing-6811.mp3" id="4_sjl8t"]
+[ext_resource type="AudioStream" uid="uid://hajx828e8edr" path="res://Audio/SFX/heartbeat-sound-effect-111218.mp3" id="5_0utja"]
 [ext_resource type="PackedScene" uid="uid://or5j0ao207xe" path="res://scenes/enemies/Goblin.tscn" id="5_eknrh"]
 [ext_resource type="Shader" path="res://Shaders/SunRays.gdshader" id="6_3tcpf"]
 [ext_resource type="Script" path="res://scripts/areas/SunRays.gd" id="7_q15wt"]
@@ -69,6 +71,24 @@ size = Vector2(20, 349)
 [node name="World" type="Node2D"]
 script = ExtResource("1_okoqj")
 
+[node name="Player" type="Node2D" parent="."]
+position = Vector2(-290, 61)
+
+[node name="Player" parent="Player" instance=ExtResource("2_mj4p6")]
+position = Vector2(373, 152)
+
+[node name="DamageSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("3_jjfg7")
+bus = &"SFX"
+
+[node name="HeavyBreathingSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("4_sjl8t")
+bus = &"SFX"
+
+[node name="HeartbeatSound" type="AudioStreamPlayer" parent="Player"]
+stream = ExtResource("5_0utja")
+bus = &"SFX"
+
 [node name="Mobs" type="Node2D" parent="."]
 position = Vector2(-23, -141)
 
@@ -95,12 +115,6 @@ position = Vector2(2464, 205)
 
 [node name="Goblin8" parent="Mobs" instance=ExtResource("5_eknrh")]
 position = Vector2(2560, 351)
-
-[node name="Player" type="Node2D" parent="."]
-
-[node name="Player" parent="Player" instance=ExtResource("2_mj4p6")]
-position = Vector2(110, 213)
-script = ExtResource("3_nqq5o")
 
 [node name="Sun Rays" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

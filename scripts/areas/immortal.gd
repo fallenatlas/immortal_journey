@@ -9,6 +9,7 @@ func _ready():
 	Game.playerHP = 10
 	Game.courage = 100.0
 	Game.isInvulnerable = false
+	Game.isImmortal = true
 
 func _process(delta):
 	pass

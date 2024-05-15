@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://dps0u5bt40qry"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://dps0u5bt40qry"]
 
 [ext_resource type="Texture2D" uid="uid://bgustwkpdfrpt" path="res://assets/oak_autumn_woods/oak_woods_v1.0/oak_woods_tileset.png" id="1_4ahta"]
+[ext_resource type="PackedScene" uid="uid://dssacjxo4usiw" path="res://scenes/enemies/Spikes.tscn" id="2_3dav2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_valf0"]
 texture = ExtResource("1_4ahta")
@@ -600,8 +601,12 @@ texture_region_size = Vector2i(24, 24)
 20:14/0/physics_layer_0/angular_velocity = 0.0
 20:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-12, -12, 12, -12, 12, 12, -12, 12)
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0jyjk"]
+scenes/1/scene = ExtResource("2_3dav2")
+
 [resource]
 tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 14
 sources/0 = SubResource("TileSetAtlasSource_valf0")
+sources/6 = SubResource("TileSetScenesCollectionSource_0jyjk")

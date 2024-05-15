@@ -9,8 +9,6 @@ const DASH_LENGHT = 0.2
 @onready var Dash = $Dash
 @onready var DashEffect = $DashEffect
 
-@onready var OtherWorldEffect = $"../../Visual Effects/OtherWorld"
-
 @onready var InvincibilityTimer = $InvincibilityPeriodManager/InvincibityTimer
 @onready var ScreenShakeTimer = $InvincibilityPeriodManager/ScreenShakeTimer
 
@@ -44,8 +42,7 @@ enum directionDash{
 }
 
 func _ready():
-	Events.switch_world.connect(_on_switch_world)
-	Events.took_damage.connect(be_invincible)
+	Events.took_damage.connect(heal)
 
 func _physics_process(delta):
 	if Game.playerDead: #TODO: apply gravity even if he's dead
@@ -159,31 +156,10 @@ func _process(delta):
 func get_direction():
 	return Input.get_axis("move_left", "move_right")
 
-func _on_switch_world(normalWorld : bool):
-	if (normalWorld):
-		set_collision_mask_value(2, true)
-		set_collision_mask_value(4, true)
-		set_collision_mask_value(5, false)
-		set_collision_mask_value(7, false)
-	if (not normalWorld):
-		set_collision_mask_value(2, false)
-		set_collision_mask_value(4, false)
-		set_collision_mask_value(5, true)
-		set_collision_mask_value(7, true)
-
-
-func be_invincible(enemy : bool):
-	#BUG: Sometimes the character is unable to lose any damage(Should be because of invinsible status)
-	if (Game.playerDead):
-		anim.play("Death")
-	elif (enemy):
-		InvincibilityTimer.start()
-		Game.isInvulnerable = true
-	ScreenShakeTimer.start()
-	
-func _on_invincibity_timer_timeout():
-	Sprite.material.set_shader_parameter("time", 0)
-	Game.isInvulnerable = false
+func heal(enemy : bool):
+	if Game.playerHP > 2:
+		await get_tree().create_timer(0.5).timeout
+	Game.playerHP = 10
 
 func calculate_direction_x():
 	var direction = Input.get_axis("move_left", "move_right")

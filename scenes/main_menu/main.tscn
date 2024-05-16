@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/main_menu/main.gd" id="1_4d3hk"]
 [ext_resource type="PackedScene" uid="uid://cp3ux2qv3qq7e" path="res://scenes/backgrounds/normal_world_background.tscn" id="2_7gfah"]
-[ext_resource type="Texture2D" uid="uid://dafoiaoe8l24t" path="res://assets/Menu/Title1.png" id="3_e70oy"]
+[ext_resource type="Texture2D" path="res://assets/Menu/Title1.png" id="3_e70oy"]
 
 [sub_resource type="Gradient" id="Gradient_yd75w"]
 offsets = PackedFloat32Array(0, 0.810256)

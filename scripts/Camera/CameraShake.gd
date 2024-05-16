@@ -25,3 +25,10 @@ func shake():
 	rotation = max_roll * amount * randf_range(-1, 1)
 	offset.x = max_offset.x * amount * randf_range(-1, 1)
 	offset.y = max_offset.y * amount * randf_range(-1, 1)
+	
+func change_camera_limits(left_limit, top_limit, right_limit, bottom_limit):
+	limit_left = left_limit
+	limit_top = top_limit
+	limit_right = right_limit
+	limit_bottom = bottom_limit
+	limit_smoothed

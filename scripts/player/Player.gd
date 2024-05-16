@@ -64,10 +64,10 @@ func _physics_process(delta):
 	
 	var direction = Input.get_axis("move_left", "move_right")
 	
-	if direction == -1:
+	if direction < 0:
 		get_node("Sprite2D").flip_h = true
 		AttackManager.flip_horizontal(true)
-	elif direction == 1:
+	elif direction > 0:
 		get_node("Sprite2D").flip_h = false
 		AttackManager.flip_horizontal(false)
 	

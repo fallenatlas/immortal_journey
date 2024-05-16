@@ -27,7 +27,7 @@ func _process(delta):
 		anim.play("Attack_1")
 		get_parent().create_sound("Attack")
 		attack_1 = true
-		readyUpTimer.start()
+		#readyUpTimer.start()
 		#attack_enemies_in_range()
 		
 	if (Input.is_action_just_pressed("strike") and not innerTimer.is_stopped()):
@@ -35,7 +35,7 @@ func _process(delta):
 		anim.play("Attack_2")
 		get_parent().create_sound("Attack")
 		attack_2 = true
-		readyUpTimer.start()
+		#readyUpTimer.start()
 		#attack_enemies_in_range()
 
 func is_attacking() -> bool:
@@ -82,3 +82,10 @@ func _on_switch_world(normalWorld : bool):
 	else:
 		attackArea.set_collision_mask_value(4, false)
 		attackArea.set_collision_mask_value(7, true)
+
+
+func _on_area_2d_body_entered(body):
+	if (Game.playerDead):
+		return
+	if body.get_groups().has("Enemy"):
+		body.death()

@@ -22,13 +22,13 @@
 [ext_resource type="Texture2D" uid="uid://dmt2k0glhayib" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarBackground.png" id="10_njy5m"]
 [ext_resource type="AudioStream" uid="uid://bfon4bamfs3sh" path="res://Audio/Music/blood-chillingly-creepy-atmospheres-183561.mp3" id="11_tpx71"]
 [ext_resource type="Texture2D" uid="uid://bsoabmxwhp1g1" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarOver.png" id="11_u4uyq"]
-[ext_resource type="Texture2D" uid="uid://crph5w7ae5suv" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgress.png" id="12_iphf5"]
 [ext_resource type="Script" path="res://scripts/UI/CourageBar.gd" id="13_mlp2c"]
 [ext_resource type="Shader" path="res://Shaders/visuals.gdshader" id="13_vyhij"]
 [ext_resource type="Script" path="res://scripts/Effects/Filter.gd" id="14_nbkpm"]
 [ext_resource type="Shader" path="res://Shaders/vignette.gdshader" id="16_qo4s6"]
 [ext_resource type="Script" path="res://scripts/Effects/Vignette.gd" id="17_vdpjq"]
 [ext_resource type="Shader" path="res://Shaders/DeathWorld.gdshader" id="19_osw28"]
+[ext_resource type="Texture2D" uid="uid://yewi762qi8cf" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDash.png" id="23_bekwp"]
 [ext_resource type="Script" path="res://scripts/areas/transition_zone.gd" id="30_3pwfg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tvim8"]
@@ -307,7 +307,7 @@ layout_mode = 2
 value = 10.0
 texture_under = ExtResource("10_njy5m")
 texture_over = ExtResource("11_u4uyq")
-texture_progress = ExtResource("12_iphf5")
+texture_progress = ExtResource("23_bekwp")
 script = ExtResource("13_mlp2c")
 metadata/_edit_use_anchors_ = true
 

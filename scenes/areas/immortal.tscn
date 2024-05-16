@@ -16,7 +16,7 @@
 [ext_resource type="Script" path="res://scripts/UI/HealthBar.gd" id="15_5jmfd"]
 [ext_resource type="Texture2D" uid="uid://dmt2k0glhayib" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarBackground.png" id="16_7uw82"]
 [ext_resource type="Texture2D" uid="uid://bsoabmxwhp1g1" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarOver.png" id="17_8iedu"]
-[ext_resource type="Texture2D" uid="uid://crph5w7ae5suv" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgress.png" id="18_vn52t"]
+[ext_resource type="Texture2D" uid="uid://yewi762qi8cf" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDash.png" id="17_p6n5j"]
 [ext_resource type="Script" path="res://scripts/UI/CourageBar.gd" id="19_2kd2d"]
 [ext_resource type="Shader" path="res://Shaders/BandW.gdshader" id="19_lgfrm"]
 
@@ -185,7 +185,7 @@ layout_mode = 2
 value = 10.0
 texture_under = ExtResource("16_7uw82")
 texture_over = ExtResource("17_8iedu")
-texture_progress = ExtResource("18_vn52t")
+texture_progress = ExtResource("17_p6n5j")
 script = ExtResource("19_2kd2d")
 metadata/_edit_use_anchors_ = true
 

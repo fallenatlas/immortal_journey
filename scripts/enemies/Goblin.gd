@@ -75,6 +75,8 @@ func death():
 	Utils.saveGame()
 	anim.play("Death")
 	deathSound.play()
+	self.velocity = Vector2(0,0)
+	get_node("CollisionShape2D").queue_free()
 	await anim.animation_finished
 	self.queue_free()
 	

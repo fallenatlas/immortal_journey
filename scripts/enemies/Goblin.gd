@@ -7,6 +7,7 @@ var normalAreaX
 var chase = false
 var attacking = false
 var dying = false
+@export var health : int = 2
 
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -63,10 +64,14 @@ func _physics_process(delta):
 	
 
 func death():
+	health -= 1
+	if (health > 0):
+		return
 	dying = true
 	chase = false
 	attacking = false
-	Game.courage += 8 * (1 - (Game.playerHP / Game.maxHP)) + 2
+	#Game.courage += 8 * (1 - (Game.playerHP / Game.maxHP)) + 2
+	Game.courage += 6 * (1 - (Game.playerHP / Game.maxHP)) + 4
 	Utils.saveGame()
 	anim.play("Death")
 	deathSound.play()

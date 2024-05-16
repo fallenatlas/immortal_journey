@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=45 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -29,6 +29,7 @@
 [ext_resource type="Shader" path="res://Shaders/vignette.gdshader" id="16_qo4s6"]
 [ext_resource type="Script" path="res://scripts/Effects/Vignette.gd" id="17_vdpjq"]
 [ext_resource type="Shader" path="res://Shaders/DeathWorld.gdshader" id="19_osw28"]
+[ext_resource type="Script" path="res://scripts/areas/transition_zone.gd" id="30_3pwfg"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tvim8"]
 shader = ExtResource("6_tihlm")
@@ -115,6 +116,9 @@ colors = PackedColorArray(0, 0, 0, 0, 1, 1, 1, 1)
 gradient = SubResource("Gradient_yot7o")
 width = 1152
 height = 648
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35r5o"]
+size = Vector2(30, 348)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_yrr7o")
@@ -382,7 +386,6 @@ step = 0.05
 value = 1.0
 
 [node name="Visual Effects" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Filter" type="ColorRect" parent="Visual Effects"]
 material = SubResource("ShaderMaterial_tan7j")
@@ -420,8 +423,56 @@ material = SubResource("ShaderMaterial_6wipb")
 position = Vector2(576, 324)
 texture = SubResource("GradientTexture2D_8hhqn")
 
+[node name="TransitionZone" type="Area2D" parent="."]
+position = Vector2(2223, -38)
+script = ExtResource("30_3pwfg")
+left_limit = 2150
+top_limit = -500
+right_limit = 10000000
+bottom_limit = 400
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionZone"]
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="TransitionZone2" type="Area2D" parent="."]
+position = Vector2(2189, -39)
+script = ExtResource("30_3pwfg")
+left_limit = -24
+top_limit = -500
+right_limit = 10000000
+bottom_limit = 300
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionZone2"]
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="TransitionZone3" type="Area2D" parent="."]
+position = Vector2(5507, -162)
+script = ExtResource("30_3pwfg")
+left_limit = 2150
+top_limit = -500
+right_limit = 10000000
+bottom_limit = 400
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionZone3"]
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="TransitionZone4" type="Area2D" parent="."]
+position = Vector2(5603, -163)
+script = ExtResource("30_3pwfg")
+left_limit = 5400
+top_limit = -350
+right_limit = 10000000
+bottom_limit = 550
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionZone4"]
+shape = SubResource("RectangleShape2D_35r5o")
+
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="UI" method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="UI" method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_ambient_sound_slider_value_changed"]
+[connection signal="body_entered" from="TransitionZone" to="TransitionZone" method="_on_body_entered"]
+[connection signal="body_entered" from="TransitionZone2" to="TransitionZone2" method="_on_body_entered"]
+[connection signal="body_entered" from="TransitionZone3" to="TransitionZone3" method="_on_body_entered"]
+[connection signal="body_entered" from="TransitionZone4" to="TransitionZone4" method="_on_body_entered"]

@@ -23,6 +23,7 @@ var dying = false
 @onready var normalSprite = $Sprite2D
 @onready var shadowSprite = $FlameAnimation
 @onready var deathSound = $DeathSound
+@onready var hitSound = $HitSound
 
 func _ready():
 	anim.play("Idle")
@@ -66,6 +67,7 @@ func _physics_process(delta):
 func death():
 	health -= 1
 	if (health > 0):
+		hitSound.play()
 		return
 	dying = true
 	chase = false

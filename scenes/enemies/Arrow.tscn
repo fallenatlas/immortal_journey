@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://6dh0m7s7oau7"]
+
+[ext_resource type="Script" path="res://scripts/enemies/Arrow.gd" id="1_4hieh"]
+[ext_resource type="Shader" path="res://Shaders/DarkenShader.gdshader" id="2_6dtrr"]
+[ext_resource type="Texture2D" uid="uid://b87m66ehjmeb7" path="res://Archer/Arrow.png" id="2_mg7eu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a6ck3"]
+shader = ExtResource("2_6dtrr")
+shader_parameter/other_color = Color(0, 0, 0, 1)
+shader_parameter/isOtherWorld = null
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xp1cf"]
+size = Vector2(26, 3)
+
+[node name="Arrow" type="CharacterBody2D"]
+collision_layer = 0
+collision_mask = 14
+script = ExtResource("1_4hieh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_a6ck3")
+texture = ExtResource("2_mg7eu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xp1cf")
+disabled = true
+
+[node name="ArrowHitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowHitbox"]
+shape = SubResource("RectangleShape2D_xp1cf")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="body_entered" from="ArrowHitbox" to="." method="_on_arrow_hitbox_body_entered"]
+[connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

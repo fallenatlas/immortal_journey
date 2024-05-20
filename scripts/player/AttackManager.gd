@@ -20,7 +20,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(attackArea.monitoring)
 	if (Game.playerDead or is_attacking()):
 		return
 		

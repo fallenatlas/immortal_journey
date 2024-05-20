@@ -79,7 +79,9 @@ func death():
 	chase = false
 	attacking = false
 	#Game.courage += 8 * (1 - (Game.playerHP / Game.maxHP)) + 2
-	Game.courage += 6 * (1 - (Game.playerHP / Game.maxHP)) + 4
+	#Game.courage += 6 * (1 - (Game.playerHP / Game.maxHP)) + 4
+	Game.courage = min(Game.courage + 6 * (1 - (Game.playerHP / Game.maxHP)) + 4, Game.maxCourage)
+	print(Game.courage)
 	Utils.saveGame()
 	anim.play("Death")
 	deathSound.play()

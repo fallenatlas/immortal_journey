@@ -2,4 +2,4 @@
 .godot/
 
 # Ignore savegame.bin
-savegame.bin
+.savegame.bin

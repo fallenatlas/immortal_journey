@@ -180,11 +180,13 @@ func _on_switch_world(normalWorld : bool):
 	
 	create_sound("Switch_world", self.global_transform.origin)
 	if (normalWorld):
+		Game.isDeathWorld = false
 		set_collision_mask_value(2, true)
 		set_collision_mask_value(4, true)
 		set_collision_mask_value(5, false)
 		set_collision_mask_value(7, false)
 	if (not normalWorld):
+		Game.isDeathWorld = true
 		set_collision_mask_value(2, false)
 		set_collision_mask_value(4, false)
 		set_collision_mask_value(5, true)

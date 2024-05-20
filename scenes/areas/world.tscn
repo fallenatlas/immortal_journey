@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=46 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -30,6 +30,7 @@
 [ext_resource type="Shader" path="res://Shaders/DeathWorld.gdshader" id="19_osw28"]
 [ext_resource type="Texture2D" uid="uid://yewi762qi8cf" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDash.png" id="23_bekwp"]
 [ext_resource type="Script" path="res://scripts/areas/transition_zone.gd" id="30_3pwfg"]
+[ext_resource type="PackedScene" uid="uid://bjkshqvbpmo58" path="res://scenes/enemies/Archer.tscn" id="31_24nbb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tvim8"]
 shader = ExtResource("6_tihlm")
@@ -213,6 +214,9 @@ position = Vector2(6730, 392)
 [node name="Goblin22" parent="Mobs" instance=ExtResource("5_l6xbp")]
 position = Vector2(6847, -117)
 
+[node name="Archer" parent="Mobs" instance=ExtResource("31_24nbb")]
+position = Vector2(523, 233)
+
 [node name="Sun Rays" type="Node2D" parent="."]
 
 [node name="Sun Rays" type="Sprite2D" parent="Sun Rays"]
@@ -386,6 +390,7 @@ step = 0.05
 value = 1.0
 
 [node name="Visual Effects" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Filter" type="ColorRect" parent="Visual Effects"]
 material = SubResource("ShaderMaterial_tan7j")

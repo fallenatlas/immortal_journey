@@ -3,9 +3,10 @@ extends Node
 var isImmortal : bool = false;
 var playerDead : bool = false
 var playerHP : float = 10.0
-#var courage : float = 50.0
 var isInvulnerable : bool = false
 var inSpikes : int = 0
+
+var isDeathWorld : bool = false
 
 var courage: float = 50.0 :
 	get:

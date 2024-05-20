@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://qdmg2e47i12b"]
+[gd_scene load_steps=28 format=3 uid="uid://qdmg2e47i12b"]
 
 [ext_resource type="Script" path="res://scripts/areas/immortal.gd" id="1_okoqj"]
 [ext_resource type="PackedScene" uid="uid://ccxfk82g8wye1" path="res://scenes/player/Player.tscn" id="2_mj4p6"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://yewi762qi8cf" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDash.png" id="17_p6n5j"]
 [ext_resource type="Script" path="res://scripts/UI/CourageBar.gd" id="19_2kd2d"]
 [ext_resource type="Shader" path="res://Shaders/BandW.gdshader" id="19_lgfrm"]
+[ext_resource type="PackedScene" uid="uid://bjkshqvbpmo58" path="res://scenes/enemies/Archer.tscn" id="20_kov66"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tvim8"]
 shader = ExtResource("6_3tcpf")
@@ -114,6 +115,9 @@ position = Vector2(2464, 205)
 
 [node name="Goblin8" parent="Mobs" instance=ExtResource("5_eknrh")]
 position = Vector2(2560, 351)
+
+[node name="Archer" parent="Mobs" instance=ExtResource("20_kov66")]
+position = Vector2(656, 354)
 
 [node name="Sun Rays" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

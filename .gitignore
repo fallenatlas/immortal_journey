@@ -1,2 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
+
+# Ignore savegame.bin
+savegame.bin

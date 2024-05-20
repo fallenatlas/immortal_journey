@@ -5,6 +5,9 @@ uniform float vignette_intensity = 0.4;
 uniform float vignette_opacity : hint_range(0.0, 1.0) = 0.5;
 uniform vec4 vignette_rgb;
 
+uniform float mappedHP = 1;
+uniform float time = 0;
+
 float vignette(vec2 uv){
 	uv *= 1.0 - uv.xy;
 	float vignette = uv.x * uv.y * 15.0;
@@ -17,7 +20,15 @@ void fragment(){
 	
 	text.rgba *= (vignette_rgb.rgba);
 	text.rgba *= (1.0 - vignette(UV));
+	float w;
 	
-	COLOR = vec4((text.rgb)*color.rgb,text.a);
+	if(mappedHP <= 0.5){
+		 w = 0.1 + sin(time) / 10.0;
+	}
+	else{
+		w = 0.0;
+	}
+	
+	COLOR = vec4((text.rgb)*color.rgb,w);
 }
 

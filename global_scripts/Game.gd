@@ -34,9 +34,10 @@ var minSat : float = 0.3
 var maxBri : float = 0
 var minBri : float = -0.4
 
-var redColor : Color = Color(30, 0, 0)
-var whiteColor : Color = Color(30, 30, 30)
+var redColor : Color = Color(255, 0, 0)
+var whiteColor : Color = Color(0, 0, 0)
 var blackColor : Color = Color(0, 0, 0)
+#var transparentRedColor : Color = Color(255, 0, 0, 0)
 
 
 func take_damage(damage_value : int, enemy : bool):

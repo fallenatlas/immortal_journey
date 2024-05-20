@@ -95,20 +95,11 @@ position = Vector2(-23, -141)
 [node name="Goblin" parent="Mobs" instance=ExtResource("5_eknrh")]
 position = Vector2(2031, 352)
 
-[node name="Goblin2" parent="Mobs" instance=ExtResource("5_eknrh")]
-position = Vector2(2137, 277)
-
-[node name="Goblin3" parent="Mobs" instance=ExtResource("5_eknrh")]
-position = Vector2(2187, 358)
-
 [node name="Goblin4" parent="Mobs" instance=ExtResource("5_eknrh")]
 position = Vector2(2244, 278)
 
 [node name="Goblin5" parent="Mobs" instance=ExtResource("5_eknrh")]
 position = Vector2(2322, 357)
-
-[node name="Goblin6" parent="Mobs" instance=ExtResource("5_eknrh")]
-position = Vector2(2405, 352)
 
 [node name="Goblin7" parent="Mobs" instance=ExtResource("5_eknrh")]
 position = Vector2(2464, 205)
@@ -117,7 +108,13 @@ position = Vector2(2464, 205)
 position = Vector2(2560, 351)
 
 [node name="Archer" parent="Mobs" instance=ExtResource("20_kov66")]
-position = Vector2(656, 354)
+position = Vector2(2159, 295)
+
+[node name="Archer2" parent="Mobs" instance=ExtResource("20_kov66")]
+position = Vector2(2539, 223)
+
+[node name="Archer3" parent="Mobs" instance=ExtResource("20_kov66")]
+position = Vector2(2457, 366)
 
 [node name="Sun Rays" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

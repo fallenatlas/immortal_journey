@@ -151,9 +151,6 @@ position = Vector2(7534, -39)
 [node name="Goblin" parent="Mobs" instance=ExtResource("5_l6xbp")]
 position = Vector2(415, 215)
 
-[node name="Goblin2" parent="Mobs" instance=ExtResource("5_l6xbp")]
-position = Vector2(591, 144)
-
 [node name="Goblin3" parent="Mobs" instance=ExtResource("5_l6xbp")]
 position = Vector2(793, 144)
 
@@ -162,9 +159,6 @@ position = Vector2(1759, 213)
 
 [node name="Goblin5" parent="Mobs" instance=ExtResource("5_l6xbp")]
 position = Vector2(1968, 215)
-
-[node name="Goblin6" parent="Mobs" instance=ExtResource("5_l6xbp")]
-position = Vector2(1863, 217)
 
 [node name="Goblin7" parent="Mobs" instance=ExtResource("5_l6xbp")]
 position = Vector2(2348, 286)
@@ -180,9 +174,6 @@ position = Vector2(2750, 281)
 
 [node name="Goblin11" parent="Mobs" instance=ExtResource("5_l6xbp")]
 position = Vector2(2952, 291)
-
-[node name="Goblin12" parent="Mobs" instance=ExtResource("5_l6xbp")]
-position = Vector2(3233, 89)
 
 [node name="Goblin13" parent="Mobs" instance=ExtResource("5_l6xbp")]
 position = Vector2(4483, 81)
@@ -215,7 +206,34 @@ position = Vector2(6730, 392)
 position = Vector2(6847, -117)
 
 [node name="Archer" parent="Mobs" instance=ExtResource("31_24nbb")]
-position = Vector2(523, 233)
+position = Vector2(614, 164)
+
+[node name="Archer2" parent="Mobs" instance=ExtResource("31_24nbb")]
+position = Vector2(1874, 232)
+
+[node name="Archer3" parent="Mobs" instance=ExtResource("31_24nbb")]
+position = Vector2(1799, 64)
+
+[node name="Archer4" parent="Mobs" instance=ExtResource("31_24nbb")]
+position = Vector2(2728, 161)
+
+[node name="Archer5" parent="Mobs" instance=ExtResource("31_24nbb")]
+position = Vector2(3246, 115)
+
+[node name="Archer6" parent="Mobs" instance=ExtResource("31_24nbb")]
+position = Vector2(5099, -28)
+
+[node name="Archer7" parent="Mobs" instance=ExtResource("31_24nbb")]
+position = Vector2(5635, 330)
+
+[node name="Archer8" parent="Mobs" instance=ExtResource("31_24nbb")]
+position = Vector2(5855, 284)
+
+[node name="Archer9" parent="Mobs" instance=ExtResource("31_24nbb")]
+position = Vector2(6168, 140)
+
+[node name="Archer10" parent="Mobs" instance=ExtResource("31_24nbb")]
+position = Vector2(6610, 162)
 
 [node name="Sun Rays" type="Node2D" parent="."]
 

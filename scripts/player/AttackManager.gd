@@ -20,6 +20,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(attackArea.monitoring)
 	if (Game.playerDead or is_attacking()):
 		return
 		
@@ -87,5 +88,5 @@ func _on_switch_world(normalWorld : bool):
 func _on_area_2d_body_entered(body):
 	if (Game.playerDead):
 		return
-	if body.get_groups().has("Enemy"):
+	if body.get_groups().has("Enemy") && attackArea.monitoring == true:
 		body.death()

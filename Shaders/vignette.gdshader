@@ -23,7 +23,7 @@ void fragment(){
 	float w;
 	
 	if(mappedHP <= 0.5){
-		 w = 0.1 + sin(time) / 10.0;
+		 w = (0.1 + sin(time) / 10.0) * (1.0 - mappedHP);
 	}
 	else{
 		w = 0.0;

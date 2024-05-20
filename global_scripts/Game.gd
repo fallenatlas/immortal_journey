@@ -23,7 +23,7 @@ var courage: float = 50.0 :
 var normalWorld : bool = true
 
 var maxHP : float = 10.0
-var minHP : float = 2.0
+var minHP : float = 0.0
 
 var maxCourage : float = 100.0
 var minCourage : float = 0.0
@@ -37,7 +37,7 @@ var minBri : float = -0.4
 var redColor : Color = Color(255, 0, 0)
 var whiteColor : Color = Color(0, 0, 0)
 var blackColor : Color = Color(0, 0, 0)
-#var transparentRedColor : Color = Color(255, 0, 0, 0)
+var softRedColor : Color = Color(100, 0, 0)
 
 
 func take_damage(damage_value : int, enemy : bool):

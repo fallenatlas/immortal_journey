@@ -32,14 +32,19 @@ func _ready():
 
 
 func _physics_process(delta):
-	#Gravity for frog
+	
+	if anim.current_animation == "Hit":
+		return
+		
+	#Gravity
 	velocity.y += gravity * delta
+	
 	if dying:
 		return
 		
 	if chase:
 		
-		if anim.current_animation != "Death" || anim.current_animation != "Attack":
+		if anim.current_animation != "Death" || anim.current_animation != "Attack" || anim.current_animation != "Hit":
 			anim.play("Run")
 		player = get_node("../../Player/Player")
 		var direction = (player.position - self.position).normalized()
@@ -53,12 +58,12 @@ func _physics_process(delta):
 		velocity.x = direction.x * SPEED
 		
 	elif attacking:
-		if anim.current_animation != "Death":
+		if anim.current_animation != "Death" || anim.current_animation != "Hit":
 			anim.play("Attack")
 			velocity.x = 0
 			
 	else:
-		if anim.current_animation != "Death" || anim.current_animation != "Attack":
+		if anim.current_animation != "Death" || anim.current_animation != "Attack" || anim.current_animation != "Hit":
 			anim.play("Idle")
 		velocity.x = 0
 	move_and_slide()
@@ -68,6 +73,7 @@ func death():
 	health -= 1
 	if (health > 0):
 		hitSound.play()
+		anim.play("Hit")
 		return
 	dying = true
 	chase = false

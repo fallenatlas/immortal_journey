@@ -114,5 +114,4 @@ mouse_filter = 2
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
-text = "tres tristes tigres"
 label_settings = SubResource("LabelSettings_c2w1l")

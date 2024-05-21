@@ -242,11 +242,12 @@ func _on_player_damage(enemy : bool):
 		return
 		
 	create_sound("Damage")
-	if (Game.playerHP < 5):
+	if (Game.playerHP <= 5):
 		if (!breathingSound.playing):
 			breathingSound.play()
-	if (Game.playerHP < 2 and !heartbeatSound.playing):
-		heartbeatSound.play()
+		if (!heartbeatSound.playing):
+			heartbeatSound.play()
+		heartbeatSound.volume_db = linear_to_db(1 - Game.playerHP/6);
 	if (Game.playerHP <= 0):
 		create_sound("Death")
 		dying = true

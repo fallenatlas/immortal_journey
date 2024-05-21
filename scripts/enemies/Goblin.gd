@@ -24,6 +24,7 @@ var dying = false
 @onready var shadowSprite = $FlameAnimation
 @onready var deathSound = $DeathSound
 @onready var hitSound = $HitSound
+@onready var attackSound = $AttackSound
 
 func _ready():
 	anim.play("Idle")

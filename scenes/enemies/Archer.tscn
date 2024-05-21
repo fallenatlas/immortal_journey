@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://bjkshqvbpmo58"]
+[gd_scene load_steps=80 format=3 uid="uid://brf46bpe4145w"]
 
 [ext_resource type="Script" path="res://scripts/enemies/Archer.gd" id="1_04mn7"]
 [ext_resource type="Texture2D" uid="uid://btjnoglhjtgxg" path="res://Archer/spr_ArcherIdle_strip_NoBkg.png" id="1_a76la"]

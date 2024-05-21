@@ -30,7 +30,7 @@
 [ext_resource type="Shader" path="res://Shaders/DeathWorld.gdshader" id="19_osw28"]
 [ext_resource type="Texture2D" uid="uid://yewi762qi8cf" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDash.png" id="23_bekwp"]
 [ext_resource type="Script" path="res://scripts/areas/transition_zone.gd" id="30_3pwfg"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/Archer.tscn" id="31_24nbb"]
+[ext_resource type="PackedScene" uid="uid://brf46bpe4145w" path="res://scenes/enemies/Archer.tscn" id="31_24nbb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tvim8"]
 shader = ExtResource("6_tihlm")
@@ -494,8 +494,8 @@ shape = SubResource("RectangleShape2D_35r5o")
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="UI" method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="UI" method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
-[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_ambient_sound_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_ambient_sound_slider_value_changed"]
 [connection signal="body_entered" from="TransitionZone" to="TransitionZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone2" to="TransitionZone2" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone3" to="TransitionZone3" method="_on_body_entered"]

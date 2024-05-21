@@ -33,7 +33,7 @@ func _physics_process(delta):
 
 func _on_arrow_hitbox_body_entered(body):
 	if body.name == "Player":
-		Game.take_damage(2, true)
+		Game.take_damage(1, true)
 		queue_free()
 
 

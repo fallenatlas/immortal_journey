@@ -18,6 +18,7 @@ func _on_switch_world(normalWorld : bool):
 		courage_ticks.stop()
 		#reset time?
 	elif (not normalWorld):
+		Game.courage -= courage_loss
 		courage_ticks.start()
 
 func _on_courage_tick():

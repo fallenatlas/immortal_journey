@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://6dh0m7s7oau7"]
+[gd_scene load_steps=6 format=3 uid="uid://cp27fsyhuw14r"]
 
 [ext_resource type="Script" path="res://scripts/enemies/Arrow.gd" id="1_4hieh"]
 [ext_resource type="Shader" path="res://Shaders/DarkenShader.gdshader" id="2_6dtrr"]

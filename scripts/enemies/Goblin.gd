@@ -7,7 +7,7 @@ var normalAreaX
 var chase = false
 var attacking = false
 var dying = false
-@export var health : int = 2
+@export var health : int = 3
 
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite2D

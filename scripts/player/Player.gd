@@ -27,7 +27,6 @@ const MIN_COURAGE_DASH = 65
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed
-var can_move = true
 var time = 0
 var damageTime = 0
 var dashDirectionX = directionDash.nothing
@@ -71,7 +70,7 @@ func _physics_process(delta):
 		get_node("Sprite2D").flip_h = false
 		AttackManager.flip_horizontal(false)
 	
-	if(!can_move):
+	if(!Game.playerCanMove):
 		anim.play("Idle")
 		return
 		

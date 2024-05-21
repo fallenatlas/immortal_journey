@@ -8,6 +8,8 @@ var inSpikes : int = 0
 
 var isDeathWorld : bool = false
 
+var playerCanMove = true
+
 var courage: float = 50.0 :
 	get:
 		return courage

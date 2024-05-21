@@ -9,7 +9,7 @@
 [ext_resource type="Shader" path="res://Shaders/SunRays.gdshader" id="6_3tcpf"]
 [ext_resource type="Script" path="res://scripts/areas/SunRays.gd" id="7_q15wt"]
 [ext_resource type="TileSet" uid="uid://dps0u5bt40qry" path="res://assets/tilesets/default_ground.tres" id="8_7mcxm"]
-[ext_resource type="PackedScene" uid="uid://cp3ux2qv3qq7e" path="res://scenes/backgrounds/normal_world_background.tscn" id="9_62ycs"]
+[ext_resource type="PackedScene" path="res://scenes/backgrounds/normal_world_background.tscn" id="9_62ycs"]
 [ext_resource type="Texture2D" uid="uid://dxkoas3gsequ5" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarBackground.png" id="12_s8gtw"]
 [ext_resource type="Texture2D" uid="uid://d0f4pnyc78ve0" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarOver.png" id="13_flv24"]
 [ext_resource type="Texture2D" uid="uid://bpp43rcycbo2f" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png" id="14_ypugr"]

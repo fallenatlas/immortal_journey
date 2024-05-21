@@ -13,7 +13,7 @@ func _process(delta):
 	time += delta
 	#if time > 1:
 		#time = 0
-	print(sin(time))
+	#print(sin(time))
 
 	var mappedHP = remap(Game.playerHP, Game.minHP, Game.maxHP, 0, 1)
 	var mappedHalfHP = remap(Game.playerHP, Game.minHP, Game.maxHP/2, 0, 1)

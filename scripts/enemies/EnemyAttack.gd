@@ -5,4 +5,4 @@ func _ready():
 	
 func _on_body_entered(body):
 	if body.name == "Player":
-		Game.take_damage(3, true)
+		Game.take_damage(2, true)

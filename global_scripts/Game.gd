@@ -29,7 +29,7 @@ var maxCourage : float = 100.0
 var minCourage : float = 0.0
 
 var maxSat : float = 1.2
-var minSat : float = 0.3
+var minSat : float = 0.1
 
 var maxBri : float = 0
 var minBri : float = -0.4

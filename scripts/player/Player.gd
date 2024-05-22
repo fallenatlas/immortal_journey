@@ -69,14 +69,16 @@ func _physics_process(delta):
 	elif direction > 0:
 		get_node("Sprite2D").flip_h = false
 		AttackManager.flip_horizontal(false)
-	
-	if(!Game.playerCanMove):
-		anim.play("Idle")
-		return
 		
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
+		
+	if(!Game.playerCanMove):
+		anim.play("Idle")
+		velocity.x = 0
+		move_and_slide()
+		return
 
 	#Handle Dash
 	if Input.is_action_just_pressed("dash") && Dash.is_cooldown() && Game.courage >= MIN_COURAGE_DASH:

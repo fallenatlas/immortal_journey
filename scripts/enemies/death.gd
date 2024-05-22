@@ -13,8 +13,17 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var attack3Timer = $Attack3Timer
 
+@onready var hitColldown = $HitCooldown
+
+@onready var hitSound = $HitSound
+@onready var attackSound = $AttackSound
+
+var health = 100
+
 var main
 var player
+
+var time = 0
 
 var normalAreaX
 var normalJumpAttackDetectionAreaX
@@ -41,6 +50,13 @@ func _ready():
 	directions.append(Vector2(1, 1))
 
 func _physics_process(delta):
+	
+	time += delta * 2
+	if(time > 1):
+		time = 0
+			
+	if !hitColldown.is_stopped():
+		sprite.material.set_shader_parameter("time", time)
 	
 	var direction = (player.position - self.position)
 	#For some reason, it's not 0
@@ -94,3 +110,19 @@ func _on_attack_3_timer_timeout():
 			attack3Couter = 0
 			return
 	shoot_2()
+
+
+func death():
+	health -= 1
+	if (health > 0):
+		hitSound.play()
+		hitColldown.start()
+		Game.courage = min(Game.courage + 2 * (1 - (Game.playerHP / Game.maxHP)) + 4, Game.maxCourage)
+		return
+	Utils.saveGame()
+	
+	#Die?
+
+
+func _on_hit_cooldown_timeout():
+	sprite.material.set_shader_parameter("time", 0.0)

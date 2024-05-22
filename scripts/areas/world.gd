@@ -20,7 +20,7 @@ func _ready():
 	deathWorldAmbientSound.stop()
 
 func _process(delta):
-	if Input.is_action_just_pressed("swith_world") and not Game.playerDead:
+	if Input.is_action_just_pressed("swith_world") and not Game.playerDead and Game.canChangeWorlds:
 		#still a bit bugy but overall well
 		#thing about having some indication of how the other world is
 		var map : TileMap

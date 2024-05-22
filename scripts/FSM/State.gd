@@ -7,6 +7,7 @@ class_name State
 
 @onready var rangedAttackDetection = $"../../RangedAttackDetectionArea"
 @onready var attackDetection = $"../../AttackDetectionArea"
+@onready var jumpAttackDetection = $"../../JumpAttackDetectionArea"
 
 @onready var attackCooldown = $"../../AttackCooldown"
 

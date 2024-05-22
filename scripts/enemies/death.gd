@@ -8,28 +8,50 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var sprite = $Sprite2D
 @onready var attackDetectionShape = $AttackDetectionArea/CollisionShape2D
+@onready var jumpAttackDetectionShape = $JumpAttackDetectionArea/CollisionShape2D
 @onready var magicProjectile = load("res://scenes/enemies/MagicProjectile.tscn")
+
+@onready var attack3Timer = $Attack3Timer
 
 var main
 var player
 
 var normalAreaX
+var normalJumpAttackDetectionAreaX
+
+var direction_index = 0
+var attack3Couter = 0
+var directions : PackedVector2Array
 
 func _ready():
 	main = $"../.."
 	player = get_node("../../Player/Player")
 	
 	normalAreaX = attackDetectionShape.position.x
+	normalJumpAttackDetectionAreaX = jumpAttackDetectionShape.position.x
+	
+	#Attack3 directions
+	directions.append(Vector2(1, 0))
+	directions.append(Vector2(1, -1))
+	directions.append(Vector2(0, -1))
+	directions.append(Vector2(-1, -1))
+	directions.append(Vector2(-1, 0))
+	directions.append(Vector2(-1, 1))
+	directions.append(Vector2(0, 1))
+	directions.append(Vector2(1, 1))
 
 func _physics_process(delta):
 	
-	var direction = (player.position - self.position).normalized()
-	if direction.x < 0:
+	var direction = (player.position - self.position)
+	#For some reason, it's not 0
+	if direction.x < -10:
 		sprite.flip_h = true
 		attackDetectionShape.position.x = - normalAreaX
+		jumpAttackDetectionShape.position.x = - normalJumpAttackDetectionAreaX
 	else:
 		sprite.flip_h = false
 		attackDetectionShape.position.x = normalAreaX
+		jumpAttackDetectionShape.position.x = normalJumpAttackDetectionAreaX
 		
 	# Add the gravity.
 	if not is_on_floor():
@@ -41,7 +63,7 @@ func _physics_process(delta):
 func shoot():
 	var instance = magicProjectile.instantiate()
 	var playerPos = get_node("../../Player/Player").global_position
-	instance.direction = Vector2(playerPos.x, playerPos.y + 10) - global_position
+	instance.direction = Vector2(playerPos.x, playerPos.y + 5) - global_position
 	
 	#Right
 	if(sprite.flip_h == false):
@@ -51,3 +73,24 @@ func shoot():
 		instance.spawnPosition = Vector2(global_position.x - 15, global_position.y - 8)
 	
 	main.add_child.call_deferred(instance)
+	
+func shoot_2():
+
+	var instance = magicProjectile.instantiate()
+	instance.direction = directions[direction_index]
+	#print(instance.direction)
+	instance.spawnPosition = global_position
+	
+	main.add_child.call_deferred(instance)
+	attack3Timer.start()
+
+
+func _on_attack_3_timer_timeout():
+	direction_index += 1
+	if(direction_index > 7 or direction_index < 0):
+		direction_index = 0
+		attack3Couter += 1
+		if attack3Couter > 1:
+			attack3Couter = 0
+			return
+	shoot_2()

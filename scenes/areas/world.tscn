@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://dxkoas3gsequ5" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarBackground.png" id="7_wofer"]
 [ext_resource type="AudioStream" uid="uid://lqe2m5cvxw68" path="res://Audio/Music/nature_sounds.mp3" id="8_5q1t0"]
 [ext_resource type="Texture2D" uid="uid://bpp43rcycbo2f" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png" id="8_hd7s3"]
+[ext_resource type="PackedScene" uid="uid://cdy5j5rwok7k3" path="res://scenes/enemies/death.tscn" id="9_v2ifr"]
 [ext_resource type="PackedScene" uid="uid://bwnicq6jge87k" path="res://scenes/utils/bonfire.tscn" id="9_vvljq"]
 [ext_resource type="Script" path="res://scenes/areas/UI.gd" id="10_bqp10"]
 [ext_resource type="Texture2D" uid="uid://dmt2k0glhayib" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarBackground.png" id="10_njy5m"]
@@ -237,6 +238,9 @@ position = Vector2(6168, 140)
 
 [node name="Archer10" parent="Mobs" instance=ExtResource("31_24nbb")]
 position = Vector2(6610, 162)
+
+[node name="Death" parent="Mobs" instance=ExtResource("9_v2ifr")]
+position = Vector2(500, 227)
 
 [node name="Bonfires" type="Node2D" parent="."]
 
@@ -500,8 +504,8 @@ shape = SubResource("RectangleShape2D_35r5o")
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="UI" method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="UI" method="_on_sfx_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
-[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_ambient_sound_slider_value_changed"]
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_ambient_sound_slider_value_changed"]
 [connection signal="body_entered" from="TransitionZone" to="TransitionZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone2" to="TransitionZone2" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone3" to="TransitionZone3" method="_on_body_entered"]

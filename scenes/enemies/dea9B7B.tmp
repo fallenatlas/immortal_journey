@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://cdy5j5rwok7k3"]
+[gd_scene load_steps=23 format=3 uid="uid://cdy5j5rwok7k3"]
 
 [ext_resource type="Script" path="res://scripts/enemies/death.gd" id="1_giwt4"]
 [ext_resource type="Script" path="res://scripts/FSM/state_idle.gd" id="1_kjjb1"]
@@ -9,12 +9,8 @@
 [ext_resource type="Script" path="res://scripts/FSM/FiniteStateMachine.gd" id="5_q5scc"]
 [ext_resource type="Texture2D" uid="uid://dwm1cvttoipi5" path="res://Necromancer/Necromancer/Attack/spr_NecromancerAttackWithEffect_strip47.png" id="6_3fjhd"]
 [ext_resource type="Script" path="res://scripts/FSM/state_attack1.gd" id="7_05ncu"]
-[ext_resource type="Texture2D" uid="uid://bm3a473mlqft0" path="res://Necromancer/Necromancer/Jump/spr_NecromancerIdle_strip50.png" id="7_x7dr4"]
 [ext_resource type="Script" path="res://scripts/FSM/state_attack2.gd" id="8_kyv61"]
 [ext_resource type="Script" path="res://scripts/FSM/state_attack3.gd" id="11_rb1us"]
-[ext_resource type="Script" path="res://scripts/enemies/Attack2AreaDeath.gd" id="12_ulndc"]
-[ext_resource type="Script" path="res://scripts/FSM/state_jump_attack.gd" id="13_yjldm"]
-[ext_resource type="Script" path="res://scripts/enemies/jumpAttackAreaDeath.gd" id="15_i8gxg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0fsv"]
 size = Vector2(20, 34)
@@ -312,54 +308,6 @@ tracks/6/keys = {
 "update": 1,
 "values": [true]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("JumpAttackArea/CollisionShape2D:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(19.5, -10.5)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("JumpAttackArea/CollisionShape2D:shape:size")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(25, 13)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("JumpAttackArea:monitoring")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("JumpAttackArea/CollisionShape2D:rotation")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.771964]
-}
 
 [sub_resource type="Animation" id="Animation_blmhx"]
 resource_name = "Run"
@@ -479,130 +427,12 @@ tracks/4/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_nfgy5"]
-resource_name = "JumpAttack"
-length = 1.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("7_x7dr4")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [12]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:vframes")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:frame")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("JumpAttackArea/CollisionShape2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(19.5, -10.5), Vector2(20, -13), Vector2(19, -14), Vector2(13, -18)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("JumpAttackArea/CollisionShape2D:shape:size")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(25, 13), Vector2(25, 13), Vector2(25, 13), Vector2(25, 13)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("JumpAttackArea:monitoring")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("JumpAttackArea/CollisionShape2D:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0.0, -0.771964]
-}
-tracks/8/type = "method"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("FSM/JumpAttack")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0.1, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [],
-"method": &"enableIsJumping"
-}, {
-"args": [],
-"method": &"disableIsJumping"
-}]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ycetb"]
 _data = {
 "Attack1": SubResource("Animation_mbbpa"),
 "Attack2": SubResource("Animation_wten4"),
 "Attack3": SubResource("Animation_yixlg"),
 "Idle": SubResource("Animation_64sw7"),
-"JumpAttack": SubResource("Animation_nfgy5"),
 "RESET": SubResource("Animation_w65gw"),
 "Run": SubResource("Animation_blmhx")
 }
@@ -613,14 +443,8 @@ size = Vector2(43, 48)
 [sub_resource type="CircleShape2D" id="CircleShape2D_h55iq"]
 radius = 527.015
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ao2id"]
-size = Vector2(55, 48)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkqnl"]
 size = Vector2(10, 7)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k13ir"]
-size = Vector2(25, 13)
 
 [node name="Death" type="CharacterBody2D"]
 collision_layer = 8
@@ -657,9 +481,6 @@ script = ExtResource("8_kyv61")
 [node name="Attack3" type="Node" parent="FSM"]
 script = ExtResource("11_rb1us")
 
-[node name="JumpAttack" type="Node" parent="FSM"]
-script = ExtResource("13_yjldm")
-
 [node name="AttackDetectionArea" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 4
@@ -676,39 +497,15 @@ collision_mask = 4
 position = Vector2(-3, -3)
 shape = SubResource("CircleShape2D_h55iq")
 
-[node name="JumpAttackDetectionArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpAttackDetectionArea"]
-position = Vector2(78.5, -8)
-shape = SubResource("RectangleShape2D_ao2id")
-
 [node name="Attack2Area" type="Area2D" parent="."]
-script = ExtResource("12_ulndc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack2Area"]
 position = Vector2(32, 11.5)
 shape = SubResource("RectangleShape2D_fkqnl")
 
-[node name="JumpAttackArea" type="Area2D" parent="."]
-script = ExtResource("15_i8gxg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpAttackArea"]
-position = Vector2(19.5, -10.5)
-rotation = -0.771964
-shape = SubResource("RectangleShape2D_k13ir")
-
 [node name="AttackCooldown" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 
-[node name="Attack3Timer" type="Timer" parent="."]
-wait_time = 0.09
-one_shot = true
-
 [connection signal="animation_finished" from="AnimationPlayer" to="FSM/Attack1" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="FSM/Attack2" method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="AnimationPlayer" to="FSM/Attack3" method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="AnimationPlayer" to="FSM/JumpAttack" method="_on_animation_player_animation_finished"]
-[connection signal="body_entered" from="Attack2Area" to="Attack2Area" method="_on_body_entered"]
-[connection signal="body_entered" from="JumpAttackArea" to="JumpAttackArea" method="_on_body_entered"]
-[connection signal="timeout" from="Attack3Timer" to="." method="_on_attack_3_timer_timeout"]

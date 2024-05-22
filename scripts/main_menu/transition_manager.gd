@@ -13,6 +13,7 @@ func fade_to_scene(sceneName : String):
 	label.text = text[sceneName][0]
 	scene_transition = sceneName
 	Game.playerCanMove = false
+	Game.canChangeWorlds = false
 	
 func change_scene():
 	match scene_transition:
@@ -26,12 +27,17 @@ func change_scene():
 	
 func change_to_immortal_scene():
 	get_tree().change_scene_to_file("res://scenes/areas/immortal.tscn")
-	Game.playerCanMove = true
+	enable_actions()
 	
 func change_to_level1_scene():
 	get_tree().change_scene_to_file("res://scenes/areas/world.tscn")
-	Game.playerCanMove = true
+	enable_actions()
 
 func rest_bonfire_1():
 	Game.playerHP = Game.maxHP
+	enable_actions()
+	
+
+func enable_actions():
 	Game.playerCanMove = true
+	Game.canChangeWorlds = true

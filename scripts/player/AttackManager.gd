@@ -23,14 +23,14 @@ func _process(delta):
 	if (Game.playerDead or is_attacking()):
 		return
 		
-	if (Input.is_action_just_pressed("strike") and can_attack()):
+	if (Input.is_action_just_pressed("strike") and can_attack() and Game.playerCanMove):
 		anim.play("Attack_1")
 		get_parent().create_sound("Attack")
 		attack_1 = true
 		#readyUpTimer.start()
 		#attack_enemies_in_range()
 		
-	if (Input.is_action_just_pressed("strike") and not innerTimer.is_stopped()):
+	if (Input.is_action_just_pressed("strike") and not innerTimer.is_stopped() and Game.playerCanMove):
 		outerTimer.stop()
 		anim.play("Attack_2")
 		get_parent().create_sound("Attack")

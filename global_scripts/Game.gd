@@ -10,6 +10,8 @@ var isDeathWorld : bool = false
 
 var playerCanMove = true
 
+var canChangeWorlds = true
+
 var courage: float = 50.0 :
 	get:
 		return courage

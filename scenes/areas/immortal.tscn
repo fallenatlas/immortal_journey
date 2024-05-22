@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://ee7q2r8vqefi"]
+[gd_scene load_steps=29 format=3 uid="uid://ee7q2r8vqefi"]
 
 [ext_resource type="Script" path="res://scripts/areas/immortal.gd" id="1_okoqj"]
 [ext_resource type="PackedScene" uid="uid://ccxfk82g8wye1" path="res://scenes/player/Player.tscn" id="2_mj4p6"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://or5j0ao207xe" path="res://scenes/enemies/Goblin.tscn" id="5_eknrh"]
 [ext_resource type="Shader" path="res://Shaders/SunRays.gdshader" id="6_3tcpf"]
 [ext_resource type="Script" path="res://scripts/areas/SunRays.gd" id="7_q15wt"]
+[ext_resource type="PackedScene" uid="uid://cdy5j5rwok7k3" path="res://scenes/enemies/death.tscn" id="8_0lm6m"]
 [ext_resource type="TileSet" uid="uid://dps0u5bt40qry" path="res://assets/tilesets/default_ground.tres" id="8_7mcxm"]
 [ext_resource type="PackedScene" uid="uid://cp3ux2qv3qq7e" path="res://scenes/backgrounds/normal_world_background.tscn" id="9_62ycs"]
 [ext_resource type="Texture2D" uid="uid://dxkoas3gsequ5" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarBackground.png" id="12_s8gtw"]
@@ -19,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://yewi762qi8cf" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDash.png" id="17_p6n5j"]
 [ext_resource type="Script" path="res://scripts/UI/CourageBar.gd" id="19_2kd2d"]
 [ext_resource type="Shader" path="res://Shaders/BandW.gdshader" id="19_lgfrm"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/Archer.tscn" id="20_kov66"]
+[ext_resource type="PackedScene" uid="uid://brf46bpe4145w" path="res://scenes/enemies/Archer.tscn" id="20_kov66"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tvim8"]
 shader = ExtResource("6_3tcpf")
@@ -115,6 +116,9 @@ position = Vector2(2539, 223)
 
 [node name="Archer3" parent="Mobs" instance=ExtResource("20_kov66")]
 position = Vector2(2457, 366)
+
+[node name="Death" parent="Mobs" instance=ExtResource("8_0lm6m")]
+position = Vector2(485, 347)
 
 [node name="Sun Rays" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

@@ -7,7 +7,7 @@ var spawnPosition : Vector2
 @onready var sprite = $Sprite2D
 @onready var coll = $CollisionShape2D
 @onready var despawnTimer = $DespawnTimer
-@onready var arrowHitbox = $ArrowHitbox
+@onready var arrowHitbox = $MagicHitbox
 
 func _ready():
 	global_position = spawnPosition
@@ -31,12 +31,14 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _on_arrow_hitbox_body_entered(body):
+func _on_magic_hitbox_body_entered(body):
 	if body.name == "Player":
-		Game.take_damage(1, true)
+		Game.take_damage(2, true)
 		queue_free()
 
 
 func _on_despawn_timer_timeout():
 	queue_free()
+
+
 

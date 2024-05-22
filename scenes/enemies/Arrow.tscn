@@ -13,7 +13,7 @@ shader_parameter/isOtherWorld = null
 size = Vector2(26, 3)
 
 [node name="Arrow" type="CharacterBody2D"]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 14
 script = ExtResource("1_4hieh")
 

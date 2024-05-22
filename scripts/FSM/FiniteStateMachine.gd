@@ -2,8 +2,6 @@ extends Node
 class_name FiniteStateMachine
 
 
-
-
 var states : Dictionary = {}
 var current_state : State
 @export var initial_state : State

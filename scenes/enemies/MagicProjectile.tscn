@@ -1,25 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bi3bprqnlw3dn"]
+[gd_scene load_steps=5 format=3 uid="uid://bi3bprqnlw3dn"]
 
-[ext_resource type="Script" path="res://scripts/enemies/Arrow.gd" id="1_5vavj"]
-[ext_resource type="Shader" path="res://Shaders/DarkenShader.gdshader" id="2_lvlk7"]
-[ext_resource type="Texture2D" uid="uid://cd52y7faqfxf5" path="res://Necromancer/Necromancer/Attack/MagicProjectile.png" id="3_lbdli"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_a6ck3"]
-shader = ExtResource("2_lvlk7")
-shader_parameter/other_color = Color(0, 0, 0, 1)
-shader_parameter/isOtherWorld = null
+[ext_resource type="Script" path="res://scripts/enemies/MagicProjectile.gd" id="1_7p7x6"]
+[ext_resource type="Texture2D" uid="uid://dlgh61y023y2f" path="res://Necromancer/Necromancer/Attack/MagicBall.png" id="3_nfdoj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp1cf"]
 size = Vector2(41, 6)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_w6yud"]
+radius = 8.0
+
 [node name="MagicProjectile" type="CharacterBody2D"]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 14
-script = ExtResource("1_5vavj")
+script = ExtResource("1_7p7x6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_a6ck3")
-texture = ExtResource("3_lbdli")
+texture = ExtResource("3_nfdoj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 0)
@@ -31,11 +27,10 @@ collision_layer = 8
 collision_mask = 14
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MagicHitbox"]
-position = Vector2(7.5, 0)
-shape = SubResource("RectangleShape2D_xp1cf")
+shape = SubResource("CircleShape2D_w6yud")
 
 [node name="DespawnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 5.0
 
 [connection signal="body_entered" from="MagicHitbox" to="." method="_on_magic_hitbox_body_entered"]
 [connection signal="timeout" from="DespawnTimer" to="." method="_on_despawn_timer_timeout"]

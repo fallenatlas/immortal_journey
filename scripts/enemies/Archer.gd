@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var health : int = 2
+@export var knockbackSpeed = 1
 
 var attacking = false
 var dying = false
@@ -46,6 +47,10 @@ func _ready():
 
 func _physics_process(delta):
 	if anim.current_animation == "Hit":
+		if sprite.flip_h == true:
+			position.x += knockbackSpeed
+		else:
+			position.x -= knockbackSpeed
 		sprite.offset.x = original_offset
 		return
 	#Gravity for frog

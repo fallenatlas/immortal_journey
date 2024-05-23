@@ -7,7 +7,9 @@ var normalAreaX
 var chase = false
 var attacking = false
 var dying = false
+
 @export var health : int = 3
+@export var knockbackSpeed = 1
 
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -35,6 +37,10 @@ func _ready():
 func _physics_process(delta):
 	
 	if anim.current_animation == "Hit":
+		if sprite.flip_h == true:
+			position.x += knockbackSpeed
+		else:
+			position.x -= knockbackSpeed
 		return
 		
 	#Gravity

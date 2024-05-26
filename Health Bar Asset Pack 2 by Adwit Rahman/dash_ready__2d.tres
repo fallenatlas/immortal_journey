@@ -1,0 +1,8 @@
+[gd_resource type="GradientTexture2D" load_steps=2 format=3 uid="uid://ovraeggstm30"]
+
+[sub_resource type="Gradient" id="Gradient_obnpv"]
+colors = PackedColorArray(0.423446, 0.750318, 1, 1, 0.423529, 0.74902, 1, 1)
+
+[resource]
+gradient = SubResource("Gradient_obnpv")
+height = 12

@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=52 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -31,8 +31,14 @@
 [ext_resource type="Script" path="res://scripts/Effects/Vignette.gd" id="17_vdpjq"]
 [ext_resource type="Shader" path="res://Shaders/DeathWorld.gdshader" id="19_osw28"]
 [ext_resource type="Texture2D" uid="uid://yewi762qi8cf" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDash.png" id="23_bekwp"]
+[ext_resource type="Texture2D" uid="uid://donp11afg772s" path="res://Health Bar Asset Pack 2 by Adwit Rahman/sword_progress_2d.tres" id="26_2m3bh"]
+[ext_resource type="Script" path="res://scripts/UI/sword_usage.gd" id="26_nwhgo"]
+[ext_resource type="Texture2D" uid="uid://bq76lakhfjx8u" path="res://assets/ui/Exotic Swords.png" id="27_g8ed2"]
+[ext_resource type="Texture2D" uid="uid://dlw2mgo0dm4kh" path="res://assets/ui/kisspng-brand-line-logo-number-technology-sprite-arrow-5b3ee609de7cb2.3924113515308487779113.png" id="29_egjpm"]
+[ext_resource type="Script" path="res://scripts/UI/dash_usage.gd" id="29_la1ii"]
 [ext_resource type="Script" path="res://scripts/areas/transition_zone.gd" id="30_3pwfg"]
-[ext_resource type="PackedScene" uid="uid://brf46bpe4145w" path="res://scenes/enemies/Archer.tscn" id="31_24nbb"]
+[ext_resource type="PackedScene" uid="uid://divld6ojphq1c" path="res://scenes/enemies/Archer.tscn" id="31_24nbb"]
+[ext_resource type="Texture2D" uid="uid://ovraeggstm30" path="res://Health Bar Asset Pack 2 by Adwit Rahman/dash_ready__2d.tres" id="31_uyyfy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tvim8"]
 shader = ExtResource("6_tihlm")
@@ -304,6 +310,95 @@ texture_over = ExtResource("11_u4uyq")
 texture_progress = ExtResource("23_bekwp")
 script = ExtResource("13_mlp2c")
 metadata/_edit_use_anchors_ = true
+
+[node name="SwordUsage" type="HBoxContainer" parent="UI"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 31.0
+offset_top = -50.0
+offset_right = 228.0
+offset_bottom = -26.0
+grow_vertical = 0
+alignment = 2
+script = ExtResource("26_nwhgo")
+
+[node name="TextureRect" type="TextureRect" parent="UI/SwordUsage"]
+layout_mode = 2
+texture = ExtResource("27_g8ed2")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/SwordUsage"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 10
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/SwordUsage/MarginContainer"]
+layout_mode = 2
+max_value = 0.5
+step = 0.01
+value = 0.5
+texture_progress = ExtResource("26_2m3bh")
+
+[node name="MarginContainer2" type="MarginContainer" parent="UI/SwordUsage"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 10
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="UI/SwordUsage/MarginContainer2"]
+layout_mode = 2
+max_value = 0.5
+step = 0.01
+value = 0.5
+texture_progress = ExtResource("26_2m3bh")
+
+[node name="MarginContainer3" type="MarginContainer" parent="UI/SwordUsage"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 10
+
+[node name="TextureProgressBar3" type="TextureProgressBar" parent="UI/SwordUsage/MarginContainer3"]
+layout_mode = 2
+max_value = 0.5
+step = 0.01
+value = 0.5
+texture_progress = ExtResource("26_2m3bh")
+
+[node name="DashUsage" type="HBoxContainer" parent="UI"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -55.0
+offset_right = -23.0
+offset_bottom = -19.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("29_la1ii")
+
+[node name="TextureRect" type="TextureRect" parent="UI/DashUsage"]
+layout_mode = 2
+texture = ExtResource("29_egjpm")
+expand_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/DashUsage"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 10
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="UI/DashUsage/MarginContainer"]
+layout_mode = 2
+max_value = 2.0
+step = 0.01
+value = 2.0
+texture_progress = ExtResource("31_uyyfy")
 
 [node name="Menu" type="Control" parent="UI"]
 unique_name_in_owner = true

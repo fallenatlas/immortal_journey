@@ -68,7 +68,7 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="UI/VSplitContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 10
+theme_override_constants/margin_bottom = 0
 
 [node name="Play" type="Button" parent="UI/VSplitContainer/VBoxContainer/MarginContainer"]
 custom_minimum_size = Vector2(200, 50)
@@ -76,6 +76,16 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_stretch_ratio = 0.0
 text = "Play"
+
+[node name="MarginContainer3" type="MarginContainer" parent="UI/VSplitContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Hard Mode" type="Button" parent="UI/VSplitContainer/VBoxContainer/MarginContainer3"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play/Hard Mode"
 
 [node name="MarginContainer2" type="MarginContainer" parent="UI/VSplitContainer/VBoxContainer"]
 layout_mode = 2
@@ -88,4 +98,5 @@ size_flags_horizontal = 4
 text = "Quit"
 
 [connection signal="pressed" from="UI/VSplitContainer/VBoxContainer/MarginContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="UI/VSplitContainer/VBoxContainer/MarginContainer3/Hard Mode" to="." method="_on_hard_mode_pressed"]
 [connection signal="pressed" from="UI/VSplitContainer/VBoxContainer/MarginContainer2/Quit" to="." method="_on_quit_pressed"]

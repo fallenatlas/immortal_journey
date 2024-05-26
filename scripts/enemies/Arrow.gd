@@ -33,8 +33,9 @@ func _physics_process(delta):
 
 func _on_arrow_hitbox_body_entered(body):
 	if body.name == "Player":
-		Game.take_damage(2, true)
-		queue_free()
+		Game.take_damage(1, true)
+	
+	queue_free()
 
 
 func _on_despawn_timer_timeout():

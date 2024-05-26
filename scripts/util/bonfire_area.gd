@@ -2,12 +2,15 @@ extends Area2D
 
 @onready var sprite = $".."
 
+var restedAt = false
+
 func _ready():
 	Events.switch_world.connect(_on_switch_world)
 
 func _input(event):
-	if event.is_action_pressed("interact") and len(get_overlapping_bodies()) > 0:
+	if event.is_action_pressed("interact") and len(get_overlapping_bodies()) > 0 and not restedAt:
 		rest()
+		restedAt = true
 		
 
 func rest():

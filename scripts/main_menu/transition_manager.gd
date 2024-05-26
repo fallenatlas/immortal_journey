@@ -4,11 +4,22 @@ var file = "res://Dialogues/Transition_Text/transition_text.json"
 var json_as_text = FileAccess.get_file_as_string(file)
 var text = JSON.parse_string(json_as_text)
 
+@onready var colorRect = $ColorRect
+@onready var anim = $AnimationPlayer
 @onready var label = $VBoxContainer/Label
+@onready var skipTimer = $SkipTimer
 
 var scene_transition
 
+func _input(event):
+	if event.is_action_pressed("interact") and anim.current_animation == "Fade" \
+	 and skipTimer.is_stopped() and Game.playerCanMove == false:
+		change_scene()
+		anim.play("RESET")
+
+
 func fade_to_scene(sceneName : String):
+	skipTimer.start()
 	$AnimationPlayer.play("Fade")
 	label.text = text[sceneName][0]
 	scene_transition = sceneName
@@ -41,3 +52,5 @@ func rest_bonfire_1():
 func enable_actions():
 	Game.playerCanMove = true
 	Game.canChangeWorlds = true
+	
+

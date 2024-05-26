@@ -1,5 +1,7 @@
 extends Node
 
+var hardMode : bool = false
+
 var isImmortal : bool = false;
 var playerDead : bool = false
 var playerHP : float = 10.0

@@ -10,5 +10,11 @@ func _on_quit_pressed():
 
 
 func _on_play_pressed():
-	TransitionManager.fade_to_scene("immortal")
-	#get_tree().change_scene_to_file("res://scenes/areas/immortal.tscn")
+	#TransitionManager.fade_to_scene()
+	get_tree().change_scene_to_file("res://scenes/areas/immortal.tscn")
+
+
+func _on_hard_mode_pressed():
+	#TransitionManager.fade_to_scene()
+	Game.hardMode = true
+	get_tree().change_scene_to_file("res://scenes/areas/immortal.tscn")

@@ -10,7 +10,13 @@ var normalWorldAmbientSoundTime = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Game.playerDead = false
-	Game.playerHP = 10
+	
+	if Game.hardMode:
+		Game.playerHP = 1
+		Game.maxHP = 1
+	else:
+		Game.playerHP = 10
+		
 	Game.courage = 50.0
 	Game.isInvulnerable = false
 	Game.isImmortal = false

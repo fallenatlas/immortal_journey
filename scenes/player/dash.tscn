@@ -16,3 +16,5 @@ one_shot = true
 [node name="Effect Timer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
+
+[connection signal="timeout" from="Dash Cooldown" to="." method="_on_dash_cooldown_timeout"]

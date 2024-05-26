@@ -28,6 +28,16 @@ var courage: float = 50.0 :
 
 var normalWorld : bool = true
 
+# sword ui
+var attack_buffer : int = 3
+var outer_timer_time : float = 0.0
+var is_sword_combo_active : bool = false
+
+# courage ui
+const MIN_COURAGE_DASH = 65
+var dash_recharge_time : float = 0.0
+var is_dash_ready : bool = true
+
 var maxHP : float = 10.0
 var minHP : float = 0.0
 

@@ -583,12 +583,13 @@ texture = SubResource("GradientTexture2D_8hhqn")
 [node name="TransitionZone" type="Area2D" parent="."]
 position = Vector2(2223, -38)
 script = ExtResource("30_3pwfg")
-left_limit = 2150
+left_limit = -24
 top_limit = -500
 right_limit = 10000000
 bottom_limit = 400
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionZone"]
+position = Vector2(29, 0)
 shape = SubResource("RectangleShape2D_35r5o")
 
 [node name="TransitionZone2" type="Area2D" parent="."]
@@ -600,28 +601,31 @@ right_limit = 10000000
 bottom_limit = 300
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionZone2"]
+position = Vector2(-28, 0)
 shape = SubResource("RectangleShape2D_35r5o")
 
 [node name="TransitionZone3" type="Area2D" parent="."]
 position = Vector2(5507, -162)
 script = ExtResource("30_3pwfg")
-left_limit = 2150
+left_limit = -24
 top_limit = -500
 right_limit = 10000000
 bottom_limit = 400
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionZone3"]
+position = Vector2(-117, 0)
 shape = SubResource("RectangleShape2D_35r5o")
 
 [node name="TransitionZone4" type="Area2D" parent="."]
 position = Vector2(5603, -163)
 script = ExtResource("30_3pwfg")
-left_limit = 5400
+left_limit = -24
 top_limit = -350
 right_limit = 10000000
 bottom_limit = 550
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TransitionZone4"]
+position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_35r5o")
 
 [connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="UI" method="_on_music_slider_value_changed"]

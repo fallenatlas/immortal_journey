@@ -1214,6 +1214,9 @@ limit_smoothed = true
 script = ExtResource("10_ruuap")
 decay = 1.0
 max_offset = Vector2(10, 7)
+jump_decay = 1.0
+jump_max_offset = Vector2(0, 7.5)
+jump_max_roll = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1281,6 +1284,10 @@ bus = &"SFX"
 [node name="HeartbeatSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("21_77wdt")
 bus = &"SFX"
+
+[node name="JumpShakeTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="AttackManager" method="_on_animation_player_animation_finished"]

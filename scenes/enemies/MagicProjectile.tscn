@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bi3bprqnlw3dn"]
 
 [ext_resource type="Script" path="res://scripts/enemies/MagicProjectile.gd" id="1_7p7x6"]
-[ext_resource type="Texture2D" uid="uid://dlgh61y023y2f" path="res://Necromancer/Necromancer/Attack/MagicBall.png" id="3_nfdoj"]
+[ext_resource type="Texture2D" uid="uid://d0yprum0triyw" path="res://Necromancer/Necromancer/Attack/MagicBallWhite.png" id="2_4m2a3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp1cf"]
 size = Vector2(41, 6)
@@ -15,7 +15,8 @@ collision_mask = 14
 script = ExtResource("1_7p7x6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_nfdoj")
+scale = Vector2(1.3, 1.3)
+texture = ExtResource("2_4m2a3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7, 0)

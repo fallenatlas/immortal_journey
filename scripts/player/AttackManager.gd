@@ -112,7 +112,6 @@ func _on_inner_attack_timer_timeout():
 	current_attack = 0
 
 func update_inner_timer() -> void:
-	print(!innerTimer.is_stopped())
 	Game.is_sword_combo_active = (is_attacking() or !innerTimer.is_stopped()) and Game.attack_buffer > 0 and current_attack != 0 
 	
 func update_outer_timer() -> void:

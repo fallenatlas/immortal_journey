@@ -10,6 +10,7 @@ func _ready():
 	Game.courage = 100.0
 	Game.isInvulnerable = false
 	Game.isImmortal = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(delta):
 	pass

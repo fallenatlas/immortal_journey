@@ -24,6 +24,8 @@ func _ready():
 	Events.courage_depleted.connect(_on_courage_depleted)
 	Events.took_damage.connect(_on_player_damage)
 	deathWorldAmbientSound.stop()
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(delta):
 	if Input.is_action_just_pressed("swith_world") and not Game.playerDead and Game.canChangeWorlds:

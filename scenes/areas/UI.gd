@@ -17,6 +17,10 @@ func _process(delta):
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
 		menu.visible = !menu.visible
+		if menu.visible:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _on_music_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(MUSIC_BUS_ID, linear_to_db(value))

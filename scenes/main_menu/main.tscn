@@ -87,6 +87,17 @@ layout_mode = 2
 size_flags_horizontal = 4
 text = "Play/Hard Mode"
 
+[node name="MarginContainer4" type="MarginContainer" parent="UI/VSplitContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="Death Battle" type="Button" parent="UI/VSplitContainer/VBoxContainer/MarginContainer4"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Death Battle
+"
+
 [node name="MarginContainer2" type="MarginContainer" parent="UI/VSplitContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
@@ -99,4 +110,5 @@ text = "Quit"
 
 [connection signal="pressed" from="UI/VSplitContainer/VBoxContainer/MarginContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="UI/VSplitContainer/VBoxContainer/MarginContainer3/Hard Mode" to="." method="_on_hard_mode_pressed"]
+[connection signal="pressed" from="UI/VSplitContainer/VBoxContainer/MarginContainer4/Death Battle" to="." method="_on_death_battle_pressed"]
 [connection signal="pressed" from="UI/VSplitContainer/VBoxContainer/MarginContainer2/Quit" to="." method="_on_quit_pressed"]

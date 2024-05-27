@@ -1,16 +1,10 @@
 extends Node2D
 
 var max_attacks : int = 3
-var attacking : bool = false
-#var attack_buffer : int = max_attacks
 var current_attack : int = 0
-var attack_1 : bool = false
-var attack_2 : bool = false
-var attack_3 : bool = false
 var attackAreaRotation : float
 
 @onready var outerTimer : Timer = get_node("OuterAttackTimer")
-@onready var longerOuterTimer : Timer = get_node("LongerOuterAttackTimer")
 @onready var innerTimer : Timer = get_node("InnerAttackTimer")
 @onready var readyUpTimer : Timer = get_node("ReadyUpTimer")
 
@@ -45,76 +39,35 @@ func _process(delta):
 		anim.play("Attack_1")
 		get_parent().create_sound("Attack")
 		Game.attack_buffer -= 1
-		attack_1 = true
 	elif (current_attack == 2):
 		innerTimer.stop()
 		outerTimer.stop()
 		anim.play("Attack_2")
 		get_parent().create_sound("Attack")
 		Game.attack_buffer -= 1
-		attack_2 = true
 	elif (current_attack == 3):
 		innerTimer.stop()
 		outerTimer.stop()
 		anim.play("Attack_1")
 		get_parent().create_sound("Attack")
 		Game.attack_buffer -= 1
-		attack_3 = true
-		
-	#if (Input.is_action_just_pressed("strike") and can_attack()):
-	#	anim.play("Attack_1")
-	#	get_parent().create_sound("Attack")
-	#	attack_1 = true
-		#readyUpTimer.start()
-		#attack_enemies_in_range()
-		
-	#if (Input.is_action_just_pressed("strike") and not innerTimer.is_stopped()):
-	#	outerTimer.stop()
-	#	anim.play("Attack_2")
-	#	get_parent().create_sound("Attack")
-	#	attack_2 = true
-		#readyUpTimer.start()
-		#attack_enemies_in_range()
-
+	
 func is_attacking() -> bool:
 	return anim.current_animation == "Attack_1" or anim.current_animation == "Attack_2"
-	#return current_attack != 0
-	#return attack_1 or attack_2 or attack_3
 	
 func flip_horizontal(value : bool) -> void:
 	if value:
 		attackArea.rotation_degrees = -attackAreaRotation
 	else:
 		attackArea.rotation_degrees = attackAreaRotation
-
-func can_attack() -> bool:
-	return outerTimer.is_stopped() and longerOuterTimer.is_stopped()
 	
 func next_attack() -> int:
 	return current_attack + 1
-	
-	#if outerTimer.is_stopped() and longerOuterTimer.is_stopped():
-	#	return 1
-	#if not innerTimer.is_stopped():
-	#	if current_attack == 1:
-	#		return 2
-	#	if current_attack == 2:
-	#		return 3
-
-#when outer timer finishes reset current_attack to 0 and regain attack
-#we might not need outer attack timer anymore
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "Attack_1" or anim_name == "Attack_2":
 		innerTimer.start()
 		outerTimer.start()
-	#if anim_name == "Attack_1":
-	#	attack_1 = false
-	#	innerTimer.start()
-	#	outerTimer.start()
-	#elif anim_name == "Attack_2":
-	#	attack_2 = false
-		#longerOuterTimer.start()
 
 #func attack_enemies_in_range():
 #	var bodies = attackArea.get_overlapping_bodies()

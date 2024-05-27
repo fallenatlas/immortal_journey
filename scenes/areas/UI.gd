@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var MUSIC_BUS_ID = AudioServer.get_bus_index("Music")
 @onready var AMBIENT_SOUND_BUS_ID = AudioServer.get_bus_index("AmbientSound")
 @onready var menu = %Menu
+@onready var pause : Control = get_node("Pause_Options")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,11 +17,12 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
-		menu.visible = !menu.visible
-		if menu.visible:
+		pause.visible = !pause.visible
+		if pause.visible:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		get_tree().paused = !get_tree().paused
 
 func _on_music_slider_value_changed(value):
 	AudioServer.set_bus_volume_db(MUSIC_BUS_ID, linear_to_db(value))

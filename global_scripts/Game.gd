@@ -20,6 +20,8 @@ var courage: float = 50.0 :
 	set(value):
 		var oldCourage = courage
 		courage = value
+		if courage > 100:
+			courage = 100
 		if courage <= 0: 
 			courage = 0
 			Events.courage_depleted.emit()

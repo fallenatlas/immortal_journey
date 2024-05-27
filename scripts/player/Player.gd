@@ -27,8 +27,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed
 var time = 0
 var damageTime = 0
-var dashDirectionX = directionDash.nothing
-var dashDirectionY = directionDash.nothing
 
 var dying = false
 
@@ -38,14 +36,6 @@ var dying = false
 @onready var damageSound = get_node("DamageSound")
 @onready var breathingSound = get_node("HeavyBreathingSound")
 @onready var heartbeatSound = get_node("HeartbeatSound")
-
-enum directionDash{
-	left, 
-	right, 
-	up, 
-	down,
-	nothing
-}
 
 func _ready():
 	Events.switch_world.connect(_on_switch_world)
@@ -81,38 +71,21 @@ func _physics_process(delta):
 	#Handle Dash
 	if Input.is_action_just_pressed("dash") && Dash.is_cooldown() && Game.courage >= Game.MIN_COURAGE_DASH:
 		Dash.start_dash()
-		dashDirectionX = calculate_direction_x()
-		dashDirectionY = calculate_direction_y()
 		create_sound("Dash", self.global_transform.origin)
 		DashEffect.emitting = true
 	
 	#var speed = DASH_SPEED if Dash.is_dashing() else SPEED
 	if Dash.is_dashing():
-		#speed = DASH_SPEED
-		velocity = Vector2(0, 0)
-		if(dashDirectionX == directionDash.left):
-			if(dashDirectionY == directionDash.up):
-				position += Vector2(-10, -10).normalized() * 10
-			elif(dashDirectionY == directionDash.down):
-				position += Vector2(-10, 10).normalized() * 10
-			else:
-				position += Vector2(-10, 0).normalized() * 10
-		elif(dashDirectionX == directionDash.right):
-			if(dashDirectionY == directionDash.up):
-				position += Vector2(10, -10).normalized() * 10
-			elif(dashDirectionY == directionDash.down):
-				position += Vector2(10, 10).normalized() * 10
-			else:
-				position += Vector2(10, 0).normalized() * 10
-		elif(dashDirectionX == directionDash.nothing && dashDirectionY ==directionDash.up):
-			position += Vector2(0, -10).normalized() * 10
-		elif(dashDirectionX == directionDash.nothing && dashDirectionY ==directionDash.down):
-			position += Vector2(0, 10).normalized() * 10
-		else:
+		var dash_direction = calculate_dash_direction()
+		
+		if (dash_direction == Vector2(0.0, 0.0)):
 			if(get_node("Sprite2D").flip_h == true):
-				position += Vector2(-10, 0).normalized() * 10
+				position += Vector2(-10, 0)
 			else:
-				position += Vector2(10, 0).normalized() * 10
+				position += Vector2(10, 0)
+		else:
+			velocity = Vector2(0, 0)
+			position += dash_direction * 10
 	else:
 		speed = SPEED * remap(Game.courage, 0, 100, 0.5, 1)
 		DashEffect.emitting = false
@@ -172,7 +145,9 @@ func _process(delta):
 	
 
 func get_direction():
-	return Input.get_axis("move_left", "move_right")
+	if (get_node("Sprite2D").flip_h == true):
+		return -1
+	return 1
 
 func _on_switch_world(normalWorld : bool):
 	if (Game.isImmortal): return
@@ -208,22 +183,10 @@ func _on_invincibity_timer_timeout():
 	Sprite.material.set_shader_parameter("time", 0)
 	Game.isInvulnerable = false
 
-func calculate_direction_x():
-	var direction = Input.get_axis("move_left", "move_right")
-	if(direction == -1):
-		return directionDash.left
-	elif(direction == 1):
-		return directionDash.right
-	else:
-		return directionDash.nothing
-
-func calculate_direction_y():
-		if(Input.is_action_pressed("move_up")):
-			return directionDash.up
-		elif(Input.is_action_pressed("move_down")):
-			return directionDash.down
-		else:
-			return directionDash.nothing
+func calculate_dash_direction() -> Vector2:
+	var direction_x = Input.get_axis("move_left", "move_right")
+	var direction_y = Input.get_axis("move_up", "move_down")
+	return Vector2(direction_x, direction_y).normalized()
 
 func _on_animation_player_animation_finished(anim_name):
 	if (anim_name == "Death"):

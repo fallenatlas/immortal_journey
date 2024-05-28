@@ -13,7 +13,6 @@ const DASH_LENGHT = 0.2
 
 @onready var InvincibilityTimer = $InvincibilityPeriodManager/InvincibityTimer
 @onready var ScreenShakeTimer = $InvincibilityPeriodManager/ScreenShakeTimer
-@onready var ScreenJumpShakeTimer = $JumpShakeTimer
 
 @onready var Camera = $Camera2D
 
@@ -32,7 +31,6 @@ var dashDirectionX = directionDash.nothing
 var dashDirectionY = directionDash.nothing
 
 var dying = false
-var was_on_floor = true
 
 @onready var anim = get_node("AnimationPlayer")
 @onready var audioPlayer = preload("res://scenes/player/Audio_Player.tscn")
@@ -69,10 +67,6 @@ func _physics_process(delta):
 	elif direction > 0:
 		get_node("Sprite2D").flip_h = false
 		AttackManager.flip_horizontal(false)
-		
-	if is_on_floor() && was_on_floor == false:
-		ScreenJumpShakeTimer.start()
-	was_on_floor = is_on_floor()
 		
 	# Add the gravity.
 	if not is_on_floor():
@@ -167,8 +161,6 @@ func _process(delta):
 		Sprite.material.set_shader_parameter("time", time)
 	if(!ScreenShakeTimer.is_stopped()):
 		Camera.add_trauma(0.1)
-	if(!ScreenJumpShakeTimer.is_stopped()):
-		Camera.add_jump_trauma(0.1)
 		
 	if Game.inSpikes == 0: damageTime = 1
 	if Game.inSpikes > 0:

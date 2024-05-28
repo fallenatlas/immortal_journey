@@ -22,11 +22,16 @@ const DASH_LENGHT = 0.2
 
 @onready var AttackManager = $AttackManager
 
+@onready var CoyoteTimer = $CoyoteTimer
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var speed
 var time = 0
 var damageTime = 0
+
+var isJumping = false
+var isPossibleCoyote = true
 
 var dying = false
 
@@ -89,10 +94,15 @@ func _physics_process(delta):
 	else:
 		speed = SPEED * remap(Game.courage, 0, 100, 0.5, 1)
 		DashEffect.emitting = false
+	
+	if is_on_floor():
+		isJumping = false
+		isPossibleCoyote = true
 		
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and not isJumping and (is_on_floor() or not CoyoteTimer.is_stopped()):
 		velocity.y = JUMP_VELOCITY #* remap(Game.courage, 0, 100, 0.9, 1)
+		isJumping = true
 		if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
 			anim.play("Jump")
 			create_sound("Jump", self.global_transform.origin)
@@ -115,10 +125,14 @@ func _physics_process(delta):
 				if runSound.playing:
 					runSound.stop()
 			
-	if velocity.y > 0:
-		if not AttackManager.is_attacking(): # || anim.current_animation != "Death"  
+	if velocity.y > 0.0: 
+		if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
+			if not isJumping and CoyoteTimer.is_stopped() and isPossibleCoyote: 
+				CoyoteTimer.start()
 			anim.play("Fall")
 	
+	#print(str(isJumping) + " " + str(not CoyoteTimer.is_stopped()))
+
 	move_and_slide()
 	
 	#if Game.playerHP <= 0:
@@ -218,3 +232,13 @@ func _on_player_damage(enemy : bool):
 
 func change_camera_limits(left_limit, top_limit, right_limit, bottom_limit):
 	get_node("Camera2D").change_camera_limits(left_limit, top_limit, right_limit, bottom_limit)
+
+
+func _input(event):
+	if event.is_action_released("jump"):
+		if velocity.y < 0.0:
+			velocity.y *= 0.5
+
+
+func _on_coyote_timer_timeout():
+	isPossibleCoyote = false

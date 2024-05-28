@@ -1282,6 +1282,10 @@ bus = &"SFX"
 stream = ExtResource("21_77wdt")
 bus = &"SFX"
 
+[node name="CoyoteTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="AttackManager" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="InvincibilityPeriodManager/InvincibityTimer" to="." method="_on_invincibity_timer_timeout"]
@@ -1289,3 +1293,4 @@ bus = &"SFX"
 [connection signal="timeout" from="AttackManager/InnerAttackTimer" to="AttackManager" method="_on_inner_attack_timer_timeout"]
 [connection signal="timeout" from="AttackManager/OuterAttackTimer" to="AttackManager" method="_on_outer_attack_timer_timeout"]
 [connection signal="timeout" from="AttackManager/ReadyUpTimer" to="AttackManager" method="_on_ready_up_timer_timeout"]
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]

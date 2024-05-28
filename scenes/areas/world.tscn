@@ -165,6 +165,7 @@ visible = false
 position = Vector2(7534, -39)
 
 [node name="Mobs" type="Node2D" parent="."]
+visible = false
 
 [node name="Goblin" parent="Mobs" instance=ExtResource("5_l6xbp")]
 position = Vector2(2222, 211)
@@ -618,6 +619,7 @@ texture = SubResource("GradientTexture2D_6k7ww")
 script = ExtResource("7_atl4a")
 
 [node name="NormalWorld" type="Node2D" parent="."]
+visible = false
 
 [node name="TileMap" type="TileMap" parent="NormalWorld"]
 position = Vector2(10, 8)
@@ -636,7 +638,6 @@ autoplay = true
 bus = &"AmbientSound"
 
 [node name="DeathWorld" type="Node2D" parent="."]
-visible = false
 
 [node name="TileMap" type="TileMap" parent="DeathWorld"]
 position = Vector2(10, 8)

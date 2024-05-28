@@ -18,7 +18,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var hitSound = $HitSound
 @onready var attackSound = $AttackSound
 
-var health = 100
+var health = 20
 
 var main
 var player

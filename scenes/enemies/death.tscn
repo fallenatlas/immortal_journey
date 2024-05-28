@@ -1,13 +1,17 @@
-[gd_scene load_steps=34 format=3 uid="uid://cdy5j5rwok7k3"]
+[gd_scene load_steps=38 format=3 uid="uid://cdy5j5rwok7k3"]
 
 [ext_resource type="Script" path="res://scripts/enemies/death.gd" id="1_giwt4"]
 [ext_resource type="Script" path="res://scripts/FSM/state_idle.gd" id="1_kjjb1"]
 [ext_resource type="Texture2D" uid="uid://cifqaensx5g65" path="res://Necromancer/Necromancer/Idle/spr_NecromancerIdle_strip50.png" id="1_un3ct"]
 [ext_resource type="Shader" path="res://Shaders/deathTakeDamage.gdshader" id="2_k7ww7"]
+[ext_resource type="Texture2D" uid="uid://dxkoas3gsequ5" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarBackground.png" id="2_vwc38"]
 [ext_resource type="Texture2D" uid="uid://lj6clqt3jwd7" path="res://assets/necromancer/Attack/spr_NecromancerAttackWithEffect_strip47.png" id="3_3uwd6"]
 [ext_resource type="Texture2D" uid="uid://dl6iir20iq6xg" path="res://Necromancer/Necromancer/Walk/spr_NecromancerWalk_strip10.png" id="3_72tlq"]
+[ext_resource type="Texture2D" uid="uid://bpp43rcycbo2f" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png" id="3_ld0ml"]
+[ext_resource type="Script" path="res://scripts/enemies/EnemyHealthBar.gd" id="4_41534"]
 [ext_resource type="Texture2D" uid="uid://djad6tvx017k6" path="res://Necromancer/Necromancer/Spawn/spr_NecromancerSpawn_strip20.png" id="4_nl5wp"]
 [ext_resource type="Script" path="res://scripts/FSM/FiniteStateMachine.gd" id="5_q5scc"]
+[ext_resource type="FontFile" uid="uid://dhw7jldi36v1q" path="res://assets/Fonts/Helvetica Ultra Compressed/Helvetica Ultra Compressed.otf" id="5_x2nyr"]
 [ext_resource type="Texture2D" uid="uid://dwm1cvttoipi5" path="res://Necromancer/Necromancer/Attack/spr_NecromancerAttackWithEffect_strip47.png" id="6_3fjhd"]
 [ext_resource type="Script" path="res://scripts/FSM/state_attack1.gd" id="7_05ncu"]
 [ext_resource type="Texture2D" uid="uid://bm3a473mlqft0" path="res://Necromancer/Necromancer/Jump/spr_NecromancerIdle_strip50.png" id="7_x7dr4"]
@@ -634,6 +638,42 @@ size = Vector2(25, 13)
 collision_layer = 8
 collision_mask = 14
 script = ExtResource("1_giwt4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -499.5
+offset_top = -45.0
+offset_right = -166.5
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3, 1)
+max_value = 20.0
+value = 20.0
+texture_under = ExtResource("2_vwc38")
+texture_progress = ExtResource("3_ld0ml")
+script = ExtResource("4_41534")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 86.0
+offset_top = -73.0
+offset_right = -1025.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("5_x2nyr")
+theme_override_font_sizes/font_size = 30
+text = "Death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)

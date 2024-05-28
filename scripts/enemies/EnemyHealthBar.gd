@@ -1,11 +1,13 @@
 extends TextureProgressBar
 
-@onready var archer = $".."
+@onready var body = $".."
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	max_value = archer.health
+	if body is CanvasLayer:
+		body = $"../.."
+	max_value = body.health
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	value = archer.health
+	value = body.health

@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://yewi762qi8cf" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDash.png" id="17_p6n5j"]
 [ext_resource type="Script" path="res://scripts/UI/CourageBar.gd" id="19_2kd2d"]
 [ext_resource type="Shader" path="res://Shaders/BandW.gdshader" id="19_lgfrm"]
-[ext_resource type="PackedScene" uid="uid://brf46bpe4145w" path="res://scenes/enemies/Archer.tscn" id="20_kov66"]
+[ext_resource type="PackedScene" uid="uid://divld6ojphq1c" path="res://scenes/enemies/Archer.tscn" id="20_kov66"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tvim8"]
 shader = ExtResource("6_3tcpf")

@@ -16,6 +16,7 @@ func _ready():
 		Game.maxHP = 1
 	else:
 		Game.playerHP = 10
+		Game.maxHP = 10
 		
 	Game.courage = 50.0
 	Game.isInvulnerable = false

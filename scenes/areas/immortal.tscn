@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ee7q2r8vqefi"]
+[gd_scene load_steps=28 format=3 uid="uid://ee7q2r8vqefi"]
 
 [ext_resource type="Script" path="res://scripts/areas/immortal.gd" id="1_okoqj"]
 [ext_resource type="PackedScene" uid="uid://ccxfk82g8wye1" path="res://scenes/player/Player.tscn" id="2_mj4p6"]

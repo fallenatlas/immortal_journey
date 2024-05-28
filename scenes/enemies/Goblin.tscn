@@ -1,10 +1,13 @@
-[gd_scene load_steps=85 format=3 uid="uid://or5j0ao207xe"]
+[gd_scene load_steps=88 format=3 uid="uid://or5j0ao207xe"]
 
 [ext_resource type="Script" path="res://scripts/enemies/Goblin.gd" id="1_3sxql"]
+[ext_resource type="Texture2D" uid="uid://dxkoas3gsequ5" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarBackground.png" id="2_2xbij"]
 [ext_resource type="Texture2D" uid="uid://ys1sgak77sl1" path="res://Monsters_Creatures_Fantasy/Goblin/Idle.png" id="2_4mbo8"]
 [ext_resource type="Texture2D" uid="uid://fsrpdcr8atrk" path="res://assets/Fires-Black/Small_Blackball_10x26.png" id="3_re84s"]
+[ext_resource type="Texture2D" uid="uid://bpp43rcycbo2f" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png" id="3_vomol"]
 [ext_resource type="Texture2D" uid="uid://bfyadfs867vl2" path="res://Monsters_Creatures_Fantasy/Goblin/Run.png" id="3_wy6p6"]
 [ext_resource type="Texture2D" uid="uid://bma8gffxv1deq" path="res://Monsters_Creatures_Fantasy/Goblin/Attack.png" id="4_7pivb"]
+[ext_resource type="Script" path="res://scripts/enemies/EnemyHealthBar.gd" id="4_dhjtf"]
 [ext_resource type="Script" path="res://scripts/enemies/CollisionDamage.gd" id="4_v3n7n"]
 [ext_resource type="Texture2D" uid="uid://cverog51sevqj" path="res://Monsters_Creatures_Fantasy/Goblin/Death.png" id="5_e4rbr"]
 [ext_resource type="Script" path="res://scripts/enemies/EnemyAttack.gd" id="6_1jq13"]
@@ -829,6 +832,18 @@ height = 92.439
 collision_layer = 8
 collision_mask = 14
 script = ExtResource("1_3sxql")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -33.0
+offset_top = -19.0
+offset_right = 300.0
+offset_bottom = 21.0
+scale = Vector2(0.2, 0.2)
+max_value = 3.0
+value = 3.0
+texture_under = ExtResource("2_2xbij")
+texture_progress = ExtResource("3_vomol")
+script = ExtResource("4_dhjtf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_4mbo8")

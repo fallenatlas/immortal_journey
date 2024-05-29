@@ -21,20 +21,24 @@ var direction
 
 var player
 
+var isExploding = false
+
 func Enter():
 	anim.play("Dash")
 	attackSound.play()
 	player = get_node("../../../../Player/Player")
-	direction = (player.global_position - body.global_position).normalized()
+	
 	
 func Update(delta: float):
-	
+	if not isExploding:
+		direction = (player.global_position - body.global_position).normalized()
 	body.velocity = direction * 10000 * delta
 	
 func Exit():
 	pass
 
 func _stop_movement():
+	isExploding = true
 	direction = Vector2(0, 0)
 	deathSound.play()
 	

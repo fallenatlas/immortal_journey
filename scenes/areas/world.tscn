@@ -125,7 +125,6 @@ visible = false
 position = Vector2(7534, -39)
 
 [node name="Mobs" type="Node2D" parent="."]
-visible = false
 
 [node name="Goblin" parent="Mobs" instance=ExtResource("5_l6xbp")]
 position = Vector2(2222, 211)
@@ -580,7 +579,6 @@ texture = SubResource("GradientTexture2D_6k7ww")
 script = ExtResource("7_atl4a")
 
 [node name="NormalWorld" type="Node2D" parent="."]
-visible = false
 
 [node name="TileMap" type="TileMap" parent="NormalWorld"]
 position = Vector2(10, 8)
@@ -618,7 +616,6 @@ bus = &"AmbientSound"
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
-visible = false
 script = ExtResource("10_bqp10")
 
 [node name="HP" type="Label" parent="UI"]
@@ -854,7 +851,6 @@ step = 0.05
 value = 1.0
 
 [node name="Visual Effects" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Filter" type="ColorRect" parent="Visual Effects"]
 material = SubResource("ShaderMaterial_tan7j")

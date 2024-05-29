@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=57 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -11,21 +11,35 @@
 [ext_resource type="PackedScene" uid="uid://or5j0ao207xe" path="res://scenes/enemies/Goblin.tscn" id="5_l6xbp"]
 [ext_resource type="TileSet" uid="uid://bpfdwdtnqcw4i" path="res://assets/tilesets/death_ground.tres" id="6_5lpkg"]
 [ext_resource type="Shader" path="res://Shaders/SunRays.gdshader" id="6_tihlm"]
+[ext_resource type="Script" path="res://scripts/UI/HealthBar.gd" id="6_u0wo8"]
+[ext_resource type="Texture2D" uid="uid://d0f4pnyc78ve0" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarOver.png" id="7_2tid5"]
 [ext_resource type="Script" path="res://scripts/areas/SunRays.gd" id="7_atl4a"]
 [ext_resource type="PackedScene" uid="uid://b8ouces3cngpi" path="res://scenes/backgrounds/death_world_background.tscn" id="7_ts7l6"]
+[ext_resource type="Texture2D" uid="uid://dxkoas3gsequ5" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarBackground.png" id="7_wofer"]
 [ext_resource type="AudioStream" uid="uid://lqe2m5cvxw68" path="res://Audio/Music/nature_sounds.mp3" id="8_5q1t0"]
 [ext_resource type="Texture2D" uid="uid://bpp43rcycbo2f" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png" id="8_hd7s3"]
 [ext_resource type="PackedScene" uid="uid://cdy5j5rwok7k3" path="res://scenes/enemies/death.tscn" id="9_v2ifr"]
 [ext_resource type="PackedScene" uid="uid://bwnicq6jge87k" path="res://scenes/utils/bonfire.tscn" id="9_vvljq"]
+[ext_resource type="Script" path="res://scenes/areas/UI.gd" id="10_bqp10"]
+[ext_resource type="Texture2D" uid="uid://dmt2k0glhayib" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarBackground.png" id="10_njy5m"]
 [ext_resource type="AudioStream" uid="uid://bfon4bamfs3sh" path="res://Audio/Music/blood-chillingly-creepy-atmospheres-183561.mp3" id="11_tpx71"]
+[ext_resource type="Texture2D" uid="uid://bsoabmxwhp1g1" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarOver.png" id="11_u4uyq"]
+[ext_resource type="Script" path="res://scripts/UI/CourageBar.gd" id="13_mlp2c"]
 [ext_resource type="Shader" path="res://Shaders/visuals.gdshader" id="13_vyhij"]
 [ext_resource type="Script" path="res://scripts/Effects/Filter.gd" id="14_nbkpm"]
 [ext_resource type="Shader" path="res://Shaders/vignette.gdshader" id="16_qo4s6"]
 [ext_resource type="Script" path="res://scripts/Effects/Vignette.gd" id="17_vdpjq"]
+[ext_resource type="Texture2D" uid="uid://bfanalh7cvan3" path="res://assets/ui/dash_unavailable.png" id="18_gsxym"]
 [ext_resource type="Shader" path="res://Shaders/DeathWorld.gdshader" id="19_osw28"]
-[ext_resource type="PackedScene" uid="uid://c7eg1cw4ykewe" path="res://scenes/ui/ui.tscn" id="19_va04q"]
+[ext_resource type="Texture2D" uid="uid://yewi762qi8cf" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDash.png" id="23_bekwp"]
+[ext_resource type="Texture2D" uid="uid://b5r5rsktq75so" path="res://Health Bar Asset Pack 2 by Adwit Rahman/sword_progress_2d.tres" id="26_2m3bh"]
+[ext_resource type="Script" path="res://scripts/UI/sword_usage.gd" id="26_nwhgo"]
+[ext_resource type="Texture2D" uid="uid://bq76lakhfjx8u" path="res://assets/ui/Exotic Swords.png" id="27_g8ed2"]
+[ext_resource type="Texture2D" uid="uid://dlw2mgo0dm4kh" path="res://assets/ui/kisspng-brand-line-logo-number-technology-sprite-arrow-5b3ee609de7cb2.3924113515308487779113.png" id="29_egjpm"]
+[ext_resource type="Script" path="res://scripts/UI/dash_usage.gd" id="29_la1ii"]
 [ext_resource type="Script" path="res://scripts/areas/transition_zone.gd" id="30_3pwfg"]
 [ext_resource type="PackedScene" uid="uid://divld6ojphq1c" path="res://scenes/enemies/Archer.tscn" id="31_24nbb"]
+[ext_resource type="Texture2D" uid="uid://6jautbjr3gpw" path="res://Health Bar Asset Pack 2 by Adwit Rahman/dash_ready__2d.tres" id="31_uyyfy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tvim8"]
 shader = ExtResource("6_tihlm")
@@ -50,6 +64,32 @@ gradient = SubResource("Gradient_7ojvx")
 width = 1152
 height = 648
 repeat = 1
+
+[sub_resource type="GDScript" id="GDScript_e70ww"]
+script/source = "extends Label
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	text = \"HP: \" + str(Game.playerHP)
+"
+
+[sub_resource type="GDScript" id="GDScript_ciooa"]
+script/source = "extends Label
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	text = \"Courage: \" + str(Game.courage)
+"
+
+[sub_resource type="Gradient" id="Gradient_d6d4m"]
+colors = PackedColorArray(0.423529, 0.74902, 1, 1, 0.423529, 0.74902, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_3v235"]
+gradient = SubResource("Gradient_d6d4m")
+width = 1
+height = 5
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tan7j"]
 shader = ExtResource("13_vyhij")
@@ -534,7 +574,6 @@ position = Vector2(26909, 61)
 position = Vector2(26785, -222)
 
 [node name="Death" parent="Mobs" instance=ExtResource("9_v2ifr")]
-visible = false
 position = Vector2(500, 227)
 
 [node name="Bonfires" type="Node2D" parent="."]
@@ -599,6 +638,7 @@ autoplay = true
 bus = &"AmbientSound"
 
 [node name="DeathWorld" type="Node2D" parent="."]
+visible = false
 
 [node name="TileMap" type="TileMap" parent="DeathWorld"]
 position = Vector2(10, 8)

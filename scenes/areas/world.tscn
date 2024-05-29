@@ -572,7 +572,6 @@ position = Vector2(26909, 61)
 position = Vector2(26785, -222)
 
 [node name="Death" parent="Mobs" instance=ExtResource("9_v2ifr")]
-visible = false
 position = Vector2(500, 227)
 
 [node name="Bonfires" type="Node2D" parent="."]
@@ -637,6 +636,7 @@ autoplay = true
 bus = &"AmbientSound"
 
 [node name="DeathWorld" type="Node2D" parent="."]
+visible = false
 
 [node name="TileMap" type="TileMap" parent="DeathWorld"]
 position = Vector2(10, 8)

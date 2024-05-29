@@ -597,7 +597,6 @@ autoplay = true
 bus = &"AmbientSound"
 
 [node name="DeathWorld" type="Node2D" parent="."]
-visible = false
 
 [node name="TileMap" type="TileMap" parent="DeathWorld"]
 position = Vector2(10, 8)

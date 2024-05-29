@@ -3,6 +3,16 @@ class_name PlayerJumpAttack
 
 @export var SPEED = 300
 
+@onready var fsmManager = $".."
+
+@onready var anim = $"../../AnimationPlayer"
+
+@onready var rangedAttackDetection = $"../../RangedAttackDetectionArea"
+@onready var attackDetection = $"../../AttackDetectionArea"
+@onready var jumpAttackDetection = $"../../JumpAttackDetectionArea"
+
+@onready var attackCooldown = $"../../AttackCooldown"
+
 @onready var sprite = $"../../Sprite2D"
 @onready var body = $"../.."
 

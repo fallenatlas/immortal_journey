@@ -34,3 +34,20 @@ func change_state(old_state : State, new_state_name : String):
 func _process(delta):
 	if current_state:
 		current_state.Update(delta)
+
+func force_change_state(new_state : String):
+	var newState = states.get(new_state.to_lower())
+	
+	if !newState:
+		return
+		
+	if current_state == newState:
+		return
+	
+	if current_state:
+		var exit_callable = Callable(current_state, "Exit")
+		exit_callable.call_deferred()
+		
+	newState.Enter()
+	
+	current_state = newState

@@ -14,17 +14,18 @@ class_name DragonDashState
 
 @onready var patrolTimer = $"../../PatrolTimer"
 
+@onready var attackSound = $"../../AttackSound"
+@onready var deathSound = $"../../DeathSound"
+
 var direction
 
 var player
 
 func Enter():
 	anim.play("Dash")
-	
+	attackSound.play()
 	player = get_node("../../../../Player/Player")
-	direction = (player.position - body.position).normalized()
-	#BUG: Direction is not right
-	direction.y += 1
+	direction = (player.global_position - body.global_position).normalized()
 	
 func Update(delta: float):
 	
@@ -35,6 +36,7 @@ func Exit():
 
 func _stop_movement():
 	direction = Vector2(0, 0)
+	deathSound.play()
 	
 func explode_logic():
 	body.explode()

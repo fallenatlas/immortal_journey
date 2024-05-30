@@ -35,6 +35,12 @@ var isPossibleCoyote = true
 
 var dying = false
 
+var can_move : bool = true :
+	get:
+		return can_move
+	set(value):
+		can_move = value
+
 @onready var anim = get_node("AnimationPlayer")
 @onready var audioPlayer = preload("res://scenes/player/Audio_Player.tscn")
 @onready var runSound = get_node("RunSound")
@@ -48,6 +54,9 @@ func _ready():
 	Events.took_damage.connect(_on_player_damage)
 
 func _physics_process(delta):
+	if not can_move:
+		return
+	
 	if Game.playerDead: #TODO: apply gravity even if he's dead
 		if not is_on_floor():
 			velocity.y += gravity * delta
@@ -142,6 +151,15 @@ func _physics_process(delta):
 	#	dying = true
 	#	anim.play("Death")
 		
+func play_idle_animation():
+	anim.play("Idle")
+	
+func play_run_animation():
+	anim.play("Run")
+	
+func play_death_animation():
+	anim.play("Death")
+		
 func _process(delta):
 	#print(Game.isInvulnerable)
 	if(!InvincibilityTimer.is_stopped()):
@@ -206,7 +224,7 @@ func calculate_dash_direction() -> Vector2:
 	return Vector2(direction_x, direction_y).normalized()
 
 func _on_animation_player_animation_finished(anim_name):
-	if (anim_name == "Death"):
+	if (anim_name == "Death") and not Game.isImmortal:
 		self.queue_free()
 		get_tree().change_scene_to_file("res://scenes/areas/world.tscn")
 		

@@ -4,6 +4,7 @@ var SPEED = 100
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player
 var normalAreaX
+var normalRayCastX
 var chase = false
 var attacking = false
 var dying = false
@@ -31,6 +32,7 @@ var dying = false
 func _ready():
 	anim.play("Idle")
 	normalAreaX = AttackDetectionAreaShape.position.x
+	normalRayCastX = $Direction.scale.x
 	Events.switch_world.connect(_on_switch_world)
 
 
@@ -58,11 +60,17 @@ func _physics_process(delta):
 		if direction.x < 0:
 			sprite.flip_h = true
 			AttackDetectionAreaShape.position.x = - normalAreaX
+			$Direction.scale.x = -normalRayCastX
 		else:
 			sprite.flip_h = false
 			AttackDetectionAreaShape.position.x = normalAreaX
-			
-		velocity.x = direction.x * SPEED
+			$Direction.scale.x = normalRayCastX
+		
+		if $Direction/RayCastFloor.is_colliding():
+			velocity.x = direction.x * SPEED
+		else:
+			anim.play("Idle")
+			velocity.x = 0
 		
 	elif attacking:
 		if anim.current_animation != "Death" || anim.current_animation != "Hit":

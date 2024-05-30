@@ -859,6 +859,7 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_u5p7d")
 
@@ -868,6 +869,7 @@ libraries = {
 }
 
 [node name="DetectionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 4
 
@@ -875,6 +877,7 @@ collision_mask = 4
 shape = SubResource("CircleShape2D_8s1rg")
 
 [node name="AttackDetectionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 4
 
@@ -883,6 +886,7 @@ position = Vector2(24.5, 9)
 shape = SubResource("RectangleShape2D_eq8uo")
 
 [node name="AttackArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 8
 collision_mask = 4
 monitoring = false
@@ -913,6 +917,13 @@ stream = ExtResource("10_wdafd")
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("12_gh6s8")
+
+[node name="Direction" type="Node2D" parent="."]
+
+[node name="RayCastFloor" type="RayCast2D" parent="Direction"]
+position = Vector2(10, 0)
+target_position = Vector2(0, 60)
+collision_mask = 2
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

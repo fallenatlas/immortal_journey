@@ -9,6 +9,6 @@ signal took_damage(enemy : bool)
 
 signal dash_cooldown_change(value : float)
 
-signal dash_threshold_change(value : float)
+signal dash_threshold_change()
 
 signal attack_cooldown_change(value : float)

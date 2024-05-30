@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://scripts/UI/CourageBarUpgradedgradedgraded.gd" id="9_6rvtk"]
 [ext_resource type="Texture2D" uid="uid://yewi762qi8cf" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDash.png" id="9_6301w"]
 [ext_resource type="Script" path="res://scripts/UI/sword_usage.gd" id="11_2worh"]
-[ext_resource type="Texture2D" uid="uid://jyr36bcm74ef" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDashUpgraded.png" id="11_j36w8"]
+[ext_resource type="Texture2D" uid="uid://ddcyicydiranx" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDashUpgraded.png" id="11_j36w8"]
 [ext_resource type="Texture2D" uid="uid://bq76lakhfjx8u" path="res://assets/ui/Exotic Swords.png" id="12_x3hs7"]
 [ext_resource type="Texture2D" uid="uid://b5r5rsktq75so" path="res://Health Bar Asset Pack 2 by Adwit Rahman/sword_progress_2d.tres" id="13_71r1t"]
 [ext_resource type="Script" path="res://scripts/UI/dash_usage.gd" id="14_4gte7"]
@@ -102,6 +102,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ThresholdIndicator" type="TextureRect" parent="VBoxContainer/CourageBar"]
 z_index = 1
+layout_mode = 0
 offset_left = 216.0
 offset_top = 3.0
 offset_right = 254.0
@@ -131,6 +132,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="ThresholdIndicator" type="TextureRect" parent="VBoxContainer/CourageBarUpgraded"]
 z_index = 1
+layout_mode = 0
 offset_left = 180.0
 offset_top = 3.0
 offset_right = 218.0
@@ -394,6 +396,6 @@ text = "Back
 [connection signal="pressed" from="Pause_Options/Buttons/AudioButton/Button" to="Pause_Options" method="_on_audio_button_pressed"]
 [connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
+[connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="pressed" from="Pause_Options/Menu/BackButton" to="Pause_Options" method="_on_audio_back_button_pressed"]

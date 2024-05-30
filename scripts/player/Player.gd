@@ -75,6 +75,9 @@ func _physics_process(delta):
 
 	#Handle Dash
 	if Input.is_action_just_pressed("dash") && Dash.is_cooldown() && Game.courage >= Game.min_courage_dash:
+		print(Game.min_courage_dash)
+		print("distance")
+		print(DashLenght)
 		Dash.start_dash()
 		create_sound("Dash", self.global_transform.origin)
 		DashEffect.emitting = true

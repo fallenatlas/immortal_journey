@@ -35,6 +35,8 @@ func _process(delta):
 	if (current_attack != 0 and !outerTimer.is_stopped() and innerTimer.is_stopped()):
 		return
 		
+	print(outerTimer.wait_time)
+		
 	current_attack = next_attack()
 
 	innerTimer.stop()

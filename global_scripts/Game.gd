@@ -43,8 +43,9 @@ var is_sword_combo_active : bool = false
 # courage ui
 var min_courage_dash = 65:
 	set(value):
+		if (value == 55):
+			Events.dash_threshold_change.emit()
 		min_courage_dash = value
-		Events.dash_threshold_change.emit()
 
 		
 var dash_cooldown = 2:
@@ -89,6 +90,7 @@ func take_damage(damage_value : int, enemy : bool):
 		Events.took_damage.emit(enemy)
 		
 func set_courage(value : int):
+	print(courageMultiplier)
 	if (value > 0):
 		courage += value * courageMultiplier
 	else:

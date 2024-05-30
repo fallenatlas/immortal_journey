@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b2dfly4fko3qt"]
+[gd_scene load_steps=4 format=3 uid="uid://baas00g65fd21"]
 
-[ext_resource type="Texture2D" uid="uid://c7qc0wvog5msa" path="res://assets/Flowers/Flowers_Separated/Flowers_Without_Outline/Rose.png" id="1_6yn0b"]
+[ext_resource type="Texture2D" uid="uid://0wvohtdwxx4u" path="res://assets/Flowers/Flowers_Separated/Flowers_Without_Outline/Rose.png" id="1_6yn0b"]
 
 [sub_resource type="GDScript" id="GDScript_o25jo"]
 script/source = "extends Area2D
@@ -17,8 +17,8 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.name == \"Player\":
-		AttackCooldown.wait_time = 2
-		Events.attack_cooldown_change.emit(2)
+		AttackCooldown.wait_time = 0.4
+		Events.attack_cooldown_change.emit(0.4)
 		var tween = get_tree().create_tween()
 		var tween1 = get_tree().create_tween()
 		tween.tween_property(self, \"position\", position - Vector2(0, 50), 0.4)

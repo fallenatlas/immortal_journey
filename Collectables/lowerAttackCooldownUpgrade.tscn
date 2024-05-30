@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2dfly4fko3qt"]
+
+[ext_resource type="Texture2D" uid="uid://c7qc0wvog5msa" path="res://assets/Flowers/Flowers_Separated/Flowers_Without_Outline/Rose.png" id="1_6yn0b"]
+
+[sub_resource type="GDScript" id="GDScript_o25jo"]
+script/source = "extends Area2D
+
+@onready var AttackCooldown = get_node(\"../../../Player/Player/AttackManager/OuterAttackTimer\")
+@onready var CollisionShape = $CollisionShape2D
+@onready var Sprite = $Sprite2D
+
+func _ready():
+	set_collision_mask_value(3, false)
+	CollisionShape.set_disabled(true)
+	Sprite.visible = false
+	Events.switch_world.connect(_on_switch_world)
+
+func _on_body_entered(body):
+	if body.name == \"Player\":
+		AttackCooldown.wait_time = 2
+		Events.attack_cooldown_change.emit(2)
+		var tween = get_tree().create_tween()
+		var tween1 = get_tree().create_tween()
+		tween.tween_property(self, \"position\", position - Vector2(0, 50), 0.4)
+		tween1.tween_property(self, \"modulate:a\", 0, 0.4)
+		tween.tween_callback(queue_free)
+		
+func _on_switch_world(normalWorld : bool):
+	if (normalWorld):
+		set_collision_mask_value(3, false)
+		CollisionShape.set_disabled(true)
+		Sprite.visible = false
+	if (not normalWorld):
+		set_collision_mask_value(3, true)
+		CollisionShape.set_disabled(false)
+		Sprite.visible = true
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wt1dd"]
+radius = 8.0
+
+[node name="LowerAttackCooldownUpgrade" type="Area2D"]
+script = SubResource("GDScript_o25jo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_wt1dd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6yn0b")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=44 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -14,15 +14,21 @@
 [ext_resource type="Script" path="res://scripts/areas/SunRays.gd" id="7_atl4a"]
 [ext_resource type="PackedScene" uid="uid://b8ouces3cngpi" path="res://scenes/backgrounds/death_world_background.tscn" id="7_ts7l6"]
 [ext_resource type="AudioStream" uid="uid://lqe2m5cvxw68" path="res://Audio/Music/nature_sounds.mp3" id="8_5q1t0"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/death.tscn" id="9_v2ifr"]
 [ext_resource type="PackedScene" uid="uid://bwnicq6jge87k" path="res://scenes/utils/bonfire.tscn" id="9_vvljq"]
 [ext_resource type="AudioStream" uid="uid://bfon4bamfs3sh" path="res://Audio/Music/blood-chillingly-creepy-atmospheres-183561.mp3" id="11_tpx71"]
 [ext_resource type="Shader" path="res://Shaders/visuals.gdshader" id="13_vyhij"]
 [ext_resource type="Script" path="res://scripts/Effects/Filter.gd" id="14_nbkpm"]
 [ext_resource type="Shader" path="res://Shaders/vignette.gdshader" id="16_qo4s6"]
 [ext_resource type="Script" path="res://scripts/Effects/Vignette.gd" id="17_vdpjq"]
+[ext_resource type="PackedScene" uid="uid://dhngev8svel0p" path="res://Collectables/lowerDashCooldownUpgrade.tscn" id="18_704rl"]
+[ext_resource type="PackedScene" uid="uid://bykahy5fb6xba" path="res://Collectables/increaseAttackCountUpgrade.tscn" id="18_b8iwo"]
+[ext_resource type="PackedScene" uid="uid://chn4egfya8pl" path="res://Collectables/increaseCourageGainUpgrade.tscn" id="18_wxa8k"]
 [ext_resource type="Shader" path="res://Shaders/DeathWorld.gdshader" id="19_osw28"]
 [ext_resource type="PackedScene" uid="uid://c7eg1cw4ykewe" path="res://scenes/ui/ui.tscn" id="19_va04q"]
+[ext_resource type="PackedScene" uid="uid://uwnhixanoewb" path="res://Collectables/increaseDashDistanceUpgrade.tscn" id="21_3fsof"]
+[ext_resource type="PackedScene" uid="uid://dh4jvb8dit5fj" path="res://Collectables/lowerDashThresholdUpgrade.tscn" id="23_emca0"]
+[ext_resource type="PackedScene" uid="uid://b2dfly4fko3qt" path="res://Collectables/lowerAttackCooldownUpgrade.tscn" id="24_f3f55"]
+[ext_resource type="PackedScene" uid="uid://blwbn5cafjsak" path="res://Collectables/decreaseCourageDrainUpgrade.tscn" id="26_7qovo"]
 [ext_resource type="Script" path="res://scripts/areas/transition_zone.gd" id="30_3pwfg"]
 [ext_resource type="PackedScene" uid="uid://divld6ojphq1c" path="res://scenes/enemies/Archer.tscn" id="31_24nbb"]
 
@@ -126,9 +132,6 @@ position = Vector2(7534, -39)
 
 [node name="Mobs" type="Node2D" parent="."]
 
-[node name="Goblin" parent="Mobs" instance=ExtResource("5_l6xbp")]
-position = Vector2(415, 215)
-
 [node name="Goblin3" parent="Mobs" instance=ExtResource("5_l6xbp")]
 position = Vector2(793, 144)
 
@@ -213,9 +216,6 @@ position = Vector2(6168, 140)
 [node name="Archer10" parent="Mobs" instance=ExtResource("31_24nbb")]
 position = Vector2(6610, 162)
 
-[node name="Death" parent="Mobs" instance=ExtResource("9_v2ifr")]
-position = Vector2(500, 227)
-
 [node name="Bonfires" type="Node2D" parent="."]
 
 [node name="bonfire1" parent="Bonfires" instance=ExtResource("9_vvljq")]
@@ -264,6 +264,29 @@ transform = Transform2D(1, 0, 0, 1, 432, 30)
 stream = ExtResource("11_tpx71")
 autoplay = true
 bus = &"AmbientSound"
+
+[node name="Upgrades" type="Node2D" parent="DeathWorld"]
+
+[node name="LowerDashCooldownUpgrade" parent="DeathWorld/Upgrades" instance=ExtResource("18_704rl")]
+position = Vector2(541, 217)
+
+[node name="IncreaseAttackCount" parent="DeathWorld/Upgrades" instance=ExtResource("18_b8iwo")]
+position = Vector2(427, 222)
+
+[node name="DecreaseCourageDrainUpgrade" parent="DeathWorld/Upgrades" instance=ExtResource("26_7qovo")]
+position = Vector2(262, 221)
+
+[node name="IncreaseCourageGainUpgrade" parent="DeathWorld/Upgrades" instance=ExtResource("18_wxa8k")]
+position = Vector2(320, 221)
+
+[node name="IncreaseDashDistanceUpgrade" parent="DeathWorld/Upgrades" instance=ExtResource("21_3fsof")]
+position = Vector2(499, 224)
+
+[node name="LowerDashThresholdUpgrade" parent="DeathWorld/Upgrades" instance=ExtResource("23_emca0")]
+position = Vector2(700, 225)
+
+[node name="LowerAttackCooldownUpgrade" parent="DeathWorld/Upgrades" instance=ExtResource("24_f3f55")]
+position = Vector2(569, 159)
 
 [node name="UI" parent="." instance=ExtResource("19_va04q")]
 

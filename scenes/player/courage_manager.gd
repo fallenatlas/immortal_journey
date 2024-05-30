@@ -22,5 +22,6 @@ func _on_switch_world(normalWorld : bool):
 		courage_ticks.start()
 
 func _on_courage_tick():
+	print(courage_loss)
 	Game.courage -= courage_loss
 	#something is gonna have to expell us from the other world if were there

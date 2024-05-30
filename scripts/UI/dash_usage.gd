@@ -16,7 +16,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	if Game.courage <= Game.MIN_COURAGE_DASH:
+	if Game.courage <= Game.min_courage_dash:
 		#simbol cor grey out
 		dash_bar.value = 2
 		dash_icon.texture = dash_icon_unavailable
@@ -34,4 +34,5 @@ func _process(delta):
 		dash_bar.value = 2
 	else:
 		dash_bar.texture_progress = dash_not_ready_look
-		dash_bar.value = Game.dash_recharge_time
+		#interpolate the value in case dash cooldown != 2
+		dash_bar.value = 2 * Game.dash_recharge_time / Game.dash_cooldown

@@ -1,16 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://blwbn5cafjsak"]
+[gd_scene load_steps=11 format=3 uid="uid://k1vn08d8s2p"]
 
-[ext_resource type="Texture2D" uid="uid://cc3fyutu7orcy" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-1.png" id="1_b8slv"]
-[ext_resource type="Texture2D" uid="uid://dgo23vgsrrlng" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-2.png" id="2_0t14r"]
-[ext_resource type="Texture2D" uid="uid://ca306p8bht358" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-3.png" id="3_gjtfq"]
-[ext_resource type="Texture2D" uid="uid://djnwdasewaaos" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-4.png" id="4_pmap8"]
-[ext_resource type="Texture2D" uid="uid://klgytve68onp" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-5.png" id="5_f5v3t"]
-[ext_resource type="Texture2D" uid="uid://bj408i6pug0v" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-6.png" id="6_6lrnu"]
-[ext_resource type="Texture2D" uid="uid://bglhuwno7a82y" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-7.png" id="7_b3mqy"]
+[ext_resource type="Texture2D" uid="uid://cc3fyutu7orcy" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-1.png" id="1_k6j77"]
+[ext_resource type="Texture2D" uid="uid://dgo23vgsrrlng" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-2.png" id="2_ipvy7"]
+[ext_resource type="Texture2D" uid="uid://ca306p8bht358" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-3.png" id="3_3g737"]
+[ext_resource type="Texture2D" uid="uid://djnwdasewaaos" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-4.png" id="4_dflb2"]
+[ext_resource type="Texture2D" uid="uid://klgytve68onp" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-5.png" id="5_2xd6o"]
+[ext_resource type="Texture2D" uid="uid://bj408i6pug0v" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-6.png" id="6_3lo0l"]
+[ext_resource type="Texture2D" uid="uid://bglhuwno7a82y" path="res://Sunny-land-files/Sunny-land-assets-files/PNG/sprites/cherry/cherry-7.png" id="7_h3b7b"]
 
 [sub_resource type="GDScript" id="GDScript_o25jo"]
 script/source = "extends Area2D
-
 
 
 func _on_body_entered(body):
@@ -30,25 +29,25 @@ radius = 8.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_b8slv")
+"texture": ExtResource("1_k6j77")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_0t14r")
+"texture": ExtResource("2_ipvy7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_gjtfq")
+"texture": ExtResource("3_3g737")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_pmap8")
+"texture": ExtResource("4_dflb2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_f5v3t")
+"texture": ExtResource("5_2xd6o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_6lrnu")
+"texture": ExtResource("6_3lo0l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_b3mqy")
+"texture": ExtResource("7_h3b7b")
 }],
 "loop": true,
 "name": &"Idle",

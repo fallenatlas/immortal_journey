@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c7eg1cw4ykewe"]
+[gd_scene load_steps=23 format=3 uid="uid://c7eg1cw4ykewe"]
 
 [ext_resource type="Script" path="res://scenes/areas/UI.gd" id="1_r5xcq"]
 [ext_resource type="Texture2D" uid="uid://bfanalh7cvan3" path="res://assets/ui/dash_unavailable.png" id="2_jsuyv"]
@@ -8,14 +8,15 @@
 [ext_resource type="Script" path="res://scripts/UI/HealthBar.gd" id="6_4s7el"]
 [ext_resource type="Texture2D" uid="uid://dmt2k0glhayib" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarBackground.png" id="7_qlngj"]
 [ext_resource type="Texture2D" uid="uid://bsoabmxwhp1g1" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarOver.png" id="8_c5skx"]
+[ext_resource type="Script" path="res://scripts/UI/CourageBarUpgradedgradedgraded.gd" id="9_6rvtk"]
 [ext_resource type="Texture2D" uid="uid://yewi762qi8cf" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDash.png" id="9_6301w"]
-[ext_resource type="Script" path="res://scripts/UI/CourageBar.gd" id="10_5660r"]
 [ext_resource type="Script" path="res://scripts/UI/sword_usage.gd" id="11_2worh"]
+[ext_resource type="Texture2D" uid="uid://jyr36bcm74ef" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDashUpgraded.png" id="11_j36w8"]
 [ext_resource type="Texture2D" uid="uid://bq76lakhfjx8u" path="res://assets/ui/Exotic Swords.png" id="12_x3hs7"]
-[ext_resource type="Texture2D" uid="uid://dfhlbyij1xdj8" path="res://Health Bar Asset Pack 2 by Adwit Rahman/sword_progress_2d.tres" id="13_71r1t"]
+[ext_resource type="Texture2D" uid="uid://b5r5rsktq75so" path="res://Health Bar Asset Pack 2 by Adwit Rahman/sword_progress_2d.tres" id="13_71r1t"]
 [ext_resource type="Script" path="res://scripts/UI/dash_usage.gd" id="14_4gte7"]
 [ext_resource type="Texture2D" uid="uid://dlw2mgo0dm4kh" path="res://assets/ui/kisspng-brand-line-logo-number-technology-sprite-arrow-5b3ee609de7cb2.3924113515308487779113.png" id="15_cfnwv"]
-[ext_resource type="Texture2D" uid="uid://b2plspvll2pt3" path="res://Health Bar Asset Pack 2 by Adwit Rahman/dash_ready__2d.tres" id="16_5fmh0"]
+[ext_resource type="Texture2D" uid="uid://6jautbjr3gpw" path="res://Health Bar Asset Pack 2 by Adwit Rahman/dash_ready__2d.tres" id="16_5fmh0"]
 [ext_resource type="Script" path="res://scripts/UI/pause_options.gd" id="17_nqp70"]
 
 [sub_resource type="GDScript" id="GDScript_e70ww"]
@@ -71,25 +72,6 @@ theme_override_font_sizes/font_size = 18
 text = "Courage: 0"
 script = SubResource("GDScript_ciooa")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = 1
-offset_left = 236.0
-offset_top = 51.0
-offset_right = 274.0
-offset_bottom = 69.0
-texture = SubResource("GradientTexture2D_3v235")
-stretch_mode = 4
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-z_index = 1
-offset_left = 238.0
-offset_top = 48.0
-offset_right = 262.0
-offset_bottom = 77.0
-texture = ExtResource("2_jsuyv")
-expand_mode = 1
-stretch_mode = 4
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = -1
 anchor_right = 0.289063
@@ -115,8 +97,56 @@ value = 100.0
 texture_under = ExtResource("7_qlngj")
 texture_over = ExtResource("8_c5skx")
 texture_progress = ExtResource("9_6301w")
-script = ExtResource("10_5660r")
+script = ExtResource("9_6rvtk")
 metadata/_edit_use_anchors_ = true
+
+[node name="ThresholdIndicator" type="TextureRect" parent="VBoxContainer/CourageBar"]
+z_index = 1
+offset_left = 216.0
+offset_top = 3.0
+offset_right = 254.0
+offset_bottom = 21.0
+texture = SubResource("GradientTexture2D_3v235")
+stretch_mode = 4
+
+[node name="ThresholdIcon" type="TextureRect" parent="VBoxContainer/CourageBar"]
+z_index = 2
+layout_mode = 2
+offset_top = 28.0
+offset_right = 333.0
+offset_bottom = 28.0
+texture = ExtResource("2_jsuyv")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CourageBarUpgraded" type="TextureProgressBar" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+value = 100.0
+texture_under = ExtResource("7_qlngj")
+texture_over = ExtResource("8_c5skx")
+texture_progress = ExtResource("11_j36w8")
+script = ExtResource("9_6rvtk")
+metadata/_edit_use_anchors_ = true
+
+[node name="ThresholdIndicator" type="TextureRect" parent="VBoxContainer/CourageBarUpgraded"]
+z_index = 1
+offset_left = 180.0
+offset_top = 3.0
+offset_right = 218.0
+offset_bottom = 21.0
+texture = SubResource("GradientTexture2D_3v235")
+stretch_mode = 4
+
+[node name="ThresholdIcon" type="TextureRect" parent="VBoxContainer/CourageBarUpgraded"]
+z_index = 2
+layout_mode = 2
+offset_top = 28.0
+offset_right = 333.0
+offset_bottom = 28.0
+texture = ExtResource("2_jsuyv")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="SwordUsage" type="HBoxContainer" parent="."]
 anchors_preset = 2
@@ -169,6 +199,19 @@ theme_override_constants/margin_top = 7
 theme_override_constants/margin_right = 10
 
 [node name="TextureProgressBar3" type="TextureProgressBar" parent="SwordUsage/MarginContainer3"]
+layout_mode = 2
+max_value = 0.5
+step = 0.01
+value = 0.5
+texture_progress = ExtResource("13_71r1t")
+
+[node name="MarginContainer4" type="MarginContainer" parent="SwordUsage"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 10
+
+[node name="TextureProgressBar4" type="TextureProgressBar" parent="SwordUsage/MarginContainer4"]
 layout_mode = 2
 max_value = 0.5
 step = 0.01
@@ -351,6 +394,6 @@ text = "Back
 [connection signal="pressed" from="Pause_Options/Buttons/AudioButton/Button" to="Pause_Options" method="_on_audio_button_pressed"]
 [connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
 [connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
 [connection signal="pressed" from="Pause_Options/Menu/BackButton" to="Pause_Options" method="_on_audio_back_button_pressed"]

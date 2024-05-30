@@ -37,6 +37,15 @@
 [ext_resource type="Texture2D" uid="uid://bq76lakhfjx8u" path="res://assets/ui/Exotic Swords.png" id="27_g8ed2"]
 [ext_resource type="Texture2D" uid="uid://dlw2mgo0dm4kh" path="res://assets/ui/kisspng-brand-line-logo-number-technology-sprite-arrow-5b3ee609de7cb2.3924113515308487779113.png" id="29_egjpm"]
 [ext_resource type="Script" path="res://scripts/UI/dash_usage.gd" id="29_la1ii"]
+[ext_resource type="PackedScene" uid="uid://dhngev8svel0p" path="res://Collectables/lowerDashCooldownUpgrade.tscn" id="18_704rl"]
+[ext_resource type="PackedScene" uid="uid://bykahy5fb6xba" path="res://Collectables/increaseAttackCountUpgrade.tscn" id="18_b8iwo"]
+[ext_resource type="PackedScene" uid="uid://chn4egfya8pl" path="res://Collectables/increaseCourageGainUpgrade.tscn" id="18_wxa8k"]
+[ext_resource type="Shader" path="res://Shaders/DeathWorld.gdshader" id="19_osw28"]
+[ext_resource type="PackedScene" uid="uid://c7eg1cw4ykewe" path="res://scenes/ui/ui.tscn" id="19_va04q"]
+[ext_resource type="PackedScene" uid="uid://uwnhixanoewb" path="res://Collectables/increaseDashDistanceUpgrade.tscn" id="21_3fsof"]
+[ext_resource type="PackedScene" uid="uid://dh4jvb8dit5fj" path="res://Collectables/lowerDashThresholdUpgrade.tscn" id="23_emca0"]
+[ext_resource type="PackedScene" uid="uid://b2dfly4fko3qt" path="res://Collectables/lowerAttackCooldownUpgrade.tscn" id="24_f3f55"]
+[ext_resource type="PackedScene" uid="uid://blwbn5cafjsak" path="res://Collectables/decreaseCourageDrainUpgrade.tscn" id="26_7qovo"]
 [ext_resource type="Script" path="res://scripts/areas/transition_zone.gd" id="30_3pwfg"]
 [ext_resource type="PackedScene" uid="uid://divld6ojphq1c" path="res://scenes/enemies/Archer.tscn" id="31_24nbb"]
 [ext_resource type="Texture2D" uid="uid://6jautbjr3gpw" path="res://Health Bar Asset Pack 2 by Adwit Rahman/dash_ready__2d.tres" id="31_uyyfy"]
@@ -573,9 +582,6 @@ position = Vector2(26909, 61)
 [node name="Archer69" parent="Mobs" instance=ExtResource("31_24nbb")]
 position = Vector2(26785, -222)
 
-[node name="Death" parent="Mobs" instance=ExtResource("9_v2ifr")]
-position = Vector2(500, 227)
-
 [node name="Bonfires" type="Node2D" parent="."]
 
 [node name="bonfire1" parent="Bonfires" instance=ExtResource("9_vvljq")]
@@ -891,6 +897,30 @@ size_flags_vertical = 4
 max_value = 1.0
 step = 0.05
 value = 1.0
+[node name="Upgrades" type="Node2D" parent="DeathWorld"]
+
+[node name="LowerDashCooldownUpgrade" parent="DeathWorld/Upgrades" instance=ExtResource("18_704rl")]
+position = Vector2(541, 217)
+
+[node name="IncreaseAttackCount" parent="DeathWorld/Upgrades" instance=ExtResource("18_b8iwo")]
+position = Vector2(427, 222)
+
+[node name="DecreaseCourageDrainUpgrade" parent="DeathWorld/Upgrades" instance=ExtResource("26_7qovo")]
+position = Vector2(262, 221)
+
+[node name="IncreaseCourageGainUpgrade" parent="DeathWorld/Upgrades" instance=ExtResource("18_wxa8k")]
+position = Vector2(320, 221)
+
+[node name="IncreaseDashDistanceUpgrade" parent="DeathWorld/Upgrades" instance=ExtResource("21_3fsof")]
+position = Vector2(499, 224)
+
+[node name="LowerDashThresholdUpgrade" parent="DeathWorld/Upgrades" instance=ExtResource("23_emca0")]
+position = Vector2(700, 225)
+
+[node name="LowerAttackCooldownUpgrade" parent="DeathWorld/Upgrades" instance=ExtResource("24_f3f55")]
+position = Vector2(569, 159)
+
+[node name="UI" parent="." instance=ExtResource("19_va04q")]
 
 [node name="Visual Effects" type="CanvasLayer" parent="."]
 

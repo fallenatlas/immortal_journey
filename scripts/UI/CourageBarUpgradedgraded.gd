@@ -13,5 +13,5 @@ func _process(delta):
 	value = Game.courage
 	
 func _courage_threshold_change():
-	visible = true
+	visible = false
 	

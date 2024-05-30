@@ -93,7 +93,7 @@ func death():
 	dying = true
 	attacking = false
 	#Game.courage += 8 * (1 - (Game.playerHP / Game.maxHP)) + 2
-	Game.courage += 6 * (1 - (Game.playerHP / Game.maxHP)) + 4
+	Game.set_courage(6 * (1 - (Game.playerHP / Game.maxHP)) + 4);
 	Utils.saveGame()
 	anim.play("Death")
 	deathSound.play()

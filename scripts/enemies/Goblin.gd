@@ -87,7 +87,7 @@ func death():
 	attacking = false
 	#Game.courage += 8 * (1 - (Game.playerHP / Game.maxHP)) + 2
 	#Game.courage += 6 * (1 - (Game.playerHP / Game.maxHP)) + 4
-	Game.courage = min(Game.courage + 6 * (1 - (Game.playerHP / Game.maxHP)) + 4, Game.maxCourage)
+	Game.set_courage(6 * (1 - (Game.playerHP / Game.maxHP)) + 4);
 	print(Game.courage)
 	Utils.saveGame()
 	anim.play("Death")

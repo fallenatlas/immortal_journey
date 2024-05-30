@@ -1,6 +1,10 @@
 extends Node2D
 
-var max_attacks : int = 3
+var max_attacks : int = 3:
+	set(value):
+		Game.attack_buffer = value
+		max_attacks = value
+
 var current_attack : int = 0
 var attackAreaRotation : float
 
@@ -32,25 +36,16 @@ func _process(delta):
 		return
 		
 	current_attack = next_attack()
-	
-	if (current_attack == 1):
-		innerTimer.stop()
-		outerTimer.stop()
+
+	innerTimer.stop()
+	outerTimer.stop()
+	if (current_attack % 2 == 0):
 		anim.play("Attack_1")
-		get_parent().create_sound("Attack")
-		Game.attack_buffer -= 1
-	elif (current_attack == 2):
-		innerTimer.stop()
-		outerTimer.stop()
+	else:
 		anim.play("Attack_2")
-		get_parent().create_sound("Attack")
-		Game.attack_buffer -= 1
-	elif (current_attack == 3):
-		innerTimer.stop()
-		outerTimer.stop()
-		anim.play("Attack_1")
-		get_parent().create_sound("Attack")
-		Game.attack_buffer -= 1
+	get_parent().create_sound("Attack")
+	Game.attack_buffer -= 1
+
 	
 func is_attacking() -> bool:
 	return anim.current_animation == "Attack_1" or anim.current_animation == "Attack_2"

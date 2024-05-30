@@ -4,7 +4,7 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
 const DASH_SPEED = 800.0
-const DASH_LENGHT = 0.2
+@onready var DashLenght = 10
 
 @onready var Dash = $Dash
 @onready var DashEffect = $DashEffect
@@ -74,7 +74,7 @@ func _physics_process(delta):
 		return
 
 	#Handle Dash
-	if Input.is_action_just_pressed("dash") && Dash.is_cooldown() && Game.courage >= Game.MIN_COURAGE_DASH:
+	if Input.is_action_just_pressed("dash") && Dash.is_cooldown() && Game.courage >= Game.min_courage_dash:
 		Dash.start_dash()
 		create_sound("Dash", self.global_transform.origin)
 		DashEffect.emitting = true
@@ -85,12 +85,12 @@ func _physics_process(delta):
 		
 		if (dash_direction == Vector2(0.0, 0.0)):
 			if(get_node("Sprite2D").flip_h == true):
-				position += Vector2(-10, 0)
+				position += Vector2(-DashLenght, 0)
 			else:
-				position += Vector2(10, 0)
+				position += Vector2(DashLenght, 0)
 		else:
 			velocity = Vector2(0, 0)
-			position += dash_direction * 10
+			position += dash_direction * DashLenght
 	else:
 		speed = SPEED * remap(Game.courage, 0, 100, 0.5, 1)
 		DashEffect.emitting = false

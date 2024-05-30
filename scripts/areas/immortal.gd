@@ -19,4 +19,5 @@ func _process(delta):
 func _on_end_body_entered(body):
 	if body.name == "Player":
 		#TransitionManager.fade_to_scene("world")
+		Game.startScene = "res://scenes/areas/world.tscn"
 		get_tree().change_scene_to_file("res://scenes/areas/world.tscn")

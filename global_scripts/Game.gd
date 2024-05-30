@@ -1,6 +1,7 @@
 extends Node
 
 var hardMode : bool = false
+var startScene : String;
 
 var isImmortal : bool = false;
 var playerDead : bool = false

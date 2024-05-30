@@ -4,6 +4,7 @@ var SPEED = 100
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player
 var normalAreaX
+var personalSpace = 0.4
 var normalRayCastX
 var chase = false
 var attacking = false
@@ -66,7 +67,7 @@ func _physics_process(delta):
 			AttackDetectionAreaShape.position.x = normalAreaX
 			$Direction.scale.x = normalRayCastX
 		
-		if $Direction/RayCastFloor.is_colliding():
+		if $Direction/RayCastFloor.is_colliding() && abs(direction.x) > personalSpace:
 			velocity.x = direction.x * SPEED
 		else:
 			anim.play("Idle")

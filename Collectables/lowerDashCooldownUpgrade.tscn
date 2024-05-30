@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhngev8svel0p"]
+[gd_scene load_steps=4 format=3 uid="uid://djsc44xlvfirp"]
 
-[ext_resource type="Texture2D" uid="uid://24gcf8n2ndf3" path="res://assets/Flowers/Flowers_Separated/Flowers_Without_Outline/Orchid.png" id="1_vpk61"]
+[ext_resource type="Texture2D" uid="uid://sl7gm6owbu48" path="res://assets/Flowers/Flowers_Separated/Flowers_Without_Outline/Orchid.png" id="1_vpk61"]
 
 [sub_resource type="GDScript" id="GDScript_o25jo"]
 script/source = "extends Area2D
@@ -17,6 +17,7 @@ func _ready():
 func _on_body_entered(body):
 	if body.name == \"Player\":
 		Game.dash_cooldown = 1.5
+		Events.unlock_upgrade.emit(1)
 		var tween = get_tree().create_tween()
 		var tween1 = get_tree().create_tween()
 		tween.tween_property(self, \"position\", position - Vector2(0, 50), 0.4)

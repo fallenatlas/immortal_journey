@@ -1,11 +1,20 @@
 {
 	"immortal": [
-		"Text number 1: Tres sad tigres"
+		"Immortal Text sample"
 	],
 	"world": [
-		"Text number 2: Dos sad pigeons"
+		"World text sample"
 	],
 	"bonfire1": [
-		"Text number 3: Uno sad cat"
+		"Bonfire 1 Text sample"
+	],
+	"bonfire2": [
+		"Bonfire 2 Text sample"
+	],
+	"bonfire3": [
+		"Bonfire 3 Text sample"
+	],
+	"bonfire4": [
+		"Bonfire 4 Text sample"
 	]
 }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=37 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -14,7 +14,6 @@
 [ext_resource type="Script" path="res://scripts/areas/SunRays.gd" id="7_atl4a"]
 [ext_resource type="PackedScene" uid="uid://b8ouces3cngpi" path="res://scenes/backgrounds/death_world_background.tscn" id="7_ts7l6"]
 [ext_resource type="AudioStream" uid="uid://lqe2m5cvxw68" path="res://Audio/Music/nature_sounds.mp3" id="8_5q1t0"]
-[ext_resource type="Texture2D" uid="uid://bpp43rcycbo2f" path="res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png" id="8_hd7s3"]
 [ext_resource type="PackedScene" uid="uid://bwnicq6jge87k" path="res://scenes/utils/bonfire.tscn" id="9_vvljq"]
 [ext_resource type="AudioStream" uid="uid://bfon4bamfs3sh" path="res://Audio/Music/blood-chillingly-creepy-atmospheres-183561.mp3" id="11_tpx71"]
 [ext_resource type="Shader" path="res://Shaders/visuals.gdshader" id="13_vyhij"]
@@ -352,11 +351,6 @@ bottom_limit = 550
 position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_35r5o")
 
-[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="UI" method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="UI" method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
-[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_ambient_sound_slider_value_changed"]
 [connection signal="body_entered" from="TransitionZone" to="TransitionZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone2" to="TransitionZone2" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone3" to="TransitionZone3" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ee7q2r8vqefi"]
+[gd_scene load_steps=29 format=3 uid="uid://ee7q2r8vqefi"]
 
 [ext_resource type="Script" path="res://scripts/areas/immortal.gd" id="1_okoqj"]
 [ext_resource type="PackedScene" uid="uid://ccxfk82g8wye1" path="res://scenes/player/Player.tscn" id="2_mj4p6"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://or5j0ao207xe" path="res://scenes/enemies/Goblin.tscn" id="5_eknrh"]
 [ext_resource type="Shader" path="res://Shaders/SunRays.gdshader" id="6_3tcpf"]
 [ext_resource type="Script" path="res://scripts/areas/SunRays.gd" id="7_q15wt"]
-[ext_resource type="PackedScene" path="res://scenes/enemies/death.tscn" id="8_0lm6m"]
 [ext_resource type="TileSet" uid="uid://dps0u5bt40qry" path="res://assets/tilesets/default_ground.tres" id="8_7mcxm"]
 [ext_resource type="PackedScene" uid="uid://cp3ux2qv3qq7e" path="res://scenes/backgrounds/normal_world_background.tscn" id="9_62ycs"]
 [ext_resource type="PackedScene" uid="uid://c7eg1cw4ykewe" path="res://scenes/ui/ui.tscn" id="13_1824v"]
@@ -91,9 +90,6 @@ position = Vector2(2539, 223)
 
 [node name="Archer3" parent="Mobs" instance=ExtResource("20_kov66")]
 position = Vector2(2457, 366)
-
-[node name="Death" parent="Mobs" instance=ExtResource("8_0lm6m")]
-position = Vector2(485, 347)
 
 [node name="Sun Rays" type="Node2D" parent="."]
 metadata/_edit_lock_ = true

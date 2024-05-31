@@ -4,6 +4,8 @@ var SPEED = 100
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player
 var normalAreaX
+var personalSpace = 35
+var normalRayCastX
 var chase = false
 var attacking = false
 var dying = false
@@ -31,6 +33,7 @@ var dying = false
 func _ready():
 	anim.play("Idle")
 	normalAreaX = AttackDetectionAreaShape.position.x
+	normalRayCastX = $Direction.scale.x
 	Events.switch_world.connect(_on_switch_world)
 
 
@@ -51,18 +54,24 @@ func _physics_process(delta):
 		
 	if chase:
 		
-		if anim.current_animation != "Death" || anim.current_animation != "Attack" || anim.current_animation != "Hit":
-			anim.play("Run")
-		player = get_node("../../Player/Player")
-		var direction = (player.position - self.position).normalized()
+		#player = get_node("../../Player/Player")
+		var distance = (player.global_position - self.global_position)
+		var direction = distance.normalized()
 		if direction.x < 0:
 			sprite.flip_h = true
 			AttackDetectionAreaShape.position.x = - normalAreaX
+			$Direction.scale.x = -normalRayCastX
 		else:
 			sprite.flip_h = false
 			AttackDetectionAreaShape.position.x = normalAreaX
-			
-		velocity.x = direction.x * SPEED
+			$Direction.scale.x = normalRayCastX
+		
+		if $Direction/RayCastFloor.is_colliding() && abs(distance.x) > personalSpace:
+			anim.play("Run")
+			velocity.x = direction.x * SPEED
+		else:
+			anim.play("Idle")
+			velocity.x = 0
 		
 	elif attacking:
 		if anim.current_animation != "Death" || anim.current_animation != "Hit":
@@ -100,6 +109,7 @@ func death():
 	
 func _on_detection_area_body_entered(body):
 	if body.name == "Player":
+		player = body
 		chase = true
 
 func _on_detection_area_body_exited(body):

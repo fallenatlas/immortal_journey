@@ -7,6 +7,7 @@ func saveGame():
 	var data: Dictionary = {
 		"playerHP": Game.playerHP,
 		"courage": Game.courage,
+		"start": Game.startScene
 	}
 	var jstr = JSON.stringify(data)
 	file.store_line(jstr)
@@ -19,3 +20,5 @@ func loadGame():
 			if current_line:
 				Game.playerHP = current_line["playerHP"]
 				Game.courage = current_line["courage"]
+				Game.startScene = current_line["start"]
+				print(Game.startScene)

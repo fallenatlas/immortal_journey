@@ -208,7 +208,7 @@ func calculate_dash_direction() -> Vector2:
 func _on_animation_player_animation_finished(anim_name):
 	if (anim_name == "Death"):
 		self.queue_free()
-		get_tree().change_scene_to_file("res://scenes/main_menu/main.tscn")
+		get_tree().change_scene_to_file("res://scenes/areas/world.tscn")
 		
 func create_sound(sound_name, position=null):
 	var audio_clone = audioPlayer.instantiate()

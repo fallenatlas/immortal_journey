@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c7eg1cw4ykewe"]
+[gd_scene load_steps=31 format=3 uid="uid://c7eg1cw4ykewe"]
 
 [ext_resource type="Script" path="res://scenes/areas/UI.gd" id="1_r5xcq"]
 [ext_resource type="Texture2D" uid="uid://bfanalh7cvan3" path="res://assets/ui/dash_unavailable.png" id="2_jsuyv"]
@@ -8,15 +8,24 @@
 [ext_resource type="Script" path="res://scripts/UI/HealthBar.gd" id="6_4s7el"]
 [ext_resource type="Texture2D" uid="uid://dmt2k0glhayib" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarBackground.png" id="7_qlngj"]
 [ext_resource type="Texture2D" uid="uid://bsoabmxwhp1g1" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarOver.png" id="8_c5skx"]
+[ext_resource type="Script" path="res://scripts/UI/CourageBarUpgradedgradedgraded.gd" id="9_6rvtk"]
 [ext_resource type="Texture2D" uid="uid://yewi762qi8cf" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDash.png" id="9_6301w"]
-[ext_resource type="Script" path="res://scripts/UI/CourageBar.gd" id="10_5660r"]
 [ext_resource type="Script" path="res://scripts/UI/sword_usage.gd" id="11_2worh"]
+[ext_resource type="Texture2D" uid="uid://ddcyicydiranx" path="res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgressDashUpgraded.png" id="11_j36w8"]
 [ext_resource type="Texture2D" uid="uid://bq76lakhfjx8u" path="res://assets/ui/Exotic Swords.png" id="12_x3hs7"]
-[ext_resource type="Texture2D" uid="uid://dfhlbyij1xdj8" path="res://Health Bar Asset Pack 2 by Adwit Rahman/sword_progress_2d.tres" id="13_71r1t"]
+[ext_resource type="Texture2D" uid="uid://b5r5rsktq75so" path="res://Health Bar Asset Pack 2 by Adwit Rahman/sword_progress_2d.tres" id="13_71r1t"]
 [ext_resource type="Script" path="res://scripts/UI/dash_usage.gd" id="14_4gte7"]
 [ext_resource type="Texture2D" uid="uid://dlw2mgo0dm4kh" path="res://assets/ui/kisspng-brand-line-logo-number-technology-sprite-arrow-5b3ee609de7cb2.3924113515308487779113.png" id="15_cfnwv"]
-[ext_resource type="Texture2D" uid="uid://b2plspvll2pt3" path="res://Health Bar Asset Pack 2 by Adwit Rahman/dash_ready__2d.tres" id="16_5fmh0"]
+[ext_resource type="Texture2D" uid="uid://6jautbjr3gpw" path="res://Health Bar Asset Pack 2 by Adwit Rahman/dash_ready__2d.tres" id="16_5fmh0"]
 [ext_resource type="Script" path="res://scripts/UI/pause_options.gd" id="17_nqp70"]
+[ext_resource type="Texture2D" uid="uid://banwvx022e46" path="res://assets/Flowers/Flowers_Separated/Flowers_With_Ouline/OrchidOUTLINED.png" id="19_nt6t1"]
+[ext_resource type="Script" path="res://scenes/ui/UpgradesMenu.gd" id="19_u73ir"]
+[ext_resource type="Texture2D" uid="uid://iwxji15l7hwv" path="res://assets/Flowers/Flowers_Separated/Flowers_With_Ouline/RoseOUTLINED.png" id="20_jnudr"]
+[ext_resource type="Texture2D" uid="uid://c4fqnixx0ek21" path="res://assets/Flowers/Flowers_Separated/Flowers_With_Ouline/PansyOUTLINED.png" id="21_7sftt"]
+[ext_resource type="Texture2D" uid="uid://dsxbht8bim4fc" path="res://assets/Flowers/Flowers_Separated/Flowers_With_Ouline/PoppyOUTLINED.png" id="22_q1d68"]
+[ext_resource type="Texture2D" uid="uid://ds4xv0kjlfrcf" path="res://assets/Flowers/Flowers_Separated/Flowers_With_Ouline/LilyOUTLINED.png" id="23_cmdr1"]
+[ext_resource type="Texture2D" uid="uid://bpxewnr0g27qe" path="res://assets/Flowers/Flowers_Separated/Flowers_With_Ouline/TulipOUTLINED.png" id="24_nhno7"]
+[ext_resource type="Texture2D" uid="uid://dd5bl2ysrlujd" path="res://assets/Flowers/Flowers_Separated/Flowers_With_Ouline/DaffodilOUTLINED.png" id="25_xltkn"]
 
 [sub_resource type="GDScript" id="GDScript_e70ww"]
 script/source = "extends Label
@@ -71,25 +80,6 @@ theme_override_font_sizes/font_size = 18
 text = "Courage: 0"
 script = SubResource("GDScript_ciooa")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = 1
-offset_left = 236.0
-offset_top = 51.0
-offset_right = 274.0
-offset_bottom = 69.0
-texture = SubResource("GradientTexture2D_3v235")
-stretch_mode = 4
-
-[node name="TextureRect2" type="TextureRect" parent="."]
-z_index = 1
-offset_left = 238.0
-offset_top = 48.0
-offset_right = 262.0
-offset_bottom = 77.0
-texture = ExtResource("2_jsuyv")
-expand_mode = 1
-stretch_mode = 4
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = -1
 anchor_right = 0.289063
@@ -115,8 +105,58 @@ value = 100.0
 texture_under = ExtResource("7_qlngj")
 texture_over = ExtResource("8_c5skx")
 texture_progress = ExtResource("9_6301w")
-script = ExtResource("10_5660r")
+script = ExtResource("9_6rvtk")
 metadata/_edit_use_anchors_ = true
+
+[node name="ThresholdIndicator" type="TextureRect" parent="VBoxContainer/CourageBar"]
+z_index = 1
+layout_mode = 0
+offset_left = 216.0
+offset_top = 3.0
+offset_right = 254.0
+offset_bottom = 21.0
+texture = SubResource("GradientTexture2D_3v235")
+stretch_mode = 4
+
+[node name="ThresholdIcon" type="TextureRect" parent="VBoxContainer/CourageBar"]
+z_index = 2
+layout_mode = 2
+offset_top = 28.0
+offset_right = 333.0
+offset_bottom = 28.0
+texture = ExtResource("2_jsuyv")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="CourageBarUpgraded" type="TextureProgressBar" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+value = 100.0
+texture_under = ExtResource("7_qlngj")
+texture_over = ExtResource("8_c5skx")
+texture_progress = ExtResource("11_j36w8")
+script = ExtResource("9_6rvtk")
+metadata/_edit_use_anchors_ = true
+
+[node name="ThresholdIndicator" type="TextureRect" parent="VBoxContainer/CourageBarUpgraded"]
+z_index = 1
+layout_mode = 0
+offset_left = 180.0
+offset_top = 3.0
+offset_right = 218.0
+offset_bottom = 21.0
+texture = SubResource("GradientTexture2D_3v235")
+stretch_mode = 4
+
+[node name="ThresholdIcon" type="TextureRect" parent="VBoxContainer/CourageBarUpgraded"]
+z_index = 2
+layout_mode = 2
+offset_top = 28.0
+offset_right = 333.0
+offset_bottom = 28.0
+texture = ExtResource("2_jsuyv")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="SwordUsage" type="HBoxContainer" parent="."]
 anchors_preset = 2
@@ -169,6 +209,19 @@ theme_override_constants/margin_top = 7
 theme_override_constants/margin_right = 10
 
 [node name="TextureProgressBar3" type="TextureProgressBar" parent="SwordUsage/MarginContainer3"]
+layout_mode = 2
+max_value = 0.5
+step = 0.01
+value = 0.5
+texture_progress = ExtResource("13_71r1t")
+
+[node name="MarginContainer4" type="MarginContainer" parent="SwordUsage"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 7
+theme_override_constants/margin_right = 10
+
+[node name="TextureProgressBar4" type="TextureProgressBar" parent="SwordUsage/MarginContainer4"]
 layout_mode = 2
 max_value = 0.5
 step = 0.01
@@ -254,7 +307,25 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 text = "Audio"
 
-[node name="Menu" type="Control" parent="Pause_Options"]
+[node name="UpgradesButton" type="MarginContainer" parent="Pause_Options/Buttons"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="Button" type="Button" parent="Pause_Options/Buttons/UpgradesButton"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Upgrades"
+
+[node name="BackButton" type="MarginContainer" parent="Pause_Options/Buttons"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+
+[node name="Button" type="Button" parent="Pause_Options/Buttons/BackButton"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+text = "Back"
+
+[node name="AudioMenu" type="Control" parent="Pause_Options"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -264,7 +335,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Pause_Options/Menu"]
+[node name="ColorRect" type="ColorRect" parent="Pause_Options/AudioMenu"]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -274,7 +345,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0646966, 0.0646965, 0.0646965, 0.827451)
 
-[node name="MarginContainer" type="MarginContainer" parent="Pause_Options/Menu"]
+[node name="MarginContainer" type="MarginContainer" parent="Pause_Options/AudioMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -284,20 +355,20 @@ grow_vertical = 2
 theme_override_constants/margin_left = 256
 theme_override_constants/margin_right = 256
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Pause_Options/Menu/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause_Options/AudioMenu/MarginContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="Pause_Options/Menu/MarginContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="Pause_Options/AudioMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 16
 columns = 2
 
-[node name="MusicLabel" type="Label" parent="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="MusicLabel" type="Label" parent="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Music:"
 
-[node name="MusicSlider" type="HSlider" parent="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="MusicSlider" type="HSlider" parent="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -305,11 +376,11 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="SFXLabel" type="Label" parent="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="SFXLabel" type="Label" parent="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "SFX:"
 
-[node name="SFXSlider" type="HSlider" parent="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="SFXSlider" type="HSlider" parent="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -317,11 +388,11 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="AmbientSoundLabel2" type="Label" parent="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="AmbientSoundLabel2" type="Label" parent="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 text = "Ambient Sound:"
 
-[node name="AmbientSoundSlider" type="HSlider" parent="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer"]
+[node name="AmbientSoundSlider" type="HSlider" parent="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
@@ -329,7 +400,7 @@ max_value = 1.0
 step = 0.05
 value = 1.0
 
-[node name="BackButton" type="Button" parent="Pause_Options/Menu"]
+[node name="BackButton" type="Button" parent="Pause_Options/AudioMenu"]
 custom_minimum_size = Vector2(100, 50)
 layout_mode = 1
 anchors_preset = 8
@@ -346,11 +417,142 @@ grow_vertical = 2
 text = "Back
 "
 
+[node name="UpgradesMenu" type="Control" parent="Pause_Options"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("19_u73ir")
+
+[node name="ColorRect" type="ColorRect" parent="Pause_Options/UpgradesMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0646966, 0.0646965, 0.0646965, 0.827451)
+
+[node name="MarginContainer" type="MarginContainer" parent="Pause_Options/UpgradesMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 256
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 256
+theme_override_constants/margin_bottom = 32
+
+[node name="ColorRect" type="ColorRect" parent="Pause_Options/UpgradesMenu/MarginContainer"]
+layout_mode = 2
+color = Color(0.0627451, 0.0627451, 0.0627451, 0.913725)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Pause_Options/UpgradesMenu/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 24
+columns = 2
+
+[node name="Image1" type="TextureRect" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("19_nt6t1")
+
+[node name="UpgradeDescription1" type="Label" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Orchid - Lower Dash Cooldown by 25%"
+
+[node name="Image2" type="TextureRect" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("20_jnudr")
+
+[node name="UpgradeDescription2" type="Label" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Rose - Lower Attack Cooldown by 20%"
+
+[node name="Image3" type="TextureRect" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("21_7sftt")
+
+[node name="UpgradeDescription3" type="Label" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pansy - Lower Courage Threshold for Dash"
+
+[node name="Image4" type="TextureRect" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("22_q1d68")
+
+[node name="UpgradeDescription4" type="Label" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Poppy - Increase Courage Gain by 20%"
+
+[node name="Image5" type="TextureRect" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("23_cmdr1")
+
+[node name="UpgradeDescription5" type="Label" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Lily - Increase Consecutive Attacks by 1"
+
+[node name="Image6" type="TextureRect" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("24_nhno7")
+
+[node name="UpgradeDescription6" type="Label" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Tulip - Increase Dash Distance"
+
+[node name="Image7" type="TextureRect" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+texture = ExtResource("25_xltkn")
+
+[node name="UpgradeDescription7" type="Label" parent="Pause_Options/UpgradesMenu/MarginContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Daffodil - Decrease Courage Drain"
+
+[node name="BackButton" type="Button" parent="Pause_Options/UpgradesMenu"]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 212.0
+offset_right = 50.0
+offset_bottom = 262.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back
+"
+
 [connection signal="hidden" from="Pause_Options" to="Pause_Options" method="_on_hidden"]
 [connection signal="pressed" from="Pause_Options/Buttons/MainMenuButton/Button" to="Pause_Options" method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="Pause_Options/Buttons/AudioButton/Button" to="Pause_Options" method="_on_audio_button_pressed"]
-[connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
-[connection signal="value_changed" from="Pause_Options/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_music_slider_value_changed"]
-[connection signal="pressed" from="Pause_Options/Menu/BackButton" to="Pause_Options" method="_on_audio_back_button_pressed"]
+[connection signal="pressed" from="Pause_Options/Buttons/UpgradesButton/Button" to="Pause_Options" method="_on_upgrades_button_pressed"]
+[connection signal="pressed" from="Pause_Options/Buttons/BackButton/Button" to="Pause_Options" method="_on_back_button_pressed"]
+[connection signal="value_changed" from="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
+[connection signal="value_changed" from="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="pressed" from="Pause_Options/AudioMenu/BackButton" to="Pause_Options" method="_on_audio_back_button_pressed"]
+[connection signal="pressed" from="Pause_Options/UpgradesMenu/BackButton" to="Pause_Options" method="_on_upgrades_back_button_pressed"]

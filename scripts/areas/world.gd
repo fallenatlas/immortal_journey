@@ -26,6 +26,11 @@ func _ready():
 	Events.took_damage.connect(_on_player_damage)
 	deathWorldAmbientSound.stop()
 	
+	Game.dash_cooldown = 2
+	Game.min_courage_dash = 65
+	Game.attack_buffer = 3
+	Game.courageMultiplier = 1
+	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(delta):

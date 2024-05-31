@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbctq2m5c65vu"]
+
+[ext_resource type="Texture2D" uid="uid://b75jj5m8ug6ew" path="res://assets/Flowers/Flowers_Separated/Flowers_Without_Outline/Tulip.png" id="1_aqi3m"]
+
+[sub_resource type="GDScript" id="GDScript_o25jo"]
+script/source = "extends Area2D
+
+@onready var Player = get_node(\"../../../Player/Player\")
+@onready var CollisionShape = $CollisionShape2D
+@onready var Sprite = $Sprite2D
+
+func _ready():
+	set_collision_mask_value(3, false)
+	CollisionShape.set_disabled(true)
+	Sprite.visible = false
+	Events.switch_world.connect(_on_switch_world)
+
+func _on_body_entered(body):
+	if body.name == \"Player\":
+		Player.DashLenght = 12
+		Events.unlock_upgrade.emit(6)
+		var tween = get_tree().create_tween()
+		var tween1 = get_tree().create_tween()
+		tween.tween_property(self, \"position\", position - Vector2(0, 50), 0.4)
+		tween1.tween_property(self, \"modulate:a\", 0, 0.4)
+		tween.tween_callback(queue_free)
+		
+func _on_switch_world(normalWorld : bool):
+	if (normalWorld):
+		set_collision_mask_value(3, false)
+		CollisionShape.set_disabled(true)
+		Sprite.visible = false
+	if (not normalWorld):
+		set_collision_mask_value(3, true)
+		CollisionShape.set_disabled(false)
+		Sprite.visible = true
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wt1dd"]
+radius = 8.0
+
+[node name="IncreaseDashDistanceUpgrade" type="Area2D"]
+script = SubResource("GDScript_o25jo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -1)
+shape = SubResource("CircleShape2D_wt1dd")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_aqi3m")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

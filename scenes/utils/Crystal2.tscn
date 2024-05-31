@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://k4y1caga5aox"]
+
+[ext_resource type="Script" path="res://scripts/enemies/Spikes.gd" id="1_uiq8f"]
+[ext_resource type="Texture2D" uid="uid://c7ag3ixrk6tsb" path="res://assets/crystals/cave_crystal_purple_2.png" id="2_hbr2i"]
+
+[node name="Spikes" type="StaticBody2D"]
+script = ExtResource("1_uiq8f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = -1.57778
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_hbr2i")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+rotation = 1.5708
+polygon = PackedVector2Array(12, 12, -12, 12, -12, -12, 12, -12)

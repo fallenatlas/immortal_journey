@@ -4,11 +4,15 @@ extends Node2D
 @onready var dash_timer = $"Dash Time"
 @onready var effect_timer = $"Effect Timer"
 
+func _ready():
+	Events.dash_cooldown_change.connect(_dash_cooldown_change)
+
 func start_dash():
 	Game.is_dash_ready = false
 	Game.dash_recharge_time = 0.0
 	cooldown_timer.start();
 	dash_timer.start();
+	print(cooldown_timer.wait_time)
 	
 func start_dash_effect():
 	effect_timer.start();
@@ -29,3 +33,7 @@ func _process(delta):
 
 func _on_dash_cooldown_timeout():
 	Game.is_dash_ready = true
+	
+func _dash_cooldown_change(value):
+	print("Receive")
+	cooldown_timer.wait_time = value

@@ -14,11 +14,14 @@ var playerCanMove = true
 
 var canChangeWorlds = true
 
+var courageMultiplier = 1
+
 var courage: float = 50.0 :
 	get:
 		return courage
 	set(value):
 		var oldCourage = courage
+		print(courageMultiplier)
 		courage = value
 		if courage > 100:
 			courage = 100
@@ -27,6 +30,8 @@ var courage: float = 50.0 :
 			Events.courage_depleted.emit()
 		if oldCourage == 0 and courage > 0:
 			Events.courage_restored.emit()
+		if (oldCourage < min_courage_dash && courage >= min_courage_dash):
+			is_dash_ready = true
 
 var normalWorld : bool = true
 
@@ -36,7 +41,20 @@ var outer_timer_time : float = 0.0
 var is_sword_combo_active : bool = false
 
 # courage ui
-const MIN_COURAGE_DASH = 65
+var min_courage_dash = 65:
+	set(value):
+		if (value == 55):
+			Events.dash_threshold_change.emit()
+		min_courage_dash = value
+
+		
+var dash_cooldown = 2:
+	set(value):
+		dash_cooldown = value
+		is_dash_ready = true
+		Events.dash_cooldown_change.emit(value)
+		print("Send")
+
 var dash_recharge_time : float = 0.0
 var is_dash_ready : bool = true
 
@@ -70,4 +88,10 @@ func take_damage(damage_value : int, enemy : bool):
 		if playerHP <= 0:
 			playerDead = true
 		Events.took_damage.emit(enemy)
-
+		
+func set_courage(value : int):
+	print(courageMultiplier)
+	if (value > 0):
+		courage += value * courageMultiplier
+	else:
+		courage += value

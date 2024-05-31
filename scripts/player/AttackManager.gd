@@ -26,7 +26,7 @@ func _process(delta):
 	update_inner_timer()
 	update_outer_timer()
 	
-	if (Game.playerDead or is_attacking() or Game.attack_buffer <= 0):
+	if (Game.playerDead or is_attacking() or Game.attack_buffer <= 0 or not Game.playerCanMove):
 		return
 		
 	if (!Input.is_action_just_pressed("strike")):

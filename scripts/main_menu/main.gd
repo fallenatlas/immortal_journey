@@ -4,6 +4,7 @@ func _ready():
 	#Utils.saveGame()
 	#Utils.loadGame()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	get_node("UI/VSplitContainer/VBoxContainer/MarginContainer5/NewGame").grab_focus()
 
 func _on_quit_pressed():
 	get_tree().quit()

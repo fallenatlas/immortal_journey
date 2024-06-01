@@ -1,10 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://wug1kygiwiv3"]
+[gd_scene load_steps=7 format=3 uid="uid://wug1kygiwiv3"]
 
 [ext_resource type="Script" path="res://Dialogues/dialogue_npcs.gd" id="1_xavph"]
 [ext_resource type="AudioStream" uid="uid://c6ch7vp376gdt" path="res://Audio/SFX/10_UI_Menu_SFX/051_use_item_01.wav" id="2_2k0lv"]
-[ext_resource type="FontFile" uid="uid://dhw7jldi36v1q" path="res://assets/Fonts/Helvetica Ultra Compressed/Helvetica Ultra Compressed.otf" id="2_xq33d"]
 
 [sub_resource type="Theme" id="Theme_xkju6"]
+
+[sub_resource type="Animation" id="Animation_c06im"]
+resource_name = "show"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chat:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_8tovm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chat:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bres7"]
+_data = {
+"RESET": SubResource("Animation_8tovm"),
+"show": SubResource("Animation_c06im")
+}
 
 [node name="DialogueBox" type="CanvasLayer"]
 script = ExtResource("1_xavph")
@@ -23,49 +58,20 @@ grow_vertical = 0
 theme = SubResource("Theme_xkju6")
 color = Color(0, 0, 0, 0.698039)
 
-[node name="Label" type="Label" parent="."]
-visible = false
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 46.0
-offset_top = -158.0
-offset_right = -42.0
-offset_bottom = -54.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "bvbvbvb"
-autowrap_mode = 2
-
 [node name="Name" type="RichTextLabel" parent="."]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 45.0
-offset_top = -159.0
-offset_right = -956.0
-offset_bottom = -127.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/normal_font = ExtResource("2_xq33d")
-theme_override_font_sizes/normal_font_size = 35
-text = "Name"
+offset_left = 31.0
+offset_top = 483.0
+offset_right = 666.0
+offset_bottom = 523.0
+bbcode_enabled = true
+text = "[font_size=24][b] Name"
 
 [node name="Chat" type="RichTextLabel" parent="."]
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 46.0
-offset_top = -120.0
-offset_right = -43.0
-offset_bottom = -48.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/normal_font = ExtResource("2_xq33d")
-theme_override_font_sizes/normal_font_size = 25
+offset_left = 43.0
+offset_top = 521.0
+offset_right = 1106.0
+offset_bottom = 594.0
+bbcode_enabled = true
 text = "Text"
 
 [node name="Timer" type="Timer" parent="."]
@@ -75,5 +81,10 @@ one_shot = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_2k0lv")
 bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bres7")
+}
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

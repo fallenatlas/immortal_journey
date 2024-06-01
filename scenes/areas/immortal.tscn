@@ -83,8 +83,8 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [-24, -500, 4650, 300],
-"method": &"change_camera_limits"
+"args": [],
+"method": &"play_camera_out_animation"
 }]
 }
 tracks/2/type = "value"
@@ -216,11 +216,11 @@ tracks/1/path = NodePath("../Player/Player")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 6.3, 7.8, 7.9, 8, 8.1),
+"times": PackedFloat32Array(0, 7.7, 7.8, 7.9, 8, 8.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "values": [{
-"args": [-24, -500, 4650, 300],
-"method": &"change_camera_limits"
+"args": [],
+"method": &"play_camera_in_animation"
 }, {
 "args": [-24, -500, 5965, 300],
 "method": &"change_camera_limits"
@@ -432,7 +432,7 @@ position = Vector2(3231, 33)
 position = Vector2(3149, 176)
 
 [node name="Death" parent="Mobs" instance=ExtResource("8_0lm6m")]
-position = Vector2(4350, 173)
+position = Vector2(4500, 173)
 
 [node name="Sun Rays" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -444,8 +444,10 @@ texture = SubResource("GradientTexture2D_6k7ww")
 script = ExtResource("7_q15wt")
 metadata/_edit_lock_ = true
 
-[node name="Bonfire" parent="." instance=ExtResource("11_nmfcu")]
-position = Vector2(5510, 16)
+[node name="Bonfires" type="Node2D" parent="."]
+position = Vector2(5481, 16)
+
+[node name="world" parent="Bonfires" instance=ExtResource("11_nmfcu")]
 
 [node name="NormalWorld" type="Node2D" parent="."]
 
@@ -509,6 +511,7 @@ position = Vector2(5168, -86)
 popup = 7
 
 [node name="TutorialPopups" type="CanvasLayer" parent="."]
+visible = false
 script = ExtResource("14_o8nxp")
 
 [node name="Move" type="Control" parent="TutorialPopups"]
@@ -607,6 +610,7 @@ grow_vertical = 2
 layout_mode = 1
 
 [node name="UI" parent="." instance=ExtResource("13_1824v")]
+visible = false
 
 [node name="Visual Effects" type="CanvasLayer" parent="."]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://ccxfk82g8wye1"]
+[gd_scene load_steps=66 format=3 uid="uid://ccxfk82g8wye1"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_ooqp6"]
 [ext_resource type="Shader" path="res://Shaders/Player.gdshader" id="2_76q85"]
@@ -1171,6 +1171,60 @@ _data = {
 "Take_Damage": SubResource("Animation_7gikw")
 }
 
+[sub_resource type="Animation" id="Animation_mpnsm"]
+resource_name = "CameraMovementOut"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(100, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qwge2"]
+resource_name = "CameraMovementIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(100, 0), Vector2(20, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1fmvc"]
+resource_name = "CameraMovementExit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Camera2D:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(20, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2adyi"]
+_data = {
+"CameraMovementExit": SubResource("Animation_1fmvc"),
+"CameraMovementIn": SubResource("Animation_qwge2"),
+"CameraMovementOut": SubResource("Animation_mpnsm")
+}
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nfbqd"]
 radius = 32.0
 height = 92.0
@@ -1206,6 +1260,7 @@ animation = &"Run"
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(20, 0)
 zoom = Vector2(1.6, 1.6)
 limit_left = -24
 limit_top = -500
@@ -1220,6 +1275,12 @@ libraries = {
 "": SubResource("AnimationLibrary_ba24s")
 }
 autoplay = "Idle"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_2adyi")
+}
 
 [node name="HealthManager" type="Node" parent="."]
 script = ExtResource("12_2wcsw")

@@ -264,3 +264,12 @@ func _input(event):
 
 func _on_coyote_timer_timeout():
 	isPossibleCoyote = false
+	
+func play_camera_out_animation():
+	get_node("AnimationPlayer2").play("CameraMovementOut")
+
+func play_camera_in_animation():
+	get_node("AnimationPlayer2").play("CameraMovementIn")
+	
+func play_camera_exit_animation():
+	get_node("AnimationPlayer2").play("CameraMovementExit")

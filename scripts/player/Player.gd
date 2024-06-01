@@ -185,6 +185,7 @@ func get_direction():
 	return 1
 
 func _on_switch_world(normalWorld : bool):
+	print("switch player world")
 	if (Game.isImmortal): return
 	
 	create_sound("Switch_world", self.global_transform.origin)

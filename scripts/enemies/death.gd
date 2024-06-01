@@ -144,5 +144,4 @@ func play_idle_animation():
 	get_node("AnimationPlayer").play("Idle")
 	
 func play_disappear_animation():
-	#get_node("AnimationPlayer").play()
-	pass
+	get_node("AnimationPlayer").play("TutorialAnimation")

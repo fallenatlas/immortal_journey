@@ -552,7 +552,7 @@ text = "Back
 [connection signal="pressed" from="Pause_Options/Buttons/BackButton/Button" to="Pause_Options" method="_on_back_button_pressed"]
 [connection signal="value_changed" from="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
-[connection signal="value_changed" from="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
 [connection signal="value_changed" from="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Pause_Options/AudioMenu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
 [connection signal="pressed" from="Pause_Options/AudioMenu/BackButton" to="Pause_Options" method="_on_audio_back_button_pressed"]
 [connection signal="pressed" from="Pause_Options/UpgradesMenu/BackButton" to="Pause_Options" method="_on_upgrades_back_button_pressed"]

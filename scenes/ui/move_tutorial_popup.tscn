@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ccr4u2pvndubw"]
+[gd_scene format=3 uid="uid://bx10n8s4tivuf"]
 
 [node name="MoveTutorialPopup" type="Control"]
 layout_mode = 3
@@ -38,7 +38,7 @@ offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[center]Keyboard: Use [color=green]S[/color] and  [color=green]D[/color] to move
+text = "[center]Keyboard: Use [color=green]A[/color] and [color=green]D[/color] to move
 Controller: Use [color=green]Left Joystick[/color] to move
 [center]"
 fit_content = true

@@ -10,13 +10,18 @@
 [ext_resource type="AudioStream" uid="uid://hajx828e8edr" path="res://Audio/SFX/heartbeat-sound-effect-111218.mp3" id="5_l4xkv"]
 [ext_resource type="PackedScene" uid="uid://or5j0ao207xe" path="res://scenes/enemies/Goblin.tscn" id="5_l6xbp"]
 [ext_resource type="TileSet" uid="uid://bpfdwdtnqcw4i" path="res://assets/tilesets/death_ground.tres" id="6_5lpkg"]
+[ext_resource type="PackedScene" uid="uid://b4lfhe7ea65x4" path="res://scenes/NPCs/npc_villager.tscn" id="6_d0ryv"]
 [ext_resource type="Shader" path="res://Shaders/SunRays.gdshader" id="6_tihlm"]
 [ext_resource type="Script" path="res://scripts/areas/SunRays.gd" id="7_atl4a"]
+[ext_resource type="PackedScene" uid="uid://ciosjljisfrwj" path="res://scenes/NPCs/npc_brotherly_goblin.tscn" id="7_nr1fa"]
+[ext_resource type="PackedScene" uid="uid://07qc1wgxibj0" path="res://scenes/NPCs/npc_kind_goblin.tscn" id="7_oqd6t"]
 [ext_resource type="PackedScene" uid="uid://b8ouces3cngpi" path="res://scenes/backgrounds/death_world_background.tscn" id="7_ts7l6"]
 [ext_resource type="AudioStream" uid="uid://lqe2m5cvxw68" path="res://Audio/Music/nature_sounds.mp3" id="8_5q1t0"]
 [ext_resource type="PackedScene" uid="uid://c1u8eudxewsj2" path="res://scenes/enemies/Dragon.tscn" id="9_2hdrd"]
 [ext_resource type="PackedScene" uid="uid://bwnicq6jge87k" path="res://scenes/utils/bonfire.tscn" id="9_vvljq"]
 [ext_resource type="PackedScene" uid="uid://cdy5j5rwok7k3" path="res://scenes/enemies/death.tscn" id="10_amhub"]
+[ext_resource type="PackedScene" uid="uid://crs2q85vjs8ck" path="res://scenes/NPCs/npc_old_samurai.tscn" id="10_qog5q"]
+[ext_resource type="PackedScene" uid="uid://dswhan0jd62oy" path="res://scenes/NPCs/npc_wise_goblin.tscn" id="11_sq2d5"]
 [ext_resource type="AudioStream" uid="uid://bfon4bamfs3sh" path="res://Audio/Music/blood-chillingly-creepy-atmospheres-183561.mp3" id="11_tpx71"]
 [ext_resource type="Shader" path="res://Shaders/visuals.gdshader" id="13_vyhij"]
 [ext_resource type="Script" path="res://scripts/Effects/Filter.gd" id="14_nbkpm"]
@@ -160,8 +165,23 @@ bus = &"SFX"
 
 [node name="NPCs" type="Node2D" parent="."]
 
-[node name="NPC_Hunter" parent="NPCs" instance=ExtResource("3_hj2pf")]
-position = Vector2(7534, -39)
+[node name="Huntress" parent="NPCs" instance=ExtResource("3_hj2pf")]
+position = Vector2(9895, 58)
+
+[node name="Brotherly Goblin Merchant" parent="NPCs" instance=ExtResource("7_nr1fa")]
+position = Vector2(10311, -16)
+
+[node name="Villager" parent="NPCs" instance=ExtResource("6_d0ryv")]
+position = Vector2(1008, 226.5)
+
+[node name="Kind Goblin Merchant" parent="NPCs" instance=ExtResource("7_oqd6t")]
+position = Vector2(1496, 153)
+
+[node name="Old Samurai" parent="NPCs" instance=ExtResource("10_qog5q")]
+position = Vector2(19922, 441.5)
+
+[node name="Wise Goblin Merchant" parent="NPCs" instance=ExtResource("11_sq2d5")]
+position = Vector2(27942, -16)
 
 [node name="Mobs" type="Node2D" parent="."]
 
@@ -870,7 +890,7 @@ position = Vector2(660, 171)
 texture = ExtResource("32_kc02e")
 
 [node name="Lamp3" type="Sprite2D" parent="Decorations"]
-z_index = -1
+z_index = -2
 position = Vector2(960, 220)
 texture = ExtResource("32_kc02e")
 
@@ -908,24 +928,6 @@ texture = ExtResource("33_a01wj")
 z_index = -1
 position = Vector2(10800, 65)
 texture = ExtResource("33_a01wj")
-
-[node name="Shop" type="Sprite2D" parent="Decorations"]
-z_index = -2
-position = Vector2(1496, 175)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("34_w618k")
-
-[node name="Shop2" type="Sprite2D" parent="Decorations"]
-z_index = -2
-position = Vector2(10311, 7)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("34_w618k")
-
-[node name="Shop3" type="Sprite2D" parent="Decorations"]
-z_index = -2
-position = Vector2(27942, 7)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("34_w618k")
 
 [node name="Fence" type="Sprite2D" parent="Decorations"]
 z_index = -2

@@ -32,6 +32,8 @@ func start(NPC_name, NPC_stage=""):
 	current_npc = NPC_name
 	dialogue_name = NPC_name + NPC_stage
 	next_script()
+	print(current_npc)
+	
 
 func _input(event):
 	if not d_active:
@@ -40,6 +42,7 @@ func _input(event):
 
 	if event.is_action_pressed("interact"):
 		audio_player.play()
+		$AnimationPlayer.play('show')
 		next_script()
 			
 			
@@ -53,8 +56,8 @@ func next_script():
 		
 		return
 		
-	Name.text = current_npc
-	Chat.text = dialogue[dialogue_name][current_dialogue_id]
+	Name.text = "[font_size=24][b] " + current_npc
+	Chat.text = "[font_size=20]" + dialogue[current_npc][current_dialogue_id]
 
 
 func _on_timer_timeout():

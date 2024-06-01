@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=75 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://bfon4bamfs3sh" path="res://Audio/Music/blood-chillingly-creepy-atmospheres-183561.mp3" id="11_tpx71"]
 [ext_resource type="Shader" path="res://Shaders/visuals.gdshader" id="13_vyhij"]
 [ext_resource type="Script" path="res://scripts/Effects/Filter.gd" id="14_nbkpm"]
+[ext_resource type="PackedScene" uid="uid://b7rqli0ljk5yy" path="res://scenes/backgrounds/normal_world_cave_background.tscn" id="15_hc0b4"]
 [ext_resource type="Shader" path="res://Shaders/vignette.gdshader" id="16_qo4s6"]
 [ext_resource type="Script" path="res://scripts/Effects/Vignette.gd" id="17_vdpjq"]
 [ext_resource type="PackedScene" uid="uid://djsc44xlvfirp" path="res://Collectables/lowerDashCooldownUpgrade.tscn" id="18_704rl"]
@@ -26,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://bcgq4m46dit1t" path="res://Collectables/increaseCourageGainUpgrade.tscn" id="18_wxa8k"]
 [ext_resource type="Shader" path="res://Shaders/DeathWorld.gdshader" id="19_osw28"]
 [ext_resource type="PackedScene" uid="uid://c7eg1cw4ykewe" path="res://scenes/ui/ui.tscn" id="19_va04q"]
+[ext_resource type="PackedScene" uid="uid://ck2c78th4781v" path="res://scenes/backgrounds/death_world_cave_background.tscn" id="19_wh0ik"]
 [ext_resource type="PackedScene" uid="uid://bbctq2m5c65vu" path="res://Collectables/increaseDashDistanceUpgrade.tscn" id="21_3fsof"]
 [ext_resource type="PackedScene" uid="uid://cgoq2scmgui1w" path="res://Collectables/lowerDashThresholdUpgrade.tscn" id="23_emca0"]
 [ext_resource type="PackedScene" uid="uid://baas00g65fd21" path="res://Collectables/lowerAttackCooldownUpgrade.tscn" id="24_f3f55"]
@@ -654,6 +656,24 @@ layer_0/tile_data = PackedInt32Array(655360, 65536, 0, 655363, 131072, 0, 655364
 offset = Vector2(432, -20)
 transform = Transform2D(1, 0, 0, 1, 432, -20)
 
+[node name="Cave" type="Node2D" parent="NormalWorld"]
+z_index = -99
+position = Vector2(12346, 410)
+
+[node name="NormalWorldBackground" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+
+[node name="NormalWorldBackground2" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(1919, 0)
+
+[node name="NormalWorldBackground3" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(3839, 0)
+
+[node name="NormalWorldBackground4" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(5759, 0)
+
+[node name="NormalWorldBackground5" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(7678, 0)
+
 [node name="AmbientSound" type="AudioStreamPlayer" parent="NormalWorld"]
 stream = ExtResource("8_5q1t0")
 volume_db = -30.0
@@ -673,6 +693,31 @@ layer_0/tile_data = PackedInt32Array(786430, 65537, 1, 851966, 65537, 1, 917502,
 visible = false
 offset = Vector2(432, 30)
 transform = Transform2D(1, 0, 0, 1, 432, 30)
+
+[node name="Cave" type="Node2D" parent="DeathWorld"]
+z_index = -99
+position = Vector2(-455, -3)
+scale = Vector2(1.04, 1.04)
+
+[node name="DeathWorldCaveBackground" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(12309, 428)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground2" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(14152, 428)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground3" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(15996, 428)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground4" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(17840, 428)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground5" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(19683, 428)
+scale = Vector2(1.6, 1.6)
 
 [node name="AmbientSound" type="AudioStreamPlayer" parent="DeathWorld"]
 stream = ExtResource("11_tpx71")

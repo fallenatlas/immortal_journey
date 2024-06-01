@@ -702,10 +702,8 @@ position = Vector2(11434, 65)
 position = Vector2(8470, -103)
 
 [node name="UI" parent="." instance=ExtResource("19_va04q")]
-visible = false
 
 [node name="Visual Effects" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Filter" type="ColorRect" parent="Visual Effects"]
 material = SubResource("ShaderMaterial_tan7j")
@@ -981,6 +979,7 @@ texture = ExtResource("38_6ww1j")
 
 [node name="Rock6" type="Sprite2D" parent="Decorations"]
 z_index = -2
+position = Vector2(10015, 74)
 texture = ExtResource("38_6ww1j")
 
 [node name="Rock3" type="Sprite2D" parent="Decorations"]

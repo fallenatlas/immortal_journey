@@ -76,6 +76,18 @@ var whiteColor : Color = Color(0, 0, 0)
 var blackColor : Color = Color(0, 0, 0)
 var softRedColor : Color = Color(100, 0, 0)
 
+# Play test metrics
+var n_deaths : int
+var run_time : float
+var play_time : float
+var living_world_t : float
+var total_living_world_t : float
+var death_world_t : float
+var total_death_world_t : float
+var goblins_killed : int
+var total_goblins_killed : int
+var archers_killed : int
+var total_archers_killed : int
 
 func take_damage(damage_value : int, enemy : bool):
 	if (not enemy):

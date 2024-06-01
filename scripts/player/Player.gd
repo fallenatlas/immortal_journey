@@ -247,6 +247,7 @@ func _on_player_damage(enemy : bool):
 			heartbeatSound.play()
 		heartbeatSound.volume_db = linear_to_db(1 - Game.playerHP/6);
 	if (Game.playerHP <= 0):
+		Utils.log_death()
 		create_sound("Death")
 		dying = true
 		breathingSound.stop()

@@ -35,6 +35,13 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(delta):
+	# Play test metric
+	Game.run_time += delta
+	if Game.normalWorld:
+		Game.living_world_t += delta
+	else:
+		Game.death_world_t += delta
+		
 	if Input.is_action_just_pressed("swith_world") and not Game.playerDead and Game.canChangeWorlds:
 		#still a bit bugy but overall well
 		#thing about having some indication of how the other world is

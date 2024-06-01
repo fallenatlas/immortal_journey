@@ -7,7 +7,7 @@ uniform float isOtherWorld;
 
 void fragment() {
 	vec4 color = texture(TEXTURE, UV);
-	if(isOtherWorld == 1.0){
+	if(isOtherWorld == 1.0 && color.a > 0.0){
 		color.rbga = other_color;
 	}
 	COLOR = color;

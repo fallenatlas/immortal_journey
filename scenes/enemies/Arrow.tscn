@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://01qhguc4q5xj"]
+[gd_scene load_steps=7 format=3 uid="uid://01qhguc4q5xj"]
 
 [ext_resource type="Script" path="res://scripts/enemies/Arrow.gd" id="1_4hieh"]
 [ext_resource type="Shader" path="res://Shaders/DarkenShader.gdshader" id="2_6dtrr"]
@@ -11,6 +11,10 @@ shader_parameter/isOtherWorld = null
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xp1cf"]
 size = Vector2(26, 3)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n2eki"]
+radius = 1.5
+height = 8.0
 
 [node name="Arrow" type="CharacterBody2D"]
 collision_layer = 8
@@ -30,7 +34,9 @@ collision_layer = 8
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ArrowHitbox"]
-shape = SubResource("RectangleShape2D_xp1cf")
+position = Vector2(9, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_n2eki")
 
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 5.0

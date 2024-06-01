@@ -38,10 +38,10 @@ offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[center]Keyboard: Use [color=green]W[/color] or [color=green]Space[/color]
-Controller: Use [color=green]A[/color] to jump
+text = "[center]Keyboard: Use [color=green]W[/color] or [color=green]Space[/color] to jump.
+Controller: Use [color=green]A[/color] to jump.
 
-Maintain the key pressed to jump higher
+Maintain the key pressed to jump higher.
 [center]"
 fit_content = true
 scroll_active = false

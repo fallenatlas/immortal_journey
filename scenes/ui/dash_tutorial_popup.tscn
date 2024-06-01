@@ -40,18 +40,18 @@ offset_bottom = 47.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[center]Keyboard: Use [color=green]J[/color] combined with move keys
-Controller: Use [color=green]RB[/color] combined with Left Joystick
- To       Dash in any direction
-Dash is only available with enough courage[center]"
+text = "[center]Keyboard: Use [color=green]J[/color] combined with move keys.
+Controller: Use [color=green]RB[/color] combined with Left Joystick.
+ To       Dash in any direction.
+Dash is only available with enough courage.[center]"
 fit_content = true
 scroll_active = false
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = -84.0
+offset_left = -86.0
 offset_top = -4.0
-offset_right = -53.0
+offset_right = -55.0
 offset_bottom = 29.0
 texture = ExtResource("1_fpucw")
 expand_mode = 1

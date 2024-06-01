@@ -498,7 +498,7 @@ script = ExtResource("1_yuemd")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
-position = Vector2(0, -6)
+position = Vector2(0, 73)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_tkyma")
 animation = &"Idle"

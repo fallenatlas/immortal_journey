@@ -20,6 +20,7 @@ func _input(event):
 		pause.visible = !pause.visible
 		if pause.visible:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_node("Pause_Options/Buttons/MainMenuButton/Button").grab_focus()
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		get_tree().paused = !get_tree().paused

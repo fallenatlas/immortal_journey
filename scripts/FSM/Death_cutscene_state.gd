@@ -21,6 +21,7 @@ func Update(delta: float):
 	pass
 
 func Exit():
+	get_node("../../../../Player/Player").isBossFight = true
 	HPBar.visible = true
 
 func switch_state():

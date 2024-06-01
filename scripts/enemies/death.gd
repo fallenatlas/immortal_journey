@@ -18,13 +18,15 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var hitSound = $HitSound
 @onready var attackSound = $AttackSound
 
+@onready var healthBar = $CanvasLayer/TextureProgressBar
+
 @export var teleportPos1 : Marker2D
 @export var teleportPos2 : Marker2D
 @export var teleportPos3 : Marker2D
 @export var teleportPos4 : Marker2D
 @export var teleportPos5 : Marker2D
 
-var health = 20
+var health = 30
 
 var main
 var player
@@ -38,12 +40,16 @@ var direction_index = 0
 var attack3Couter = 0
 var directions : PackedVector2Array
 
+var texture1
+var texture2
+
 var can_update : bool = true :
 	get:
 		return can_update
 	set(value):
 		can_update = value
 		get_node("FSM").can_update = value
+
 
 func _ready():
 	main = $"../.."
@@ -61,6 +67,13 @@ func _ready():
 	directions.append(Vector2(-1, 1))
 	directions.append(Vector2(0, 1))
 	directions.append(Vector2(1, 1))
+	
+	var image1 = Image.load_from_file("res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png")
+	var image2 = Image.load_from_file("res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgressGray.png")
+	texture1 = ImageTexture.create_from_image(image1)
+	texture2 = ImageTexture.create_from_image(image2)
+	
+	Events.switch_world.connect(_on_switch_world)
 
 func _physics_process(delta):
 	
@@ -126,11 +139,13 @@ func _on_attack_3_timer_timeout():
 
 
 func death():
-	health -= 1
+	if Game.isDeathWorld:
+		health -= 1
+		
 	if (health > 0):
 		hitSound.play()
 		hitColldown.start()
-		Game.courage = min(Game.courage + 2 * (1 - (Game.playerHP / Game.maxHP)) + 4, Game.maxCourage)
+		Game.courage = min(Game.courage + 2 * (1 - (Game.playerHP / Game.maxHP)) + 3, Game.maxCourage)
 		return
 	Utils.saveGame()
 	
@@ -151,3 +166,12 @@ func play_idle_animation():
 	
 func play_disappear_animation():
 	get_node("AnimationPlayer").play("TutorialAnimation")
+
+
+func _on_switch_world(normalWorld : bool):
+	if (normalWorld):
+		set_collision_mask_value(7, false)
+		healthBar.set_progress_texture(texture2)
+	if (not normalWorld):
+		set_collision_mask_value(7, true)
+		healthBar.set_progress_texture(texture1)

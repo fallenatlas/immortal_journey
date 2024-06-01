@@ -20,8 +20,6 @@ func Exit():
 func teleport_position():
 	var rand = rng.randi_range(0, 5)
 	
-	
-	
 	match rand:
 		0:
 			body.position = body.teleportPos1.position
@@ -36,4 +34,3 @@ func teleport_position():
 		_:
 			pass
 
-	body.position = body.teleportPos1.position

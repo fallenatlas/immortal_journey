@@ -583,11 +583,11 @@ texture_region_size = Vector2i(24, 24)
 20:14/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 20:14/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0jyjk"]
-scenes/1/scene = ExtResource("3_sxfpi")
-scenes/2/scene = ExtResource("3_b5jnk")
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ejraj"]
+scenes/1/scene = ExtResource("5_kvejb")
+scenes/2/scene = ExtResource("3_sxfpi")
 scenes/3/scene = ExtResource("4_8r6wr")
-scenes/4/scene = ExtResource("5_kvejb")
+scenes/4/scene = ExtResource("3_b5jnk")
 scenes/5/scene = ExtResource("6_mf3yq")
 scenes/6/scene = ExtResource("7_lhvhh")
 
@@ -596,4 +596,4 @@ tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 14
 sources/0 = SubResource("TileSetAtlasSource_valf0")
-sources/6 = SubResource("TileSetScenesCollectionSource_0jyjk")
+sources/3 = SubResource("TileSetScenesCollectionSource_ejraj")

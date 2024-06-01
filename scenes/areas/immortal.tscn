@@ -434,6 +434,9 @@ position = Vector2(3149, 176)
 [node name="Death" parent="Mobs" instance=ExtResource("8_0lm6m")]
 position = Vector2(4500, 173)
 
+[node name="CanvasLayer" parent="Mobs/Death" index="0"]
+visible = false
+
 [node name="Sun Rays" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -651,3 +654,5 @@ position = Vector2(-50, -129)
 shape = SubResource("RectangleShape2D_t20n8")
 
 [connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]
+
+[editable path="Mobs/Death"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://dpsmhyet7psgk"]
+[gd_scene load_steps=2 format=3 uid="uid://d2axk4e4wnia3"]
 
 [ext_resource type="Texture2D" uid="uid://bq76lakhfjx8u" path="res://assets/ui/Exotic Swords.png" id="1_j8dn7"]
 
@@ -42,7 +42,7 @@ grow_vertical = 2
 bbcode_enabled = true
 text = "[center]Keyboard: Use [color=green]K[/color] to       Strike.
 Controller:  Use [color=green]B[/color] to       Strike.
-Manage your attacks wisely.
+
 Perform a combo by following an attack with another (indicated as [color=red]red[/color] on the bottom left corner)[center]"
 fit_content = true
 scroll_active = false

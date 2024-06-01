@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://drpc06y74i2b4"]
+[gd_scene format=3 uid="uid://byosl6ore032l"]
 
 [node name="HealthTutorialPopup" type="Control"]
 layout_mode = 3
@@ -38,6 +38,7 @@ offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[center]You take damage from [color=red]Environmental Hazards[/color] and [color=red]Enemies[/color][center]"
+text = "[center]You take damage from [color=red]Environmental Hazards[/color] and [color=red]Enemies[/color].
+[center] Although, this is irrelevant for an immortal being.[center]"
 fit_content = true
 scroll_active = false

@@ -76,4 +76,19 @@ one_shot = true
 stream = ExtResource("2_2k0lv")
 bus = &"SFX"
 
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -148.0
+offset_top = -66.0
+offset_right = -37.0
+offset_bottom = -46.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "Press E/Y to skip"
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

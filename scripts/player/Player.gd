@@ -112,7 +112,7 @@ func _physics_process(delta):
 		isPossibleCoyote = true
 		
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and not isJumping and (is_on_floor() or not CoyoteTimer.is_stopped()):
+	if Input.is_action_pressed("jump") and not isJumping and (is_on_floor() or not CoyoteTimer.is_stopped()):
 		velocity.y = JUMP_VELOCITY #* remap(Game.courage, 0, 100, 0.9, 1)
 		isJumping = true
 		if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 

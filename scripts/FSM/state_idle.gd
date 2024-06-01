@@ -13,6 +13,8 @@ class_name PlayerIdle
 
 var rng = RandomNumberGenerator.new()
 
+var attackCounter = 0
+
 func Enter():
 	anim.play("Idle")
 	
@@ -23,10 +25,16 @@ func Update(delta: float):
 	var isMeleeRange = len(attackDetection.get_overlapping_bodies()) > 0
 	var isJumpAttackRange = len(jumpAttackDetection.get_overlapping_bodies()) > 0
 	
-	if isMeleeRange and attackCooldown.is_stopped():
+	if attackCounter >= 5 and attackCooldown.is_stopped():
+		attackCounter = 0
+		fsmManager.change_state(self, "Teleport")
+		pass
 		
+	if isMeleeRange and attackCooldown.is_stopped():
+		attackCounter = attackCounter + 1
 		#Is melee range but still does ranged attack
 		if rand == 0:
+			
 			rand = rng.randi_range(0, 1)
 			if isRangedRange and attackCooldown.is_stopped():
 				if rand == 0:
@@ -43,7 +51,7 @@ func Update(delta: float):
 					
 	#Player is not inside melee range nor jump attack range
 	elif !isMeleeRange and !isJumpAttackRange and attackCooldown.is_stopped():
-		
+		attackCounter = attackCounter + 1
 		if isRangedRange and attackCooldown.is_stopped():
 			if rand == 0:
 				fsmManager.change_state(self, "Attack1")
@@ -52,7 +60,7 @@ func Update(delta: float):
 				pass
 	#Player is inside jump attack range
 	elif isJumpAttackRange and attackCooldown.is_stopped():
-		
+		attackCounter = attackCounter + 1
 		#Is jump attack range but still does ranged attack
 		if rand == 0:
 			rand = rng.randi_range(0, 1)
@@ -66,6 +74,7 @@ func Update(delta: float):
 		#Is jump attack and does jump attack
 		else:
 			if attackCooldown.is_stopped():
+					attackCounter = attackCounter + 1
 					fsmManager.change_state(self, "JumpAttack")
 					pass
 					

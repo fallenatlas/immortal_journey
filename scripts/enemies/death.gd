@@ -18,6 +18,12 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var hitSound = $HitSound
 @onready var attackSound = $AttackSound
 
+@export var teleportPos1 : Marker2D
+@export var teleportPos2 : Marker2D
+@export var teleportPos3 : Marker2D
+@export var teleportPos4 : Marker2D
+@export var teleportPos5 : Marker2D
+
 var health = 20
 
 var main

@@ -594,6 +594,30 @@ position = Vector2(26126, -48)
 
 [node name="Dragon18" parent="Mobs" instance=ExtResource("9_2hdrd")]
 position = Vector2(26397, -123)
+[node name="Death" parent="Mobs" node_paths=PackedStringArray("teleportPos1", "teleportPos2", "teleportPos3", "teleportPos4", "teleportPos5") instance=ExtResource("9_v2ifr")]
+position = Vector2(29670, 62)
+teleportPos1 = NodePath("../TeleportPositions/Marker2D")
+teleportPos2 = NodePath("../TeleportPositions/Marker2D2")
+teleportPos3 = NodePath("../TeleportPositions/Marker2D3")
+teleportPos4 = NodePath("../TeleportPositions/Marker2D4")
+teleportPos5 = NodePath("../TeleportPositions/Marker2D5")
+
+[node name="TeleportPositions" type="Node2D" parent="Mobs"]
+
+[node name="Marker2D" type="Marker2D" parent="Mobs/TeleportPositions"]
+position = Vector2(29768, -16)
+
+[node name="Marker2D2" type="Marker2D" parent="Mobs/TeleportPositions"]
+position = Vector2(29359, -16)
+
+[node name="Marker2D3" type="Marker2D" parent="Mobs/TeleportPositions"]
+position = Vector2(29242, 56)
+
+[node name="Marker2D4" type="Marker2D" parent="Mobs/TeleportPositions"]
+position = Vector2(29878, 56)
+
+[node name="Marker2D5" type="Marker2D" parent="Mobs/TeleportPositions"]
+position = Vector2(29556, 56)
 
 [node name="Bonfires" type="Node2D" parent="."]
 
@@ -1282,6 +1306,11 @@ position = Vector2(27486, 71)
 scale = Vector2(0.749, 0.749)
 texture = ExtResource("58_3erc2")
 
+[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/MusicSlider" to="UI" method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/SFXSlider" to="UI" method="_on_sfx_slider_value_changed"]
+[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="." method="_on_ambient_sound_slider_value_changed"]
+[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_ambient_sound_slider_value_changed"]
+[connection signal="value_changed" from="UI/Menu/MarginContainer/VBoxContainer/GridContainer/AmbientSoundSlider" to="UI" method="_on_music_slider_value_changed"]
 [connection signal="body_entered" from="TransitionZone" to="TransitionZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone2" to="TransitionZone2" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone3" to="TransitionZone3" method="_on_body_entered"]

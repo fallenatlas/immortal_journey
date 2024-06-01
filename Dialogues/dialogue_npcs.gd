@@ -30,8 +30,6 @@ func start(NPC_name):
 	current_dialogue_id = -1
 	current_npc = NPC_name
 	next_script()
-	print(current_npc)
-	
 
 func _input(event):
 	if not d_active:
@@ -50,6 +48,7 @@ func next_script():
 		timer.start()
 		self.visible = false
 		Game.playerCanMove = true
+		
 		return
 		
 	Name.text = current_npc

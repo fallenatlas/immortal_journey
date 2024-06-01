@@ -1,0 +1,68 @@
+[gd_scene load_steps=9 format=3 uid="uid://ck2c78th4781v"]
+
+[ext_resource type="Texture2D" uid="uid://s7dsykjcr0d3" path="res://assets/cave_death_background/7.png" id="1_pca7p"]
+[ext_resource type="Texture2D" uid="uid://cbing3x4i40s7" path="res://assets/cave_death_background/6.png" id="2_2bug6"]
+[ext_resource type="Texture2D" uid="uid://dt8i2bdxk205v" path="res://assets/cave_death_background/5.png" id="3_r2j44"]
+[ext_resource type="Texture2D" uid="uid://buxnfyppwlwqp" path="res://assets/cave_death_background/4.png" id="4_paeai"]
+[ext_resource type="Texture2D" uid="uid://b4045oqd7a5or" path="res://assets/cave_death_background/3.png" id="5_5fho0"]
+[ext_resource type="Texture2D" uid="uid://mbp3wbpp5lou" path="res://assets/cave_death_background/2.png" id="6_kwi51"]
+[ext_resource type="Texture2D" uid="uid://c5ekgrwm1h1m3" path="res://assets/cave_death_background/1.png" id="7_m06df"]
+[ext_resource type="Texture2D" uid="uid://3rataqbrknc2" path="res://assets/cave_death_background/0.png" id="8_2tbi3"]
+
+[node name="DeathWorldCaveBackground" type="Node2D"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(960, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+scale = Vector2(3, 3)
+texture = ExtResource("1_pca7p")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(960, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+scale = Vector2(3, 3)
+texture = ExtResource("2_2bug6")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(955, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+scale = Vector2(3, 3)
+texture = ExtResource("3_r2j44")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(955, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer4"]
+scale = Vector2(3, 3)
+texture = ExtResource("4_paeai")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(955, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+scale = Vector2(3, 3)
+texture = ExtResource("5_5fho0")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(955, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6"]
+scale = Vector2(3, 3)
+texture = ExtResource("6_kwi51")
+
+[node name="ParallaxLayer7" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(955, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer7"]
+scale = Vector2(3, 3)
+texture = ExtResource("7_m06df")
+
+[node name="ParallaxLayer8" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(955, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer8"]
+scale = Vector2(3, 3)
+texture = ExtResource("8_2tbi3")

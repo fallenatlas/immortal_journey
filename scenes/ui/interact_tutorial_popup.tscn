@@ -32,14 +32,15 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -196.0
-offset_top = -36.0
+offset_top = -47.0
 offset_right = 196.0
-offset_bottom = 40.0
+offset_bottom = 48.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[center]Use E (kb)/Y (controller) to interact
+text = "[center]Keyboard: Use [color=green]E[/color] to Interact
+Controller: Use [color=green]Y[/color] to Interact
 
-You can interact with NPCs and bonfires[center]"
+You can interact with NPCs and bonfires.[center]"
 fit_content = true
 scroll_active = false

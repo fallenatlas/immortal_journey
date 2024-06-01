@@ -23,7 +23,7 @@ func _ready():
 	
 	
 	get_node("Player/Player").position = Vector2(-50, 215)
-	get_node("Player/Player").change_camera_limits(-175, -500, 1000000, 300)
+	get_node("Player/Player").change_camera_limits(-200, -500, 1000000, 300)
 	get_node("TutorialPopups").visible = true
 	get_node("UI").visible = true
 	get_node("Mobs/Death").can_update = false

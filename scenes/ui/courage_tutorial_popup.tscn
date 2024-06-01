@@ -38,9 +38,9 @@ offset_bottom = 73.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[center]Keyboard: Use [color=green]Q[/color] to change realms
-Controller: Use [color=green]LB[/color] to change realms
-The spirits in the realm of death will reduce your Courage
+text = "[center]Keyboard: Use [color=green]Q[/color] to change realms.
+Controller: Use [color=green]LB[/color] to change realms.
+The spirits in the realm of death will reduce your Courage.
 [color=red]Don't let your courage run out![/color][center]"
 fit_content = true
 scroll_active = false

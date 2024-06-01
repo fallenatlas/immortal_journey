@@ -626,7 +626,7 @@ position = Vector2(20093, 432)
 position = Vector2(27590, 48)
 
 [node name="bonfire0" parent="Bonfires" instance=ExtResource("9_vvljq")]
-position = Vector2(195, 216)
+position = Vector2(179, 216)
 
 [node name="Sun Rays" type="Node2D" parent="."]
 
@@ -724,6 +724,7 @@ position = Vector2(8470, -103)
 [node name="UI" parent="." instance=ExtResource("19_va04q")]
 
 [node name="Visual Effects" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Filter" type="ColorRect" parent="Visual Effects"]
 material = SubResource("ShaderMaterial_tan7j")

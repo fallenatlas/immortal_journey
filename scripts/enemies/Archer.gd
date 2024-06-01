@@ -89,6 +89,7 @@ func death():
 		hitSound.play()
 		anim.play("Hit")
 		return
+	Game.archers_killed += 1
 	sprite.offset.x = original_offset
 	dying = true
 	attacking = false

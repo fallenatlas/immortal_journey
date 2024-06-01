@@ -14,3 +14,5 @@ signal dash_threshold_change()
 signal attack_cooldown_change(value : float)
 
 signal unlock_upgrade(number : int)
+signal cutscene_finished
+

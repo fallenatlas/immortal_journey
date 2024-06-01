@@ -6,6 +6,8 @@ var states : Dictionary = {}
 var current_state : State
 @export var initial_state : State
 
+var can_update : bool = true
+
 func _ready():
 	for child in get_children():
 		if child is State:
@@ -32,6 +34,8 @@ func change_state(old_state : State, new_state_name : String):
 	current_state = new_state
 	
 func _process(delta):
+	if not can_update:
+		return
 	if current_state:
 		current_state.Update(delta)
 

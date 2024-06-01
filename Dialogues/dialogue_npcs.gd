@@ -29,6 +29,8 @@ func start(NPC_name):
 	
 	current_dialogue_id = -1
 	current_npc = NPC_name
+	next_script()
+	print(current_npc)
 	
 
 func _input(event):
@@ -57,3 +59,4 @@ func next_script():
 func _on_timer_timeout():
 	d_active = false
 	Game.playerCanMove = true
+	Events.cutscene_finished.emit()

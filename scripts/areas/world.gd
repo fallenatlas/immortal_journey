@@ -21,6 +21,7 @@ func _ready():
 	Game.courage = 50.0
 	Game.isInvulnerable = false
 	Game.isImmortal = false
+	Game.startScene = "res://scenes/areas/world.tscn"
 	Events.switch_world.connect(_on_switch_world)
 	Events.courage_depleted.connect(_on_courage_depleted)
 	Events.took_damage.connect(_on_player_damage)

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://byosl6ore032l"]
+
+[node name="HealthTutorialPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 77.0
+offset_bottom = 77.0
+grow_horizontal = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.5
+offset_top = -56.5
+offset_right = 213.5
+offset_bottom = 56.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.682353)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -148.0
+offset_top = -26.0
+offset_right = 148.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+bbcode_enabled = true
+text = "[center]You take damage from [color=red]Environmental Hazards[/color] and [color=red]Enemies[/color].
+[center] Although, this is irrelevant for an immortal being.[center]"
+fit_content = true
+scroll_active = false

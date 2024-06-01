@@ -35,6 +35,12 @@ var isPossibleCoyote = true
 
 var dying = false
 
+var can_move : bool = true :
+	get:
+		return can_move
+	set(value):
+		can_move = value
+
 @onready var anim = get_node("AnimationPlayer")
 @onready var audioPlayer = preload("res://scenes/player/Audio_Player.tscn")
 @onready var runSound = get_node("RunSound")
@@ -48,6 +54,9 @@ func _ready():
 	Events.took_damage.connect(_on_player_damage)
 
 func _physics_process(delta):
+	if not can_move:
+		return
+	
 	if Game.playerDead: #TODO: apply gravity even if he's dead
 		if not is_on_floor():
 			velocity.y += gravity * delta
@@ -103,7 +112,7 @@ func _physics_process(delta):
 		isPossibleCoyote = true
 		
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") and not isJumping and (is_on_floor() or not CoyoteTimer.is_stopped()):
+	if Input.is_action_pressed("jump") and not isJumping and (is_on_floor() or not CoyoteTimer.is_stopped()):
 		velocity.y = JUMP_VELOCITY #* remap(Game.courage, 0, 100, 0.9, 1)
 		isJumping = true
 		if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
@@ -142,6 +151,15 @@ func _physics_process(delta):
 	#	dying = true
 	#	anim.play("Death")
 		
+func play_idle_animation():
+	anim.play("Idle")
+	
+func play_run_animation():
+	anim.play("Run")
+	
+func play_death_animation():
+	anim.play("Death")
+		
 func _process(delta):
 	#print(Game.isInvulnerable)
 	if(!InvincibilityTimer.is_stopped()):
@@ -167,6 +185,7 @@ func get_direction():
 	return 1
 
 func _on_switch_world(normalWorld : bool):
+	print("switch player world")
 	if (Game.isImmortal): return
 	
 	create_sound("Switch_world", self.global_transform.origin)
@@ -206,7 +225,7 @@ func calculate_dash_direction() -> Vector2:
 	return Vector2(direction_x, direction_y).normalized()
 
 func _on_animation_player_animation_finished(anim_name):
-	if (anim_name == "Death"):
+	if (anim_name == "Death") and not Game.isImmortal:
 		self.queue_free()
 		get_tree().change_scene_to_file("res://scenes/areas/world.tscn")
 		
@@ -245,3 +264,12 @@ func _input(event):
 
 func _on_coyote_timer_timeout():
 	isPossibleCoyote = false
+	
+func play_camera_out_animation():
+	get_node("AnimationPlayer2").play("CameraMovementOut")
+
+func play_camera_in_animation():
+	get_node("AnimationPlayer2").play("CameraMovementIn")
+	
+func play_camera_exit_animation():
+	get_node("AnimationPlayer2").play("CameraMovementExit")

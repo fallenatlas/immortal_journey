@@ -32,6 +32,13 @@ var direction_index = 0
 var attack3Couter = 0
 var directions : PackedVector2Array
 
+var can_update : bool = true :
+	get:
+		return can_update
+	set(value):
+		can_update = value
+		get_node("FSM").can_update = value
+
 func _ready():
 	main = $"../.."
 	player = get_node("../../Player/Player")
@@ -126,3 +133,15 @@ func death():
 
 func _on_hit_cooldown_timeout():
 	sprite.material.set_shader_parameter("time", 0.0)
+	
+func play_remove_immortality_animation():
+	get_node("AnimationPlayer").play("Attack2")
+	
+func play_jump_animation():
+	get_node("AnimationPlayer").play("JumpAttack")
+	
+func play_idle_animation():
+	get_node("AnimationPlayer").play("Idle")
+	
+func play_disappear_animation():
+	get_node("AnimationPlayer").play("TutorialAnimation")

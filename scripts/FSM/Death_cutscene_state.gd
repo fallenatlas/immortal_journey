@@ -11,7 +11,7 @@ class_name DeathCutsceneState
 
 @onready var attackCooldown = $"../../AttackCooldown"
 
-@onready var HPBar = $"../../CanvasLayer"
+
 
 func Enter():
 	anim.play("Idle")
@@ -21,8 +21,7 @@ func Update(delta: float):
 	pass
 
 func Exit():
-	get_node("../../../../Player/Player").isBossFight = true
-	HPBar.visible = true
+	pass
 
 func switch_state():
 	fsmManager.change_state(self, "Idle")

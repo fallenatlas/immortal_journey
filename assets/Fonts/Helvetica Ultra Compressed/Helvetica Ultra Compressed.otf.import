@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Helvetica Ultra Compressed.otf-50e4b87f014346
 [params]
 
 Rendering=null
-antialiasing=1
+antialiasing=2
 generate_mipmaps=true
 multichannel_signed_distance_field=true
 msdf_pixel_range=8
@@ -26,7 +26,7 @@ oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
-compress=true
+compress=false
 preload=[{
 "chars": [],
 "glyphs": [],

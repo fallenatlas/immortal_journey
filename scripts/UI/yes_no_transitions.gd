@@ -27,6 +27,7 @@ func _on_no_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	visible = false
 	
+	Game.isLastStand = true
 	Events.last_stand.emit()
 
 

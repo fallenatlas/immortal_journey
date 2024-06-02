@@ -57,6 +57,7 @@ func _ready():
 	Events.switch_world.connect(_on_switch_world)
 	Events.took_damage.connect(be_invincible)
 	Events.took_damage.connect(_on_player_damage)
+	Events.last_stand.connect(_courage_drain)
 	#Events.died_in_boss.connect(died_in_boss_fight)
 
 func _physics_process(delta):
@@ -295,3 +296,10 @@ func play_camera_in_animation():
 	
 func play_camera_exit_animation():
 	get_node("AnimationPlayer2").play("CameraMovementExit")
+
+func _courage_drain():
+	$CourageManager/LastStandDrain.start()
+	
+func _on_last_stand_drain_timeout():
+	Game.courage -= 3
+	$CourageManager/LastStandDrain.start()

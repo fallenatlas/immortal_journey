@@ -19,10 +19,10 @@ func Exit():
 
 func teleport_position():
 	if fsmManager.current_state == $"../Final":
-		body.position = body.teleportPos5.position
+		body.position = body.teleportPos3.position
 		return
 		
-	var rand = rng.randi_range(0, 5)
+	var rand = rng.randi_range(0, 3)
 	
 	match rand:
 		0:
@@ -31,10 +31,6 @@ func teleport_position():
 			body.position = body.teleportPos2.position
 		2:
 			body.position = body.teleportPos3.position
-		3:
-			body.position = body.teleportPos4.position
-		4:
-			body.position = body.teleportPos5.position
 		_:
 			pass
 

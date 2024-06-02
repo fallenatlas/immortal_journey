@@ -25,10 +25,8 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var teleportPos1 : Marker2D
 @export var teleportPos2 : Marker2D
 @export var teleportPos3 : Marker2D
-@export var teleportPos4 : Marker2D
-@export var teleportPos5 : Marker2D
 
-var health = 30
+var health = 20
 
 var main
 var player
@@ -147,7 +145,8 @@ func death():
 	if (health > 0):
 		hitSound.play()
 		hitColldown.start()
-		Game.courage = min(Game.courage + 2 * (1 - (Game.playerHP / Game.maxHP)) + 3, Game.maxCourage)
+		if not Game.isDeathWorld:
+			Game.courage = min(Game.courage + 2 * (1 - (Game.playerHP / Game.maxHP)) + 3, Game.maxCourage)
 		return
 	
 	#Die?

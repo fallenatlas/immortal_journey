@@ -11,6 +11,8 @@ class_name PlayerIdle
 
 @onready var attackCooldown = $"../../AttackCooldown"
 
+@onready var HPBar = $"../../CanvasLayer"
+
 var rng = RandomNumberGenerator.new()
 
 var attackCounter = 0
@@ -81,4 +83,5 @@ func Update(delta: float):
 		pass
 
 func Exit():
-	pass
+	get_node("../../../../Player/Player").isBossFight = true
+	HPBar.visible = true

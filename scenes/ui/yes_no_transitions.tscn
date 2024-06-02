@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://mvxtuck8freq"]
+[gd_scene load_steps=9 format=3 uid="uid://mvxtuck8freq"]
 
 [ext_resource type="FontFile" uid="uid://dhw7jldi36v1q" path="res://assets/Fonts/Helvetica Ultra Compressed/Helvetica Ultra Compressed.otf" id="1_dtbrp"]
 [ext_resource type="Script" path="res://scripts/UI/yes_no_transitions.gd" id="1_lf01t"]
@@ -97,9 +97,6 @@ font_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6mwo6"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brq7r"]
-bg_color = Color(0.776471, 0.494118, 0.690196, 1)
-
 [node name="YesNo Transition" type="CanvasLayer"]
 layer = 4
 visible = false
@@ -175,7 +172,6 @@ theme_override_colors/font_color = Color(1, 1, 1, 0)
 theme_override_fonts/font = ExtResource("1_dtbrp")
 theme_override_font_sizes/font_size = 65
 theme_override_styles/normal = SubResource("StyleBoxEmpty_6mwo6")
-theme_override_styles/hover = SubResource("StyleBoxFlat_brq7r")
 text = "No"
 
 [connection signal="pressed" from="HBoxContainer/MarginContainer/Yes" to="." method="_on_yes_pressed"]

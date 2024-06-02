@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://ee7q2r8vqefi"]
+[gd_scene load_steps=40 format=3 uid="uid://ee7q2r8vqefi"]
 
 [ext_resource type="Script" path="res://scripts/areas/immortal.gd" id="1_okoqj"]
 [ext_resource type="PackedScene" uid="uid://ccxfk82g8wye1" path="res://scenes/player/Player.tscn" id="2_mj4p6"]
@@ -371,11 +371,39 @@ tracks/9/keys = {
 "method": &"queue_free"
 }]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../Mobs/Death/CutsceneArea:monitoring")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(8.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_edd0j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Mobs/Death/CutsceneArea:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jqew2"]
 _data = {
 "Cutscene_1": SubResource("Animation_ek7gl"),
-"Cutscene_2": SubResource("Animation_kj2lo")
+"Cutscene_2": SubResource("Animation_kj2lo"),
+"RESET": SubResource("Animation_edd0j")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t2k30"]
@@ -432,7 +460,10 @@ position = Vector2(3231, 33)
 position = Vector2(3149, 176)
 
 [node name="Death" parent="Mobs" instance=ExtResource("8_0lm6m")]
-position = Vector2(4500, 173)
+position = Vector2(4350, 173)
+
+[node name="CutsceneArea" parent="Mobs/Death" index="16"]
+monitoring = false
 
 [node name="Sun Rays" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
@@ -512,6 +543,7 @@ popup = 7
 
 [node name="TutorialPopups" type="CanvasLayer" parent="."]
 layer = 2
+visible = false
 script = ExtResource("14_o8nxp")
 
 [node name="Move" type="Control" parent="TutorialPopups"]
@@ -610,6 +642,7 @@ grow_vertical = 2
 layout_mode = 1
 
 [node name="UI" parent="." instance=ExtResource("13_1824v")]
+visible = false
 
 [node name="Visual Effects" type="CanvasLayer" parent="."]
 

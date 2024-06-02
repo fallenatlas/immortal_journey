@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://520uv284v4no" path="res://scenes/ui/dash_tutorial_popup.tscn" id="15_0hovm"]
 [ext_resource type="PackedScene" uid="uid://b8ouces3cngpi" path="res://scenes/backgrounds/death_world_background.tscn" id="15_kkguu"]
 [ext_resource type="AudioStream" uid="uid://bfon4bamfs3sh" path="res://Audio/Music/blood-chillingly-creepy-atmospheres-183561.mp3" id="16_eswn8"]
+[ext_resource type="AudioStream" uid="uid://gp8mr7cxg0rq" path="res://Audio/SFX/ImMortal Jouney SFX Pack 3/Other World Whispers.wav" id="16_ig1mf"]
 [ext_resource type="PackedScene" uid="uid://tn3av7ipxmlw" path="res://scenes/ui/attack_tutorial_popup.tscn" id="16_q7fqi"]
 [ext_resource type="Shader" path="res://Shaders/BandW.gdshader" id="19_lgfrm"]
 [ext_resource type="PackedScene" uid="uid://divld6ojphq1c" path="res://scenes/enemies/Archer.tscn" id="20_kov66"]
@@ -505,7 +506,7 @@ offset = Vector2(432, 30)
 transform = Transform2D(1, 0, 0, 1, 432, 30)
 
 [node name="AmbientSound" type="AudioStreamPlayer" parent="DeathWorld"]
-stream = ExtResource("16_eswn8")
+stream = ExtResource("16_ig1mf")
 autoplay = true
 bus = &"AmbientSound"
 

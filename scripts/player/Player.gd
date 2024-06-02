@@ -63,6 +63,10 @@ func _ready():
 func _physics_process(delta):
 	if not can_move:
 		return
+		
+	if  not Game.playerCanMove:
+		anim.play("Idle")
+		return
 	
 	if Game.playerDead: #TODO: apply gravity even if he's dead
 		if not is_on_floor():

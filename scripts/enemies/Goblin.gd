@@ -4,6 +4,7 @@ var SPEED = 100
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var player
 var normalAreaX
+var attackAreaX
 var personalSpace = 35
 var normalRayCastX
 var chase = false
@@ -11,7 +12,7 @@ var attacking = false
 var dying = false
 
 @export var health : int = 3
-@export var knockbackSpeed = 1
+@export var knockbackSpeed = 0.4
 
 @onready var anim = $AnimationPlayer
 @onready var sprite = $Sprite2D
@@ -20,6 +21,7 @@ var dying = false
 @onready var AttackDetectionArea = $AttackDetectionArea
 @onready var AttackDetectionAreaShape = $AttackDetectionArea/CollisionShape2D
 @onready var AttackArea = $AttackArea
+@onready var AttackAreaShape = $AttackArea/CollisionShape2D
 @onready var Collider = $Collider
 
 @onready var AttackCooldown = $AttackCooldown
@@ -33,6 +35,7 @@ var dying = false
 func _ready():
 	anim.play("Idle")
 	normalAreaX = AttackDetectionAreaShape.position.x
+	attackAreaX = AttackAreaShape.position.x
 	normalRayCastX = $Direction.scale.x
 	Events.switch_world.connect(_on_switch_world)
 
@@ -59,11 +62,15 @@ func _physics_process(delta):
 		var direction = distance.normalized()
 		if direction.x < 0:
 			sprite.flip_h = true
+			AttackAreaShape.rotation_degrees = 74.0
 			AttackDetectionAreaShape.position.x = - normalAreaX
+			AttackAreaShape.position.x = - attackAreaX
 			$Direction.scale.x = -normalRayCastX
 		else:
 			sprite.flip_h = false
 			AttackDetectionAreaShape.position.x = normalAreaX
+			AttackAreaShape.rotation_degrees = 108.6
+			AttackAreaShape.position.x = attackAreaX
 			$Direction.scale.x = normalRayCastX
 		
 		if $Direction/RayCastFloor.is_colliding() && abs(distance.x) > personalSpace:
@@ -119,6 +126,7 @@ func _on_detection_area_body_exited(body):
 		
 
 func _on_attack_detection_area_body_entered(body):
+	print(attacking)
 	if body.name == "Player" && AttackCooldown.is_stopped():
 		attacking = true
 		chase = false

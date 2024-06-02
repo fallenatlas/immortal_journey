@@ -26,20 +26,21 @@ func _process(delta):
 	elif animation == "Decision":
 		text.text = "What do you wish?"
 		leftButton.text = "Regain immortality"
-		rightButton.text = "Remain mortal"
+		rightButton.text = "Stay mortal"
 		
 		
 func _on_yes_pressed():
+	visible = false
 	if animation == "FadeIn":
-		visible = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		get_tree().change_scene_to_file("res://scenes/main_menu/main.tscn")
 	elif animation == "Decision":
-		Game.choice = true
+		Game.choice = false
 		Events.choice_made.emit()
 	
 
 func _on_no_pressed():
+	visible = false
 	if animation == "FadeIn":
 		Game.playerHP = 1
 		Game.courage = 100
@@ -48,7 +49,6 @@ func _on_no_pressed():
 		player.dying = false
 		
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-		visible = false
 		
 		Game.isLastStand = true
 		Events.last_stand.emit()
@@ -74,3 +74,6 @@ func animationIsFadeIn():
 	
 func animationDecision():
 	animation = "Decision"
+	
+func controller_buttons():
+	leftButton.grab_focus()

@@ -65,15 +65,26 @@ func _ready():
 
 func _physics_process(delta):
 	if run_off:
+		get_node("Sprite2D").flip_h = false
 		anim.play("Run")
-		position.x += delta * SPEED/2
+		#position.x += delta * SPEED/2
+		velocity.x = SPEED/2
+		velocity.y += gravity * delta
+		move_and_slide()
 		return
 	
 	if not can_move:
+		#anim.play("Idle")
+		velocity.x = 0
+		velocity.y += gravity * delta
+		move_and_slide()
 		return
 		
 	if  not Game.playerCanMove:
 		anim.play("Idle")
+		velocity.x = 0
+		velocity.y += gravity * delta
+		move_and_slide()
 		return
 	
 	if Game.playerDead: #TODO: apply gravity even if he's dead
@@ -313,8 +324,12 @@ func _courage_drain():
 	$CourageManager/LastStandDrain.start()
 	
 func _on_last_stand_drain_timeout():
-	Game.courage -= 3
+	Game.courage -= Game.lastStandDrain
 	$CourageManager/LastStandDrain.start()
 	
 func choice_made():
+	$FinalCutsceneTimer.start()
+	can_move = false
+
+func _on_final_cutscene_timer_timeout():
 	run_off = true

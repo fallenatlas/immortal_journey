@@ -13,6 +13,7 @@ func _on_quit_pressed():
 func _on_new_game_pressed():
 	Game.deathBattle = false
 	Game.hardMode = false
+	Game.isLastStand = false
 	Utils.reset_total_metrics()
 	Utils.reset_single_metrics()
 	Game.startScene = "res://scenes/areas/immortal.tscn"
@@ -25,6 +26,7 @@ func _on_play_pressed():
 	if Game.startScene:
 		Game.deathBattle = false
 		Game.hardMode = false
+		Game.isLastStand = false
 		Utils.reset_single_metrics()
 		get_tree().change_scene_to_file(Game.startScene)
 	else:
@@ -35,6 +37,7 @@ func _on_hard_mode_pressed():
 	#TransitionManager.fade_to_scene()
 	Game.deathBattle = false
 	Game.hardMode = true
+	Game.isLastStand = false
 	get_tree().change_scene_to_file("res://scenes/areas/immortal.tscn")
 
 
@@ -42,3 +45,4 @@ func _on_death_battle_pressed():
 	get_tree().change_scene_to_file("res://scenes/areas/world.tscn")
 	Game.deathBattle = true
 	Game.hardMode = false
+	Game.isLastStand = false

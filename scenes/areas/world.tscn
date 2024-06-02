@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=79 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -25,15 +25,21 @@
 [ext_resource type="AudioStream" uid="uid://bfon4bamfs3sh" path="res://Audio/Music/blood-chillingly-creepy-atmospheres-183561.mp3" id="11_tpx71"]
 [ext_resource type="Shader" path="res://Shaders/visuals.gdshader" id="13_vyhij"]
 [ext_resource type="Script" path="res://scripts/Effects/Filter.gd" id="14_nbkpm"]
+[ext_resource type="PackedScene" uid="uid://wfpwg1bhe7gw" path="res://scenes/backgrounds/normal_world_cave_background.tscn" id="15_hc0b4"]
+[ext_resource type="Texture2D" uid="uid://c0wcpt2he0ewc" path="res://assets/cave_background/fill.png" id="16_lsdgy"]
 [ext_resource type="Shader" path="res://Shaders/vignette.gdshader" id="16_qo4s6"]
+[ext_resource type="Texture2D" uid="uid://d1526xiow5xvt" path="res://assets/oak_autumn_woods/oak_woods_v1.0/background/transition.png" id="17_litea"]
 [ext_resource type="Script" path="res://scripts/Effects/Vignette.gd" id="17_vdpjq"]
 [ext_resource type="PackedScene" uid="uid://djsc44xlvfirp" path="res://Collectables/lowerDashCooldownUpgrade.tscn" id="18_704rl"]
 [ext_resource type="PackedScene" uid="uid://h84gcjjtejny" path="res://Collectables/increaseAttackCountUpgrade.tscn" id="18_b8iwo"]
 [ext_resource type="PackedScene" uid="uid://bcgq4m46dit1t" path="res://Collectables/increaseCourageGainUpgrade.tscn" id="18_wxa8k"]
 [ext_resource type="Shader" path="res://Shaders/DeathWorld.gdshader" id="19_osw28"]
 [ext_resource type="PackedScene" uid="uid://c7eg1cw4ykewe" path="res://scenes/ui/ui.tscn" id="19_va04q"]
+[ext_resource type="PackedScene" uid="uid://db1cwkstxrl28" path="res://scenes/backgrounds/death_world_cave_background.tscn" id="19_wh0ik"]
 [ext_resource type="PackedScene" uid="uid://bbctq2m5c65vu" path="res://Collectables/increaseDashDistanceUpgrade.tscn" id="21_3fsof"]
+[ext_resource type="Texture2D" uid="uid://dvdv8hf6y13rx" path="res://assets/cave_death_background/transition.png" id="22_hrux6"]
 [ext_resource type="PackedScene" uid="uid://cgoq2scmgui1w" path="res://Collectables/lowerDashThresholdUpgrade.tscn" id="23_emca0"]
+[ext_resource type="Texture2D" uid="uid://it0kidfi4ocl" path="res://assets/cave_death_background/fill.png" id="23_rtc35"]
 [ext_resource type="PackedScene" uid="uid://baas00g65fd21" path="res://Collectables/lowerAttackCooldownUpgrade.tscn" id="24_f3f55"]
 [ext_resource type="PackedScene" uid="uid://joaj66byqwed" path="res://Collectables/decreaseCourageDrainUpgrade.tscn" id="26_7qovo"]
 [ext_resource type="Script" path="res://scripts/areas/transition_zone.gd" id="30_3pwfg"]
@@ -693,6 +699,64 @@ layer_0/tile_data = PackedInt32Array(655360, 65536, 0, 655363, 131072, 0, 655364
 offset = Vector2(432, -20)
 transform = Transform2D(1, 0, 0, 1, 432, -20)
 
+[node name="Cave" type="Node2D" parent="NormalWorld"]
+z_index = -99
+position = Vector2(12346, 410)
+
+[node name="NormalWorldBackground" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(-904, 128)
+
+[node name="NormalWorldBackground2" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(28, 128)
+
+[node name="NormalWorldBackground3" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(955, 128)
+
+[node name="NormalWorldBackground4" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(1887, 128)
+
+[node name="NormalWorldBackground5" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(2819, 128)
+
+[node name="NormalWorldBackground6" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(3751, 128)
+
+[node name="NormalWorldBackground7" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(4683, 128)
+
+[node name="NormalWorldBackground8" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(5615, 128)
+
+[node name="NormalWorldBackground9" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(6547, 128)
+
+[node name="NormalWorldBackground10" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(7479, 128)
+
+[node name="NormalWorldBackground11" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(8411, 128)
+
+[node name="NormalWorldBackground12" parent="NormalWorld/Cave" instance=ExtResource("15_hc0b4")]
+position = Vector2(9343, 128)
+
+[node name="Fill" type="Sprite2D" parent="NormalWorld/Cave"]
+z_index = -7
+position = Vector2(3925, -674)
+scale = Vector2(4.63532, 1)
+texture = ExtResource("16_lsdgy")
+
+[node name="Transition2" type="Sprite2D" parent="NormalWorld/Cave"]
+z_index = -7
+position = Vector2(-1095, -171)
+scale = Vector2(0.34008, 0.122112)
+texture = ExtResource("17_litea")
+
+[node name="Transition3" type="Sprite2D" parent="NormalWorld/Cave"]
+z_index = -7
+position = Vector2(8906, -171)
+scale = Vector2(0.34008, 0.122112)
+texture = ExtResource("17_litea")
+
 [node name="AmbientSound" type="AudioStreamPlayer" parent="NormalWorld"]
 stream = ExtResource("8_5q1t0")
 volume_db = -30.0
@@ -712,6 +776,85 @@ layer_0/tile_data = PackedInt32Array(786430, 65537, 1, 851966, 65537, 1, 917502,
 visible = false
 offset = Vector2(432, 30)
 transform = Transform2D(1, 0, 0, 1, 432, 30)
+
+[node name="Cave" type="Node2D" parent="DeathWorld"]
+z_index = -99
+position = Vector2(-455, -3)
+scale = Vector2(1.04, 1.04)
+
+[node name="DeathWorldCaveBackground" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(11719.2, 500)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground2" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(12654.8, 500)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground3" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(13591.3, 500)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground4" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(14509.6, 500)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground5" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(15427.9, 500)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground6" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(16509.6, 500)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground7" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(17456.7, 500)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground8" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(18336.5, 500)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground9" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(19262.5, 500)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground10" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(20209.6, 500)
+scale = Vector2(1.6, 1.6)
+
+[node name="DeathWorldCaveBackground11" parent="DeathWorld/Cave" instance=ExtResource("19_wh0ik")]
+position = Vector2(21199, 500)
+scale = Vector2(1.6, 1.6)
+
+[node name="Transition2" type="Sprite2D" parent="DeathWorld/Cave"]
+z_index = -7
+position = Vector2(11307.7, 127.682)
+scale = Vector2(0.34008, 0.179468)
+texture = ExtResource("22_hrux6")
+
+[node name="Transition3" type="Sprite2D" parent="DeathWorld/Cave"]
+z_index = -7
+position = Vector2(20849, 127.682)
+scale = Vector2(0.34008, 0.179468)
+texture = ExtResource("22_hrux6")
+
+[node name="Fill" type="Sprite2D" parent="DeathWorld/Cave"]
+z_index = -7
+position = Vector2(10906.7, 319.231)
+scale = Vector2(0.34008, 0.179468)
+texture = ExtResource("23_rtc35")
+
+[node name="Fill2" type="Sprite2D" parent="DeathWorld/Cave"]
+z_index = -7
+position = Vector2(14973.3, 135.577)
+scale = Vector2(1.78663, 0.179468)
+texture = ExtResource("23_rtc35")
+
+[node name="Fill3" type="Sprite2D" parent="DeathWorld/Cave"]
+z_index = -7
+position = Vector2(15966.3, 172.115)
+scale = Vector2(0.0681093, 0.179468)
+texture = ExtResource("23_rtc35")
 
 [node name="AmbientSound" type="AudioStreamPlayer" parent="DeathWorld"]
 stream = ExtResource("11_tpx71")

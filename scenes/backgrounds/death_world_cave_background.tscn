@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://db1cwkstxrl28"]
+
+[ext_resource type="Texture2D" uid="uid://uvcunx3v4iix" path="res://assets/cave_death_background/awesomeCavePixelArt.png" id="1_np68s"]
+[ext_resource type="Texture2D" uid="uid://it0kidfi4ocl" path="res://assets/cave_death_background/fill.png" id="2_r4jdx"]
+
+[node name="DeathWorldCaveBackground" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.485, 0.485)
+texture = ExtResource("1_np68s")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(30, 434)
+scale = Vector2(0.485, 0.485)
+texture = ExtResource("2_r4jdx")

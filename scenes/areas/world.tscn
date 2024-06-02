@@ -155,7 +155,7 @@ script = ExtResource("1_yrr7o")
 [node name="Player" type="Node2D" parent="."]
 
 [node name="Player" parent="Player" instance=ExtResource("5_jaceo")]
-position = Vector2(29232, 37)
+position = Vector2(137, 222)
 
 [node name="DamageSound" type="AudioStreamPlayer" parent="Player"]
 stream = ExtResource("3_mro6c")

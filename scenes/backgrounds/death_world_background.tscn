@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8ouces3cngpi"]
+[gd_scene load_steps=7 format=3 uid="uid://b8ouces3cngpi"]
 
 [ext_resource type="Script" path="res://scripts/backgrounds/parallax_background.gd" id="1_4l7fq"]
 [ext_resource type="Texture2D" uid="uid://bsjxo04h42vle" path="res://assets/parallax_demon_woods_pack/layers/parallax-demon-woods-bg.png" id="2_ldug4"]
 [ext_resource type="Texture2D" uid="uid://de0m24jif3cng" path="res://assets/parallax_demon_woods_pack/layers/parallax-demon-woods-far-trees.png" id="2_uso7r"]
 [ext_resource type="Texture2D" uid="uid://rhnkhtq76nyg" path="res://assets/parallax_demon_woods_pack/layers/parallax-demon-woods-mid-trees.png" id="3_jufhw"]
 [ext_resource type="Texture2D" uid="uid://mkse5y256syw" path="res://assets/parallax_demon_woods_pack/layers/parallax-demon-woods-close-trees.png" id="4_81kbs"]
+[ext_resource type="Texture2D" uid="uid://biqtg0cl5owvu" path="res://assets/parallax_demon_woods_pack/layers/fill.png" id="6_g5yiv"]
 
 [node name="DeathWorldBackground" type="ParallaxBackground"]
 script = ExtResource("1_4l7fq")
@@ -36,3 +37,19 @@ motion_mirroring = Vector2(955, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
 scale = Vector2(2, 2.004)
 texture = ExtResource("4_81kbs")
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(955, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer5"]
+position = Vector2(664, 677.08)
+scale = Vector2(1.30833, 0.750148)
+texture = ExtResource("6_g5yiv")
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(955, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer6"]
+position = Vector2(406, -859)
+scale = Vector2(1.03958, 1.09274)
+texture = ExtResource("6_g5yiv")

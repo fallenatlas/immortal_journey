@@ -13,6 +13,7 @@ var current_dialogue_id = 0
 var d_active = false
 
 var current_npc = null
+var dialogue_name = null
 
 
 # Called when the node enters the scene tree for the first time.
@@ -20,7 +21,7 @@ func _ready():
 	self.visible = false
 
 	
-func start(NPC_name):
+func start(NPC_name, NPC_stage=""):
 	Game.playerCanMove = false
 	if d_active:
 		return
@@ -29,9 +30,8 @@ func start(NPC_name):
 	
 	current_dialogue_id = -1
 	current_npc = NPC_name
+	dialogue_name = NPC_name + NPC_stage
 	next_script()
-	print(current_npc)
-	
 
 func _input(event):
 	if not d_active:
@@ -46,14 +46,15 @@ func _input(event):
 func next_script():
 	current_dialogue_id += 1
 	
-	if current_dialogue_id >= len(dialogue[current_npc]):
+	if current_dialogue_id >= len(dialogue[dialogue_name]):
 		timer.start()
 		self.visible = false
 		Game.playerCanMove = true
+		
 		return
 		
 	Name.text = current_npc
-	Chat.text = dialogue[current_npc][current_dialogue_id]
+	Chat.text = dialogue[dialogue_name][current_dialogue_id]
 
 
 func _on_timer_timeout():

@@ -92,4 +92,3 @@ func _on_player_damage(enemy : bool):
 	if (Game.playerHP < 5):
 		AudioServer.set_bus_send(AudioServer.get_bus_index("AmbientSound"), "Master")
 
-

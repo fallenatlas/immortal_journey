@@ -1,15 +1,15 @@
 extends TextureProgressBar
 
+@onready var body = $"../.."
+
+var textureRedBar 
+var textureGreyBar
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Events.last_stand.connect(_on_last_stand)
-
-
+	max_value = body.health
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	value = Game.playerHP
+	value = body.health
 
-
-func _on_last_stand():
-	visible = false

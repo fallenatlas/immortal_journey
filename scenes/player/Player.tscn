@@ -1292,6 +1292,8 @@ script = ExtResource("13_4olqt")
 
 [node name="CourageTicks" type="Timer" parent="CourageManager"]
 
+[node name="LastStandDrain" type="Timer" parent="CourageManager"]
+
 [node name="InvincibilityPeriodManager" type="Node" parent="."]
 
 [node name="InvincibityTimer" type="Timer" parent="InvincibilityPeriodManager"]
@@ -1309,7 +1311,7 @@ script = ExtResource("17_gd8pb")
 position = Vector2(0, -10)
 rotation = 1.5708
 collision_layer = 4
-collision_mask = 8
+collision_mask = 72
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackManager/Area2D"]
 position = Vector2(-0.000137329, -38)
@@ -1349,6 +1351,7 @@ one_shot = true
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="AttackManager" method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="CourageManager/LastStandDrain" to="." method="_on_last_stand_drain_timeout"]
 [connection signal="timeout" from="InvincibilityPeriodManager/InvincibityTimer" to="." method="_on_invincibity_timer_timeout"]
 [connection signal="body_entered" from="AttackManager/Area2D" to="AttackManager" method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="AttackManager/InnerAttackTimer" to="AttackManager" method="_on_inner_attack_timer_timeout"]

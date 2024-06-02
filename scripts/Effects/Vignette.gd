@@ -18,20 +18,33 @@ func _process(delta):
 	var mappedHP = remap(Game.playerHP, Game.minHP, Game.maxHP, 0, 1)
 	var mappedHalfHP = remap(Game.playerHP, Game.minHP, Game.maxHP/2, 0, 1)
 	
-	var mappedCourage = remap(Game.courage, Game.minCourage, Game.maxCourage, 1, 0)
-	
 	var mappedColorRed = lerp(Game.redColor.r, Game.softRedColor.r, mappedHalfHP)
 	var mappedColorGreen = lerp(Game.redColor.g, Game.softRedColor.g, mappedHalfHP)
 	var mappedColorBlue = lerp(Game.redColor.b, Game.softRedColor.b, mappedHalfHP)
-	
 	#print(str(mappedColorRed) + " " + str(mappedColorGreen) + " " + str(mappedColorBlue) + str(mappedCourage))
 	
 	# Vignette
-	#BUG: Color are kinda weird, I don't exactly know how they mix in the shaders
-	self.material.set_shader_parameter("vignette_rgb", Color(mappedColorRed, mappedColorGreen, mappedColorBlue, 1))
+	if not Game.isLastStand:
+		self.material.set_shader_parameter("vignette_rgb", Color(mappedColorRed, mappedColorGreen, mappedColorBlue, 1))
+		
+		self.material.set_shader_parameter("mappedHP", mappedHP);
+		#Pulsating effect
+		#O valor 5.6 nao sei porque é que é o correto
+		self.material.set_shader_parameter("time", time * 5.6);
+	else:
+		#TODO: Change this to scale with courage, instead of HP
+		
+		var mappedCourage = remap(Game.courage, Game.minCourage, Game.maxCourage, 0, 1)
+		var mappedHalfCourage = remap(Game.courage, Game.minCourage, Game.maxCourage/2, 0, 1)
 	
-	self.material.set_shader_parameter("mappedHP", mappedHP);
-	#Pulsating effect
-	#O valor 5.6 nao sei porque é que é o correto
-	self.material.set_shader_parameter("time", time * 5.6);
+		mappedColorRed = lerp(Game.redColor.r, Game.softRedColor.r, mappedHalfCourage)
+		mappedColorGreen = lerp(Game.redColor.g, Game.softRedColor.g, mappedHalfCourage)
+		mappedColorBlue = lerp(Game.redColor.b, Game.softRedColor.b, mappedHalfCourage)
+		
+		self.material.set_shader_parameter("vignette_rgb", Color(mappedColorRed, mappedColorGreen, mappedColorBlue, 1))
+		
+		self.material.set_shader_parameter("mappedHP", mappedCourage);
+		#Pulsating effect
+		#O valor 5.6 nao sei porque é que é o correto
+		self.material.set_shader_parameter("time", time * 5.6);
 	

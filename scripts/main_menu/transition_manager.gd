@@ -32,6 +32,8 @@ func change_scene():
 			change_to_immortal_scene()
 		"world":
 			change_to_level1_scene()
+		"end":
+			change_to_end_scene()
 		_:
 			rest_bonfire()
 	
@@ -42,6 +44,9 @@ func change_to_immortal_scene():
 func change_to_level1_scene():
 	get_tree().change_scene_to_file("res://scenes/areas/world.tscn")
 	enable_actions()
+	
+func change_to_end_scene():
+	pass
 
 func rest_bonfire():
 	Game.playerHP = Game.maxHP

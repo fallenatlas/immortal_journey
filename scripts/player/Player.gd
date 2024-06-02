@@ -35,11 +35,16 @@ var isPossibleCoyote = true
 
 var dying = false
 
+var isBossFight = false
+var diedInBoss = false
+var deadCount = 0
+
 var can_move : bool = true :
 	get:
 		return can_move
 	set(value):
 		can_move = value
+
 
 @onready var anim = get_node("AnimationPlayer")
 @onready var audioPlayer = preload("res://scenes/player/Audio_Player.tscn")
@@ -52,6 +57,8 @@ func _ready():
 	Events.switch_world.connect(_on_switch_world)
 	Events.took_damage.connect(be_invincible)
 	Events.took_damage.connect(_on_player_damage)
+	Events.last_stand.connect(_courage_drain)
+	#Events.died_in_boss.connect(died_in_boss_fight)
 
 func _physics_process(delta):
 	if not can_move:
@@ -225,9 +232,17 @@ func calculate_dash_direction() -> Vector2:
 	return Vector2(direction_x, direction_y).normalized()
 
 func _on_animation_player_animation_finished(anim_name):
-	if (anim_name == "Death") and not Game.isImmortal:
-		self.queue_free()
-		get_tree().change_scene_to_file("res://scenes/areas/world.tscn")
+	if (anim_name == "Death"):
+		if isBossFight:
+			if deadCount == 0:
+				Events.died_in_boss.emit()
+				deadCount = 1
+			elif deadCount != 0 and Game.isLastStand:
+				self.queue_free()
+				get_tree().change_scene_to_file("res://scenes/main_menu/main.tscn")
+		elif not Game.isImmortal:
+			self.queue_free()
+			get_tree().change_scene_to_file("res://scenes/main_menu/main.tscn")
 		
 func create_sound(sound_name, position=null):
 	var audio_clone = audioPlayer.instantiate()
@@ -238,20 +253,27 @@ func create_sound(sound_name, position=null):
 func _on_player_damage(enemy : bool):
 	if (dying):
 		return
-		
-	create_sound("Damage")
-	if (Game.playerHP <= 5):
-		if (!breathingSound.playing):
-			breathingSound.play()
-		if (!heartbeatSound.playing):
-			heartbeatSound.play()
-		heartbeatSound.volume_db = linear_to_db(1 - Game.playerHP/6);
-	if (Game.playerHP <= 0):
-		Utils.log_death()
-		create_sound("Death")
-		dying = true
-		breathingSound.stop()
-		heartbeatSound.stop()
+	if not Game.isLastStand:
+		create_sound("Damage")
+		if (Game.playerHP <= 5):
+			if (!breathingSound.playing):
+				breathingSound.play()
+			if (!heartbeatSound.playing):
+				heartbeatSound.play()
+			heartbeatSound.volume_db = linear_to_db(1 - Game.playerHP/6);
+		if (Game.playerHP <= 0):
+			create_sound("Death")
+			dying = true
+			breathingSound.stop()
+			heartbeatSound.stop()
+	else:
+		create_sound("Damage")
+		heartbeatSound.volume_db = linear_to_db(1);
+		if (Game.courage <= 0):
+			create_sound("Death")
+			dying = true
+			breathingSound.stop()
+			heartbeatSound.stop()
 
 func change_camera_limits(left_limit, top_limit, right_limit, bottom_limit):
 	get_node("Camera2D").change_camera_limits(left_limit, top_limit, right_limit, bottom_limit)
@@ -274,3 +296,10 @@ func play_camera_in_animation():
 	
 func play_camera_exit_animation():
 	get_node("AnimationPlayer2").play("CameraMovementExit")
+
+func _courage_drain():
+	$CourageManager/LastStandDrain.start()
+	
+func _on_last_stand_drain_timeout():
+	Game.courage -= 3
+	$CourageManager/LastStandDrain.start()

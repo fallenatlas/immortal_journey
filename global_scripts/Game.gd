@@ -16,6 +16,7 @@ var playerCanMove = true
 var canChangeWorlds = true
 
 var courageMultiplier = 1
+var isLastStand = false
 
 var courage: float = 50.0 :
 	get:
@@ -91,16 +92,29 @@ var total_archers_killed : int
 
 func take_damage(damage_value : int, enemy : bool):
 	if (not enemy):
-		playerHP -= damage_value
-		if playerHP <= 0:
-			playerDead = true
-		Events.took_damage.emit(enemy)
+		if not isLastStand:
+			playerHP -= damage_value
+			if playerHP <= 0:
+				playerDead = true
+			Events.took_damage.emit(enemy)
+		else:
+			courage -= 10
+			if courage <= 0:
+				playerDead = true
+			Events.took_damage.emit(enemy)
 		
 	if(not isInvulnerable):
-		playerHP -= damage_value
-		if playerHP <= 0:
-			playerDead = true
-		Events.took_damage.emit(enemy)
+		if not isLastStand:
+			playerHP -= damage_value
+			if playerHP <= 0:
+				playerDead = true
+			Events.took_damage.emit(enemy)
+		else:
+			courage -= 10
+			if courage <= 0:
+				playerDead = true
+			Events.took_damage.emit(enemy)
+
 		
 func set_courage(value : int):
 	print(courageMultiplier)
@@ -108,3 +122,6 @@ func set_courage(value : int):
 		courage += value * courageMultiplier
 	else:
 		courage += value
+
+		
+

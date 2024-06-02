@@ -12,5 +12,14 @@
 		"I've come for you",
 		"Oh no...",
 		"Cachau"
+	],
+	"DeathEnd": [
+		"You're finally here...",
+		"What have you experienced, what have you heard, what colors do the falling leaves has?",
+		"...",
+		"I hope you're ready."
+	],
+	"DeathDefeated": [
+		"noice"
 	]
 }

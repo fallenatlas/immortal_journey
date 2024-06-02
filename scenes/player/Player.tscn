@@ -1260,7 +1260,6 @@ animation = &"Run"
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(20, 0)
 zoom = Vector2(1.6, 1.6)
 limit_left = -24
 limit_top = -280

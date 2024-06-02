@@ -17,7 +17,7 @@ func _on_new_game_pressed():
 	Utils.reset_total_metrics()
 	Utils.reset_single_metrics()
 	Game.startScene = "res://scenes/areas/immortal.tscn"
-	TransitionManager.fade_to_scene("immortal")
+	TransitionManager.fade_to_scene("world")
 	#get_tree().change_scene_to_file("res://scenes/areas/immortal.tscn")
 
 

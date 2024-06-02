@@ -62,6 +62,7 @@ func _ready():
 	Events.last_stand.connect(_courage_drain)
 	Events.choice_made.connect(choice_made)
 	#Events.died_in_boss.connect(died_in_boss_fight)
+	Events.health_restore.connect(_on_health_restore)
 
 func _physics_process(delta):
 	if run_off:
@@ -284,11 +285,11 @@ func _on_player_damage(enemy : bool):
 			if (!heartbeatSound.playing):
 				heartbeatSound.play()
 			heartbeatSound.volume_db = linear_to_db(1 - Game.playerHP/6);
+			
 		if (Game.playerHP <= 0):
+			Utils.log_death()
 			create_sound("Death")
 			dying = true
-			breathingSound.stop()
-			heartbeatSound.stop()
 	else:
 		create_sound("Damage")
 		heartbeatSound.volume_db = linear_to_db(1);
@@ -333,3 +334,7 @@ func choice_made():
 
 func _on_final_cutscene_timer_timeout():
 	run_off = true
+	
+func _on_health_restore():
+	breathingSound.stop()
+	heartbeatSound.stop()

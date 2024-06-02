@@ -733,6 +733,7 @@ script = ExtResource("1_giwt4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 3
+visible = false
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
 anchors_preset = 7

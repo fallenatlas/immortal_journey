@@ -52,6 +52,8 @@ func next_script():
 		return
 		
 	Name.text = current_npc
+	if current_npc == "DeathEnd":
+		Name.text = "Death"
 	Chat.text = dialogue[current_npc][current_dialogue_id]
 
 

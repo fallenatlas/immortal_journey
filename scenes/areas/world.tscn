@@ -156,7 +156,7 @@ script/source = "extends StaticBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Events.boss_fight.connect(activate)
-	Events.final_choice.connect(deactivate)
+	Events.choice_made.connect(deactivate)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -174,6 +174,21 @@ func deactivate():
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y334n"]
 size = Vector2(20, 78)
+
+[sub_resource type="GDScript" id="GDScript_joccv"]
+resource_name = "CreditTrigger"
+script/source = "extends Area2D
+
+
+
+
+func _on_body_entered(body):
+	if body.name == \"Player\":
+		TransitionManager.fade_to_scene(\"credits\")
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iib0a"]
+size = Vector2(20, 85)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_yrr7o")
@@ -1489,9 +1504,18 @@ shape = SubResource("RectangleShape2D_y334n")
 position = Vector2(30116, 43)
 shape = SubResource("RectangleShape2D_y334n")
 
+[node name="CreditTrigger" type="Area2D" parent="."]
+position = Vector2(30139, 69)
+script = SubResource("GDScript_joccv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CreditTrigger"]
+position = Vector2(110, -26)
+shape = SubResource("RectangleShape2D_iib0a")
+
 [connection signal="body_entered" from="TransitionZone" to="TransitionZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone2" to="TransitionZone2" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone3" to="TransitionZone3" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone4" to="TransitionZone4" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone5" to="TransitionZone5" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone6" to="TransitionZone6" method="_on_body_entered"]
+[connection signal="body_entered" from="CreditTrigger" to="CreditTrigger" method="_on_body_entered"]

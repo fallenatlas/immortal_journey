@@ -20,6 +20,8 @@ var canChangeWorlds = true
 var courageMultiplier = 1
 var isLastStand = false
 
+var lastStandDrain = 3
+
 var courage: float = 50.0 :
 	get:
 		return courage

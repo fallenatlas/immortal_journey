@@ -8,6 +8,7 @@ extends Node2D
 @onready var failSwitchSound = $FailSwitchSound
 var deathWorldAmbientSoundTime = 0
 var normalWorldAmbientSoundTime = 0
+var reset
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -35,6 +36,7 @@ func _ready():
 	Game.min_courage_dash = 65
 	Game.attack_buffer = 3
 	Game.courageMultiplier = 1
+	Game.resetShaders = true;
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
@@ -77,6 +79,7 @@ func _on_courage_depleted():
 func _on_switch_world(normalWorld : bool):
 	if (normalWorld):
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("NormalAmbientSound"), false)
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("NormalMusic"), false)
 		deathWorldAmbientSoundTime = deathWorldAmbientSound.get_playback_position()
 		deathWorldAmbientSound.stop()
 		normalWorldNode.visible = true
@@ -86,6 +89,7 @@ func _on_switch_world(normalWorld : bool):
 		#make normal world visible and collidable
 	if (not normalWorld):
 		AudioServer.set_bus_mute(AudioServer.get_bus_index("NormalAmbientSound"), true)
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("NormalMusic"), true)
 		deathWorldAmbientSound.play(deathWorldAmbientSoundTime)
 		normalWorldNode.visible = false
 		normalWorldNode.get_node("ParallaxBackground").visible = false

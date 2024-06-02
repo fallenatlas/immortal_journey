@@ -1,16 +1,22 @@
 extends ColorRect
 
-
+@onready var lowestHP
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#self.material.set_shader_parameter("saturation", 0.0)
+	lowestHP = Game.playerHP
 	pass
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var mappedHP = remap(Game.playerHP, Game.minHP, Game.maxHP, Game.maxSat, Game.minSat)
+	if (Game.resetShaders):
+		lowestHP = Game.playerHP
+		Game.resetShaders = false
+	
+	if (Game.playerHP < lowestHP):
+		lowestHP = Game.playerHP
+	
+	var mappedHP = remap(lowestHP, Game.minHP, Game.maxHP, Game.maxSat, Game.minSat)
 	var mappedCourage = remap(Game.courage, Game.minCourage, Game.maxCourage, Game.minBri, Game.maxBri)
 	
 	if not Game.isLastStand:

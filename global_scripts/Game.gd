@@ -93,6 +93,7 @@ var goblins_killed : int
 var total_goblins_killed : int
 var archers_killed : int
 var total_archers_killed : int
+var resetShaders : bool = false
 
 func take_damage(damage_value : int, enemy : bool):
 	if (not enemy):

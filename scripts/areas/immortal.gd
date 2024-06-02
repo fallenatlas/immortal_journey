@@ -5,6 +5,7 @@ extends Node2D
 @onready var deathWorldAmbientSound = get_node("DeathWorld/AmbientSound")
 var deathWorldAmbientSoundTime = 0
 @onready var anim = get_node("Cutscene")
+@onready var failSwitchSound = $FailSwitchSound
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -60,6 +61,8 @@ func change_world():
 		else:
 			Game.normalWorld = true
 		Events.switch_world.emit(Game.normalWorld)
+	else:
+		failSwitchSound.play()
 
 func remove_immortality():
 	Game.isImmortal = false

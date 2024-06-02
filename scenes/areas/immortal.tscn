@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bwnicq6jge87k" path="res://scenes/utils/bonfire.tscn" id="11_nmfcu"]
 [ext_resource type="PackedScene" uid="uid://dqdaciyk77xp0" path="res://scenes/ui/tutorial_popup_trigger.tscn" id="13_2sgkn"]
 [ext_resource type="PackedScene" uid="uid://c7eg1cw4ykewe" path="res://scenes/ui/ui.tscn" id="13_1824v"]
-[ext_resource type="PackedScene" uid="uid://ccr4u2pvndubw" path="res://scenes/ui/move_tutorial_popup.tscn" id="13_yprl8"]
+[ext_resource type="PackedScene" uid="uid://bx10n8s4tivuf" path="res://scenes/ui/move_tutorial_popup.tscn" id="13_yprl8"]
 [ext_resource type="PackedScene" uid="uid://b72dpf1a1vqmt" path="res://scenes/ui/health_tutorial_popup.tscn" id="14_6gtha"]
 [ext_resource type="Script" path="res://scripts/UI/tutorial_popups.gd" id="14_o8nxp"]
 [ext_resource type="TileSet" uid="uid://bpfdwdtnqcw4i" path="res://assets/tilesets/death_ground.tres" id="14_rv5s5"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://bdbngvnvnb2q5" path="res://scenes/ui/courage_tutorial_popup.tscn" id="23_f6wfl"]
 [ext_resource type="PackedScene" uid="uid://b2xkecuqlf400" path="res://scenes/ui/worlds_tutorial_popup.tscn" id="24_c0i64"]
 [ext_resource type="PackedScene" uid="uid://dtl848nni66ap" path="res://scenes/ui/interact_tutorial_popup.tscn" id="25_82axo"]
+[ext_resource type="AudioStream" uid="uid://bjr8bwww4ku7w" path="res://Audio/SFX/10_UI_Menu_SFX/033_Denied_03.wav" id="30_asdqo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tvim8"]
 shader = ExtResource("6_3tcpf")
@@ -682,6 +683,9 @@ position = Vector2(3925, 43)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="End"]
 position = Vector2(-50, -129)
 shape = SubResource("RectangleShape2D_t20n8")
+
+[node name="FailSwitchSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("30_asdqo")
 
 [connection signal="body_entered" from="End" to="." method="_on_end_body_entered"]
 

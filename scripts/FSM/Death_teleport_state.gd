@@ -18,6 +18,10 @@ func Exit():
 	pass
 
 func teleport_position():
+	if fsmManager.current_state == $"../Final":
+		body.position = body.teleportPos5.position
+		return
+		
 	var rand = rng.randi_range(0, 5)
 	
 	match rand:

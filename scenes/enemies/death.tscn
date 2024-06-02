@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://bosd7l3q07sh5" path="res://Audio/SFX/10_Battle_SFX/15_Impact_flesh_02.wav" id="16_1lfm5"]
 [ext_resource type="AudioStream" uid="uid://dcokry7svaw32" path="res://Audio/SFX/10_Battle_SFX/08_Bite_04.wav" id="17_lsyel"]
 [ext_resource type="Script" path="res://scripts/FSM/Death_teleport_state.gd" id="20_2jtgk"]
+[ext_resource type="Script" path="res://scripts/FSM/state_final.gd" id="23_v3vbo"]
 [ext_resource type="Script" path="res://scripts/UI/DeathEndDialogue.gd" id="25_jwynw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0fsv"]
@@ -811,6 +812,9 @@ script = ExtResource("13_yjldm")
 
 [node name="Teleport" type="Node" parent="FSM"]
 script = ExtResource("20_2jtgk")
+
+[node name="Final" type="Node" parent="FSM"]
+script = ExtResource("23_v3vbo")
 
 [node name="AttackDetectionArea" type="Area2D" parent="."]
 collision_layer = 8

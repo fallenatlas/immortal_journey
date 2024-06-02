@@ -6,6 +6,8 @@ const JUMP_VELOCITY = -400.0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@onready var FSM = $FSM
+
 @onready var sprite = $Sprite2D
 @onready var attackDetectionShape = $AttackDetectionArea/CollisionShape2D
 @onready var jumpAttackDetectionShape = $JumpAttackDetectionArea/CollisionShape2D
@@ -149,6 +151,10 @@ func death():
 		return
 	
 	#Die?
+	FSM.force_change_state("Final")
+	var dialogue = $DialogueBox
+	if dialogue:
+		dialogue.start("Death", "Defeated")
 
 
 func _on_hit_cooldown_timeout():

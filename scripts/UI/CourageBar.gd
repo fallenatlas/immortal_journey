@@ -21,11 +21,20 @@ func _dash_threshold_change():
 
 
 func _on_last_stand():
-	$"..".scale.x = 3
+	#$"..".scale.x = 3
 	Game.isLastStand = true
 	lastStandDrain.start()
 	
-
+	var image1 = Image.load_from_file("res://Health Bar Asset Pack 2 by Adwit Rahman/BarBackground.png")
+	var image2 = Image.load_from_file("res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarover3x.png")
+	var image3 = Image.load_from_file("res://Health Bar Asset Pack 2 by Adwit Rahman/CourageBarProgress3x.png")
+	var texture1 = ImageTexture.create_from_image(image1)
+	var texture2 = ImageTexture.create_from_image(image2)
+	var texture3 = ImageTexture.create_from_image(image3)
+	
+	set_under_texture(texture1)
+	set_over_texture(texture2)
+	set_progress_texture(texture3)
 
 
 func _on_last_stand_drain_timeout():

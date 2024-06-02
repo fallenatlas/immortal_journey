@@ -17,8 +17,12 @@ signal unlock_upgrade(number : int)
 
 signal cutscene_finished()
 
+signal boss_fight()
+
 signal died_in_boss()
 
 signal last_stand()
 
 signal final_choice()
+
+signal choice_made()

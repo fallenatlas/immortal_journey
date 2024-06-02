@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cdy5j5rwok7k3"]
+[gd_scene load_steps=49 format=3 uid="uid://cdy5j5rwok7k3"]
 
 [ext_resource type="Script" path="res://scripts/enemies/death.gd" id="1_giwt4"]
 [ext_resource type="Script" path="res://scripts/FSM/state_idle.gd" id="1_kjjb1"]
@@ -733,11 +733,15 @@ tracks/3/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 42, 43, 44, 45, 46]
 }
 
+[sub_resource type="Animation" id="Animation_tihyq"]
+resource_name = "Death"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ycetb"]
 _data = {
 "Attack1": SubResource("Animation_mbbpa"),
 "Attack2": SubResource("Animation_wten4"),
 "Attack3": SubResource("Animation_yixlg"),
+"Death": SubResource("Animation_tihyq"),
 "Idle": SubResource("Animation_64sw7"),
 "JumpAttack": SubResource("Animation_nfgy5"),
 "RESET": SubResource("Animation_w65gw"),

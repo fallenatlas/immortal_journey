@@ -8,7 +8,7 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @export var health : int = 2
-@export var knockbackSpeed = 1
+@export var knockbackSpeed = 0.4
 
 var attacking = false
 var dying = false

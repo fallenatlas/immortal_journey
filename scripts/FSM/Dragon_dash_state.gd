@@ -15,7 +15,6 @@ class_name DragonDashState
 @onready var patrolTimer = $"../../PatrolTimer"
 
 @onready var attackSound = $"../../AttackSound"
-@onready var deathSound = $"../../DeathSound"
 
 var direction
 
@@ -40,7 +39,6 @@ func Exit():
 func _stop_movement():
 	isExploding = true
 	direction = Vector2(0, 0)
-	deathSound.play()
 	
 func explode_logic():
 	body.explode()

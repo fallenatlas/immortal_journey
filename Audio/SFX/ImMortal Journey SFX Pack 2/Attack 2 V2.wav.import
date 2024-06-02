@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dt26w5kbqbs6v"
+path="res://.godot/imported/Attack 2 V2.wav-481cece8d4b0a863e1c271602de2fd78.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/ImMortal Journey SFX Pack 2/Attack 2 V2.wav"
+dest_files=["res://.godot/imported/Attack 2 V2.wav-481cece8d4b0a863e1c271602de2fd78.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

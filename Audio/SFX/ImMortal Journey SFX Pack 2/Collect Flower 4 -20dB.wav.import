@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d30qwdu3aq62p"
+path="res://.godot/imported/Collect Flower 4 -20dB.wav-1c2128366e5d25f02783da26cd881137.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/ImMortal Journey SFX Pack 2/Collect Flower 4 -20dB.wav"
+dest_files=["res://.godot/imported/Collect Flower 4 -20dB.wav-1c2128366e5d25f02783da26cd881137.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

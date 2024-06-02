@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cuawqchopjxps"
+path="res://.godot/imported/Heartbeat 2.wav-350c73f8d50b2640058ed28cc2533267.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/ImMortal Journey SFX Pack 2/Heartbeat 2.wav"
+dest_files=["res://.godot/imported/Heartbeat 2.wav-350c73f8d50b2640058ed28cc2533267.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

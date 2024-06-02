@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://ccxfk82g8wye1"]
+[gd_scene load_steps=67 format=3 uid="uid://ccxfk82g8wye1"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_ooqp6"]
 [ext_resource type="Shader" path="res://Shaders/Player.gdshader" id="2_76q85"]
@@ -16,11 +16,12 @@
 [ext_resource type="Script" path="res://scenes/player/courage_manager.gd" id="13_4olqt"]
 [ext_resource type="Texture2D" uid="uid://b6dqrfrr5rmt8" path="res://assets/martial_hero/Attack1.png" id="13_cxbse"]
 [ext_resource type="Texture2D" uid="uid://cnxliq7dwipdp" path="res://assets/martial_hero/Attack2.png" id="14_56vgv"]
-[ext_resource type="AudioStream" uid="uid://daua2topsdivk" path="res://Audio/SFX/12_Player_Movement_SFX/03_Step_grass_03.wav" id="14_lnfkc"]
 [ext_resource type="Texture2D" uid="uid://casiv1is0w84f" path="res://assets/martial_hero/Death.png" id="15_6vbcu"]
 [ext_resource type="Script" path="res://scripts/player/AttackManager.gd" id="17_gd8pb"]
-[ext_resource type="AudioStream" uid="uid://bhtdecfqlhau8" path="res://Audio/SFX/breathing-6811.mp3" id="20_mjcii"]
-[ext_resource type="AudioStream" uid="uid://hajx828e8edr" path="res://Audio/SFX/heartbeat-sound-effect-111218.mp3" id="21_77wdt"]
+[ext_resource type="AudioStream" uid="uid://cyxae7goqs1do" path="res://Audio/SFX/ImMortal Jouney SFX Pack 3/Footsteps Cave with Clothing.wav" id="19_12a64"]
+[ext_resource type="AudioStream" uid="uid://n5tdtiaf0h7j" path="res://Audio/SFX/ImMortal Journey SFX Pack 2/Heavy Breathing 3.wav" id="20_u1jle"]
+[ext_resource type="AudioStream" uid="uid://b1r2y33al4c0a" path="res://Audio/SFX/ImMortal Journey SFX Pack 2/Heartbeat 1 .wav" id="21_pn5uc"]
+[ext_resource type="AudioStream" uid="uid://cuawqchopjxps" path="res://Audio/SFX/ImMortal Journey SFX Pack 2/Heartbeat 2.wav" id="22_wiwb8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wi5bl"]
 shader = ExtResource("2_76q85")
@@ -1260,6 +1261,7 @@ animation = &"Run"
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(20, 0)
 zoom = Vector2(1.6, 1.6)
 limit_left = -24
 limit_top = -280
@@ -1333,15 +1335,20 @@ wait_time = 0.32
 one_shot = true
 
 [node name="RunSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("14_lnfkc")
+stream = ExtResource("19_12a64")
 bus = &"SFX"
 
 [node name="HeavyBreathingSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("20_mjcii")
+stream = ExtResource("20_u1jle")
+volume_db = -12.0
 bus = &"SFX"
 
 [node name="HeartbeatSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("21_77wdt")
+stream = ExtResource("21_pn5uc")
+bus = &"SFX"
+
+[node name="FastHeartbeatSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_wiwb8")
 bus = &"SFX"
 
 [node name="CoyoteTimer" type="Timer" parent="."]

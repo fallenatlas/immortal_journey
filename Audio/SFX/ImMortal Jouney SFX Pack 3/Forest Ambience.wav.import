@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://capp63fs072hv"
+path="res://.godot/imported/Forest Ambience.wav-6e0c43a7476c6fb8cc0b1ca2ef7d0216.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/ImMortal Jouney SFX Pack 3/Forest Ambience.wav"
+dest_files=["res://.godot/imported/Forest Ambience.wav-6e0c43a7476c6fb8cc0b1ca2ef7d0216.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

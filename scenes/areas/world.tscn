@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=91 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -21,17 +21,17 @@
 [ext_resource type="PackedScene" uid="uid://cdy5j5rwok7k3" path="res://scenes/enemies/death.tscn" id="10_amhub"]
 [ext_resource type="PackedScene" uid="uid://crs2q85vjs8ck" path="res://scenes/NPCs/npc_old_samurai.tscn" id="10_qog5q"]
 [ext_resource type="PackedScene" uid="uid://dswhan0jd62oy" path="res://scenes/NPCs/npc_wise_goblin.tscn" id="11_sq2d5"]
-[ext_resource type="AudioStream" uid="uid://bfon4bamfs3sh" path="res://Audio/Music/blood-chillingly-creepy-atmospheres-183561.mp3" id="11_tpx71"]
 [ext_resource type="Shader" path="res://Shaders/visuals.gdshader" id="13_vyhij"]
 [ext_resource type="Script" path="res://scripts/Effects/Filter.gd" id="14_nbkpm"]
+[ext_resource type="PackedScene" uid="uid://b18817vj8gs2o" path="res://scenes/audio_manager.tscn" id="15_bgwms"]
 [ext_resource type="PackedScene" uid="uid://wfpwg1bhe7gw" path="res://scenes/backgrounds/normal_world_cave_background.tscn" id="15_hc0b4"]
 [ext_resource type="Texture2D" uid="uid://c0wcpt2he0ewc" path="res://assets/cave_background/fill.png" id="16_lsdgy"]
-[ext_resource type="PackedScene" uid="uid://b18817vj8gs2o" path="res://scenes/audio_manager.tscn" id="15_bgwms"]
 [ext_resource type="Shader" path="res://Shaders/vignette.gdshader" id="16_qo4s6"]
 [ext_resource type="Texture2D" uid="uid://d1526xiow5xvt" path="res://assets/oak_autumn_woods/oak_woods_v1.0/background/transition.png" id="17_litea"]
 [ext_resource type="Script" path="res://scripts/Effects/Vignette.gd" id="17_vdpjq"]
 [ext_resource type="PackedScene" uid="uid://djsc44xlvfirp" path="res://Collectables/lowerDashCooldownUpgrade.tscn" id="18_704rl"]
 [ext_resource type="PackedScene" uid="uid://h84gcjjtejny" path="res://Collectables/increaseAttackCountUpgrade.tscn" id="18_b8iwo"]
+[ext_resource type="AudioStream" uid="uid://gp8mr7cxg0rq" path="res://Audio/SFX/ImMortal Jouney SFX Pack 3/Other World Whispers.wav" id="18_oxk4q"]
 [ext_resource type="PackedScene" uid="uid://bcgq4m46dit1t" path="res://Collectables/increaseCourageGainUpgrade.tscn" id="18_wxa8k"]
 [ext_resource type="Shader" path="res://Shaders/DeathWorld.gdshader" id="19_osw28"]
 [ext_resource type="PackedScene" uid="uid://c7eg1cw4ykewe" path="res://scenes/ui/ui.tscn" id="19_va04q"]
@@ -72,6 +72,7 @@
 [ext_resource type="Texture2D" uid="uid://ca48b1le1knxo" path="res://assets/scarecrow.png" id="56_hkxgm"]
 [ext_resource type="Texture2D" uid="uid://bjq0xjauwv7bo" path="res://assets/well.png" id="57_0ceqi"]
 [ext_resource type="Texture2D" uid="uid://de62yvdsfnpxk" path="res://assets/bucket.png" id="58_3erc2"]
+[ext_resource type="AudioStream" uid="uid://bjr8bwww4ku7w" path="res://Audio/SFX/10_UI_Menu_SFX/033_Denied_03.wav" id="61_0umcw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tvim8"]
 shader = ExtResource("6_tihlm")
@@ -797,6 +798,7 @@ z_index = -7
 position = Vector2(8906, -171)
 scale = Vector2(0.34008, 0.122112)
 texture = ExtResource("17_litea")
+
 [node name="AudioManager" parent="NormalWorld" instance=ExtResource("15_bgwms")]
 
 [node name="DeathWorld" type="Node2D" parent="."]
@@ -893,8 +895,9 @@ scale = Vector2(0.0681093, 0.179468)
 texture = ExtResource("23_rtc35")
 
 [node name="AmbientSound" type="AudioStreamPlayer" parent="DeathWorld"]
+
 [node name="Music" type="AudioStreamPlayer" parent="DeathWorld"]
-stream = ExtResource("11_tpx71")
+stream = ExtResource("18_oxk4q")
 autoplay = true
 bus = &"Music"
 
@@ -1506,6 +1509,7 @@ script = SubResource("GDScript_joccv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CreditTrigger"]
 position = Vector2(110, -26)
 shape = SubResource("RectangleShape2D_iib0a")
+
 [node name="MusicTransitions" type="Node2D" parent="."]
 
 [node name="MusicTransition" type="Area2D" parent="MusicTransitions"]
@@ -1632,6 +1636,9 @@ next = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition14"]
 position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="FailSwitchSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("61_0umcw")
 
 [connection signal="body_entered" from="TransitionZone" to="TransitionZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone2" to="TransitionZone2" method="_on_body_entered"]

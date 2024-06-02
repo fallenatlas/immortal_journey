@@ -5,6 +5,7 @@ extends Node2D
 @onready var normalWorldAmbientSound = get_node("NormalWorld/AudioManager/AmbientSound")
 @onready var deathWorldAmbientSound = get_node("DeathWorld/Music")
 @onready var lowestHP = 10
+@onready var failSwitchSound = $FailSwitchSound
 var deathWorldAmbientSoundTime = 0
 var normalWorldAmbientSoundTime = 0
 
@@ -61,6 +62,8 @@ func _process(delta):
 			else:
 				Game.normalWorld = true
 			Events.switch_world.emit(Game.normalWorld)
+		else:
+			failSwitchSound.play()
 
 func _on_courage_depleted():
 	if not Game.normalWorld:

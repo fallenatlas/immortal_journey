@@ -83,6 +83,8 @@ func _physics_process(delta):
 	elif attacking:
 		if anim.current_animation != "Death" || anim.current_animation != "Hit":
 			anim.play("Attack")
+			if (!attackSound.is_playing()):
+				attackSound.play()
 			velocity.x = 0
 			
 	else:
@@ -96,6 +98,7 @@ func death():
 	health -= 1
 	if (health > 0):
 		hitSound.play()
+		attackSound.stop()
 		anim.play("Hit")
 		return
 	Game.goblins_killed += 1
@@ -108,6 +111,8 @@ func death():
 	print(Game.courage)
 	Utils.saveGame()
 	anim.play("Death")
+	hitSound.stop()
+	attackSound.stop()
 	deathSound.play()
 	self.velocity = Vector2(0,0)
 	get_node("CollisionShape2D").queue_free()

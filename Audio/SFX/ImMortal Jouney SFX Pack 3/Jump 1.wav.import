@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d4adfjs021if6"
+path="res://.godot/imported/Jump 1.wav-6bbbc6febe5f62366cabfce182e15bc7.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/ImMortal Jouney SFX Pack 3/Jump 1.wav"
+dest_files=["res://.godot/imported/Jump 1.wav-6bbbc6febe5f62366cabfce182e15bc7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

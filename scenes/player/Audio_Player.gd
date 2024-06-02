@@ -1,11 +1,14 @@
 extends Node2D
 
-var audio_jump = preload("res://Audio/SFX/12_Player_Movement_SFX/30_Jump_03.wav")
-var audio_attack = preload("res://Audio/SFX/12_Player_Movement_SFX/56_Attack_03.wav")
-var audio_switch_world = preload("res://Audio/SFX/12_Player_Movement_SFX/88_Teleport_02.wav")
-var audio_dash = preload("res://Audio/SFX/8_Atk_Magic_SFX/25_Wind_01.wav")
-var audio_damage = preload("res://Audio/SFX/12_Player_Movement_SFX/61_Hit_03.wav")
-var audio_death = preload("res://Audio/SFX/10_Battle_SFX/69_Enemy_death_01.wav")
+var audio_jump = preload("res://Audio/SFX/ImMortal Jouney SFX Pack 3/Jump 3.wav")
+var audio_attack1 = preload("res://Audio/SFX/ImMortal Journey SFX Pack 2/Attack 2 V3 -15dB.wav")
+var audio_attack2 = preload("res://Audio/SFX/ImMortal Journey SFX Pack 2/Attack Swing 2 -15dB.wav")
+var audio_switch_world = preload("res://Audio/SFX/ImMortal Journey SFX Pack 2/Switch Worlds 2.wav")
+var audio_dash = preload("res://Audio/SFX/ImMortal Journey SFX Pack 2/Dash 1.wav")
+var audio_damage = preload("res://Audio/SFX/ImMortal Journey SFX Pack 2/Player Damage 2.wav")
+var audio_death = preload("res://Audio/SFX/ImMortal Journey SFX Pack 2/Player Death 1.wav")
+var audio_upgrade = preload("res://Audio/SFX/ImMortal Journey SFX Pack 2/Collect Flower 4 -20dB.wav")
+var audio_courage_loss = preload("res://Audio/SFX/ImMortal Journey SFX Pack 2/Courage Loss 3.wav")
 
 var audio_node = null
 
@@ -16,15 +19,17 @@ func _ready():
 
 func play_sound(sound_name, position=null):
 
-	if audio_jump == null or audio_attack == null or audio_switch_world == null:
+	if audio_jump == null or audio_attack1 == null or audio_switch_world == null:
 		print ("Audio not set!")
 		queue_free()
 		return
 
 	if sound_name == "Jump":
 		audio_node.stream = audio_jump
-	elif sound_name == "Attack":
-		audio_node.stream = audio_attack
+	elif sound_name == "Attack1":
+		audio_node.stream = audio_attack1
+	elif sound_name == "Attack2":
+		audio_node.stream = audio_attack2
 	elif sound_name == "Switch_world":
 		audio_node.stream = audio_switch_world
 	elif sound_name == "Dash":
@@ -33,6 +38,10 @@ func play_sound(sound_name, position=null):
 		audio_node.stream = audio_damage
 	elif sound_name == "Death":
 		audio_node.stream = audio_death
+	elif sound_name == "Upgrade":
+		audio_node.stream = audio_upgrade
+	elif sound_name == "CourageLoss":
+		audio_node.stream = audio_courage_loss
 	else:
 		print ("UNKNOWN STREAM")
 		queue_free()

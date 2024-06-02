@@ -1,5 +1,6 @@
 extends Node
 
+var deathBattle : bool = false
 var hardMode : bool = false
 var startScene : String;
 

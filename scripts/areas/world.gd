@@ -10,6 +10,8 @@ var normalWorldAmbientSoundTime = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Game.playerDead = false
+	if Game.deathBattle:
+		$Player/Player.position = Vector2(29230, 55)
 	
 	if Game.hardMode:
 		Game.playerHP = 1

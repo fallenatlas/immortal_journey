@@ -1,10 +1,10 @@
 {
 	"Huntress": [
-		"You've reached the end of the prototype.",
-		"Thank you for playing!",
-		"Uma noite o Chuck Norris estava a ouvir música aos altos berros, e os vizinhos não conseguiam dormir...",
-		"Então eles ligaram para a polícia, e esperaram, até que a polícia chegasse, e quando eles chegaram...",
-		"Prenderam os vizinhos."
+		"Do you know why people leave flowers at their loved ones graves?",
+		"They say that as they decay here, [color=yellow]flowers reach those on the other side[color=white].",
+		"I don’t believe it, though. I just miss him…",
+		"Life is cruel.",
+		"One moment, you are the happiest you’ve ever been. On the next, everything you hold dear gets taken from you."
 	],
 	"Death": [
 		"Hello",
@@ -21,5 +21,35 @@
 	],
 	"DeathDefeated": [
 		"noice"
+	],
+	"Kind Goblin Merchant": [
+		"Greetings traveler.",
+		"What? You have no money?",
+		"Well, I’ll give you some advice, free of charge!",
+		"[color=yellow]Search where the sun illuminates your path [color=white]and you might just find something valuable.",
+		"You can see what you've collected so far by  going to the Menu and selecting 'Upgrades'.",
+		"Move along now, have a business to run here."
+	],
+	"Brotherly Goblin Merchant": [
+		"You must have met my brother on your way here. There are three of us, actually.",
+		"I see you don’t have any money…",
+		"[color=yellow]Keep an eye out for crystals[color=white] on the cave up ahead. They hide valuable loot."
+	],
+	"Wise Goblin Merchant": [
+		"All this time and you still have no money?!",
+		"I guess I’ll give you some advice, then. Listen closely.",
+		"It’s very likely you’ll meet your demise up ahead.",
+		"Death is tricky. [color=yellow]You'll need the courage [color=white]to defeat it at its own game."
+	],
+	"Old Samurai": [
+		"Life is beautiful.",
+		"When I was a young’n, I was always up to no good. I wanted to live with no regrets.",
+		"What about you? Are you happy with life?",
+		"On the day that you die, will there be tears full of fear or will you die with a smile?"
+	],
+	"Villager": [
+		"That merchant up ahead is rather friendly and gives the best advice.",
+		"But don’t be fooled, most goblins are actually vile creatures. Don’t feel bad for killing them!",
+		"Although you don’t look like you would…"
 	]
 }

@@ -149,6 +149,32 @@ size = Vector2(30, 348)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3qj3a"]
 size = Vector2(34, 348)
 
+[sub_resource type="GDScript" id="GDScript_aetxf"]
+script/source = "extends StaticBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	Events.boss_fight.connect(activate)
+	Events.final_choice.connect(deactivate)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func activate():
+	set_collision_layer_value(4, true)
+	set_collision_layer_value(7, true)
+
+func deactivate():
+	set_collision_layer_value(4, false)
+	set_collision_layer_value(7, false)
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y334n"]
+size = Vector2(20, 78)
+
 [node name="World" type="Node2D"]
 script = ExtResource("1_yrr7o")
 
@@ -1449,6 +1475,19 @@ z_index = -3
 position = Vector2(27486, 71)
 scale = Vector2(0.749, 0.749)
 texture = ExtResource("58_3erc2")
+
+[node name="BossArena" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+script = SubResource("GDScript_aetxf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossArena"]
+position = Vector2(29424, 43)
+shape = SubResource("RectangleShape2D_y334n")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="BossArena"]
+position = Vector2(30116, 43)
+shape = SubResource("RectangleShape2D_y334n")
 
 [connection signal="body_entered" from="TransitionZone" to="TransitionZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone2" to="TransitionZone2" method="_on_body_entered"]

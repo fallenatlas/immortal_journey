@@ -44,6 +44,8 @@ var can_move : bool = true :
 		return can_move
 	set(value):
 		can_move = value
+		
+var run_off = false
 
 
 @onready var anim = get_node("AnimationPlayer")
@@ -58,9 +60,15 @@ func _ready():
 	Events.took_damage.connect(be_invincible)
 	Events.took_damage.connect(_on_player_damage)
 	Events.last_stand.connect(_courage_drain)
+	Events.choice_made.connect(choice_made)
 	#Events.died_in_boss.connect(died_in_boss_fight)
 
 func _physics_process(delta):
+	if run_off:
+		anim.play("Run")
+		position.x += delta * SPEED/2
+		return
+	
 	if not can_move:
 		return
 		
@@ -307,3 +315,6 @@ func _courage_drain():
 func _on_last_stand_drain_timeout():
 	Game.courage -= 3
 	$CourageManager/LastStandDrain.start()
+	
+func choice_made():
+	run_off = true

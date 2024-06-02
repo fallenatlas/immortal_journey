@@ -2,9 +2,10 @@ extends Node
 
 var deathBattle : bool = false
 var hardMode : bool = false
-var startScene : String;
+var startScene : String
+var choice : bool
 
-var isImmortal : bool = false;
+var isImmortal : bool = false
 var playerDead : bool = false
 var playerHP : float = 10.0
 var isInvulnerable : bool = false

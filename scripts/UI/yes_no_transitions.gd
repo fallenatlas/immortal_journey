@@ -35,8 +35,8 @@ func _on_yes_pressed():
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		get_tree().change_scene_to_file("res://scenes/main_menu/main.tscn")
 	elif animation == "Decision":
-		#Regain immortality
-		pass
+		Game.choice = true
+		Events.choice_made.emit()
 	
 
 func _on_no_pressed():
@@ -53,8 +53,8 @@ func _on_no_pressed():
 		Game.isLastStand = true
 		Events.last_stand.emit()
 	elif animation == "Decision":
-		#stay mortal
-		pass
+		Game.choice = true
+		Events.choice_made.emit()
 
 
 func died_in_boss_fight():

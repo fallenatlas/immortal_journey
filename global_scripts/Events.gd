@@ -20,3 +20,5 @@ signal cutscene_finished()
 signal died_in_boss()
 
 signal last_stand()
+
+signal final_choice()

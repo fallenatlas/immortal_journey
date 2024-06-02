@@ -26,6 +26,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var teleportPos2 : Marker2D
 @export var teleportPos3 : Marker2D
 
+var image1 = load("res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png")
+var image2 = load("res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgressGray.png")
+
 var health = 20
 
 var main
@@ -40,8 +43,6 @@ var direction_index = 0
 var attack3Couter = 0
 var directions : PackedVector2Array
 
-var texture1
-var texture2
 
 var can_update : bool = true :
 	get:
@@ -68,10 +69,6 @@ func _ready():
 	directions.append(Vector2(0, 1))
 	directions.append(Vector2(1, 1))
 	
-	var image1 = Image.load_from_file("res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png")
-	var image2 = Image.load_from_file("res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgressGray.png")
-	texture1 = ImageTexture.create_from_image(image1)
-	texture2 = ImageTexture.create_from_image(image2)
 	
 	Events.switch_world.connect(_on_switch_world)
 
@@ -175,7 +172,7 @@ func play_disappear_animation():
 func _on_switch_world(normalWorld : bool):
 	if (normalWorld):
 		set_collision_mask_value(7, false)
-		healthBar.set_progress_texture(texture2)
+		healthBar.set_progress_texture(image2)
 	if (not normalWorld):
 		set_collision_mask_value(7, true)
-		healthBar.set_progress_texture(texture1)
+		healthBar.set_progress_texture(image1)

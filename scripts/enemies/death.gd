@@ -147,7 +147,6 @@ func death():
 		hitColldown.start()
 		Game.courage = min(Game.courage + 2 * (1 - (Game.playerHP / Game.maxHP)) + 3, Game.maxCourage)
 		return
-	Utils.saveGame()
 	
 	#Die?
 

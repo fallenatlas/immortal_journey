@@ -8,7 +8,7 @@ func use_dialogue():
 	var dialogue = get_parent().get_node("DialogueBox")
 	
 	if dialogue:
-		dialogue.start("DeathEnd")
+		dialogue.start("Death", "End")
 		
 	
 func _on_body_entered(body):

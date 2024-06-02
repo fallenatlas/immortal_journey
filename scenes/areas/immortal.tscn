@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bwnicq6jge87k" path="res://scenes/utils/bonfire.tscn" id="11_nmfcu"]
 [ext_resource type="PackedScene" uid="uid://dqdaciyk77xp0" path="res://scenes/ui/tutorial_popup_trigger.tscn" id="13_2sgkn"]
 [ext_resource type="PackedScene" uid="uid://c7eg1cw4ykewe" path="res://scenes/ui/ui.tscn" id="13_1824v"]
-[ext_resource type="PackedScene" uid="uid://bx10n8s4tivuf" path="res://scenes/ui/move_tutorial_popup.tscn" id="13_yprl8"]
+[ext_resource type="PackedScene" uid="uid://ccr4u2pvndubw" path="res://scenes/ui/move_tutorial_popup.tscn" id="13_yprl8"]
 [ext_resource type="PackedScene" uid="uid://b72dpf1a1vqmt" path="res://scenes/ui/health_tutorial_popup.tscn" id="14_6gtha"]
 [ext_resource type="Script" path="res://scripts/UI/tutorial_popups.gd" id="14_o8nxp"]
 [ext_resource type="TileSet" uid="uid://bpfdwdtnqcw4i" path="res://assets/tilesets/death_ground.tres" id="14_rv5s5"]

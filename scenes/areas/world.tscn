@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=89 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -47,7 +47,6 @@
 [ext_resource type="Texture2D" uid="uid://deywyrdkcgi4n" path="res://assets/oak_autumn_woods/oak_woods_v1.0/decorations/lamp.png" id="32_kc02e"]
 [ext_resource type="Texture2D" uid="uid://dh78l8dy64yxo" path="res://assets/oak_autumn_woods/oak_woods_v1.0/decorations/sign.png" id="33_a01wj"]
 [ext_resource type="PackedScene" uid="uid://mvxtuck8freq" path="res://scenes/ui/yes_no_transitions.tscn" id="33_vv7pv"]
-[ext_resource type="Texture2D" uid="uid://2frrqo11jr2k" path="res://assets/oak_autumn_woods/oak_woods_v1.0/decorations/shop.png" id="34_w618k"]
 [ext_resource type="Texture2D" uid="uid://bi1b82dqfxs6c" path="res://assets/oak_autumn_woods/oak_woods_v1.0/decorations/fence_1.png" id="35_od5k3"]
 [ext_resource type="Texture2D" uid="uid://bb7anpwl754go" path="res://assets/oak_autumn_woods/oak_woods_v1.0/decorations/fence_2.png" id="36_2ugv1"]
 [ext_resource type="Texture2D" uid="uid://jqchys10vnh7" path="res://assets/oak_autumn_woods/oak_woods_v1.0/decorations/rock_1.png" id="37_uqpts"]
@@ -928,7 +927,6 @@ position = Vector2(8470, -103)
 [node name="UI" parent="." instance=ExtResource("19_va04q")]
 
 [node name="Visual Effects" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Filter" type="ColorRect" parent="Visual Effects"]
 material = SubResource("ShaderMaterial_tan7j")

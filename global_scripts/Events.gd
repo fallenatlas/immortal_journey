@@ -26,3 +26,5 @@ signal last_stand()
 signal final_choice()
 
 signal choice_made()
+
+signal death_cutscene_finished()

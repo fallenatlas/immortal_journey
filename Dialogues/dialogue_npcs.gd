@@ -64,4 +64,7 @@ func next_script():
 func _on_timer_timeout():
 	d_active = false
 	Game.playerCanMove = true
-	Events.cutscene_finished.emit()
+	if dialogue_name == "DeathEnd":
+		Events.death_cutscene_finished.emit()
+	else:
+		Events.cutscene_finished.emit()

@@ -2,28 +2,30 @@
 	"Huntress": [
 		"Do you know why people leave flowers at their loved ones graves?",
 		"They say that as they decay here, [color=yellow]flowers reach those on the other side[color=white].",
-		"I don’t believe it, though. I just miss him…",
-		"Life is cruel.",
-		"One moment, you are the happiest you’ve ever been. On the next, everything you hold dear gets taken from you."
+		"I don’t believe it though...",
+		"One moment, you are the happiest person alive. On the next, what you hold dear gets taken away by the wind.",
+		"Life can be so cruel.",
+		"Still...",
+		"I'm happy I met him."
 	],
 	"Death": [
-		"Hello",
-		"Hi!",
-		"I've come for you",
-		"Oh no...",
-		"Cachau"
+		"Thought you'd never see me again, did you? Did you believe you threw you past away?",
+		"...",
+		"Look at you. A colorless husk.",
+		"...",
+		"I have decided to make you mortal. Maybe you will learn something important."
 	],
 	"DeathEnd": [
-		"You're finally here...",
-		"What have you experienced, what have you heard, what colors do the falling leaves has?",
+		"You're finally here, I've been waiting...",
 		"...",
-		"I hope you're ready."
+		"I hope you're ready for this."
 	],
 	"DeathDefeated": [
-		"I am impressed.",
-		"You have shown your strengh so i shall grant you a choice...",
-		"You can take back your immortality, and continue your eternal life...",
+		"I'm impressed.",
+		"You have shown your strengh so I shall grant you a choice...",
+		"You can take back your immortality, and continue to live forever...",
 		"Or you can keep your mortality and live until you reach the end of your journey.",
+		"Do the rays that escape the grasp of the leaves hold gold in your eyes? Or are they empty?",
 		"Choose wisely, there is no turning back."
 	],
 	"Kind Goblin Merchant": [
@@ -42,14 +44,18 @@
 	"Wise Goblin Merchant": [
 		"All this time and you still have no money?!",
 		"I guess I’ll give you some advice, then. Listen closely.",
-		"It’s very likely you’ll meet your demise up ahead.",
-		"Death is tricky. [color=yellow]You'll need the courage [color=white]to defeat it at its own game."
+		"It’s very likely you’ll confront your past up ahead.",
+		"They say Death can't be hurt, [color=yellow]at least in the world of the living.[color=white]",
+		"[color=yellow]You'll need the courage [color=white]to defeat it at its own game.",
+		"Remember that and you will be fine.",
+		"Best of luck, pal."
 	],
 	"Old Samurai": [
-		"Life is beautiful.",
-		"When I was a young’n, I was always up to no good. I wanted to live with no regrets.",
-		"What about you? Are you happy with life?",
-		"On the day that you die, will there be tears full of fear or will you die with a smile?"
+		"Hey there, here's a piece of advice from an old men.",
+		"Life can be quite short, so live to the fullest, so that on the day you die, you die with a smile on your face.",
+		"I say this, but I will not be be able to.",
+		"I've comitted sins that can't be forgiven.",
+		"Still, sometimes I dream of that faraway dream."
 	],
 	"Villager": [
 		"That merchant up ahead is rather friendly and gives the best advice.",

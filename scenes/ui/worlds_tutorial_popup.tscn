@@ -16,10 +16,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -213.5
-offset_top = -56.5
-offset_right = 213.5
-offset_bottom = 56.5
+offset_left = -213.0
+offset_top = -56.0
+offset_right = 214.0
+offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.682353)
@@ -32,15 +32,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -196.0
-offset_top = -35.0
+offset_top = -55.0
 offset_right = 196.0
-offset_bottom = 40.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
 text = "[center]Keyboard: Use [color=green]Q[/color] to change realms
 Controller: Use [color=green]LB[/color] to change realms
 
+ [color=yellow]Avoid danger[/color] in the realm of the death.
 Although similar, both realms aren't always alike...[center]"
 fit_content = true
 scroll_active = false

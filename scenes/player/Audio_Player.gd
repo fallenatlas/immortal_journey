@@ -9,6 +9,7 @@ var audio_damage = preload("res://Audio/SFX/ImMortal Journey SFX Pack 2/Player D
 var audio_death = preload("res://Audio/SFX/ImMortal Journey SFX Pack 2/Player Death 1.wav")
 var audio_upgrade = preload("res://Audio/SFX/ImMortal Journey SFX Pack 2/Collect Flower 4 -20dB.wav")
 var audio_courage_loss = preload("res://Audio/SFX/ImMortal Journey SFX Pack 2/Courage Loss 3.wav")
+var audio_dash_fail = preload("res://Audio/SFX/10_UI_Menu_SFX/033_Denied_03.wav")
 
 var audio_node = null
 
@@ -42,6 +43,8 @@ func play_sound(sound_name, position=null):
 		audio_node.stream = audio_upgrade
 	elif sound_name == "CourageLoss":
 		audio_node.stream = audio_courage_loss
+	elif sound_name == "DashFail":
+		audio_node.stream = audio_dash_fail
 	else:
 		print ("UNKNOWN STREAM")
 		queue_free()

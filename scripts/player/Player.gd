@@ -117,13 +117,16 @@ func _physics_process(delta):
 		return
 
 	#Handle Dash
-	if Input.is_action_just_pressed("dash") && Dash.is_cooldown() && Game.courage >= Game.min_courage_dash:
-		print(Game.min_courage_dash)
-		print("distance")
-		print(DashLenght)
-		Dash.start_dash()
-		create_sound("Dash", self.global_transform.origin)
-		DashEffect.emitting = true
+	if Input.is_action_just_pressed("dash"):
+		if (Dash.is_cooldown() && Game.courage >= Game.min_courage_dash):
+			print(Game.min_courage_dash)
+			print("distance")
+			print(DashLenght)
+			Dash.start_dash()
+			create_sound("Dash", self.global_transform.origin)
+			DashEffect.emitting = true
+		else:
+			create_sound("DashFail")
 	
 	#var speed = DASH_SPEED if Dash.is_dashing() else SPEED
 	if Dash.is_dashing():

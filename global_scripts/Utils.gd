@@ -66,13 +66,17 @@ func save_single_metrics():
 	print("save single")
 	
 func save_metrics():
+	var choice
+	if Game.choice: choice = "mortal"
+	else: choice = "immortal"
 	var data: Dictionary = {
 		"n_deaths": Game.n_deaths,
 		"play time": Game.play_time,
 		"total living": Game.total_living_world_t,
 		"total death": Game.total_death_world_t,
 		"total goblins": Game.total_goblins_killed,
-		"total archers": Game.total_archers_killed
+		"total archers": Game.total_archers_killed,
+		"choice": choice
 	}
 	Game.metric_dic["total"] = data
 	var file = FileAccess.open(METRICS_PATH, FileAccess.WRITE)

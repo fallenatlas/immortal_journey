@@ -179,7 +179,7 @@ theme_override_fonts/normal_font = ExtResource("6_kdgoo")
 theme_override_fonts/bold_font = ExtResource("7_sqrvo")
 bbcode_enabled = true
 text = "[center][font_size=15]
-[b]VFX Team[/b]
+[b]Sound Design Team[/b]
 António Aguiar
 João Vítor
 Samuel Pinto

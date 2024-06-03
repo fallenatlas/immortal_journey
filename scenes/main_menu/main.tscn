@@ -95,7 +95,7 @@ theme_override_constants/margin_top = 10
 custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Play/Hard Mode"
+text = "Play - Hard Mode"
 
 [node name="MarginContainer4" type="MarginContainer" parent="UI/VSplitContainer/VBoxContainer"]
 layout_mode = 2

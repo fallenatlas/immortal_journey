@@ -44,6 +44,22 @@ _data = {
 [node name="DialogueBox" type="CanvasLayer"]
 script = ExtResource("1_xavph")
 
+[node name="Label" type="Label" parent="."]
+z_index = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -142.0
+offset_top = -63.0
+offset_right = -15.0
+offset_bottom = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 14
+text = "Press E/Y to skip"
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 12
 anchor_top = 1.0

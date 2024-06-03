@@ -234,7 +234,7 @@ tracks/1/keys = {
 "args": [],
 "method": &"play_camera_in_animation"
 }, {
-"args": [-24, -500, 5965, 300],
+"args": [-24, -270, 5965, 300],
 "method": &"change_camera_limits"
 }, {
 "args": [2, false],

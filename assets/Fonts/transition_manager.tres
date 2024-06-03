@@ -1,3 +1,6 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://c3175piuf6h5l"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c3175piuf6h5l"]
+
+[ext_resource type="FontFile" uid="uid://bom0iolur0tsj" path="res://assets/Fonts/Poppins-Light.ttf" id="1_4k6at"]
 
 [resource]
+font = ExtResource("1_4k6at")

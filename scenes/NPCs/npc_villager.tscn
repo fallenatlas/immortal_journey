@@ -1,10 +1,11 @@
-[gd_scene load_steps=78 format=3 uid="uid://b4lfhe7ea65x4"]
+[gd_scene load_steps=79 format=3 uid="uid://b4lfhe7ea65x4"]
 
 [ext_resource type="Script" path="res://scripts/NPC/npc_hunter.gd" id="1_vpm2m"]
 [ext_resource type="Texture2D" uid="uid://fsrpdcr8atrk" path="res://assets/Fires-Black/Small_Blackball_10x26.png" id="2_24w8v"]
 [ext_resource type="PackedScene" uid="uid://wug1kygiwiv3" path="res://Dialogues/dialogue_box.tscn" id="3_c5ewg"]
 [ext_resource type="Texture2D" uid="uid://c167oj84ux5qk" path="res://assets/Medieval Warrior Pack 2/Sprites/Idle.png" id="4_tja7i"]
 [ext_resource type="Script" path="res://scripts/UI/NPCDialogue.gd" id="5_4ky4e"]
+[ext_resource type="FontFile" uid="uid://bom0iolur0tsj" path="res://assets/Fonts/Poppins-Light.ttf" id="6_gk2xa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsspb"]
 atlas = ExtResource("2_24w8v")
@@ -546,5 +547,6 @@ offset_left = -53.0
 offset_top = -39.0
 offset_right = 79.0
 offset_bottom = -14.0
+theme_override_fonts/bold_font = ExtResource("6_gk2xa")
 bbcode_enabled = true
 text = "[wave amp=2 freq=3][b][font_size=11]Press E to Interact"

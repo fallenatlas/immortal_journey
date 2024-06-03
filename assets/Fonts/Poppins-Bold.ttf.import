@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dhw7jldi36v1q"
-path="res://.godot/imported/Helvetica Ultra Compressed.otf-50e4b87f01434627c8a37403320cb301.fontdata"
+uid="uid://bv2vssyvbiq4n"
+path="res://.godot/imported/Poppins-Bold.ttf-4aba62b13753b4348eff5fb276a4d482.fontdata"
 
 [deps]
 
-source_file="res://assets/Fonts/Helvetica Ultra Compressed/Helvetica Ultra Compressed.otf"
-dest_files=["res://.godot/imported/Helvetica Ultra Compressed.otf-50e4b87f01434627c8a37403320cb301.fontdata"]
+source_file="res://assets/Fonts/Poppins-Bold.ttf"
+dest_files=["res://.godot/imported/Poppins-Bold.ttf-4aba62b13753b4348eff5fb276a4d482.fontdata"]
 
 [params]
 
@@ -26,13 +26,12 @@ oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
-compress=false
+compress=true
 preload=[{
 "chars": [],
 "glyphs": [],
 "name": "New Configuration",
-"size": Vector2i(16, 0),
-"variation_embolden": 0.0
+"size": Vector2i(16, 0)
 }]
 language_support={}
 script_support={}

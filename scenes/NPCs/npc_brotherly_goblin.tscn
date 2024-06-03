@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://fsrpdcr8atrk" path="res://assets/Fires-Black/Small_Blackball_10x26.png" id="2_f2mf5"]
 [ext_resource type="PackedScene" uid="uid://wug1kygiwiv3" path="res://Dialogues/dialogue_box.tscn" id="3_82t7m"]
 [ext_resource type="Texture2D" uid="uid://hcymqjmmu6at" path="res://assets/oak_autumn_woods/oak_woods_v1.0/decorations/shop_anim.png" id="4_ctu6w"]
-[ext_resource type="Script" path="res://scripts/UI/NPCDialogue.gd" id="5_f1dv2"]
+[ext_resource type="PackedScene" uid="uid://dlu822hg6huqk" path="res://scenes/ui/InteractPrompt.tscn" id="5_h4jso"]
+[ext_resource type="FontFile" uid="uid://bom0iolur0tsj" path="res://assets/Fonts/Poppins-Light.ttf" id="6_yw4yd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsspb"]
 atlas = ExtResource("2_f2mf5")
@@ -487,9 +488,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cds6r"]
 size = Vector2(19, 35)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_73kc1"]
-size = Vector2(80, 36)
-
 [node name="Brotherly Goblin Merchant" type="CharacterBody2D"]
 z_index = -1
 collision_layer = 128
@@ -518,18 +516,9 @@ position = Vector2(-0.5, 3.5)
 shape = SubResource("RectangleShape2D_cds6r")
 disabled = true
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 128
-script = ExtResource("5_f1dv2")
+[node name="Area2D" parent="." instance=ExtResource("5_h4jso")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-1, 46)
-shape = SubResource("RectangleShape2D_73kc1")
+[node name="Popup" parent="Area2D" index="1"]
+theme_override_fonts/bold_font = ExtResource("6_yw4yd")
 
-[node name="Popup" type="RichTextLabel" parent="Area2D"]
-offset_left = -53.0
-offset_top = 36.0
-offset_right = 79.0
-offset_bottom = 61.0
-bbcode_enabled = true
-text = "[wave amp=2 freq=3][b][font_size=11]Press E to Interact"
+[editable path="Area2D"]

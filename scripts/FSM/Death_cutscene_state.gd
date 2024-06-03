@@ -15,7 +15,7 @@ class_name DeathCutsceneState
 
 func Enter():
 	anim.play("Idle")
-	Events.cutscene_finished.connect(switch_state)
+	Events.death_cutscene_finished.connect(switch_state)
 	
 func Update(delta: float):
 	pass

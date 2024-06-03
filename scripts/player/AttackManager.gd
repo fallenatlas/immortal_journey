@@ -8,10 +8,13 @@ var max_attacks : int = 3:
 var current_attack : int = 0
 var attackAreaRotation : float
 
+
+
 @onready var outerTimer : Timer = get_node("OuterAttackTimer")
 @onready var innerTimer : Timer = get_node("InnerAttackTimer")
 @onready var readyUpTimer : Timer = get_node("ReadyUpTimer")
 
+@onready var body = $".."
 @onready var anim : AnimationPlayer = get_parent().get_node("AnimationPlayer")
 @onready var attackArea : Area2D = get_node("Area2D")
 
@@ -26,7 +29,7 @@ func _process(delta):
 	update_inner_timer()
 	update_outer_timer()
 	
-	if (Game.playerDead or is_attacking() or Game.attack_buffer <= 0 or not Game.playerCanMove):
+	if (Game.playerDead or is_attacking() or Game.attack_buffer <= 0 or not Game.playerCanMove or not body.can_move):
 		return
 		
 	if (!Input.is_action_just_pressed("strike")):

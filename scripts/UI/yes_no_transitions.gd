@@ -37,6 +37,7 @@ func _on_yes_pressed():
 		get_tree().change_scene_to_file("res://scenes/main_menu/main.tscn")
 	elif animation == "Decision":
 		Game.choice = false
+		Game.choice_str = "immortal"
 		Events.choice_made.emit()
 	
 
@@ -56,6 +57,7 @@ func _on_no_pressed():
 		Events.last_stand.emit()
 	elif animation == "Decision":
 		Game.choice = true
+		Game.choice_str = "mortal"
 		Events.choice_made.emit()
 
 

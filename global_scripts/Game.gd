@@ -6,6 +6,7 @@ var deathBattle : bool = false
 var hardMode : bool = false
 var startScene : String
 var choice : bool
+var choice_str : String = "none"
 
 var isImmortal : bool = false
 var playerDead : bool = false

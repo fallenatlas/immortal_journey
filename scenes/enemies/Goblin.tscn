@@ -12,9 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://cverog51sevqj" path="res://Monsters_Creatures_Fantasy/Goblin/Death.png" id="5_e4rbr"]
 [ext_resource type="Script" path="res://scripts/enemies/EnemyAttack.gd" id="6_1jq13"]
 [ext_resource type="Texture2D" uid="uid://noys8ilun0g3" path="res://Monsters_Creatures_Fantasy/Goblin/Take Hit.png" id="7_xj8u0"]
-[ext_resource type="AudioStream" uid="uid://cflhnybp32lj3" path="res://Audio/SFX/10_Battle_SFX/77_flesh_02.wav" id="9_o1ont"]
-[ext_resource type="AudioStream" uid="uid://bosd7l3q07sh5" path="res://Audio/SFX/10_Battle_SFX/15_Impact_flesh_02.wav" id="10_wdafd"]
-[ext_resource type="AudioStream" uid="uid://dcokry7svaw32" path="res://Audio/SFX/10_Battle_SFX/08_Bite_04.wav" id="12_gh6s8"]
+[ext_resource type="AudioStream" uid="uid://deji8ljsv4nn1" path="res://Audio/SFX/(Im)mortal Enimies (V1)/Goblin Death 2.wav" id="13_0w7y1"]
+[ext_resource type="AudioStream" uid="uid://dqml1s0es2ldw" path="res://Audio/SFX/(Im)mortal Enimies (V1)/Goblin Hurt 1.wav" id="14_uy0lk"]
+[ext_resource type="AudioStream" uid="uid://t5uehoaf5qln" path="res://Audio/SFX/(Im)mortal Enimies (V1)/Goblin Attack 3.wav" id="15_so7xm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsspb"]
 atlas = ExtResource("3_re84s")
@@ -906,13 +906,13 @@ shape = SubResource("RectangleShape2D_u5p7d")
 one_shot = true
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_o1ont")
+stream = ExtResource("13_0w7y1")
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_wdafd")
+stream = ExtResource("14_uy0lk")
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_gh6s8")
+stream = ExtResource("15_so7xm")
 
 [node name="Direction" type="Node2D" parent="."]
 

@@ -28,3 +28,7 @@ signal final_choice()
 signal choice_made()
 
 signal death_cutscene_finished()
+signal music_transition(next : int)
+
+signal health_restore()
+

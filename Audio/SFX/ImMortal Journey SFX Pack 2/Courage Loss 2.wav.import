@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dsn6djyc7672a"
+path="res://.godot/imported/Courage Loss 2.wav-843bcb4805efe0ea91c9507d5db19ad4.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/ImMortal Journey SFX Pack 2/Courage Loss 2.wav"
+dest_files=["res://.godot/imported/Courage Loss 2.wav-843bcb4805efe0ea91c9507d5db19ad4.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

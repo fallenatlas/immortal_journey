@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dln4e8j20okag"
+path="res://.godot/imported/Campfire.wav-49ce984223d459f7910ad6a24b83eafb.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/ImMortal Jouney SFX Pack 3/Campfire.wav"
+dest_files=["res://.godot/imported/Campfire.wav-49ce984223d459f7910ad6a24b83eafb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

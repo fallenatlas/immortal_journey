@@ -9,6 +9,8 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("interact") and len(get_overlapping_bodies()) > 0 and not restedAt:
+		print("Olá")
+		Events.health_restore.emit()
 		rest()
 		restedAt = true
 		

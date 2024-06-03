@@ -12,9 +12,9 @@
 [ext_resource type="Script" path="res://scripts/enemies/EnemyAttack.gd" id="7_bwsml"]
 [ext_resource type="Script" path="res://scripts/FSM/Dragon_explode_state.gd" id="7_p36d0"]
 [ext_resource type="Script" path="res://scripts/enemies/CollisionDamage.gd" id="8_7f0qq"]
-[ext_resource type="AudioStream" uid="uid://cflhnybp32lj3" path="res://Audio/SFX/10_Battle_SFX/77_flesh_02.wav" id="9_d3vli"]
-[ext_resource type="AudioStream" uid="uid://bosd7l3q07sh5" path="res://Audio/SFX/10_Battle_SFX/15_Impact_flesh_02.wav" id="10_0km4s"]
-[ext_resource type="AudioStream" uid="uid://dbllym8ev65c1" path="res://Audio/SFX/10_Battle_SFX/35_Miss_Evade_02.wav" id="12_2q4kd"]
+[ext_resource type="AudioStream" uid="uid://t5v1peav5u3w" path="res://Audio/SFX/ImMortal Journey Dragn/Dragon Fly Animation.wav" id="13_itacs"]
+[ext_resource type="AudioStream" uid="uid://cog2dxaaqcf1x" path="res://Audio/SFX/ImMortal Journey Dragn/Dragon Explosion 2.wav" id="14_yyxaq"]
+[ext_resource type="AudioStream" uid="uid://b1wulvr58qli8" path="res://Audio/SFX/ImMortal Journey Dragn/Dragon Dive.wav" id="15_2gig5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsspb"]
 atlas = ExtResource("2_j56io")
@@ -817,14 +817,16 @@ script = ExtResource("8_7f0qq")
 position = Vector2(-3, -6)
 shape = SubResource("CircleShape2D_km3jp")
 
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_d3vli")
+[node name="MoveSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_itacs")
+max_distance = 500.0
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_0km4s")
+stream = ExtResource("14_yyxaq")
+volume_db = 3.0
 
 [node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_2q4kd")
+stream = ExtResource("15_2gig5")
 
 [node name="PatrolTimer" type="Timer" parent="."]
 wait_time = 2.0

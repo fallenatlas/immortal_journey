@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c07yidfd06p07"
+path="res://.godot/imported/Attack Swing 1.wav-7a8466a3c61c4c90aa1d738e1048d689.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/ImMortal Journey SFX Pack 2/Attack Swing 1.wav"
+dest_files=["res://.godot/imported/Attack Swing 1.wav-7a8466a3c61c4c90aa1d738e1048d689.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

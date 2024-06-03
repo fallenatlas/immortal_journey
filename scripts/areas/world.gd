@@ -2,10 +2,13 @@ extends Node2D
 
 @onready var normalWorldNode = get_node("NormalWorld")
 @onready var deathWorldNode = get_node("DeathWorld")
-@onready var normalWorldAmbientSound = get_node("NormalWorld/AmbientSound")
-@onready var deathWorldAmbientSound = get_node("DeathWorld/AmbientSound")
+@onready var normalWorldAmbientSound = get_node("NormalWorld/AudioManager/AmbientSound")
+@onready var deathWorldAmbientSound = get_node("DeathWorld/Music")
+@onready var lowestHP = 10
+@onready var failSwitchSound = $FailSwitchSound
 var deathWorldAmbientSoundTime = 0
 var normalWorldAmbientSoundTime = 0
+var reset
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -33,6 +36,7 @@ func _ready():
 	Game.min_courage_dash = 65
 	Game.attack_buffer = 3
 	Game.courageMultiplier = 1
+	Game.resetShaders = true;
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
@@ -60,6 +64,8 @@ func _process(delta):
 			else:
 				Game.normalWorld = true
 			Events.switch_world.emit(Game.normalWorld)
+		else:
+			failSwitchSound.play()
 
 func _on_courage_depleted():
 	if not Game.normalWorld:
@@ -72,17 +78,18 @@ func _on_courage_depleted():
 		
 func _on_switch_world(normalWorld : bool):
 	if (normalWorld):
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("NormalAmbientSound"), false)
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("NormalMusic"), false)
 		deathWorldAmbientSoundTime = deathWorldAmbientSound.get_playback_position()
 		deathWorldAmbientSound.stop()
-		normalWorldAmbientSound.play(normalWorldAmbientSoundTime)
 		normalWorldNode.visible = true
 		normalWorldNode.get_node("ParallaxBackground").visible = true
 		deathWorldNode.visible = false
 		deathWorldNode.get_node("DeathWorldBackground").visible = false
 		#make normal world visible and collidable
 	if (not normalWorld):
-		normalWorldAmbientSoundTime = normalWorldAmbientSound.get_playback_position()
-		normalWorldAmbientSound.stop()
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("NormalAmbientSound"), true)
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("NormalMusic"), true)
 		deathWorldAmbientSound.play(deathWorldAmbientSoundTime)
 		normalWorldNode.visible = false
 		normalWorldNode.get_node("ParallaxBackground").visible = false
@@ -90,7 +97,9 @@ func _on_switch_world(normalWorld : bool):
 		deathWorldNode.get_node("DeathWorldBackground").visible = true
 		
 func _on_player_damage(enemy : bool):
-	normalWorldAmbientSound.volume_db = linear_to_db(1 - Game.playerHP/10)
+	if (Game.playerHP < lowestHP):
+		lowestHP = Game.playerHP
+		normalWorldAmbientSound.volume_db = linear_to_db(1 - Game.playerHP/10)
 	if (Game.playerHP < 5):
 		AudioServer.set_bus_send(AudioServer.get_bus_index("AmbientSound"), "Master")
 

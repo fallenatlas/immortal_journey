@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=91 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -16,15 +16,14 @@
 [ext_resource type="PackedScene" uid="uid://ciosjljisfrwj" path="res://scenes/NPCs/npc_brotherly_goblin.tscn" id="7_nr1fa"]
 [ext_resource type="PackedScene" uid="uid://07qc1wgxibj0" path="res://scenes/NPCs/npc_kind_goblin.tscn" id="7_oqd6t"]
 [ext_resource type="PackedScene" uid="uid://b8ouces3cngpi" path="res://scenes/backgrounds/death_world_background.tscn" id="7_ts7l6"]
-[ext_resource type="AudioStream" uid="uid://lqe2m5cvxw68" path="res://Audio/Music/nature_sounds.mp3" id="8_5q1t0"]
 [ext_resource type="PackedScene" uid="uid://c1u8eudxewsj2" path="res://scenes/enemies/Dragon.tscn" id="9_2hdrd"]
 [ext_resource type="PackedScene" uid="uid://bwnicq6jge87k" path="res://scenes/utils/bonfire.tscn" id="9_vvljq"]
 [ext_resource type="PackedScene" uid="uid://cdy5j5rwok7k3" path="res://scenes/enemies/death.tscn" id="10_amhub"]
 [ext_resource type="PackedScene" uid="uid://crs2q85vjs8ck" path="res://scenes/NPCs/npc_old_samurai.tscn" id="10_qog5q"]
 [ext_resource type="PackedScene" uid="uid://dswhan0jd62oy" path="res://scenes/NPCs/npc_wise_goblin.tscn" id="11_sq2d5"]
-[ext_resource type="AudioStream" uid="uid://bfon4bamfs3sh" path="res://Audio/Music/blood-chillingly-creepy-atmospheres-183561.mp3" id="11_tpx71"]
 [ext_resource type="Shader" path="res://Shaders/visuals.gdshader" id="13_vyhij"]
 [ext_resource type="Script" path="res://scripts/Effects/Filter.gd" id="14_nbkpm"]
+[ext_resource type="PackedScene" uid="uid://b18817vj8gs2o" path="res://scenes/audio_manager.tscn" id="15_bgwms"]
 [ext_resource type="PackedScene" uid="uid://wfpwg1bhe7gw" path="res://scenes/backgrounds/normal_world_cave_background.tscn" id="15_hc0b4"]
 [ext_resource type="Texture2D" uid="uid://c0wcpt2he0ewc" path="res://assets/cave_background/fill.png" id="16_lsdgy"]
 [ext_resource type="Shader" path="res://Shaders/vignette.gdshader" id="16_qo4s6"]
@@ -32,6 +31,7 @@
 [ext_resource type="Script" path="res://scripts/Effects/Vignette.gd" id="17_vdpjq"]
 [ext_resource type="PackedScene" uid="uid://djsc44xlvfirp" path="res://Collectables/lowerDashCooldownUpgrade.tscn" id="18_704rl"]
 [ext_resource type="PackedScene" uid="uid://h84gcjjtejny" path="res://Collectables/increaseAttackCountUpgrade.tscn" id="18_b8iwo"]
+[ext_resource type="AudioStream" uid="uid://gp8mr7cxg0rq" path="res://Audio/SFX/ImMortal Jouney SFX Pack 3/Other World Whispers.wav" id="18_oxk4q"]
 [ext_resource type="PackedScene" uid="uid://bcgq4m46dit1t" path="res://Collectables/increaseCourageGainUpgrade.tscn" id="18_wxa8k"]
 [ext_resource type="Shader" path="res://Shaders/DeathWorld.gdshader" id="19_osw28"]
 [ext_resource type="PackedScene" uid="uid://c7eg1cw4ykewe" path="res://scenes/ui/ui.tscn" id="19_va04q"]
@@ -45,6 +45,7 @@
 [ext_resource type="Script" path="res://scripts/areas/transition_zone.gd" id="30_3pwfg"]
 [ext_resource type="PackedScene" uid="uid://divld6ojphq1c" path="res://scenes/enemies/Archer.tscn" id="31_24nbb"]
 [ext_resource type="Texture2D" uid="uid://deywyrdkcgi4n" path="res://assets/oak_autumn_woods/oak_woods_v1.0/decorations/lamp.png" id="32_kc02e"]
+[ext_resource type="Script" path="res://scripts/MusicTransition.gd" id="33_7cib4"]
 [ext_resource type="Texture2D" uid="uid://dh78l8dy64yxo" path="res://assets/oak_autumn_woods/oak_woods_v1.0/decorations/sign.png" id="33_a01wj"]
 [ext_resource type="PackedScene" uid="uid://mvxtuck8freq" path="res://scenes/ui/yes_no_transitions.tscn" id="33_vv7pv"]
 [ext_resource type="Texture2D" uid="uid://bi1b82dqfxs6c" path="res://assets/oak_autumn_woods/oak_woods_v1.0/decorations/fence_1.png" id="35_od5k3"]
@@ -71,6 +72,7 @@
 [ext_resource type="Texture2D" uid="uid://ca48b1le1knxo" path="res://assets/scarecrow.png" id="56_hkxgm"]
 [ext_resource type="Texture2D" uid="uid://bjq0xjauwv7bo" path="res://assets/well.png" id="57_0ceqi"]
 [ext_resource type="Texture2D" uid="uid://de62yvdsfnpxk" path="res://assets/bucket.png" id="58_3erc2"]
+[ext_resource type="AudioStream" uid="uid://bjr8bwww4ku7w" path="res://Audio/SFX/10_UI_Menu_SFX/033_Denied_03.wav" id="61_0umcw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tvim8"]
 shader = ExtResource("6_tihlm")
@@ -610,49 +612,49 @@ position = Vector2(26909, 61)
 position = Vector2(26785, -222)
 
 [node name="Dragon" parent="Mobs" instance=ExtResource("9_2hdrd")]
-position = Vector2(8473, 29)
+position = Vector2(8318, 30)
 
 [node name="Dragon2" parent="Mobs" instance=ExtResource("9_2hdrd")]
 position = Vector2(13089, 391)
 
 [node name="Dragon3" parent="Mobs" instance=ExtResource("9_2hdrd")]
-position = Vector2(14446, 503)
+position = Vector2(14392, 509)
 
 [node name="Dragon4" parent="Mobs" instance=ExtResource("9_2hdrd")]
-position = Vector2(16574, 418)
+position = Vector2(16443, 410)
 
 [node name="Dragon5" parent="Mobs" instance=ExtResource("9_2hdrd")]
-position = Vector2(16720, 678)
+position = Vector2(16665, 677)
 
 [node name="Dragon6" parent="Mobs" instance=ExtResource("9_2hdrd")]
-position = Vector2(17000, 678)
+position = Vector2(16936, 678)
 
 [node name="Dragon7" parent="Mobs" instance=ExtResource("9_2hdrd")]
-position = Vector2(17403, 531)
+position = Vector2(17309, 520)
 
 [node name="Dragon8" parent="Mobs" instance=ExtResource("9_2hdrd")]
-position = Vector2(17640, 520)
+position = Vector2(17474, 540)
 
 [node name="Dragon9" parent="Mobs" instance=ExtResource("9_2hdrd")]
-position = Vector2(18566, 577)
+position = Vector2(18452, 580)
 
 [node name="Dragon10" parent="Mobs" instance=ExtResource("9_2hdrd")]
-position = Vector2(21997, 3)
+position = Vector2(21857, -2)
 
 [node name="Dragon11" parent="Mobs" instance=ExtResource("9_2hdrd")]
-position = Vector2(21923, -174)
+position = Vector2(21755, -157)
 
 [node name="Dragon12" parent="Mobs" instance=ExtResource("9_2hdrd")]
-position = Vector2(22915, -122)
+position = Vector2(22782, -103)
 
 [node name="Dragon13" parent="Mobs" instance=ExtResource("9_2hdrd")]
-position = Vector2(23392, 134)
+position = Vector2(23436, 73)
 
 [node name="Dragon14" parent="Mobs" instance=ExtResource("9_2hdrd")]
 position = Vector2(24427, -106)
 
 [node name="Dragon15" parent="Mobs" instance=ExtResource("9_2hdrd")]
-position = Vector2(25679, -93)
+position = Vector2(25561, -121)
 
 [node name="Dragon16" parent="Mobs" instance=ExtResource("9_2hdrd")]
 position = Vector2(26297, 26)
@@ -797,11 +799,7 @@ position = Vector2(8906, -171)
 scale = Vector2(0.34008, 0.122112)
 texture = ExtResource("17_litea")
 
-[node name="AmbientSound" type="AudioStreamPlayer" parent="NormalWorld"]
-stream = ExtResource("8_5q1t0")
-volume_db = -30.0
-autoplay = true
-bus = &"AmbientSound"
+[node name="AudioManager" parent="NormalWorld" instance=ExtResource("15_bgwms")]
 
 [node name="DeathWorld" type="Node2D" parent="."]
 visible = false
@@ -897,9 +895,11 @@ scale = Vector2(0.0681093, 0.179468)
 texture = ExtResource("23_rtc35")
 
 [node name="AmbientSound" type="AudioStreamPlayer" parent="DeathWorld"]
-stream = ExtResource("11_tpx71")
+
+[node name="Music" type="AudioStreamPlayer" parent="DeathWorld"]
+stream = ExtResource("18_oxk4q")
 autoplay = true
-bus = &"AmbientSound"
+bus = &"Music"
 
 [node name="Upgrades" type="Node2D" parent="DeathWorld"]
 
@@ -1510,6 +1510,136 @@ script = SubResource("GDScript_joccv")
 position = Vector2(110, -26)
 shape = SubResource("RectangleShape2D_iib0a")
 
+[node name="MusicTransitions" type="Node2D" parent="."]
+
+[node name="MusicTransition" type="Area2D" parent="MusicTransitions"]
+position = Vector2(1738, 74)
+script = ExtResource("33_7cib4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="MusicTransition2" type="Area2D" parent="MusicTransitions"]
+position = Vector2(1818, 73)
+script = ExtResource("33_7cib4")
+next = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition2"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="MusicTransition3" type="Area2D" parent="MusicTransitions"]
+position = Vector2(9491, -96)
+script = ExtResource("33_7cib4")
+next = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition3"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="MusicTransition4" type="Area2D" parent="MusicTransitions"]
+position = Vector2(9571, -97)
+script = ExtResource("33_7cib4")
+next = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition4"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="MusicTransition5" type="Area2D" parent="MusicTransitions"]
+position = Vector2(10619, -94)
+script = ExtResource("33_7cib4")
+next = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition5"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="MusicTransition6" type="Area2D" parent="MusicTransitions"]
+position = Vector2(10699, -95)
+script = ExtResource("33_7cib4")
+next = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition6"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="MusicTransition7" type="Area2D" parent="MusicTransitions"]
+position = Vector2(19396, 293)
+script = ExtResource("33_7cib4")
+next = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition7"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="MusicTransition8" type="Area2D" parent="MusicTransitions"]
+position = Vector2(19476, 292)
+script = ExtResource("33_7cib4")
+next = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition8"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="MusicTransition9" type="Area2D" parent="MusicTransitions"]
+position = Vector2(20938, 247)
+script = ExtResource("33_7cib4")
+next = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition9"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="MusicTransition10" type="Area2D" parent="MusicTransitions"]
+position = Vector2(21018, 246)
+script = ExtResource("33_7cib4")
+next = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition10"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="MusicTransition11" type="Area2D" parent="MusicTransitions"]
+position = Vector2(26948, -314)
+script = ExtResource("33_7cib4")
+next = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition11"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="MusicTransition12" type="Area2D" parent="MusicTransitions"]
+position = Vector2(27028, -315)
+script = ExtResource("33_7cib4")
+next = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition12"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="MusicTransition13" type="Area2D" parent="MusicTransitions"]
+position = Vector2(28131, -97)
+script = ExtResource("33_7cib4")
+next = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition13"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="MusicTransition14" type="Area2D" parent="MusicTransitions"]
+position = Vector2(28211, -98)
+script = ExtResource("33_7cib4")
+next = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition14"]
+position = Vector2(8, 0)
+shape = SubResource("RectangleShape2D_35r5o")
+
+[node name="FailSwitchSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("61_0umcw")
+
 [connection signal="body_entered" from="TransitionZone" to="TransitionZone" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone2" to="TransitionZone2" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone3" to="TransitionZone3" method="_on_body_entered"]
@@ -1517,3 +1647,17 @@ shape = SubResource("RectangleShape2D_iib0a")
 [connection signal="body_entered" from="TransitionZone5" to="TransitionZone5" method="_on_body_entered"]
 [connection signal="body_entered" from="TransitionZone6" to="TransitionZone6" method="_on_body_entered"]
 [connection signal="body_entered" from="CreditTrigger" to="CreditTrigger" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition" to="MusicTransitions/MusicTransition" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition2" to="MusicTransitions/MusicTransition2" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition3" to="MusicTransitions/MusicTransition3" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition4" to="MusicTransitions/MusicTransition4" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition5" to="MusicTransitions/MusicTransition5" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition6" to="MusicTransitions/MusicTransition6" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition7" to="MusicTransitions/MusicTransition7" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition8" to="MusicTransitions/MusicTransition8" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition9" to="MusicTransitions/MusicTransition9" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition10" to="MusicTransitions/MusicTransition10" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition11" to="MusicTransitions/MusicTransition11" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition12" to="MusicTransitions/MusicTransition12" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition13" to="MusicTransitions/MusicTransition13" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicTransition14" to="MusicTransitions/MusicTransition14" method="_on_body_entered"]

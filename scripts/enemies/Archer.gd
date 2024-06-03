@@ -25,6 +25,7 @@ var dying = false
 
 @onready var deathSound = $DeathSound
 @onready var hitSound = $HitSound
+@onready var attackSound = $AttackSound
 
 var main
 var original_offset
@@ -87,6 +88,7 @@ func death():
 	health -= 1
 	if (health > 0):
 		hitSound.play()
+		attackSound.stop()
 		anim.play("Hit")
 		return
 	Game.archers_killed += 1
@@ -98,6 +100,8 @@ func death():
 	Utils.saveGame()
 	anim.play("Death")
 	deathSound.play()
+	hitSound.stop()
+	attackSound.stop()
 	self.velocity = Vector2(0,0)
 	get_node("CollisionShape2D").queue_free()
 	await anim.animation_finished
@@ -106,6 +110,8 @@ func death():
 
 func _on_attack_detection_area_body_entered(body):
 	if body.name == "Player" && AttackCooldown.is_stopped():
+		if (!attackSound.is_playing()):
+			attackSound.play()
 		attacking = true
 		
 
@@ -133,7 +139,8 @@ func _on_switch_world(normalWorld : bool):
 func _on_attack_cooldown_timeout():
 	var bodies = AttackDetectionArea.get_overlapping_bodies()
 	for body in bodies:
-		if body.name == "Player":
+		if body.name == "Player" && !dying:
+			attackSound.play()
 			attacking = true
 
 

@@ -46,9 +46,10 @@ func _process(delta):
 	outerTimer.stop()
 	if (current_attack % 2 == 0):
 		anim.play("Attack_1")
+		get_parent().create_sound("Attack1")
 	else:
 		anim.play("Attack_2")
-	get_parent().create_sound("Attack")
+		get_parent().create_sound("Attack2")
 	Game.attack_buffer -= 1
 
 	

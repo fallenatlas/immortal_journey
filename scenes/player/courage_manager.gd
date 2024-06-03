@@ -24,4 +24,5 @@ func _on_switch_world(normalWorld : bool):
 func _on_courage_tick():
 	if not Game.isImmortal:
 		Game.courage -= courage_loss
+		get_parent().create_sound("CourageLoss")
 	#something is gonna have to expell us from the other world if were there

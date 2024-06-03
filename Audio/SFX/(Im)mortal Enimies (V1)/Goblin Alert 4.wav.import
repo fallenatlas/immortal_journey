@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://clquobsdd2p7j"
+path="res://.godot/imported/Goblin Alert 4.wav-f1abe64306fa2deaf79f4119f5602904.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/(Im)mortal Enimies (V1)/Goblin Alert 4.wav"
+dest_files=["res://.godot/imported/Goblin Alert 4.wav-f1abe64306fa2deaf79f4119f5602904.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

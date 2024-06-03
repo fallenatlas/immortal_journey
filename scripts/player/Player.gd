@@ -54,6 +54,7 @@ var run_off = false
 @onready var damageSound = get_node("DamageSound")
 @onready var breathingSound = get_node("HeavyBreathingSound")
 @onready var heartbeatSound = get_node("HeartbeatSound")
+@onready var fastHeartbeatSound = get_node("FastHeartbeatSound")
 
 func _ready():
 	Events.switch_world.connect(_on_switch_world)
@@ -62,6 +63,8 @@ func _ready():
 	Events.last_stand.connect(_courage_drain)
 	Events.choice_made.connect(choice_made)
 	#Events.died_in_boss.connect(died_in_boss_fight)
+	Events.health_restore.connect(_on_health_restore)
+	Events.unlock_upgrade.connect(_on_unlock_upgrade)
 
 func _physics_process(delta):
 	if run_off:
@@ -145,6 +148,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("jump") and not isJumping and (is_on_floor() or not CoyoteTimer.is_stopped()):
 		velocity.y = JUMP_VELOCITY #* remap(Game.courage, 0, 100, 0.9, 1)
 		isJumping = true
+		runSound.stop()
 		if not AttackManager.is_attacking(): # || anim.current_animation != "Death" 
 			anim.play("Jump")
 			create_sound("Jump", self.global_transform.origin)
@@ -281,14 +285,25 @@ func _on_player_damage(enemy : bool):
 		if (Game.playerHP <= 5):
 			if (!breathingSound.playing):
 				breathingSound.play()
-			if (!heartbeatSound.playing):
+			if (Game.playerHP > 2 && !heartbeatSound.playing):
 				heartbeatSound.play()
-			heartbeatSound.volume_db = linear_to_db(1 - Game.playerHP/6);
+			
+			if (Game.playerHP <= 2):
+				if (!fastHeartbeatSound.playing):
+					fastHeartbeatSound.play()
+				if (heartbeatSound.playing):
+					heartbeatSound.stop()
+
+			fastHeartbeatSound.volume_db = linear_to_db(1.2 * (1 - Game.playerHP/6));
+			heartbeatSound.volume_db = linear_to_db(1.2 * (1 - Game.playerHP/6));
+			
 		if (Game.playerHP <= 0):
+			Utils.log_death()
+			heartbeatSound.stop()
+			fastHeartbeatSound.stop()
+			breathingSound.stop()
 			create_sound("Death")
 			dying = true
-			breathingSound.stop()
-			heartbeatSound.stop()
 	else:
 		create_sound("Damage")
 		heartbeatSound.volume_db = linear_to_db(1);
@@ -297,6 +312,7 @@ func _on_player_damage(enemy : bool):
 			dying = true
 			breathingSound.stop()
 			heartbeatSound.stop()
+			fastHeartbeatSound.stop()
 
 func change_camera_limits(left_limit, top_limit, right_limit, bottom_limit):
 	get_node("Camera2D").change_camera_limits(left_limit, top_limit, right_limit, bottom_limit)
@@ -333,3 +349,11 @@ func choice_made():
 
 func _on_final_cutscene_timer_timeout():
 	run_off = true
+	
+func _on_health_restore():
+	breathingSound.stop()
+	heartbeatSound.stop()
+	fastHeartbeatSound.stop()
+	
+func _on_unlock_upgrade(n : int):
+	create_sound("Upgrade")

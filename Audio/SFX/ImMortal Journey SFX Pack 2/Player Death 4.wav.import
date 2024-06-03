@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ddpxp6m6a1jek"
+path="res://.godot/imported/Player Death 4.wav-452c4cc85590f82ef1c942811915fb89.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/ImMortal Journey SFX Pack 2/Player Death 4.wav"
+dest_files=["res://.godot/imported/Player Death 4.wav-452c4cc85590f82ef1c942811915fb89.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

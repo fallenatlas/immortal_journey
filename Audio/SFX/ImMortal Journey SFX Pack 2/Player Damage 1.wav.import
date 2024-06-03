@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://crp6k0pf5qwg1"
+path="res://.godot/imported/Player Damage 1.wav-2a9073edb9ee193814ebe332393af1d3.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/ImMortal Journey SFX Pack 2/Player Damage 1.wav"
+dest_files=["res://.godot/imported/Player Damage 1.wav-2a9073edb9ee193814ebe332393af1d3.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

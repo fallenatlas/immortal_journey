@@ -1,5 +1,7 @@
 extends Node
 
+var metric_dic : Dictionary
+
 var deathBattle : bool = false
 var hardMode : bool = false
 var startScene : String

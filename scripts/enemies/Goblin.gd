@@ -101,7 +101,7 @@ func death():
 		attackSound.stop()
 		anim.play("Hit")
 		return
-	Game.goblins_killed += 1
+	if !Game.isImmortal: Game.goblins_killed += 1
 	dying = true
 	chase = false
 	attacking = false

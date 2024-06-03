@@ -43,10 +43,11 @@ func _ready():
 func _process(delta):
 	# Play test metric
 	Game.run_time += delta
-	if Game.normalWorld:
-		Game.living_world_t += delta
-	else:
-		Game.death_world_t += delta
+	if !Game.isImmortal:
+		if Game.normalWorld:
+			Game.living_world_t += delta
+		else:
+			Game.death_world_t += delta
 		
 	if Input.is_action_just_pressed("swith_world") and not Game.playerDead and Game.canChangeWorlds:
 		#still a bit bugy but overall well

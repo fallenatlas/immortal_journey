@@ -7,6 +7,7 @@ func _ready():
 	get_node("UI/VSplitContainer/VBoxContainer/MarginContainer5/NewGame").grab_focus()
 
 func _on_quit_pressed():
+	Utils.save_metrics()
 	get_tree().quit()
 
 
@@ -14,8 +15,10 @@ func _on_new_game_pressed():
 	Game.deathBattle = false
 	Game.hardMode = false
 	Game.isLastStand = false
-	Utils.reset_total_metrics()
+	if Game.startScene && Game.startScene == "res://scenes/areas/mortal.tscn":
+		Utils.save_metrics()
 	Utils.reset_single_metrics()
+	Utils.reset_total_metrics()
 	Game.startScene = "res://scenes/areas/immortal.tscn"
 	TransitionManager.fade_to_scene("immortal")
 	#get_tree().change_scene_to_file("res://scenes/areas/immortal.tscn")

@@ -31,4 +31,5 @@ signal death_cutscene_finished()
 signal music_transition(next : int)
 
 signal health_restore()
+signal music_stop()
 

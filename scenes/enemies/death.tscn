@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://cdy5j5rwok7k3"]
+[gd_scene load_steps=57 format=3 uid="uid://cdy5j5rwok7k3"]
 
 [ext_resource type="Script" path="res://scripts/enemies/death.gd" id="1_giwt4"]
 [ext_resource type="Script" path="res://scripts/FSM/state_idle.gd" id="1_kjjb1"]
@@ -24,11 +24,18 @@
 [ext_resource type="Script" path="res://scripts/FSM/Death_cutscene_state.gd" id="14_db2ud"]
 [ext_resource type="Script" path="res://scripts/enemies/jumpAttackAreaDeath.gd" id="15_i8gxg"]
 [ext_resource type="Texture2D" uid="uid://dfo8x3bskhtl8" path="res://assets/necromancer/Death/spr_NecromancerDeath_strip52.png" id="15_momud"]
-[ext_resource type="AudioStream" uid="uid://bosd7l3q07sh5" path="res://Audio/SFX/10_Battle_SFX/15_Impact_flesh_02.wav" id="16_1lfm5"]
-[ext_resource type="AudioStream" uid="uid://dcokry7svaw32" path="res://Audio/SFX/10_Battle_SFX/08_Bite_04.wav" id="17_lsyel"]
 [ext_resource type="Script" path="res://scripts/FSM/Death_teleport_state.gd" id="23_17372"]
 [ext_resource type="Script" path="res://scripts/FSM/state_final.gd" id="23_v3vbo"]
 [ext_resource type="Script" path="res://scripts/UI/DeathEndDialogue.gd" id="25_jwynw"]
+[ext_resource type="AudioStream" uid="uid://bfry2o2ypxdcw" path="res://Audio/SFX/Death/Hurt 1 (Bone) Stereo.wav" id="27_k057w"]
+[ext_resource type="AudioStream" uid="uid://f4ahs3rfdi6x" path="res://Audio/SFX/Death/Single_Projetil.wav" id="28_coniq"]
+[ext_resource type="AudioStream" uid="uid://dd8sut4xc0ghc" path="res://Audio/SFX/Death/Staff_Fire_Attack_Test.wav" id="29_4yh70"]
+[ext_resource type="AudioStream" uid="uid://cl5rg4bru6k5" path="res://Audio/SFX/Death/Many_Discos_Attack.wav" id="30_i5mdg"]
+[ext_resource type="AudioStream" uid="uid://by6dvvex5p6wi" path="res://Audio/SFX/Death/Lounge.wav" id="31_xb4qt"]
+[ext_resource type="AudioStream" uid="uid://bmmds8sn5nemj" path="res://Audio/SFX/Death/Teleport_Test_Appear_and_Dissapear.wav" id="32_kmdjh"]
+[ext_resource type="AudioStream" uid="uid://jbjjwfp37sfb" path="res://Audio/SFX/Death/Teleport2_Test_Appear_and_Dissapear.mp3" id="33_d6u8k"]
+[ext_resource type="AudioStream" uid="uid://dx138tcj4q4ni" path="res://Audio/Music/BossFightFase1.mp3" id="35_2p1vo"]
+[ext_resource type="AudioStream" uid="uid://ck6dvvbn7a64g" path="res://Audio/Music/BossFightPart2Drums.mp3" id="36_mvg3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k0fsv"]
 size = Vector2(20, 34)
@@ -974,10 +981,32 @@ wait_time = 0.5
 one_shot = true
 
 [node name="HitSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("16_1lfm5")
+stream = ExtResource("27_k057w")
+bus = &"SFX"
 
-[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("17_lsyel")
+[node name="Attack1Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("28_coniq")
+bus = &"SFX"
+
+[node name="Attack2Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("29_4yh70")
+bus = &"SFX"
+
+[node name="Attack3Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("30_i5mdg")
+bus = &"SFX"
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("31_xb4qt")
+bus = &"SFX"
+
+[node name="TeleportSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("32_kmdjh")
+bus = &"SFX"
+
+[node name="TeleportSound2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("33_d6u8k")
+bus = &"SFX"
 
 [node name="CutsceneArea" type="Area2D" parent="."]
 script = ExtResource("25_jwynw")
@@ -985,6 +1014,14 @@ script = ExtResource("25_jwynw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CutsceneArea"]
 position = Vector2(-226, -126)
 shape = SubResource("RectangleShape2D_4sfrw")
+
+[node name="BossMusic1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("35_2p1vo")
+volume_db = -5.0
+
+[node name="BossMusic2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("36_mvg3j")
+volume_db = -5.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="FSM/Attack1" method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="FSM/Attack2" method="_on_animation_player_animation_finished"]

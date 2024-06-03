@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://dyx2uc3tcrmn4"]
+[gd_scene load_steps=92 format=3 uid="uid://dyx2uc3tcrmn4"]
 
 [ext_resource type="Script" path="res://scripts/areas/world.gd" id="1_yrr7o"]
 [ext_resource type="PackedScene" uid="uid://cuvfk6l06ytm2" path="res://scenes/NPCs/npc_hunter.tscn" id="3_hj2pf"]
@@ -73,6 +73,7 @@
 [ext_resource type="Texture2D" uid="uid://bjq0xjauwv7bo" path="res://assets/well.png" id="57_0ceqi"]
 [ext_resource type="Texture2D" uid="uid://de62yvdsfnpxk" path="res://assets/bucket.png" id="58_3erc2"]
 [ext_resource type="AudioStream" uid="uid://bjr8bwww4ku7w" path="res://Audio/SFX/10_UI_Menu_SFX/033_Denied_03.wav" id="61_0umcw"]
+[ext_resource type="Script" path="res://scripts/MusicStop.gd" id="73_bh0ay"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tvim8"]
 shader = ExtResource("6_tihlm")
@@ -1620,20 +1621,19 @@ position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_35r5o")
 
 [node name="MusicTransition13" type="Area2D" parent="MusicTransitions"]
-position = Vector2(28131, -97)
+position = Vector2(28310, -94)
 script = ExtResource("33_7cib4")
-next = 6
+next = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition13"]
 position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_35r5o")
 
-[node name="MusicTransition14" type="Area2D" parent="MusicTransitions"]
-position = Vector2(28211, -98)
-script = ExtResource("33_7cib4")
-next = 7
+[node name="MusicStop" type="Area2D" parent="MusicTransitions"]
+position = Vector2(28390, -95)
+script = ExtResource("73_bh0ay")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicTransition14"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MusicTransitions/MusicStop"]
 position = Vector2(8, 0)
 shape = SubResource("RectangleShape2D_35r5o")
 
@@ -1660,4 +1660,4 @@ stream = ExtResource("61_0umcw")
 [connection signal="body_entered" from="MusicTransitions/MusicTransition11" to="MusicTransitions/MusicTransition11" method="_on_body_entered"]
 [connection signal="body_entered" from="MusicTransitions/MusicTransition12" to="MusicTransitions/MusicTransition12" method="_on_body_entered"]
 [connection signal="body_entered" from="MusicTransitions/MusicTransition13" to="MusicTransitions/MusicTransition13" method="_on_body_entered"]
-[connection signal="body_entered" from="MusicTransitions/MusicTransition14" to="MusicTransitions/MusicTransition14" method="_on_body_entered"]
+[connection signal="body_entered" from="MusicTransitions/MusicStop" to="MusicTransitions/MusicStop" method="_on_body_entered"]

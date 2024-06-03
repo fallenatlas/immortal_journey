@@ -15,12 +15,14 @@ class_name PlayerJumpAttack
 
 @onready var sprite = $"../../Sprite2D"
 @onready var body = $"../.."
+@onready var jumpSound = $"../../JumpSound"
 
 var isFlipped
 var isJumping = false
 
 func Enter():
 	anim.play("JumpAttack")
+	jumpSound.play()
 	attackCooldown.start()
 	isFlipped = sprite.flip_h
 	

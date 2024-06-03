@@ -10,6 +10,7 @@ class_name PlayerAttack3
 @onready var jumpAttackDetection = $"../../JumpAttackDetectionArea"
 
 @onready var attackCooldown = $"../../AttackCooldown"
+@onready var attack3Sound = $"../../Attack3Sound"
 
 func Enter():
 	anim.play("Attack3")

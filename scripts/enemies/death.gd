@@ -18,7 +18,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var hitColldown = $HitCooldown
 
 @onready var hitSound = $HitSound
-@onready var attackSound = $AttackSound
+@onready var teleportSound = $TeleportSound2
+@onready var bossMusic1 = $"BossMusic1"
+@onready var bossMusic2 = $"BossMusic2"
 
 @onready var healthBar = $CanvasLayer/TextureProgressBar
 
@@ -51,6 +53,9 @@ var can_update : bool = true :
 		can_update = value
 		get_node("FSM").can_update = value
 
+@onready var attack2Sound = $Attack2Sound
+@onready var jumpSound = $JumpSound
+@onready var attack3Sound = $Attack3Sound
 
 func _ready():
 	main = $"../.."
@@ -73,7 +78,11 @@ func _ready():
 	Events.switch_world.connect(_on_switch_world)
 
 func _physics_process(delta):
-	
+	if (bossMusic1.is_playing() && Game.isLastStand):
+		Game.attack_buffer = get_node("../../Player/Player/AttackManager").max_attacks
+		bossMusic1.stop()
+		bossMusic2.play()
+		
 	time += delta * 2
 	if(time > 1):
 		time = 0
@@ -114,7 +123,8 @@ func shoot():
 	main.add_child.call_deferred(instance)
 	
 func shoot_2():
-
+	if (!attack3Sound.is_playing()):
+		attack3Sound.play()
 	var instance = magicProjectile.instantiate()
 	instance.direction = directions[direction_index]
 	#print(instance.direction)
@@ -136,6 +146,7 @@ func _on_attack_3_timer_timeout():
 
 
 func death():
+	hitSound.play()
 	if Game.isDeathWorld:
 		health -= 1
 		
@@ -145,8 +156,8 @@ func death():
 		if not Game.isDeathWorld:
 			Game.courage = min(Game.courage + 2 * (1 - (Game.playerHP / Game.maxHP)) + 3, Game.maxCourage)
 		return
-	
-	#Die?
+	bossMusic1.stop()
+	bossMusic2.stop()
 	FSM.force_change_state("Final")
 
 
@@ -156,15 +167,18 @@ func _on_hit_cooldown_timeout():
 	
 func play_remove_immortality_animation():
 	get_node("AnimationPlayer").play("Attack2")
+	attack2Sound.play()
 	
 func play_jump_animation():
 	get_node("AnimationPlayer").play("JumpAttack")
+	jumpSound.play()
 	
 func play_idle_animation():
 	get_node("AnimationPlayer").play("Idle")
 	
 func play_disappear_animation():
 	get_node("AnimationPlayer").play("TutorialAnimation")
+	teleportSound.play()
 
 
 func _on_switch_world(normalWorld : bool):

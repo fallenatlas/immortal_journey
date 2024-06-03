@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bfry2o2ypxdcw"
+path="res://.godot/imported/Hurt 1 (Bone) Stereo.wav-64cc0d62bf85c5ae8a5a4b182a5c7e50.sample"
+
+[deps]
+
+source_file="res://Audio/SFX/Death/Hurt 1 (Bone) Stereo.wav"
+dest_files=["res://.godot/imported/Hurt 1 (Bone) Stereo.wav-64cc0d62bf85c5ae8a5a4b182a5c7e50.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

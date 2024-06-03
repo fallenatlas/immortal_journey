@@ -4,11 +4,13 @@ class_name DeathTeleportState
 @onready var fsmManager = $".."
 @onready var body = $"../.."
 @onready var anim = $"../../AnimationPlayer"
+@onready var teleportSound = $"../../TeleportSound"
 
 var rng = RandomNumberGenerator.new()
 
 func Enter():
 	anim.play("Teleport")
+	teleportSound.play()
 	
 func Update(delta: float):
 	if not anim.is_playing():

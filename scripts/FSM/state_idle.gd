@@ -12,6 +12,7 @@ class_name PlayerIdle
 @onready var attackCooldown = $"../../AttackCooldown"
 
 @onready var HPBar = $"../../CanvasLayer"
+@onready var bossMusic = $"../../BossMusic1"
 
 var rng = RandomNumberGenerator.new()
 
@@ -83,5 +84,7 @@ func Update(delta: float):
 		pass
 
 func Exit():
+	if (!bossMusic.is_playing() && !Game.isLastStand):
+		bossMusic.play()
 	get_node("../../../../Player/Player").isBossFight = true
 	HPBar.visible = true

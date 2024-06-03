@@ -5,6 +5,8 @@ class_name FinalState
 @onready var body = $"../.."
 @onready var anim = $"../../AnimationPlayer"
 
+@onready var teleportSound = $"../../TeleportSound"
+
 func Enter():
 	Events.switch_world.emit(true)
 	Game.canChangeWorlds = false
@@ -36,3 +38,4 @@ func _disappear():
 	
 func play_disappear_animation():
 	anim.play("FinalTeleport")
+	teleportSound.play()

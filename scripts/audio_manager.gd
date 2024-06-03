@@ -22,6 +22,7 @@ var transition_time : float = 2
 	
 func _ready():
 	Events.music_transition.connect(transition)
+	Events.music_stop.connect(stop)
 	#SignalBus.emit_signal("music_transition",SignalBus.playlist[0]) # Test
 	
 
@@ -44,3 +45,7 @@ func transition(next_sound : int):
 		player_2.stream = music_playlist[next_sound]
 		player_2.play()
 		fade.play(fadeType)
+
+func stop():
+	ambient_player.stop()
+	music_player.stop()

@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://bwnicq6jge87k"]
+[gd_scene load_steps=14 format=3 uid="uid://bwnicq6jge87k"]
 
 [ext_resource type="Texture2D" uid="uid://bp0hehx05q03s" path="res://assets/props/spr_FirePlace_strip.png" id="1_huogu"]
 [ext_resource type="Script" path="res://scripts/util/bonfire_area.gd" id="2_7g4y0"]
 [ext_resource type="Script" path="res://scripts/UI/NPCDialogue.gd" id="3_c1hkj"]
+[ext_resource type="FontFile" uid="uid://bom0iolur0tsj" path="res://assets/Fonts/Poppins-Light.ttf" id="4_p0t44"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k88fh"]
 atlas = ExtResource("1_huogu")
@@ -86,5 +87,7 @@ offset_left = -53.0
 offset_top = 36.0
 offset_right = 79.0
 offset_bottom = 61.0
+theme_override_fonts/normal_font = ExtResource("4_p0t44")
+theme_override_fonts/bold_font = ExtResource("4_p0t44")
 bbcode_enabled = true
 text = "[wave amp=2 freq=3][b][font_size=11]Press E to Interact"

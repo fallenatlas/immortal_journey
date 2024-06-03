@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dwaqm1hh1dnal"]
+[gd_scene load_steps=28 format=3 uid="uid://dwaqm1hh1dnal"]
 
 [ext_resource type="Script" path="res://scripts/Camera/CameraCredits.gd" id="1_3rjmr"]
 [ext_resource type="TileSet" uid="uid://dps0u5bt40qry" path="res://assets/tilesets/default_ground.tres" id="1_7x0ch"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://scripts/player/CreditsCharacter.gd" id="2_epd58"]
 [ext_resource type="Texture2D" uid="uid://dug3pyivejt0g" path="res://Martial Hero/Sprites/Run.png" id="3_gardi"]
 [ext_resource type="Texture2D" uid="uid://cym0hpnygm2uh" path="res://assets/Menu/Title.png" id="6_0rrk7"]
+[ext_resource type="FontFile" uid="uid://bom0iolur0tsj" path="res://assets/Fonts/Poppins-Light.ttf" id="6_kdgoo"]
 [ext_resource type="Shader" path="res://Shaders/visuals.gdshader" id="7_mfhox"]
+[ext_resource type="FontFile" uid="uid://bv2vssyvbiq4n" path="res://assets/Fonts/Poppins-Bold.ttf" id="7_sqrvo"]
 [ext_resource type="Shader" path="res://Shaders/BandW.gdshader" id="9_fgjtt"]
 [ext_resource type="Shader" path="res://Shaders/DeathWorld.gdshader" id="9_r4osq"]
 
@@ -155,6 +157,8 @@ offset_left = 1000.0
 offset_top = 264.0
 offset_right = 1399.0
 offset_bottom = 432.0
+theme_override_fonts/normal_font = ExtResource("6_kdgoo")
+theme_override_fonts/bold_font = ExtResource("7_sqrvo")
 bbcode_enabled = true
 text = "[center][font_size=15]
 [b]Dev Team[/b]
@@ -171,6 +175,8 @@ offset_left = 1500.0
 offset_top = 264.0
 offset_right = 1899.0
 offset_bottom = 432.0
+theme_override_fonts/normal_font = ExtResource("6_kdgoo")
+theme_override_fonts/bold_font = ExtResource("7_sqrvo")
 bbcode_enabled = true
 text = "[center][font_size=15]
 [b]VFX Team[/b]
@@ -186,6 +192,8 @@ offset_left = 2000.0
 offset_top = 264.0
 offset_right = 2399.0
 offset_bottom = 432.0
+theme_override_fonts/normal_font = ExtResource("6_kdgoo")
+theme_override_fonts/bold_font = ExtResource("7_sqrvo")
 bbcode_enabled = true
 text = "[center][font_size=15]
 [b]Writing Team[/b]
@@ -204,6 +212,8 @@ offset_left = 2500.0
 offset_top = 264.0
 offset_right = 2899.0
 offset_bottom = 440.0
+theme_override_fonts/normal_font = ExtResource("6_kdgoo")
+theme_override_fonts/bold_font = ExtResource("7_sqrvo")
 bbcode_enabled = true
 text = "[center][font_size=15]
 [b]Within The Scope Of[/b]
@@ -220,6 +230,8 @@ offset_left = 3000.0
 offset_top = 264.0
 offset_right = 3399.0
 offset_bottom = 440.0
+theme_override_fonts/normal_font = ExtResource("6_kdgoo")
+theme_override_fonts/bold_font = ExtResource("7_sqrvo")
 bbcode_enabled = true
 text = "[center][font_size=15]
 [b] In Collaboration With[/b]
@@ -232,6 +244,8 @@ offset_left = 3500.0
 offset_top = 264.0
 offset_right = 3899.0
 offset_bottom = 440.0
+theme_override_fonts/normal_font = ExtResource("6_kdgoo")
+theme_override_fonts/bold_font = ExtResource("7_sqrvo")
 bbcode_enabled = true
 text = "[center][font_size=15]
 [b]Special Thanks[/b]

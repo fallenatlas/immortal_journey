@@ -18,7 +18,6 @@ func _input(event):
 func rest():
 	TransitionManager.fade_to_scene(sprite.name)
 
-
 func _on_switch_world(normalWorld : bool):
 	if (normalWorld):
 		sprite.visible = true

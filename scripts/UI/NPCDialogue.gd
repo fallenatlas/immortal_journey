@@ -3,7 +3,7 @@ extends Area2D
 @onready var popup = $Popup
 
 func _process(delta):
-	popup.visible = has_overlapping_bodies()
+		popup.visible = has_overlapping_bodies()
 	
 func _input(event):
 	if event.is_action_pressed("interact") and len(get_overlapping_bodies()) > 0:

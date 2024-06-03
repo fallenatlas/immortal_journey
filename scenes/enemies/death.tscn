@@ -871,15 +871,13 @@ texture_progress = ExtResource("3_uop8k")
 script = ExtResource("4_ne5d3")
 
 [node name="Label" type="Label" parent="CanvasLayer"]
-anchors_preset = 12
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 359.0
-offset_top = -79.0
-offset_right = -752.0
-offset_bottom = -52.0
-grow_horizontal = 2
+offset_left = 467.0
+offset_top = -77.0
+offset_right = 506.0
+offset_bottom = -50.0
 grow_vertical = 0
 theme_override_fonts/font = ExtResource("5_x2nyr")
 theme_override_font_sizes/font_size = 30

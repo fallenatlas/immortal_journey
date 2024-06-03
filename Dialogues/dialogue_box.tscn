@@ -52,9 +52,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -142.0
-offset_top = -63.0
+offset_top = -88.0
 offset_right = -15.0
-offset_bottom = -40.0
+offset_bottom = -65.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 14
@@ -66,27 +66,35 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 22.0
-offset_top = -174.0
+offset_top = -199.0
 offset_right = -18.0
-offset_bottom = -37.0
+offset_bottom = -62.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = SubResource("Theme_xkju6")
 color = Color(0, 0, 0, 0.698039)
 
 [node name="Name" type="RichTextLabel" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
 offset_left = 31.0
-offset_top = 483.0
+offset_top = -191.0
 offset_right = 666.0
-offset_bottom = 523.0
+offset_bottom = -151.0
+grow_vertical = 0
 bbcode_enabled = true
 text = "[font_size=24][b] Name"
 
 [node name="Chat" type="RichTextLabel" parent="."]
-offset_left = 43.0
-offset_top = 521.0
-offset_right = 1106.0
-offset_bottom = 594.0
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 39.0
+offset_top = -146.0
+offset_right = 1102.0
+offset_bottom = -73.0
+grow_vertical = 0
 bbcode_enabled = true
 text = "Text"
 

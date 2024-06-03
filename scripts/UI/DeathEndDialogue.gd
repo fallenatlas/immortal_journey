@@ -15,7 +15,7 @@ func _on_body_entered(body):
 	if body.name == "Player" and not cutsceneEnded:
 		get_node("../../../Player/Player").stop_walking_sound()
 		Events.switch_world.emit(true)
-		body.change_camera_limits(29408, -213, 30137, 198)
+		body.change_camera_limits(29420, -213, 30157, 198)
 		Events.boss_fight.emit()
 		cutsceneEnded = true
 		use_dialogue()

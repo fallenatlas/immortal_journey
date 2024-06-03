@@ -31,7 +31,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var image1 = load("res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgress.png")
 var image2 = load("res://Health Bar Asset Pack 2 by Adwit Rahman/HealthBarProgressGray.png")
 
-var health = 1
+var health = 15
 
 var main
 var player

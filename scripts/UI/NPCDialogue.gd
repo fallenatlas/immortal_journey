@@ -7,6 +7,7 @@ func _process(delta):
 	
 func _input(event):
 	if event.is_action_pressed("interact") and len(get_overlapping_bodies()) > 0:
+		get_node("../../../Player/Player").stop_walking_sound()
 		use_dialogue()
 		
 

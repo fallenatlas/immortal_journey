@@ -17,6 +17,7 @@ func _input(event):
 
 func rest():
 	TransitionManager.fade_to_scene(sprite.name)
+	get_node("../../../Player/Player").stop_walking_sound()
 
 func _on_switch_world(normalWorld : bool):
 	if (normalWorld):

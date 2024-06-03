@@ -31,6 +31,7 @@ func _process(delta):
 		
 func _on_yes_pressed():
 	visible = false
+	Game.playerCanMove = true
 	if animation == "FadeIn":
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		get_tree().change_scene_to_file("res://scenes/main_menu/main.tscn")
@@ -41,6 +42,7 @@ func _on_yes_pressed():
 
 func _on_no_pressed():
 	visible = false
+	Game.playerCanMove = true
 	if animation == "FadeIn":
 		Game.playerHP = 1
 		Game.courage = 100
@@ -77,3 +79,4 @@ func animationDecision():
 	
 func controller_buttons():
 	leftButton.grab_focus()
+	Game.playerCanMove = false

@@ -1,10 +1,11 @@
-[gd_scene load_steps=78 format=3 uid="uid://cuvfk6l06ytm2"]
+[gd_scene load_steps=79 format=3 uid="uid://cuvfk6l06ytm2"]
 
 [ext_resource type="Texture2D" uid="uid://chke4k3f13y71" path="res://Huntress/Huntress/Sprites/Idle.png" id="1_d44pc"]
 [ext_resource type="PackedScene" uid="uid://wug1kygiwiv3" path="res://Dialogues/dialogue_box.tscn" id="1_ok8bd"]
 [ext_resource type="Script" path="res://scripts/NPC/npc_hunter.gd" id="1_pjrex"]
 [ext_resource type="Texture2D" uid="uid://fsrpdcr8atrk" path="res://assets/Fires-Black/Small_Blackball_10x26.png" id="2_auwl1"]
 [ext_resource type="Script" path="res://scripts/UI/NPCDialogue.gd" id="3_3qmce"]
+[ext_resource type="FontFile" uid="uid://bom0iolur0tsj" path="res://assets/Fonts/Poppins-Light.ttf" id="6_bbmeo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsspb"]
 atlas = ExtResource("2_auwl1")
@@ -547,5 +548,6 @@ offset_left = -53.0
 offset_top = -39.0
 offset_right = 79.0
 offset_bottom = -14.0
+theme_override_fonts/bold_font = ExtResource("6_bbmeo")
 bbcode_enabled = true
 text = "[wave amp=2 freq=3][b][font_size=11]Press E to Interact"

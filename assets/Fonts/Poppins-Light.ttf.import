@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dhw7jldi36v1q"
-path="res://.godot/imported/Helvetica Ultra Compressed.otf-50e4b87f01434627c8a37403320cb301.fontdata"
+uid="uid://bom0iolur0tsj"
+path="res://.godot/imported/Poppins-Light.ttf-22678f1c15712722e3aa6551890f02dc.fontdata"
 
 [deps]
 
-source_file="res://assets/Fonts/Helvetica Ultra Compressed/Helvetica Ultra Compressed.otf"
-dest_files=["res://.godot/imported/Helvetica Ultra Compressed.otf-50e4b87f01434627c8a37403320cb301.fontdata"]
+source_file="res://assets/Fonts/Poppins-Light.ttf"
+dest_files=["res://.godot/imported/Poppins-Light.ttf-22678f1c15712722e3aa6551890f02dc.fontdata"]
 
 [params]
 
@@ -26,7 +26,7 @@ oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
-compress=false
+compress=true
 preload=[{
 "chars": [],
 "glyphs": [],

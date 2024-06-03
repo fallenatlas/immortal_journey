@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwnicq6jge87k"]
+[gd_scene load_steps=13 format=3 uid="uid://bwnicq6jge87k"]
 
 [ext_resource type="Texture2D" uid="uid://bp0hehx05q03s" path="res://assets/props/spr_FirePlace_strip.png" id="1_huogu"]
 [ext_resource type="Script" path="res://scripts/util/bonfire_area.gd" id="2_7g4y0"]
+[ext_resource type="Script" path="res://scripts/UI/NPCDialogue.gd" id="3_c1hkj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k88fh"]
 atlas = ExtResource("1_huogu")
@@ -56,6 +57,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmbdv"]
 size = Vector2(110, 42)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltcf2"]
+size = Vector2(80, 36)
+
 [node name="Bonfire" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_tl3j8")
 autoplay = "default"
@@ -67,3 +71,20 @@ script = ExtResource("2_7g4y0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_hmbdv")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, -56)
+collision_layer = 128
+script = ExtResource("3_c1hkj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-1, 46)
+shape = SubResource("RectangleShape2D_ltcf2")
+
+[node name="Popup" type="RichTextLabel" parent="Area2D"]
+offset_left = -53.0
+offset_top = 36.0
+offset_right = 79.0
+offset_bottom = 61.0
+bbcode_enabled = true
+text = "[wave amp=2 freq=3][b][font_size=11]Press E to Interact"

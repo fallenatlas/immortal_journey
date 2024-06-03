@@ -12,10 +12,12 @@ func _on_switch_world(normalWorld : bool):
 	if (normalWorld):
 		set_collision_mask_value(3, true)
 		speakingArea.set_collision_mask_value(3, true)
+		speakingArea.monitoring = true
 		normalSprite.visible = true
 		shadowSprite.visible = false
 	if (not normalWorld):
 		set_collision_mask_value(3, false)
 		speakingArea.set_collision_mask_value(3, false)
+		speakingArea.monitoring = false
 		normalSprite.visible = false
 		shadowSprite.visible = true

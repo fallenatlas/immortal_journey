@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://wug1kygiwiv3"]
 
 [ext_resource type="Script" path="res://Dialogues/dialogue_npcs.gd" id="1_xavph"]
-[ext_resource type="AudioStream" uid="uid://c6ch7vp376gdt" path="res://Audio/SFX/10_UI_Menu_SFX/051_use_item_01.wav" id="2_2k0lv"]
+[ext_resource type="AudioStream" uid="uid://cfky6lhi4t3yi" path="res://Audio/SFX/ImMortal Jouney SFX Pack 3/NPC Text Skip.wav" id="2_atr7l"]
 
 [sub_resource type="Theme" id="Theme_xkju6"]
 
@@ -79,7 +79,7 @@ wait_time = 0.4
 one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_2k0lv")
+stream = ExtResource("2_atr7l")
 bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

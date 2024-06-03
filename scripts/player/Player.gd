@@ -65,6 +65,7 @@ func _ready():
 	#Events.died_in_boss.connect(died_in_boss_fight)
 	Events.health_restore.connect(_on_health_restore)
 	Events.unlock_upgrade.connect(_on_unlock_upgrade)
+	Events.cutscene_finished.connect(on_cutscene_finish)
 
 func _physics_process(delta):
 	if run_off:
@@ -357,3 +358,9 @@ func _on_health_restore():
 	
 func _on_unlock_upgrade(n : int):
 	create_sound("Upgrade")
+	
+func stop_walking_sound():
+	runSound.stop()
+	
+func on_cutscene_finish():
+	Game.attack_buffer = AttackManager.max_attacks

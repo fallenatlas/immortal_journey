@@ -27,6 +27,7 @@ func fade_to_scene(sceneName : String):
 	Game.canChangeWorlds = false
 	
 func change_scene():
+	Events.cutscene_finished.emit()
 	match scene_transition:
 		"immortal":
 			change_to_immortal_scene()

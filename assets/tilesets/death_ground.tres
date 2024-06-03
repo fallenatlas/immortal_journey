@@ -1,6 +1,16 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bpfdwdtnqcw4i"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://bpfdwdtnqcw4i"]
 
 [ext_resource type="Texture2D" uid="uid://bgustwkpdfrpt" path="res://assets/oak_autumn_woods/oak_woods_v1.0/oak_woods_tileset.png" id="1_7imd3"]
+[ext_resource type="PackedScene" uid="uid://dr508ojbdeaa" path="res://scenes/enemies/DarkInvertedSidewaysSpikes.tscn" id="1_gcx26"]
+[ext_resource type="PackedScene" uid="uid://h1ou0o45kbt" path="res://scenes/enemies/DarkInvertedSpikes.tscn" id="2_0ux1e"]
+[ext_resource type="PackedScene" uid="uid://c0u7aqklf5xpe" path="res://scenes/enemies/DarkSidewaysSpikes.tscn" id="3_tx8nj"]
+[ext_resource type="PackedScene" uid="uid://bcylnctgy0oa" path="res://scenes/enemies/DarkSpikes.tscn" id="4_f0a5v"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_fx3yv"]
+scenes/1/scene = ExtResource("1_gcx26")
+scenes/2/scene = ExtResource("2_0ux1e")
+scenes/3/scene = ExtResource("3_tx8nj")
+scenes/4/scene = ExtResource("4_f0a5v")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjtno"]
 texture = ExtResource("1_7imd3")
@@ -605,3 +615,4 @@ tile_size = Vector2i(24, 24)
 physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 112
 sources/1 = SubResource("TileSetAtlasSource_xjtno")
+sources/0 = SubResource("TileSetScenesCollectionSource_fx3yv")

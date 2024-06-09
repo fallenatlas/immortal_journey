@@ -33,7 +33,8 @@
 		"What? You have no money?",
 		"Well, I’ll give you some advice, free of charge!",
 		"[color=yellow]Search where the sun illuminates your path [color=white]and you might just find something valuable.",
-		"You can see what you've collected so far by  going to the Menu and selecting 'Upgrades'.",
+		"[color=yellow]Just like how it is to our right side![color=white]",
+		"You can see what you've collected so far by going to the Menu and selecting 'Upgrades'.",
 		"Move along now, I have a business to run here."
 	],
 	"Brotherly Goblin Merchant": [
